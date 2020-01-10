@@ -17,7 +17,7 @@ Version:	1.8.10
 %if %{svn_version}
 Release: 	0.%{svn_version}%{?dist}
 %else
-Release: 	4%{?dist}
+Release: 	7%{?dist}
 %endif
 License: 	GPL+
 Group: 		Applications/Internet
@@ -52,6 +52,16 @@ Patch12:		wireshark-1.8.8-tshark-L-D-output.patch
 Patch13:		wireshark-1.8.x-dumpcap-path.patch
 Patch14:		wireshark-1.8.x-disable-warning-dialog.patch
 Patch15:		wireshark-1.8.10-reassembly-memleak.patch
+Patch16:		wireshark-1.8.10-cve-2013-6336.patch
+Patch17:		wireshark-1.8.10-cve-2013-6338.patch
+Patch18:		wireshark-1.8.10-cve-2013-6339.patch
+Patch19:		wireshark-1.8.10-cve-2013-6340.patch
+Patch20:		wireshark-1.8.10-cve-2013-7112.patch
+Patch21:		wireshark-1.8.10-cve-2013-7114.patch
+Patch22:		wireshark-1.8.10-cve-2014-2281.patch
+Patch23:		wireshark-1.8.10-cve-2014-2283.patch
+Patch24:		wireshark-1.8.10-cve-2014-2299.patch
+Patch25:		wireshark-1.8.10-cve-2013-6337.patch
 
 Url: 		http://www.wireshark.org/
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -144,6 +154,16 @@ and plugins.
 %patch13 -p1 -b .dumpcap-path
 %patch14 -p1 -b .disable-warning-dialog
 %patch15 -p1 -b .reassembly-memleak
+%patch16 -p1 -b .cve-2013-6336
+%patch17 -p1 -b .cve-2013-6338
+%patch18 -p1 -b .cve-2013-6339
+%patch19 -p1 -b .cve-2013-6340
+%patch20 -p1 -b .cve-2013-7112
+%patch21 -p1 -b .cve-2013-7114
+%patch22 -p1 -b .cve-2014-2281
+%patch23 -p1 -b .cve-2014-2283
+%patch24 -p1 -b .cve-2014-2299
+%patch25 -p1 -b .cve-2013-6337
 
 %build
 %ifarch s390 s390x sparcv9 sparc64
@@ -386,6 +406,25 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/aclocal/*
 
 %changelog
+* Wed Mar 26 2014 Peter Hatina <phatina@redhat.com> 1.8.10-7
+- security patches
+- Resolves: CVE-2013-6337
+
+* Tue Mar 25 2014 Peter Hatina <phatina@redhat.com> 1.8.10-6
+- security patches
+- Resolves: CVE-2014-2281
+            CVE-2014-2283
+            CVE-2014-2299
+
+* Tue Mar 11 2014 Peter Hatina <phatina@redhat.com> 1.8.10-5
+- security patches
+- Resolves: CVE-2013-6336
+            CVE-2013-6338
+            CVE-2013-6339
+            CVE-2013-6340
+            CVE-2013-7112
+            CVE-2013-7114
+
 * Tue Sep 24 2013 Peter Hatina <phatina@redhat.com> 1.8.10-4
 - fix memory leak when reassemblying a packet
 - Related: #711024
