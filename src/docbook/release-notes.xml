@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+<!-- $Id: release-notes.xml 51932 2013-09-10 15:55:18Z gerald $ -->
+
+<!--
+DOCUMENT SECTION
+-Use this section to encode all document information
+-->
+
+<!--
+Wireshark Info
+-->
+<!ENTITY WiresharkCurrentVersion "1.8.10">
+
+]>
+
+<article>
+  <title>Wireshark &WiresharkCurrentVersion; Release Notes</title>
+
+  <section id="WhatIs"><title>What is Wireshark?</title>
+    <para>
+      Wireshark is the world's most popular network protocol analyzer.  It
+      is used for troubleshooting, analysis, development and education.
+    </para>
+  </section>
+
+  <section id="WhatsNew"><title>What's New</title>
+    <section id="BugFixes"><title>Bug Fixes</title>
+
+    <para>
+
+      The following vulnerabilities have been fixed.
+      <itemizedlist>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-55.html">wnpa-sec-2013-55</ulink>
+          </para>
+          <para>
+	    The NBAP dissector could crash. Discovered by Laurent Butti.
+            <!-- Fixed in trunk: r51195 -->
+            <!-- Fixed in trunk-1.10: r51228 -->
+            <!-- Fixed in trunk-1.8: r51230 -->
+            (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9005">Bug
+            9005</ulink>)
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-56.html">wnpa-sec-2013-56</ulink>
+          </para>
+          <para>
+	    The ASSA R3 dissector could go into an infinite loop. Discovered by Ben Schmidt.
+            <!-- Fixed in trunk: r51196 -->
+            <!-- Fixed in trunk-1.10: r51231 -->
+            <!-- Fixed in trunk-1.8: r51232 -->
+            (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9020">Bug 9020
+            </ulink>)
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-57.html">wnpa-sec-2013-57</ulink>
+          </para>
+          <para>
+	    The RTPS dissector could overflow a buffer. Discovered by Ben Schmidt.
+            <!-- Fixed in trunk: r51213 -->
+            <!-- Fixed in trunk-1.10: r51623 -->
+            <!-- Fixed in trunk-1.8: r51624 -->
+            (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9019">Bug 9019
+            </ulink>)
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-58.html">wnpa-sec-2013-58</ulink>
+          </para>
+          <para>
+	    The MQ dissector could crash.
+            <!-- Fixed in trunk: r51603 -->
+            <!-- Fixed in trunk-1.10: r51623 -->
+            <!-- Fixed in trunk-1.8: r51624 -->
+            (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9079">Bug 9079
+            </ulink>)
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-59.html">wnpa-sec-2013-59</ulink>
+          </para>
+          <para>
+	    The LDAP dissector could crash.
+            <!-- Fixed in trunk: r51516 -->
+            <!-- Fixed in trunk-1.10: r51623 -->
+            <!-- Fixed in trunk-1.8: r51624 -->
+            <!-- (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=">Bug
+            </ulink>) -->
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+        <listitem>
+          <para>
+            <ulink url="http://www.wireshark.org/security/wnpa-sec-2013-60.html">wnpa-sec-2013-60</ulink>
+          </para>
+          <para>
+	    The Netmon file parser could crash. Discovered by G. Geshev.
+            <!-- Fixed in trunk: r49673 -->
+            <!-- Fixed in trunk-1.10: r51910 -->
+            <!-- Fixed in trunk-1.8: r51911 -->
+            (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8742">Bug 8742
+            </ulink>)
+          </para>
+          <para>Versions affected: 1.10.0 to 1.10.1, 1.8.0 to 1.8.9.</para>
+	  <!--
+	  <para>
+            <ulink url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-????">CVE-2013-????</ulink>
+          </para>
+	  -->
+        </listitem>
+
+
+      </itemizedlist>
+    </para>
+
+    <para>
+
+      The following bugs have been fixed:
+
+      <itemizedlist>
+
+<!-- Sort by bug # -->
+<!--
+        <listitem><para>
+	  Wireshark will strip the paint off your car, then apply a hideous
+	  flame job to the hood and fenders using gray, red, and black primer.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=0000">Bug
+          0000</ulink>)
+        </para></listitem>
+-->
+
+        <listitem><para>
+          Lua ByteArray:append() causes wireshark crash.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4461">Bug
+          4461</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          Lua script can not get &quot;data-text-lines&quot; protocol data.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=5200">Bug
+          5200</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          PER normally small non-negative whole number decoding is wrong when &gt;= 64.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8841">Bug
+          8841</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          Incorrect parsing of IPFIX *IpTotalLength elements.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8918">Bug
+          8918</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          IO graph/advanced, max/min/summ error on frames with multiple Diameter messages.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=8980">Bug
+          8980</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          Wireshark fails to decode single-line, multiple Contact: URIs in SIP responses.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9031">Bug
+          9031</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          Dissector for EtherCAT: ADS highlighting in the Packet Bytes Pane is incorrect.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9036">Bug
+          9036</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          802.11 HT Extended Capabilities B10 decode incorrect.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9038">Bug
+          9038</ulink>)
+        </para></listitem>
+
+        <listitem><para>
+          Weird malformed HTTP error.
+          (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9101">Bug
+          9101</ulink>)
+        </para></listitem>
+
+      </itemizedlist>
+
+    </para>
+
+    </section>
+
+    <section id="NewFeatures"><title>New and Updated Features</title>
+    <para>
+
+There are no new features in this release.
+
+    </para>
+    </section>
+
+    <section id="NewProtocols"><title>New Protocol Support</title>
+    <para>
+
+There are no new protocols in this release.
+
+    </para>
+    </section>
+
+    <section id="UpdatedProtocols"><title>Updated Protocol Support</title> <para>
+
+<!-- Sort alphabetically -->
+
+ASSA R3,
+EtherCAT AMS,
+GTPv2,
+HTTP,
+IEEE 802.11,
+IPFIX,
+LDAP,
+MQ,
+NBAP,
+NCP SSS,
+RTPS,
+SIP,
+
+    </para>
+    </section>
+
+    <section id="NewCapture"><title>New and Updated Capture File Support</title>
+    <para>
+
+.
+
+    </para>
+    </section>
+
+  </section>
+
+  <section id="GettingWireshark"><title>Getting Wireshark</title>
+    <para>
+      Wireshark source code and installation packages are available from
+      <ulink url="http://www.wireshark.org/download.html">http://www.wireshark.org/download.html</ulink>.
+    </para>
+
+    <section id="VendorPackages"><title>Vendor-supplied Packages</title>
+      <para>
+        Most Linux and Unix vendors supply their own Wireshark packages.
+        You can usually install or upgrade Wireshark using the package management
+        system specific to that platform.  A list of third-party packages
+        can be found on the
+        <ulink url="http://www.wireshark.org/download.html#thirdparty">download page</ulink>
+        on the Wireshark web site.
+      </para>
+    </section>
+
+  </section>
+
+  <!-- XXX needs to be written
+  <section id="RemovingWireshark"><title>Removing Wireshark</title>
+    <para>
+    </para>
+  </section>
+  -->
+
+  <section id="FileLocations"><title>File Locations</title>
+    <para>
+      Wireshark and TShark look in several different locations for
+      preference files, plugins, SNMP MIBS, and RADIUS dictionaries.
+      These locations vary from platform to platform.  You can use
+      About→Folders to find the default locations on your system.
+    </para>
+  </section>
+
+  <section id="KnownProblems"><title>Known Problems</title>
+
+    <para>
+      Dumpcap might not quit if Wireshark or TShark crashes.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=1419">Bug
+      1419</ulink>)
+    </para>
+
+    <para>
+      The BER dissector might infinitely loop.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=1516">Bug
+      1516</ulink>)
+    </para>
+
+    <para>
+      Capture filters aren't applied when capturing from named pipes.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=1814">Bug
+      1814</ulink>)
+    </para>
+
+    <para>
+      Filtering tshark captures with display filters (-R) no longer works.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=2234">Bug
+      2234</ulink>)
+    </para>
+
+    <para>
+      The 64-bit Windows installer does not support Kerberos decryption.
+      (<ulink url="https://wiki.wireshark.org/Development/Win64">Win64
+      development page</ulink>)
+    </para>
+
+    <para>
+      Application crash when changing real-time option.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4035">Bug
+      4035</ulink>)
+    </para>
+
+    <para>
+      Hex pane display issue after startup.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4056">Bug
+      4056</ulink>)
+    </para>
+
+    <para>
+      Packet list rows are oversized.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4357">Bug
+      4357</ulink>)
+    </para>
+
+    <para>
+      Summary pane selected frame highlighting not maintained.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4445">Bug
+      4445</ulink>)
+    </para>
+
+    <para>
+      Wireshark and TShark will display incorrect delta times in some cases.
+      (<ulink url="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4985">Bug
+      4985</ulink>)
+    </para>
+
+  </section>
+
+  <section id="GettingHelp"><title>Getting Help</title>
+    <para>
+    Community support is available on
+    <ulink url="http://ask.wireshark.org/">Wireshark's Q&amp;A site</ulink>
+    and on the wireshark-users mailing list.
+    Subscription information and archives for all of Wireshark's mailing
+    lists can be found on <ulink url="http://www.wireshark.org/lists/">the
+    web site</ulink>.
+    </para>
+    <para>
+    Official Wireshark training and certification are available from
+    <ulink url="http://www.wiresharktraining.com/">Wireshark University</ulink>.
+    </para>
+  </section>
+
+  <section id="FAQ"><title>Frequently Asked Questions</title>
+    <para>
+    A complete FAQ is available on the
+    <ulink url="http://www.wireshark.org/faq.html">Wireshark web site</ulink>.
+    </para>
+  </section>
+
+</article>
