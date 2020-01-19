@@ -3,7 +3,7 @@
  *
  * Copyright 2009, Kovarththanan Rajaratnam <kovarththanan.rajaratnam@gmail.com>
  *
- * $Id$
+ * $Id: packet-btamp.c 48661 2013-03-30 21:47:27Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

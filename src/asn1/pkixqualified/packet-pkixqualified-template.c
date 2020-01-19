@@ -2,7 +2,7 @@
  * Routines for RFC3739 PKIXqualified packet dissection
  *  Ronnie Sahlberg 2004
  *
- * $Id$
+ * $Id: packet-pkixqualified-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

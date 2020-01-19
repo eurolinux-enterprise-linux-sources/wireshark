@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.2/1998/Call-Transfer-Operations.asn
 --
--- $Id$
+-- $Id: Call-Transfer-Operations.asn 22417 2007-07-30 08:01:59Z kukosa $
 --
 
 -- Module Call-Transfer-Operations (H.450.2:02/1998)

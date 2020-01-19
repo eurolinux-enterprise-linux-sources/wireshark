@@ -1,6 +1,6 @@
 /* wspy_proto.c
  *
- * $Id$
+ * $Id: wspy_proto.c 45016 2012-09-20 01:48:30Z morriss $
  *
  * Wireshark Protocol Python Binding
  *

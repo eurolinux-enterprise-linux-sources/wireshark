@@ -2,7 +2,7 @@
  *
  * Copyright 2011, Mariusz Okroj <okrojmariusz[]gmail.com>
  *
- * $Id$
+ * $Id: packet-xmpp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

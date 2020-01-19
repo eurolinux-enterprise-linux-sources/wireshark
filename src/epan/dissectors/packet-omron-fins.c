@@ -2,7 +2,7 @@
  * Routines for OMRON FINS UDP dissection
  * Copyright Sourcefire, Inc. 2008-2009, Matthew Watchinski <mwatchinski@sourcefire.com>
  *
- * $Id$
+ * $Id: packet-omron-fins.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

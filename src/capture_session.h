@@ -1,7 +1,7 @@
 /* capture_session.h
  * State of a capture session
  *
- * $Id$
+ * $Id: capture_session.h 49757 2013-06-04 07:32:39Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -51,7 +51,6 @@ typedef struct {
     gid_t group;                    /**< group of the cfile */
 #endif
     gboolean session_started;
-    guint32 count;                  /**< Total number of frames captured */
     capture_options *capture_opts;  /**< options for this capture */
     void *cf;                       /**< handle to cfile (note: untyped handle) */
 } capture_session;

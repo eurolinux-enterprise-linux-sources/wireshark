@@ -2,7 +2,7 @@
  *
  * Routines for RFC 2250 MPEG2 (ISO/IEC 13818-1) Transport Stream dissection
  *
- * $Id$
+ * $Id: packet-mp2t.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Copyright 2006, Erwin Rol <erwin@erwinrol.com>
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>

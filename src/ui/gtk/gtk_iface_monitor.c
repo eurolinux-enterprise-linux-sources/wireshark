@@ -1,7 +1,7 @@
 /* gtk_iface_monitor.c
  * interface monitor by Pontus Fuchs <pontus.fuchs@gmail.com>
  *
- * $Id$
+ * $Id: gtk_iface_monitor.c 48880 2013-04-16 15:12:38Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

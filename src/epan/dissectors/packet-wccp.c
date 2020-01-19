@@ -2,7 +2,7 @@
  * Routines for Web Cache Communication Protocol dissection
  * Jerry Talkington <jtalkington@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-wccp.c 52465 2013-10-09 16:08:39Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

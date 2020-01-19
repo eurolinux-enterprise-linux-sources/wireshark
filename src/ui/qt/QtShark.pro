@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 #
-# $Id$
+# $Id: QtShark.pro 48147 2013-03-06 22:04:17Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

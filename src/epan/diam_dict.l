@@ -36,7 +36,7 @@
 	 ** diam_dict.h
 	 ** Diameter Dictionary Import Routines
 	 **
-	 ** $Id$
+	 ** $Id: diam_dict.l 48338 2013-03-16 08:52:09Z etxrab $
 	 **
 	 ** (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
 	 **

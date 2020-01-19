@@ -10,7 +10,7 @@
  * Routines for UMTS Node B Application Part(RANAP) packet dissection
  * Copyright 2005 - 2010, Anders Broman <anders.broman[AT]ericsson.com>
  *
- * $Id$
+ * $Id: packet-ranap.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

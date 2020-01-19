@@ -2,7 +2,7 @@
  * Routines for Wellfleet HDLC packet disassembly
  * Copied from the Cisco HDLC packet disassembly routines
  *
- * $Id$
+ * $Id: packet-wfleet-hdlc.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

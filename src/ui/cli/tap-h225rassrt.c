@@ -2,7 +2,7 @@
  * h225 RAS Service Response Time statistics for wireshark
  * Copyright 2003 Lars Roland
  *
- * $Id$
+ * $Id: tap-h225rassrt.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

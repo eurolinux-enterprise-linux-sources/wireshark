@@ -1,7 +1,7 @@
 /* proto_hier_stats.c
  * Routines for calculating statistics based on protocol.
  *
- * $Id$
+ * $Id: proto_hier_stats.c 45601 2012-10-16 21:50:57Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -143,8 +143,6 @@ process_frame(frame_data *frame, column_info *cinfo, ph_stats_t* ps)
 	struct wtap_pkthdr              phdr;
 	guint8				pd[WTAP_MAX_PACKET_SIZE];
 	double				cur_time;
-
-	memset(&phdr, 0, sizeof(struct wtap_pkthdr));
 
 	/* Load the frame from the capture file */
 	if (!cf_read_frame_r(&cfile, frame, &phdr, pd))

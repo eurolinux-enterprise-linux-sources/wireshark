@@ -2,7 +2,7 @@
  * Fibre Channel Switch InterLink Services Definitions
  * Copyright 2001 Dinesh G Dutt (ddutt@cisco.com)
  *
- * $Id$
+ * $Id: packet-fcswils.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

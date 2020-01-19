@@ -2,7 +2,7 @@
  * Definitions for the Wireshark Memory Manager Singly-Linked List
  * Copyright 2012, Evan Huus <eapache@gmail.com>
  *
- * $Id$
+ * $Id: wmem_slist.h 48220 2013-03-09 20:25:44Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_servicetable.c 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -30,7 +30,6 @@
 #include "opcua_serviceids.h"
 
 ParserEntry g_arParserTable[] = {
-    { OpcUaId_ServiceFault_Encoding_DefaultBinary, parseServiceFault },
     { OpcUaId_FindServersRequest_Encoding_DefaultBinary, parseFindServersRequest },
     { OpcUaId_FindServersResponse_Encoding_DefaultBinary, parseFindServersResponse },
     { OpcUaId_GetEndpointsRequest_Encoding_DefaultBinary, parseGetEndpointsRequest },
@@ -114,7 +113,6 @@ const int g_NumServices = sizeof(g_arParserTable) / sizeof(ParserEntry);
 
 /** Service type table */
 const value_string g_requesttypes[] = {
-    { OpcUaId_ServiceFault_Encoding_DefaultBinary, "ServiceFault" },
     { OpcUaId_FindServersRequest_Encoding_DefaultBinary, "FindServersRequest" },
     { OpcUaId_FindServersResponse_Encoding_DefaultBinary, "FindServersResponse" },
     { OpcUaId_GetEndpointsRequest_Encoding_DefaultBinary, "GetEndpointsRequest" },

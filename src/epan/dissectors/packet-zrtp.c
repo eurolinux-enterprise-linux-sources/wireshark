@@ -3,7 +3,7 @@
  * IETF draft draft-zimmermann-avt-zrtp-22
  * Copyright 2007, Sagar Pai <sagar@gmail.com>
  *
- * $Id$
+ * $Id: packet-zrtp.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

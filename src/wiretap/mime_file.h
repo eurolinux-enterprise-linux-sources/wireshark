@@ -2,7 +2,7 @@
  *
  * MIME file format decoder for the Wiretap library.
  *
- * $Id$
+ * $Id: mime_file.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * This program is free software; you can redistribute it and/or

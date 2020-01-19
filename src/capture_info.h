@@ -1,7 +1,7 @@
 /* capture_info.h
  * capture info functions
  *
- * $Id$
+ * $Id: capture_info.h 49758 2013-06-04 07:33:53Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

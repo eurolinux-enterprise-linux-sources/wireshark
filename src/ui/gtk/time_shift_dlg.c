@@ -2,7 +2,7 @@
  * Routines for "Time Shift" window
  * Submitted by Edwin Groothuis <wireshark@mavetju.org>
  *
- * $Id$
+ * $Id: time_shift_dlg.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

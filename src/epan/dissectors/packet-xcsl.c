@@ -4,7 +4,7 @@
  *
  * Copyright 2008, Dick Gooris (gooris@alcatel-lucent.com)
  *
- * $Id$
+ * $Id: packet-xcsl.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -30,6 +30,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -198,7 +199,7 @@ static void dissect_xcsl_tcp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree
 
                 /* This should be the transaction ID, if non-digit, it is treated as info */
             case 1:
-                if ( g_ascii_isdigit(str[0]) ) {
+                if ( isdigit(str[0]) ) {
                     proto_tree_add_item(xcsl_tree, hf_xcsl_transaction_id, tvb, offset, len, ENC_ASCII|ENC_NA);
                 } else {
                     proto_tree_add_item(xcsl_tree, hf_xcsl_information, tvb, offset, len, ENC_ASCII|ENC_NA);
@@ -209,7 +210,7 @@ static void dissect_xcsl_tcp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree
 
                 /* Starting with non-digit -> Command, if it starts with a digit -> reply */
             case 2:
-                if ( g_ascii_isdigit(str[0]) ) {
+                if ( isdigit(str[0]) ) {
                     proto_item *xcsl_item;
 
                     request = FALSE;

@@ -1,6 +1,6 @@
 /* search_frame.h
  *
- * $Id$
+ * $Id: search_frame.h 46591 2012-12-18 17:21:20Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

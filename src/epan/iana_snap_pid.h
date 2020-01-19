@@ -4,7 +4,7 @@
  *
  *	http://www.iana.org/assignments/ethernet-numbers
  *
- * $Id$
+ * $Id: iana_snap_pid.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -6,7 +6,7 @@
  *
  * Copyright 2005, Stig Bjorlykke <stig@bjorlykke.org>, Thales Norway AS
  *
- * $Id$
+ * $Id: packet-p_mul.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

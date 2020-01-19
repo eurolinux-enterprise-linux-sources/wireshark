@@ -2,7 +2,7 @@
  * Routines for Juniper Networks, Inc. packet disassembly
  * Copyright 2005 Hannes Gredler <hannes@juniper.net>
  *
- * $Id$
+ * $Id: packet-juniper.c 48494 2013-03-23 02:42:12Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

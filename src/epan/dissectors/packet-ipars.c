@@ -2,7 +2,7 @@
  * Routines for IPARS/ALC (International Passenger Airline Reservation System/Airline Link Control) WAN protocol dissection
  * Copyright 2007, Fulko Hew, SITA INC Canada, Inc.
  *
- * $Id$
+ * $Id: packet-ipars.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-skype.c
  * Routines for the disassembly of Skype
  *
- * $Id$
+ * $Id: packet-skype.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Copyright 2009 Joerg Mayer (see AUTHORS file)
  *

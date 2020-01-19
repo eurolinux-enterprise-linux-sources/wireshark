@@ -1,7 +1,7 @@
 # CRMF.cnf
 # CRMF conformation file
 
-# $Id$
+# $Id: crmf.cnf 34099 2010-09-10 21:22:29Z stig $
 
 #.MODULE_IMPORT
 PKIX1Explicit88	pkix1explicit

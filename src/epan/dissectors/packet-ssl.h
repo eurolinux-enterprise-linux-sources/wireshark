@@ -1,6 +1,6 @@
 /* packet-ssl.h
  *
- * $Id$
+ * $Id: packet-ssl.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

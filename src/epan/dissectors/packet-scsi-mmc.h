@@ -1,7 +1,7 @@
 /* packet-scsi-mmc.h
  * Ronnie sahlberg 2006
  *
- * $Id$
+ * $Id: packet-scsi-mmc.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

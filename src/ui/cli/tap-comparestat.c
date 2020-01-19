@@ -3,7 +3,7 @@
  * Copyright 2008 Vincenzo Condoleo, Christophe Dirac, Reto Ruoss
  * supported by HSR (Hochschule Rapperswil)
  *
- * $Id$
+ * $Id: tap-comparestat.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

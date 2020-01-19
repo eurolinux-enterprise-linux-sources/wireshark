@@ -1,7 +1,7 @@
 /* packet-wreth.c
  * Functions for the WSE Remote Ethernet Dissector
  *
- * $Id$
+ * $Id: packet-wreth.c 48889 2013-04-16 21:57:36Z eapache $
  *
  * Dissector - WSE RemoteEthernet
  * By Clement Marrast <clement.marrast@molex.com>

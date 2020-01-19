@@ -1,6 +1,6 @@
 /* packet-vntag.c
  *
- * $Id$
+ * $Id: packet-vntag.c 47459 2013-02-03 22:29:48Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

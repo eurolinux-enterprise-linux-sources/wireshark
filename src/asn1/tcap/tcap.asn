@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: tcap.asn 26192 2008-09-14 14:42:39Z etxrab $
 TCAPMessages {itu-t recommendation q 773 modules(2) messages(1) version3(3)}
 
 DEFINITIONS  ::=

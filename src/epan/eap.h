@@ -2,7 +2,7 @@
  * Extenal definitions for EAP Extensible Authentication Protocol dissection
  * RFC 2284, RFC 3748
  *
- * $Id$
+ * $Id: eap.h 48641 2013-03-29 17:43:14Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

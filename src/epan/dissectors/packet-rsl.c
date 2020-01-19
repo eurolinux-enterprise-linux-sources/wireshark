@@ -4,7 +4,7 @@
  * Copyright 2007, 2011, Anders Broman <anders.broman@ericsson.com>
  * Copyright 2009-2011, Harald Welte <laforge@gnumonks.org>
  *
- * $Id$
+ * $Id: packet-rsl.c 47401 2013-01-31 22:34:12Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

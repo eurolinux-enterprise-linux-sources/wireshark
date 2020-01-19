@@ -1,7 +1,7 @@
 /* packet-isis.h
  * Defines and such for core isis protcol decode.
  *
- * $Id$
+ * $Id: packet-isis.h 43536 2012-06-28 22:56:06Z darkjames $
  * Stuart Stanley <stuarts@mxmail.net>
  *
  * Wireshark - Network traffic analyzer

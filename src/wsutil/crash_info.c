@@ -1,7 +1,7 @@
 /* crash_info.c
  * Routines to try to provide more useful information in crash dumps.
  *
- * $Id$
+ * $Id: crash_info.c 48863 2013-04-15 23:02:34Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

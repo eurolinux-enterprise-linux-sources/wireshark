@@ -4,7 +4,7 @@
  * Written by Shaun Jackman <sjackman@gmail.com>
  * Copyright 2007 Shaun Jackman
  *
- * $Id$
+ * $Id: mpeg-audio.h 48038 2013-03-03 17:14:19Z etxrab $
  *
  * Wiretap Library
  * This program is free software; you can redistribute it and/or

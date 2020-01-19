@@ -1,6 +1,6 @@
 # Build options for use by CMake
 
-# $Id$
+# $Id: CMakeOptions.txt 48969 2013-04-22 17:56:25Z gerald $
 
 option(BUILD_wireshark   "Build the GTK-GUI version of Wireshark" ON)
 option(BUILD_qtshark     "Build the QT-GUI version of Wireshark" OFF)

@@ -18,7 +18,7 @@
  * References:
  *     RFC 3940, Negative-acknowledgment (NACK)-Oriented Reliable Multicast (NORM) Protocol
  *
- * $Id$
+ * $Id: packet-rmt-norm.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

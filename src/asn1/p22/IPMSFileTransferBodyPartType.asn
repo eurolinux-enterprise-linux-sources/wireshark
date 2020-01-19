@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: IPMSFileTransferBodyPartType.asn 35965 2011-02-16 11:04:28Z stig $
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/x/x420/1999/index.html
 -- Module IPMSFileTransferBodyPartType (X.420:06/1999)
 IPMSFileTransferBodyPartType {joint-iso-itu-t mhs(6) ipms(1) modules(0)

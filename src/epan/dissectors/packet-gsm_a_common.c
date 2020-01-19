@@ -6,7 +6,7 @@
  *
  * Split from packet-gsm_a.c by Neil Piercy <Neil [AT] littlebriars.co.uk>
  *
- * $Id$
+ * $Id: packet-gsm_a_common.c 51601 2013-08-30 17:43:07Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

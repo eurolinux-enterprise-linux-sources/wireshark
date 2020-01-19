@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_identifiers.h 42000 2012-04-09 20:06:27Z darkjames $
 **
 ** Copyright (C) 2006-2007 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

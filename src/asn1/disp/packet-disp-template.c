@@ -2,7 +2,7 @@
  * Routines for X.525 (X.500 Directory Shadow Asbtract Service) and X.519 DISP packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-disp-template.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

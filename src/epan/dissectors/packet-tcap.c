@@ -11,7 +11,7 @@
  * Copyright 2004 - 2005, Tim Endean <endeant@hotmail.com>
  * Built from the gsm-map dissector Copyright 2004 - 2005, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-tcap.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2235,10 +2235,8 @@ dissect_tcap_ITU_ComponentPDU(gboolean implicit_tag _U_, tvbuff_t *tvb, int offs
   }
 
   /* Call the sub dissector if present, and not already called */
-  if (is_subdissector) {
+  if (is_subdissector)
     call_dissector(subdissector_handle, tvb, actx->pinfo, tree);
-    col_set_fence(actx->pinfo->cinfo, COL_INFO);
-  }
 
   return offset;
 }

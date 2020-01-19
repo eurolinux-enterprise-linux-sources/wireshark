@@ -2,7 +2,7 @@
  * Routines for 3Com's encapsulation of XNS over 802.2 LLC
  * (and other protocols using DSAP 80)
  *
- * $Id$
+ * $Id: packet-3com-xns.c 48265 2013-03-12 20:00:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

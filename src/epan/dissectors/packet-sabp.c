@@ -10,7 +10,7 @@
  * Routines for UTRAN Iu-BC Interface: Service Area Broadcast Protocol (SBAP) packet dissection
  * Copyright 2007, Tomas Kukosa <tomas.kukosa@siemens.com>
  *
- * $Id$
+ * $Id: packet-sabp.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

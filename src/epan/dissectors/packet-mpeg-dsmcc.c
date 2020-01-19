@@ -3,7 +3,7 @@
  * Routines for ISO/IEC 13818-6 DSM-CC
  * Copyright 2012, Weston Schmidt <weston_schmidt@alumni.purdue.edu>
  *
- * $Id$
+ * $Id: packet-mpeg-dsmcc.c 48332 2013-03-15 22:09:51Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

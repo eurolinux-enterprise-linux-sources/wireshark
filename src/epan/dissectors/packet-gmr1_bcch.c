@@ -8,7 +8,7 @@
  *  [2] ETSI TS 101 376-4-8 V2.2.1 - GMPRS-1 04.008
  *  [3] ETSI TS 101 376-4-8 V3.1.1 - GMR-1 3G 44.008
  *
- * $Id$
+ * $Id: packet-gmr1_bcch.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

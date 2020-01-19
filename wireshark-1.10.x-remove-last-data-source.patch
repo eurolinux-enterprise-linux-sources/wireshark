@@ -2,7 +2,7 @@ diff --git a/epan/dissectors/packet-tcp.c b/epan/dissectors/packet-tcp.c
 index e9af5f8..d994233 100644
 --- a/epan/dissectors/packet-tcp.c
 +++ b/epan/dissectors/packet-tcp.c
-@@ -1924,6 +1924,7 @@ again:
+@@ -1922,6 +1922,7 @@ again:
                   * being a new higher-level PDU that also
                   * needs desegmentation).
                   */

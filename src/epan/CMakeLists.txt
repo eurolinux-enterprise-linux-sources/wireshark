@@ -1,6 +1,6 @@
 # CMakeLists.txt
 #
-# $Id$
+# $Id: CMakeLists.txt 51931 2013-09-10 15:39:51Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -1381,10 +1381,13 @@ set(WMEM_FILES
 	wmem/wmem_strutl.c
 )
 
-ADD_CUSTOM_TARGET(
-    update-sminmpec
+ADD_CUSTOM_COMMAND(
+    OUTPUT
+      sminmpec.c
     COMMAND ${PERL_EXECUTABLE}
       ${CMAKE_SOURCE_DIR}/tools/make-sminmpec.pl
+      ${CMAKE_CURRENT_SOURCE_DIR}/enterprise-numbers
+      sminmpec.c
     DEPENDS
       enterprise-numbers
       ${CMAKE_SOURCE_DIR}/tools/make-sminmpec.pl
@@ -1546,7 +1549,7 @@ add_library(epan ${LINK_MODE_LIB}
 	${LIBWIRESHARK_ASM_FILES}
 )
 
-add_dependencies(epan gitversion)
+add_dependencies(epan svnversion)
 
 set(FULL_SO_VERSION "3.1.1")
 

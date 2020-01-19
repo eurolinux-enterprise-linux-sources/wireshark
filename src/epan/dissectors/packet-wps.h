@@ -12,7 +12,7 @@
  *
  * Copyright 2007 Jens Braeuer <jensb@cs.tu-berlin.de>
  *
- * $Id$
+ * $Id: packet-wps.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

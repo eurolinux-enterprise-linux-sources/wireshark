@@ -1,6 +1,6 @@
 /* wireshark_application.cpp
  *
- * $Id$
+ * $Id: wireshark_application.cpp 49760 2013-06-04 07:38:48Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -611,9 +611,6 @@ void WiresharkApplication::emitAppSignal(AppSignal signal)
         break;
     case PacketDissectionChanged:
         emit packetDissectionChanged();
-        break;
-    case FieldsChanged:
-        emit fieldsChanged();
         break;
     default:
         break;

@@ -12,7 +12,7 @@
  * Copyright 2005, Olivier Jacques <olivier.jacques@hp.com>
  * Built from the gsm-map dissector Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-camel.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

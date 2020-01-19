@@ -1,6 +1,6 @@
 /* sync_pipe_write.c
  *
- * $Id$
+ * $Id: sync_pipe_write.c 46779 2012-12-26 12:14:59Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

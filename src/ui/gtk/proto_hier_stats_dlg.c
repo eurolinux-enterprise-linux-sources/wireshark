@@ -1,6 +1,6 @@
 /* proto_hier_stats_dlg.c
  *
- * $Id$
+ * $Id: proto_hier_stats_dlg.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

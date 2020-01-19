@@ -1,7 +1,7 @@
 /* tap-rtp-common.h
  * MEGACO statistics handler functions used by tshark and wireshark
  *
- * $Id$
+ * $Id: tap-megaco-common.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Copyright 2008, Ericsson AB
  * By Balint Reczey <balint.reczey@ericsson.com>

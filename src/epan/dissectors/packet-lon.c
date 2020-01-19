@@ -7,7 +7,7 @@
  * Honorine_KEMGNE_NGUIFFO <honorinekemgne@yahoo.fr> from
  * http://bugs.wireshark.org/bugzilla/show_bug.cgi?id=4704
  *
- * $Id$
+ * $Id: packet-lon.c 47391 2013-01-31 18:35:06Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

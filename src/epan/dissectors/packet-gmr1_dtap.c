@@ -8,7 +8,7 @@
  *  [2] ETSI TS 101 376-4-8 V2.2.1 - GMPRS-1 04.008
  *  [3] ETSI TS 101 376-4-8 V3.1.1 - GMR-1 3G 44.008
  *
- * $Id$
+ * $Id: packet-gmr1_dtap.c 51370 2013-08-15 03:52:19Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

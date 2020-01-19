@@ -4,7 +4,7 @@
  * Copyright 2004, Jelmer Vernooij <jelmer@samba.org>
  * Copyright 2004, Devin Heitmueller <dheitmueller@netilla.com>
  *
- * $Id$
+ * $Id: packet-aim.c 48272 2013-03-12 21:58:04Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,13 +1,12 @@
-$Id$
+$Id: INSTALL 45090 2012-09-24 10:23:20Z martinm $
 
 NOTE: this document applies to the Wireshark source releases and
-buildbot source tarballs.  It does not apply to source code checked out
-directly from Git, as files such as the configuration script are not
-checked into Git, but need to be generated from the autoconf and
-automake files.
-
-See http://wiki.wireshark.org/Development if you would like to build the
-source code checked out directly from Git.
+buildbot source tarballs.  It does not apply to source code checked
+out directly from Subversion, as files such as the configuration
+script are not checked into Subversion, but need to be generated
+from the autoconf and automake files.
+See http://wiki.wireshark.org/Development if you would like to build
+the source code checked out directly from Subversion.
 
 Installation
 ============

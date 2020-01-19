@@ -1,7 +1,7 @@
 /* packet-diameter.c
  * Routines for Diameter packet disassembly
  *
- * $Id$
+ * $Id: packet-diameter.c 50738 2013-07-19 13:52:41Z morriss $
  *
  * Copyright (c) 2001 by David Frascone <dave@frascone.com>
  * Copyright (c) 2007 by Luis E. Garcia Ontanon <luis@ontanon.org>
@@ -46,6 +46,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -1179,7 +1180,7 @@ alnumerize(char *name)
 	char c;
 
 	for (;(c = *r); r++) {
-		if (g_ascii_isalnum(c) || c == '_' || c == '-' || c == '.') {
+		if (isalnum((unsigned char)c) || c == '_' || c == '-' || c == '.') {
 			*(w++) = c;
 		}
 	}

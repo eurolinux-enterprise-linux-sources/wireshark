@@ -9,7 +9,7 @@
 /* packet-snmp.h
  * Routines for snmp packet dissection
  *
- * $Id$
+ * $Id: packet-snmp.h 48812 2013-04-10 21:24:19Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

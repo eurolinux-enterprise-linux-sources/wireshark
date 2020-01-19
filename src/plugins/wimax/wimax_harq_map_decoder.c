@@ -5,7 +5,7 @@
  *
  * Author: Lu Pan <lu.pan@intel.com>
  *
- * $Id$
+ * $Id: wimax_harq_map_decoder.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

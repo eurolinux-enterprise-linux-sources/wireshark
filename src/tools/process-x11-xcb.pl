@@ -6,7 +6,7 @@
 #
 # Copyright 2008, 2009 Open Text Corporation <pharris[AT]opentext.com>
 #
-# $Id$
+# $Id: process-x11-xcb.pl 48991 2013-04-22 21:32:55Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

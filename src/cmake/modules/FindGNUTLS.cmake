@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindGNUTLS.cmake 30104 2009-09-23 19:40:25Z jmayer $
 #
 # - Find gnutls
 # Find the native GNUTLS includes and library

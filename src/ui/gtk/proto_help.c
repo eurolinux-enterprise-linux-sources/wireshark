@@ -1,7 +1,7 @@
 /* proto_help.c
  * Routines for dynamic protocol help menus
  *
- * $Id$
+ * $Id: proto_help.c 45016 2012-09-20 01:48:30Z morriss $
  *
  * Edgar Gladkich <edgar.gladkich@incacon.de>
  * Gerald Combs <gerald@wireshark.org>

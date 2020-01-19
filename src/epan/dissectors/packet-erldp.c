@@ -4,7 +4,7 @@
  *
  * 2010  Tomas Kukosa
  *
- * $Id$
+ * $Id: packet-erldp.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  *
  * Routines for ITU-T Recommendation H.261 dissection
  *
- * $Id$
+ * $Id: packet-h261.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright 2000, Philips Electronics N.V.
  * Andreas Sikkema <h323@ramdyne.nl>

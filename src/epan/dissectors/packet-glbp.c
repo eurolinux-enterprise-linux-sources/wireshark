@@ -2,7 +2,7 @@
  *
  * Cisco's GLBP:  Gateway Load Balancing Protocol
  *
- * $Id$
+ * $Id: packet-glbp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright 2007 Joerg Mayer (see AUTHORS file)
  *

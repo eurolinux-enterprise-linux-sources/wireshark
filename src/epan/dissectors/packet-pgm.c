@@ -1,7 +1,7 @@
 /* packet-pgm.c
  * Routines for PGM packet disassembly, RFC 3208
  *
- * $Id$
+ * $Id: packet-pgm.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Copyright (c) 2000 by Talarian Corp
  * Rewritten by Jaap Keuter
@@ -980,7 +980,6 @@ dissect_pgm(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 			default:
 				proto_tree_add_text(type_tree, tvb, ptvcursor_current_offset(cursor), -1,
 				    "Can't handle this address format");
-				ptvcursor_free(cursor);
 				return;
 			}
 			break;
@@ -1034,7 +1033,6 @@ dissect_pgm(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 			default:
 				proto_tree_add_text(type_tree, tvb, ptvcursor_current_offset(cursor), -1,
 				    "Can't handle this address format");
-				ptvcursor_free(cursor);
 				return;
 			}
 			break;
@@ -1090,8 +1088,6 @@ dissect_pgm(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
 		if (isdata)
 			decode_pgm_ports(tvb, ptvcursor_current_offset(cursor), pinfo, tree, pgmhdr_sport, pgmhdr_dport);
-
-		ptvcursor_free(cursor);
 	}
 }
 

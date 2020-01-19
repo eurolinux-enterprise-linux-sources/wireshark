@@ -1,7 +1,7 @@
 /* summary.h
  * Definitions for capture file summary data
  *
- * $Id$
+ * $Id: summary.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

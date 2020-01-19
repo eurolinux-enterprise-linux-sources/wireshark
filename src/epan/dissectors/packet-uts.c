@@ -2,7 +2,7 @@
  * Routines for UTS WAN protocol dissection
  * Copyright 2007, Fulko Hew, SITA INC Canada, Inc.
  *
- * $Id$
+ * $Id: packet-uts.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copied from packet-ipars.c
  *

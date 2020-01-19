@@ -9,7 +9,7 @@
 # Usage:
 # checkAPIs.pl [-M] [-g group1] [-g group2] [-s summary-group1] [-s summary-group2] [--nocheck-value-string-array-null-termination] file1 file2 ...
 #
-# $Id$
+# $Id: checkAPIs.pl 48340 2013-03-16 09:53:19Z martink $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

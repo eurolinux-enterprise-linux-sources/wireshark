@@ -2,7 +2,7 @@
  * Routines for ISO/OSI network and transport protocol packet disassembly
  * Main entrance point and common functions
  *
- * $Id$
+ * $Id: packet-osi.c 46060 2012-11-17 22:12:37Z guy $
  * Laurent Deniel <laurent.deniel@free.fr>
  * Ralf Schneider <Ralf.Schneider@t-online.de>
  *
@@ -438,7 +438,6 @@ const value_string nlpid_vals[] = {
   { NLPID_ISO11577,        "ISO 11577" },
   { NLPID_COMPRESSED,      "Data compression protocol" },
   { NLPID_IP,              "IP" },
-  { NLPID_TRILL,           "TRILL" },
   { NLPID_SNDCF,           "SubNetwork Dependent Convergence Function"},
   { NLPID_IP6,             "IPv6" },
   { NLPID_PPP,             "PPP" },

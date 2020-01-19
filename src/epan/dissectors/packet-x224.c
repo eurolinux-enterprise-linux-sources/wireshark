@@ -3,7 +3,7 @@
  * Routine to dissect X.224
  * Copyright 2007, Ronnie Sahlberg
  *
- * $Id$
+ * $Id: packet-x224.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

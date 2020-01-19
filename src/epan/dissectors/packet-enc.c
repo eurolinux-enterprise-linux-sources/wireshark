@@ -2,7 +2,7 @@
  *
  * Copyright (c) 2003 Markus Friedl.  All rights reserved.
  *
- * $Id$
+ * $Id: packet-enc.c 47850 2013-02-24 09:38:22Z darkjames $
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions

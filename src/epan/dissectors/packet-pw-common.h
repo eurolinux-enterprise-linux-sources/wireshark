@@ -2,7 +2,7 @@
  * Interface of pw-common module
  * Copyright 2009, Artem Tamazov <artem.tamazov@tellabs.com>
  *
- * $Id$
+ * $Id: packet-pw-common.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* oui.h
  * Definitions of OUIs
  *
- * $Id$
+ * $Id: oui.h 48963 2013-04-22 12:31:04Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

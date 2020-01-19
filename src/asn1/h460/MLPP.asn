@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h460.14/2004/MLPP.asn
 --
--- $Id$
+-- $Id: MLPP.asn 23274 2007-10-26 07:18:44Z kukosa $
 --
 
 -- Module MLPP (H.460.14:03/2004)

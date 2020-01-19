@@ -2,7 +2,7 @@
  * Routines for t125 packet dissection
  * Copyright 2007, Ronnie Sahlberg
  *
- * $Id$
+ * $Id: packet-t125-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 # - Try to find GTK3
 #
-# $Id$
+# $Id: FindGTK3.cmake 39970 2011-11-21 15:39:25Z jmayer $
 #
 # Once done this will define
 #

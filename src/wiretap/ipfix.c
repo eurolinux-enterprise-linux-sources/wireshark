@@ -1,6 +1,6 @@
 /* ipfix.c
  *
- * $Id$
+ * $Id: ipfix.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

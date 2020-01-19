@@ -2,7 +2,7 @@
  * Routines for dlm3 dissection
  * Copyright 2007, Masatake YAMATO <jet@gyve.org>
  *
- * $Id$
+ * $Id: packet-dlm3.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -793,7 +793,7 @@ dissect_dlm3(tvbuff_t *tvb, packet_info *pinfo, proto_tree *parent_tree, void *d
                            dlm3_cmd,
                            "packet-dlm3.c internal bug"));
 
-  /* if (parent_tree) */ {
+  if (parent_tree) {
     offset = 0;
 
     item = proto_tree_add_item(parent_tree, proto_dlm3, tvb, offset,

@@ -1,7 +1,7 @@
 /* follow_stream.h
  * Common routines for following data streams
  *
- * $Id$
+ * $Id: follow_stream.h 49781 2013-06-05 04:51:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -3,7 +3,7 @@
  * File format support for Rabbit Labs CAM Inspector files
  * Copyright (c) 2013 by Martin Kaiser <martin@kaiser.cx>
  *
- * $Id$
+ * $Id: camins.c 48647 2013-03-30 09:56:57Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

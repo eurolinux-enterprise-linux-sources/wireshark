@@ -1,7 +1,7 @@
 /* packet-kdp.c
  * Routines for KDP (Kontiki Delivery Protocol) packet disassembly
  *
- * $Id$
+ * $Id: packet-kdp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright (c) 2008 by Kontiki Inc.
  *                    Wade Hennessey <wade@kontiki.com>

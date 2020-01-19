@@ -7,7 +7,7 @@
  *
  * Copyright 2005 - 2009, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-ansi_map-template.c 48439 2013-03-20 05:59:22Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

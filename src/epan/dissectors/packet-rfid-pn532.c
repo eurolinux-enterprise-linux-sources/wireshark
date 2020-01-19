@@ -6,7 +6,7 @@
  *
  * Copyright 2012, Tyson Key <tyson.key@gmail.com>
  *
- * $Id$
+ * $Id: packet-rfid-pn532.c 48656 2013-03-30 17:09:26Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

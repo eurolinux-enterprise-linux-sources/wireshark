@@ -4,7 +4,7 @@
  * Dissector for Gigamon Header and Trailer
  * Copyright Gigamon 2010
  *
- * $Id$
+ * $Id: packet-gmhdr.c 49462 2013-05-20 21:46:36Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -306,7 +306,7 @@ dissect_gmtimestamp_trailer(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *t
       gmtimev.nsecs = tvb_get_ntohl(tvb, offset);
 
       tm = localtime(&gmtimev.secs);
-      proto_item_append_text(ti, ", Port: %d, Timestamp: %d:%02d:%02d.%09d", port_num, tm->tm_hour, tm->tm_min, tm->tm_sec, gmtimev.nsecs);
+      proto_item_append_text(ti, ", Port: %d, Timestamp: %d:%d:%d.%d", port_num, tm->tm_hour, tm->tm_min, tm->tm_sec, gmtimev.nsecs);
     }
 
     offset = 0;

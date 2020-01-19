@@ -2,7 +2,7 @@
  * Code to manage the global list of interfaces and to update widgets/windows
  * displaying items from those lists
  *
- * $Id$
+ * $Id: iface_lists.c 49762 2013-06-04 07:48:18Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

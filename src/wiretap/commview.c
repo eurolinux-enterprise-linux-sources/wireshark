@@ -2,7 +2,7 @@
  * Routines for opening CommView file format packet captures
  * Copyright 2007, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: commview.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

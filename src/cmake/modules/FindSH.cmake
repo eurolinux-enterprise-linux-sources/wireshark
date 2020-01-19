@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindSH.cmake 30129 2009-09-24 20:42:08Z jmayer $
 #
 # - Find unix commands from cygwin
 # This module looks for some usual Unix commands.

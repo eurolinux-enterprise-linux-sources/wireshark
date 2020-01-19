@@ -9,7 +9,7 @@
 /* packet-ranap-template.h
  * Routines for GSM Supplementary Services dissection
  * Copyright 2005, Anders Broman <anders.broman@ericsson.com>
- * $Id$ *
+ * $Id: packet-ranap.h 48820 2013-04-11 18:14:53Z pascal $ *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
  * Copyright 1998 Gerald Combs

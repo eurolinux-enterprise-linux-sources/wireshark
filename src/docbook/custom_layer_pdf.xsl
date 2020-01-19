@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
 
-<!-- $Id$ -->
+<!-- $Id: custom_layer_pdf.xsl 31155 2009-12-02 19:51:48Z jake $ -->
 
 <!-- import the main stylesheet -->
 <xsl:import href="http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"/>

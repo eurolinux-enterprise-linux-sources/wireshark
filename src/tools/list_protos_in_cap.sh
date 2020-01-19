@@ -13,7 +13,7 @@
 #
 # Copyright 2012 Jeff Morriss <jeff.morriss.ws [AT] gmail.com>
 #
-# $Id$
+# $Id: list_protos_in_cap.sh 44175 2012-07-31 23:16:26Z morriss $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

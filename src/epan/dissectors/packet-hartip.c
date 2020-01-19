@@ -2,7 +2,7 @@
  * Routines for HART-IP packet dissection
  * Copyright 2012, Bill Schiller <bill.schiller@emerson.com>
  *
- * $Id$
+ * $Id: packet-hartip.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

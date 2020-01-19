@@ -1,4 +1,4 @@
-$Id$
+$Id: README.linux 18501 2006-06-17 12:21:54Z sahlberg $
 
 In order to capture packets (with Wireshark/TShark, tcpdump, or any
 other libpcap-based packet capture program) on a Linux system, the

@@ -6,7 +6,7 @@
  *
  * Heikki Vatiainen <hessu@cs.tut.fi>
  *
- * $Id$
+ * $Id: packet-vrrp.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -14,7 +14,7 @@
  *
  * Copyright 2003, Jeff Morriss <jeff.morriss.ws [AT] gmail.com>
  *
- * $Id$
+ * $Id: packet-mtp3mg.c 47402 2013-01-31 22:43:04Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

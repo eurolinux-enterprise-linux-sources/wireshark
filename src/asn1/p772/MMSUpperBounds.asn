@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: MMSUpperBounds.asn 31312 2009-12-18 15:24:18Z stig $
 MMSUpperBounds {iso(1) identified-organization(3) nato(26) stanags(0)
   mmhs(4406) object-identifiers(0) module(0) upper-bounds(0)} DEFINITIONS
 IMPLICIT TAGS ::=

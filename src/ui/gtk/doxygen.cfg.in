@@ -1,4 +1,4 @@
-# $Id$
+# $Id: doxygen.cfg.in 41652 2012-03-19 01:10:19Z morriss $
 # @configure_input@
 
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded

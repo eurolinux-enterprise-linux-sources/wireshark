@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindCAP.cmake 30104 2009-09-23 19:40:25Z jmayer $
 #
 # - Find capabilities
 # Find the native CAP includes and library

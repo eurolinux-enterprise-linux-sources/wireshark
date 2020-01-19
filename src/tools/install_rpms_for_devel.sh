@@ -10,7 +10,7 @@
 #
 # Copyright 2013 Jeff Morriss <jeff.morriss.ws [AT] gmail.com>
 #
-# $Id$
+# $Id: install_rpms_for_devel.sh 48624 2013-03-28 16:59:21Z morriss $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

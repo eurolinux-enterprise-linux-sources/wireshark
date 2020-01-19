@@ -3,7 +3,7 @@
  * Copyright (c) 2006, Authesserre Samuel <sauthess@gmail.com>
  * Copyright (c) 2007, Mikael Magnusson <mikma@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-dtls.c 48916 2013-04-18 19:19:38Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

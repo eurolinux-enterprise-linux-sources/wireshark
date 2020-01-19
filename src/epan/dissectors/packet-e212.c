@@ -3,7 +3,7 @@
  * to many dissectors.
  * Copyright 2006, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-e212.c 48793 2013-04-08 20:25:09Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

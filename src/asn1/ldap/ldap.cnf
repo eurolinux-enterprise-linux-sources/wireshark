@@ -1,7 +1,7 @@
 # ldap.cnf
 # LDAP conformation file
 # Copyright 2005 Anders Broman
-# $Id$
+# $Id: ldap.cnf 43057 2012-06-04 08:56:48Z etxrab $
 
 
 #.PDU

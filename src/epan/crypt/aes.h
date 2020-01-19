@@ -3,7 +3,7 @@
  *
  * Copied from airpdcap_rijndael.h
  *
- * $Id$
+ * $Id: aes.h 40511 2012-01-15 12:29:44Z jmayer $
  *
  * @version 3.0 (December 2000)
  *

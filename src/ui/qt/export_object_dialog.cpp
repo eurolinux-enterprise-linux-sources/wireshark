@@ -1,6 +1,6 @@
 /* export_object_dialog.cpp
  *
- * $Id$
+ * $Id: export_object_dialog.cpp 45849 2012-10-31 15:40:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

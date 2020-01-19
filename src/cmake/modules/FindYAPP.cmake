@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindYAPP.cmake 30151 2009-09-25 18:09:42Z jmayer $
 #
 # - Find unix commands from cygwin
 # This module looks for some usual Unix commands.

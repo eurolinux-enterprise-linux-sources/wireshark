@@ -11,7 +11,7 @@
  * Copyright 2001, Eurologic and Mark Burton <markb@ordern.com>
  *  2004 Request/Response matching and Service Response Time: ronnie sahlberg
  *
- * $Id$
+ * $Id: packet-iscsi.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1324,7 +1324,6 @@ dissect_iscsi_pdu(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint off
             proto_tree_add_item(ti, hf_iscsi_TotalAHSLength, tvb, offset + 4, 1, ENC_BIG_ENDIAN);
         }
         proto_tree_add_uint(ti, hf_iscsi_DataSegmentLength, tvb, offset + 5, 3, tvb_get_ntoh24(tvb, offset + 5));
-        cdata->itlq.data_length=tvb_get_ntoh24(tvb, offset + 5);
         if(iscsi_protocol_version > ISCSI_PROTOCOL_DRAFT09) {
             if (A_bit) {
                 dissect_scsi_lun(ti, tvb, offset + 8);
@@ -2100,11 +2099,9 @@ dissect_iscsi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gboolean chec
         if(tvb_get_ntoh48(tvb, offset+10)){
             return FALSE;
         }
-        /* if expected data transfer length is set, W and/or R have to be set */
-        if(tvb_get_ntohl(tvb,offset+20)){
-            if(!(tvb_get_guint8(tvb, offset+1)&0x60)){
-                return FALSE;
-            }
+        /* expected data transfer length is never >16MByte ? */
+        if(tvb_get_guint8(tvb,offset+20)){
+            return FALSE;
         }
         break;
     case ISCSI_OPCODE_SCSI_RESPONSE:

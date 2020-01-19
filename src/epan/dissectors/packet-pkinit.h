@@ -10,7 +10,7 @@
  * Routines for PKINIT packet dissection
  *  Ronnie Sahlberg 2004
  *
- * $Id$
+ * $Id: packet-pkinit.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

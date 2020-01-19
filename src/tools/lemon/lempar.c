@@ -1,5 +1,5 @@
 /* Driver template for the LEMON parser generator.
-* $Id$
+* $Id: lempar.c 50712 2013-07-17 23:21:12Z gerald $
 *
 ** Copyright 1991-1995 by D. Richard Hipp.
 **

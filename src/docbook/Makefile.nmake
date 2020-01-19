@@ -5,7 +5,7 @@
 #
 ## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake [target ...]
 #
-# $Id$
+# $Id: Makefile.nmake 48327 2013-03-15 21:18:16Z gerald $
 #
 
 ############### YOU SHOULDN'T HAVE TO EDIT ANYTHING BELOW THIS LINE! ################
@@ -33,10 +33,10 @@ A2X_TEXT_OPTS=$(A2X_TEXT_OPTS) --lynx
 .SUFFIXES: .fo .pdf
 
 # On every build, record the working copy revision string
-#   in git_version.xml (if the svn version has changed).
+#   in svn_version.xml (if the svn version has changed).
 # This is done during nmake "preprocessing" so that it's done *before*
 #  nmake gets the date/time of the dependency file(s)].
-!IF [$(SH) ./check_git_version.sh]
+!IF [$(SH) ./check_svn_version.sh]
 !ENDIF
 
 

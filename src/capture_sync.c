@@ -1,7 +1,7 @@
 /* capture_sync.c
  * Synchronisation between Wireshark capture parent and child instances
  *
- * $Id$
+ * $Id: capture_sync.c 51874 2013-09-09 18:28:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -131,7 +131,6 @@ capture_session_init(capture_session *cap_session, void *cf)
     cap_session->owner                           = getuid();
     cap_session->group                           = getgid();
 #endif
-    cap_session->count                           = 0;
     cap_session->session_started                 = FALSE;
 }
 
@@ -1756,7 +1755,6 @@ sync_pipe_input_cb(gint source, gpointer user_data)
     case SP_PACKET_COUNT:
         npackets = atoi(buffer);
         g_log(LOG_DOMAIN_CAPTURE, G_LOG_LEVEL_DEBUG, "sync_pipe_input_cb: new packets %u", npackets);
-        cap_session->count += npackets;
         capture_input_new_packets(cap_session, npackets);
         break;
     case SP_ERROR_MSG:

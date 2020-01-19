@@ -3,7 +3,7 @@
  * Copyright 2008 Vincenzo Condoleo, Christophe Dirac, Reto Ruoss
  * supported by HSR (Hochschule Rapperswil)
  *
- * $Id$
+ * $Id: compare_stat.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -3,7 +3,7 @@
  * Copyright 1999, Uwe Girlich <Uwe.Girlich@philosys.de>
  * Copyright 2000-2004, Mike Frisch <frisch@hummingbird.com> (NFSv4 decoding)
  *
- * $Id$
+ * $Id: packet-nfs.c 50800 2013-07-22 21:52:07Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -950,31 +950,24 @@ nfs_name_snoop_add_name(int xid, tvbuff_t *tvb, int name_offset, int name_len, i
 	nfs_name_snoop_t *nns, *old_nns;
 	const char *ptr=NULL;
 
-	if (name_len <= 0) {
-		/* Do we need some way to signal an error here? This could be
-		 * programmatic or just a corrupt packet, depending on the
-		 * caller... */
-		return;
-	}
-
 	/* filter out all '.' and '..' names */
 	if(!name){
 		ptr=(const char *)tvb_get_ptr(tvb, name_offset, name_len);
 	} else {
 		ptr=name;
 	}
-	if (ptr[0] == '.') {
-		if (name_len <= 1 || ptr[1] == 0) {
+	if(ptr[0]=='.'){
+		if(ptr[1]==0){
 			return;
 		}
-		if (ptr[1] == '.') {
-			if (name_len <= 2 || ptr[2] == 0) {
+		if(ptr[1]=='.'){
+			if(ptr[2]==0){
 				return;
 			}
 		}
 	}
 
-	nns = g_new(nfs_name_snoop_t, 1);
+	nns=(nfs_name_snoop_t *)g_malloc(sizeof(nfs_name_snoop_t));
 
 	nns->fh_length=0;
 	nns->fh=NULL;
@@ -6930,7 +6923,7 @@ static const value_string names_fattr4[] = {
 	{	FATTR4_SUPPATTR_EXCLCREAT, "SUPPATTR_EXCLCREAT"	},
 #define FATTR4_FS_CHARSET_CAP      76
 	{	FATTR4_FS_CHARSET_CAP,     "FS_CHARSET_CAP"		},
-#define FATTR4_SECURITY_LABEL      80
+#define FATTR4_SECURITY_LABEL      81
 	{	FATTR4_SECURITY_LABEL,     "SECURITY_LABEL"		},
 	{	0,	NULL	}
 };
@@ -8783,8 +8776,6 @@ static int nfs4_operation_tiers[] = {
 		 1 /* 58, NFS4_OP_RECLAIM_COMPLETE */
 };
 
-#define NFS4_OPERATION_TIER(op) \
-	((op) < G_N_ELEMENTS(nfs4_operation_tiers) ? nfs4_operation_tiers[(op)] : 0)
 
 static int
 dissect_nfs4_request_op(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tree)
@@ -9329,7 +9320,7 @@ dissect_nfs4_request_op(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tre
 	/* Detect which tiers are present in this packet */
 	for (summary_counter=0; summary_counter < ops_counter; summary_counter++)
 	{
-		current_tier = NFS4_OPERATION_TIER(op_summary[summary_counter].opcode);
+		current_tier = nfs4_operation_tiers[op_summary[summary_counter].opcode];
 		if (current_tier < highest_tier)
 			highest_tier = current_tier;
 	}
@@ -9341,7 +9332,7 @@ dissect_nfs4_request_op(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tre
 		proto_item *main_op_item = NULL;
 
 		main_opcode = op_summary[summary_counter].opcode;
-		current_tier = NFS4_OPERATION_TIER(op_summary[summary_counter].opcode);
+		current_tier = nfs4_operation_tiers[op_summary[summary_counter].opcode];
 
 		/* Display summary info only for operations that are "most significant".
 		   Controlled by a user option. */
@@ -9765,7 +9756,7 @@ dissect_nfs4_response_op(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tr
 	/* Detect which tiers are present in this packet */
 	for (summary_counter=0; summary_counter < ops_counter; summary_counter++)
 	{
-		current_tier = NFS4_OPERATION_TIER(op_summary[summary_counter].opcode);
+		current_tier = nfs4_operation_tiers[op_summary[summary_counter].opcode];
 		if (current_tier < highest_tier)
 			highest_tier=current_tier;
 	}
@@ -9777,7 +9768,7 @@ dissect_nfs4_response_op(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tr
 		proto_item *main_op_item = NULL;
 
 		main_opcode=op_summary[summary_counter].opcode;
-		current_tier = NFS4_OPERATION_TIER(op_summary[summary_counter].opcode);
+		current_tier = nfs4_operation_tiers[op_summary[summary_counter].opcode];
 
 		/* Display summary info only for operations that are "most significant".
 		 Controlled by a user option.

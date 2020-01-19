@@ -1,6 +1,6 @@
 /* hcidump.c
  *
- * $Id$
+ * $Id: hcidump.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Copyright (c) 2003 by Marcel Holtmann <marcel@holtmann.org>
  *

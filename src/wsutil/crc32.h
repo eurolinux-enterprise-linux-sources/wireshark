@@ -1,7 +1,7 @@
 /* crc32.h
  * Declaration of CRC-32 routine and table
  *
- * $Id$
+ * $Id: crc32.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

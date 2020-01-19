@@ -3,7 +3,7 @@
  * By Owen Kirby <osk@exegin.com>
  * Copyright 2009 Exegin Technologies Limited
  *
- * $Id$
+ * $Id: packet-zbee-zdp-discovery.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

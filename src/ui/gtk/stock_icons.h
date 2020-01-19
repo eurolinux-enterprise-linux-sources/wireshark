@@ -2,7 +2,7 @@
  * Wireshark specific stock icons
  * Copyright 2003-2008, Ulf Lamping <ulf.lamping@web.de>
  *
- * $Id$
+ * $Id: stock_icons.h 46696 2012-12-22 17:41:40Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

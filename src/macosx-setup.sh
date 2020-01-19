@@ -1,7 +1,7 @@
 #!/bin/sh
 # Setup development environment on Mac OS X (tested with 10.6.8 and Xcode 3.2.6)
 #
-# $Id$
+# $Id: macosx-setup.sh 51055 2013-07-31 06:28:06Z guy $
 #
 # Trying to follow "Building Wireshark on SnowLeopard"
 # given by Michael Tuexen at
@@ -296,8 +296,8 @@ uninstall() {
         if [ ! -z "$installed_libtool_version" ] ; then
             echo "Uninstalling GNU libtool:"
             cd libtool-$installed_libtool_version
-            $DO_MV /usr/local/bin/glibtool /usr/local/bin/libtool
-            $DO_MV /usr/local/bin/glibtoolize /usr/local/bin/libtoolize
+            mv /usr/local/bin/glibtool /usr/local/bin/libtool
+            mv /usr/local/bin/glibtoolize /usr/local/bin/libtoolize
             $DO_MAKE_UNINSTALL || exit 1
             make distclean || exit 1
             cd ..
@@ -343,27 +343,25 @@ uninstall() {
 # (If that's not the case, this test needs to check the subdirectories
 # as well.)
 #
-# If not, do "make install", "make uninstall", the removes for Lua,
-# and the renames of [g]libtool* with sudo.
+# If not, do "make install", "make uninstall", and the removes for Lua
+# with sudo.
 #
 if [ -w /usr/local ]
 then
     DO_MAKE_INSTALL="make install"
     DO_MAKE_UNINSTALL="make uninstall"
     DO_RM="rm"
-    DO_MV="mv"
 else
     DO_MAKE_INSTALL="sudo make install"
     DO_MAKE_UNINSTALL="sudo make uninstall"
     DO_RM="sudo rm"
-    DO_MV="sudo mv"
 fi
 
 #
 # The default target OS is the major version of the one we're running;
-# get that and strip off the third component if present.
+# get that and strip off the third component.
 #
-min_osx_target=`sw_vers -productVersion | sed 's/\([0-9]*\)\.\([0-9]*\)\.[0-9]*/\1.\2/'`
+min_osx_target=`sw_vers -productVersion | sed 's/\([[0-9]]*\).\([[0-9]]*\).[[0-9]]*/\1.\2/'`
 
 #
 # Parse command-line flags:
@@ -657,8 +655,8 @@ if [ "$LIBTOOL_VERSION" -a ! -f libtool-$LIBTOOL_VERSION-done ] ; then
     ./configure || exit 1
     make $MAKE_BUILD_OPTS || exit 1
     $DO_MAKE_INSTALL || exit 1
-    $DO_MV /usr/local/bin/libtool /usr/local/bin/glibtool
-    $DO_MV /usr/local/bin/libtoolize /usr/local/bin/glibtoolize
+    mv /usr/local/bin/libtool /usr/local/bin/glibtool
+    mv /usr/local/bin/libtoolize /usr/local/bin/glibtoolize
     cd ..
     touch libtool-$LIBTOOL_VERSION-done
 fi

@@ -2,7 +2,7 @@
  * tshark's tap implememntation of stats_tree
  * 2005, Luis E. G. Ontanon
  *
- * $Id$
+ * $Id: tap-stats_tree.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

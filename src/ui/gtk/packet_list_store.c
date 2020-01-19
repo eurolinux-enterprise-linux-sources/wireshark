@@ -3,7 +3,7 @@
  * Copyright 2008-2009, Stephen Fisher (see AUTHORS file)
  * * Co-authors Anders Broman and Kovarththanan Rajaratnam.
  *
- * $Id$
+ * $Id: packet_list_store.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1146,8 +1146,6 @@ packet_list_dissect_and_cache_record(PacketList *packet_list, PacketListRecord *
 	g_return_if_fail(PACKETLIST_IS_LIST(packet_list));
 
 	g_assert((record->col_text != NULL)&&(record->col_text_len != NULL));
-
-	memset(&phdr, 0, sizeof(struct wtap_pkthdr));
 
 	/* XXX: Does it work to check if the record is already columnized/colorized ?
 	 *      i.e.: test record->columnized and record->colorized and just return

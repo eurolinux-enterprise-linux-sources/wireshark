@@ -11,7 +11,7 @@
  *
  * Copyright (c) 2011 by Spenser Sheng <spenser.sheng@ericsson.com>
  *
- * $Id$
+ * $Id: packet-lcsap.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

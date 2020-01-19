@@ -2,7 +2,7 @@
  * Routines for rsh (Remote Shell) dissection
  * Copyright 2012, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: packet-rsh.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

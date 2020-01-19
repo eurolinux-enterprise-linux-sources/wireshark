@@ -1,6 +1,6 @@
 /* packet-ansi_tcap.h
  *
- * $Id$
+ * $Id: packet-ansi_tcap-template.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Copyright 2007 Anders Broman <anders.broman@ericsson.com>
  *

@@ -1,6 +1,6 @@
 # -*- python -*-
 #
-# $Id$
+# $Id: wireshark_gen.py 47992 2013-03-01 23:53:11Z rbalint $
 #
 # wireshark_gen.py (part of idl2wrs)
 #
@@ -2297,7 +2297,7 @@ for (i_@aname@=0; i_@aname@ < @aval@; i_@aname@++) {
     template_Header = """\
 /* packet-@dissector_name@.c
  *
- * $Id$
+ * $Id: wireshark_gen.py 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Routines for IDL dissection
  *

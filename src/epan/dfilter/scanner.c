@@ -609,7 +609,7 @@ char *df_text;
  */
 #line 23 "scanner.l"
 /*
- * $Id$
+ * $Id: scanner.l 47613 2013-02-10 19:13:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

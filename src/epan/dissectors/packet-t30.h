@@ -4,7 +4,7 @@
  * 2003 Hans Viens
  * 2004 Alejandro Vaquero, add support to conversation
  *
- * $Id$
+ * $Id: packet-t30.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

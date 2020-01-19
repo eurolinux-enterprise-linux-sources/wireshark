@@ -1,6 +1,6 @@
 /* kasumi.h
  *
- * $Id$
+ * $Id: kasumi.h 44398 2012-08-09 19:33:36Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

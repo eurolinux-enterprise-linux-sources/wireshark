@@ -1,7 +1,7 @@
 /* capture_prefs.c
  * Dialog box for capture preferences
  *
- * $Id$
+ * $Id: prefs_capture.c 50800 2013-07-22 21:52:07Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -679,7 +679,7 @@ ifopts_edit_cb(GtkWidget *w, gpointer data _U_)
 	renderer = gtk_cell_renderer_spin_new ();
 	buffer_size_adj = (GtkAdjustment *) gtk_adjustment_new(DEFAULT_CAPTURE_BUFFER_SIZE, 1, 65535, 1.0, 10.0, 0.0);
 	g_object_set(G_OBJECT(renderer), "adjustment", buffer_size_adj, NULL);
-	column = gtk_tree_view_column_new_with_attributes ("Default buffer size (MiB)", renderer,
+	column = gtk_tree_view_column_new_with_attributes ("Default buffer size", renderer,
 							   "text", BUF_COLUMN,
 							   NULL);
 
@@ -830,7 +830,7 @@ ifopts_edit_cb(GtkWidget *w, gpointer data _U_)
 #endif
 
 #if defined(_WIN32) || defined(HAVE_PCAP_CREATE)
-	if_buffersize_lb = gtk_label_new("Default buffer size (MiB):");
+	if_buffersize_lb = gtk_label_new("Default buffer size:");
 	ws_gtk_grid_attach_defaults(GTK_GRID(main_grid), if_buffersize_lb, 0, row, 1, 1);
 	gtk_misc_set_alignment(GTK_MISC(if_buffersize_lb), 1.0f, 0.5f);
 	gtk_widget_show(if_buffersize_lb);

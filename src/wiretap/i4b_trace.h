@@ -27,7 +27,7 @@
  *	i4b_trace.h - header file for trace data read device
  *	----------------------------------------------------
  *
- *	$Id$
+ *	$Id: i4b_trace.h 37543 2011-06-04 21:20:57Z rbalint $
  *
  *      last edit-date: [Sun Feb 14 10:39:26 1999]
  *

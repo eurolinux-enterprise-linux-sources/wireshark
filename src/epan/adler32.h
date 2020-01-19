@@ -2,7 +2,7 @@
  * Compute the Adler32 checksum (RFC 1950)
  * 2003 Tomas Kukosa
  *
- * $Id$
+ * $Id: adler32.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

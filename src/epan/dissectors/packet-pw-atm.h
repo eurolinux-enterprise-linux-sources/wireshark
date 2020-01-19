@@ -2,7 +2,7 @@
  * Interface of pw-atm module
  * Copyright 2009, Artem Tamazov <artem.tamazov@tellabs.com>
  *
- * $Id$
+ * $Id: packet-pw-atm.h 47968 2013-03-01 06:01:51Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

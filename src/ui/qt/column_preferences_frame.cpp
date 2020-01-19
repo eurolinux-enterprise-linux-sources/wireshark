@@ -1,6 +1,6 @@
 /* column_preferences_frame.cpp
  *
- * $Id$
+ * $Id: column_preferences_frame.cpp 47522 2013-02-06 18:22:54Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

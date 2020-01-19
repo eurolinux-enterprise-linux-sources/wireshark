@@ -1,6 +1,6 @@
 /* print_dialog.h
  *
- * $Id$
+ * $Id: print_dialog.h 45892 2012-11-04 16:01:11Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

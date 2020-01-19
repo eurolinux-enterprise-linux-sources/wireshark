@@ -1,7 +1,7 @@
 /* main_titlebar.c
  * Main window title bar routines.
  *
- * $Id$
+ * $Id: main_titlebar.c 48709 2013-04-02 20:35:46Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -78,7 +78,7 @@ main_titlebar_update(void)
         if ((prefs.gui_version_placement == version_title_only) ||
             (prefs.gui_version_placement == version_both)) {
             gchar *old_title = title;
-            title = g_strdup_printf("%s   [Wireshark %s %s]", title, VERSION, wireshark_gitversion);
+            title = g_strdup_printf("%s   [Wireshark %s %s]", title, VERSION, wireshark_svnversion);
             g_free(old_title);
         }
         gtk_window_set_title(GTK_WINDOW(top_level), title);

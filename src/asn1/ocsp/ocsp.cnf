@@ -1,7 +1,7 @@
 # ocsp.cnf
 # OCSP conformation file
 
-# $Id$
+# $Id: ocsp.cnf 48429 2013-03-19 21:22:31Z etxrab $
 
 #.MODULE_IMPORT
 PKIX1Implicit88 pkix1implicit

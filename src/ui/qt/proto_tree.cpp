@@ -1,6 +1,6 @@
 /* proto_tree.cpp
  *
- * $Id$
+ * $Id: proto_tree.cpp 46709 2012-12-23 04:37:58Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

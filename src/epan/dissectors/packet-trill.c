@@ -2,7 +2,7 @@
  * Routines for TRILL (TRansparent Interconnection of Lots of Links) dissection
  * Copyright 2010, David Bond <mokon@mokon.net>
  *
- * $Id$
+ * $Id: packet-trill.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

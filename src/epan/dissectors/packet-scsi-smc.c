@@ -6,7 +6,7 @@
  * Dinesh G Dutt (ddutt@cisco.com)
  * Ronnie sahlberg 2006
  *
- * $Id$
+ * $Id: packet-scsi-smc.c 47390 2013-01-31 18:31:28Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

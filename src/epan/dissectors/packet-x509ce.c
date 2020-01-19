@@ -10,7 +10,7 @@
  * Routines for X.509 Certificate Extensions packet dissection
  *  Ronnie Sahlberg 2004
  *
- * $Id$
+ * $Id: packet-x509ce.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2107,7 +2107,7 @@ void proto_register_x509ce(void) {
         "GeneralNames", HFILL }},
     { &hf_x509ce_authorityCertSerialNumber,
       { "authorityCertSerialNumber", "x509ce.authorityCertSerialNumber",
-        FT_INT64, BASE_DEC, NULL, 0,
+        FT_INT32, BASE_DEC, NULL, 0,
         "CertificateSerialNumber", HFILL }},
     { &hf_x509ce_KeyPurposeIDs_item,
       { "KeyPurposeId", "x509ce.KeyPurposeId",
@@ -2435,7 +2435,7 @@ void proto_register_x509ce(void) {
         "GeneralName", HFILL }},
     { &hf_x509ce_CertificateSerialNumbers_item,
       { "CertificateSerialNumber", "x509ce.CertificateSerialNumber",
-        FT_INT64, BASE_DEC, NULL, 0,
+        FT_INT32, BASE_DEC, NULL, 0,
         NULL, HFILL }},
     { &hf_x509ce_RevokedGroupsSyntax_item,
       { "RevokedGroup", "x509ce.RevokedGroup",
@@ -2463,7 +2463,7 @@ void proto_register_x509ce(void) {
         "BOOLEAN", HFILL }},
     { &hf_x509ce_serialNumber,
       { "serialNumber", "x509ce.serialNumber",
-        FT_INT64, BASE_DEC, NULL, 0,
+        FT_INT32, BASE_DEC, NULL, 0,
         "CertificateSerialNumber", HFILL }},
     { &hf_x509ce_issuer,
       { "issuer", "x509ce.issuer",

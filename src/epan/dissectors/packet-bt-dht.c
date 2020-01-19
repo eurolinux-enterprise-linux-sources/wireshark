@@ -3,7 +3,7 @@
  * Routines for BT-DHT dissection
  * Copyright 2011, Xiao Xiangquan <xiaoxiangquan@gmail.com>
  *
- * $Id$
+ * $Id: packet-bt-dht.c 49772 2013-06-04 19:33:48Z martink $
  *
  * A plugin for BT-DHT packet:
  *

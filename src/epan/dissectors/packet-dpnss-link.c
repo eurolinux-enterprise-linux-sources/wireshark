@@ -2,7 +2,7 @@
  * Routines for DPNSS/DASS2 link layer dissection
  * Copyright 2009, Rolf Fiedler <rolf.fiedler[at]innoventif[dot]de>
  *
- * $Id$
+ * $Id: packet-dpnss-link.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

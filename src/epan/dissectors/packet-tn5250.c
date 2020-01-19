@@ -9,7 +9,7 @@
  *
  * Copyright 2009, Robert Hogan <robert@roberthogan.net>
  *
- * $Id$
+ * $Id: packet-tn5250.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -4645,8 +4645,6 @@ dissect_write_structured_field(proto_tree *tn5250_tree, tvbuff_t *tvb, gint offs
           length = tvb_get_guint8(tvb,offset);
           proto_tree_add_item(tn5250_tree, hf_tn5250_length, tvb, offset,
                               1, ENC_BIG_ENDIAN);
-          if (length==0)
-            break;
           proto_tree_add_item(tn5250_tree, hf_tn5250_dpt_ec, tvb, offset,
                               length, ENC_EBCDIC|ENC_NA);
           offset += length;
@@ -4665,12 +4663,7 @@ dissect_write_structured_field(proto_tree *tn5250_tree, tvbuff_t *tvb, gint offs
             offset += tn5250_add_hf_items(tn5250_tree, tvb, offset,
                                           dfdpck_top_row_fields);
           } else {
-            guint32 step;
-
-            step = dissect_unknown_data(tn5250_tree, tvb, offset, start, length);
-            if (step==0)
-              break;
-            offset += step;
+            offset += dissect_unknown_data(tn5250_tree, tvb, offset, start, length);
           }
         }
         break;

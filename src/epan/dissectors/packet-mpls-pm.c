@@ -7,7 +7,7 @@
  *
  * Francesco Fondelli <francesco dot fondelli, gmail dot com>
  *
- * $Id$
+ * $Id: packet-mpls-pm.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 # kerberos.cnf
 # kerberos conformation file
 # Copyright 2008 Anders Broman 
-# $Id$
+# $Id: kerberos.cnf 42525 2012-05-09 22:08:00Z guy $
 
 #.EXPORTS
 Checksum

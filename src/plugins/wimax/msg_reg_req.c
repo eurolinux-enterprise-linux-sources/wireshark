@@ -5,7 +5,7 @@
  *
  * Author: John R. Underwood <junderx@yahoo.com>
  *
- * $Id$
+ * $Id: msg_reg_req.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

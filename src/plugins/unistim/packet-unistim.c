@@ -2,7 +2,7 @@
   * Routines for unistim packet dissection
   * Copyright 2007 Don Newton <dnewton@cypresscom.net>
   *
-  * $Id$
+  * $Id: packet-unistim.c 47617 2013-02-10 20:52:21Z wmeier $
   *
   * Wireshark - Network traffic analyzer
   * By Gerald Combs <gerald@wireshark.org>

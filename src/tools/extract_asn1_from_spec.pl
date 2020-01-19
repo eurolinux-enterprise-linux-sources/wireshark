@@ -1,4 +1,4 @@
-#$Id$
+#$Id: extract_asn1_from_spec.pl 47034 2013-01-11 19:31:15Z pascal $
 #!/usr/bin/perl
 # 2011 Vincent Helfre and Erwan Yvin
 # This script extracts the ASN1 definition from and TS 36.331/36.355/25.331

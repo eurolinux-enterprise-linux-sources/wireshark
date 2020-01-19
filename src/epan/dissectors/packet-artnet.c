@@ -1,7 +1,7 @@
 /* packet-artnet.c
  * Routines for Art-Net packet disassembly
  *
- * $Id$
+ * $Id: packet-artnet.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Copyright (c) 2003, 2011 by Erwin Rol <erwin@erwinrol.com>
  *

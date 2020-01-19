@@ -1,6 +1,6 @@
 /*
  * crc11.c
- * $Id$
+ * $Id: crc11.c 46648 2012-12-21 01:57:03Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

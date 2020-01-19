@@ -3,7 +3,7 @@
  * Copyright 2001, Hartmut Mueller <hartmut@abmlinux.org>, FH Dortmund
  * Enhanced by Steve Karg, 2005, <skarg@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-bacnet.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

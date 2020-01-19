@@ -2,7 +2,7 @@
  * Declarations of routines handling protocols with a request/response line,
  * headers, a blank line, and an optional body.
  *
- * $Id$
+ * $Id: req_resp_hdrs.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

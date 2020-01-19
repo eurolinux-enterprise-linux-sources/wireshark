@@ -1,7 +1,7 @@
 /* packet-llc-rrc-template.h
  * Copyright 2009, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-lte-rrc-template.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

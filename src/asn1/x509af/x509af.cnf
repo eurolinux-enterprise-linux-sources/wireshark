@@ -1,7 +1,7 @@
 # x509.cnf
 # X509 conformation file
 
-# $Id$
+# $Id: x509af.cnf 48008 2013-03-02 14:51:04Z etxrab $
 
 #.IMPORT ../x509ce/x509ce-exp.cnf
 #.IMPORT ../x509if/x509if-exp.cnf
@@ -112,10 +112,5 @@ CertificateList/signedCertificateList/revokedCertificates/_item/userCertificate	
 
   str = x509if_get_last_dn();
   proto_item_append_text(proto_item_get_parent(tree), " (%%s)", str?str:"");
-
-#.TYPE_ATTR
-CertificateSerialNumber TYPE = FT_INT64
-
-#.FN_PARS CertificateSerialNumber FN_VARIANT = 64
 
 #.END

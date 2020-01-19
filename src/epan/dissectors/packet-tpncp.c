@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2007 by Valery Sigalov <valery.sigalov@audiocodes.com>
  *
- * $Id$
+ * $Id: packet-tpncp.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.com>

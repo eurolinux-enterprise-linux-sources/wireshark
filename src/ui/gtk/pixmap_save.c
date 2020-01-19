@@ -2,7 +2,7 @@
  * Routines for saving pixmaps using the Gdk-Pixmap library
  * Copyright 2007, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: pixmap_save.c 49781 2013-06-05 04:51:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

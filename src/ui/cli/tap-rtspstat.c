@@ -4,7 +4,7 @@
  * Stephane GORSE (Orange Labs / France Telecom)
  * Copied from Jean-Michel FAYARD's works (HTTP)
  *
- * $Id$
+ * $Id: tap-rtspstat.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

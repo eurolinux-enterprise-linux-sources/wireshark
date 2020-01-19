@@ -2,7 +2,7 @@
  * Routines for Spirent AX/4000 Test Block dissection
  * Copyright 2004, SEKINE Hideki <sekineh@gf7.so-net.ne.jp>
  *
- * $Id$
+ * $Id: packet-ax4000.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

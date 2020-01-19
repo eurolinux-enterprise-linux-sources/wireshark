@@ -1,6 +1,6 @@
 /* tap-scsistat.c	2010 Chris Costa and Cal Turney
  *
- * $Id$
+ * $Id: tap-scsistat.c 48161 2013-03-07 07:05:45Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

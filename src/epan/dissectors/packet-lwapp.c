@@ -3,7 +3,7 @@
  * Routines for LWAPP encapsulated packet disassembly
  * draft-ohara-capwap-lwapp-N (the current draft is 0)
  *
- * $Id$
+ * $Id: packet-lwapp.c 47391 2013-01-31 18:35:06Z wmeier $
  *
  * Copyright (c) 2003 by David Frascone <dave@frascone.com>
  *

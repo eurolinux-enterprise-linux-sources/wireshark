@@ -4,7 +4,7 @@
  * Copyright 2012 Richard Sharpe <realrichardsharpe@gmail.com>
  * Routines for SPNEGO Extended Negotiation Security Mechanism
  *
- * $Id$
+ * $Id: packet-negoex.c 48869 2013-04-16 00:00:09Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

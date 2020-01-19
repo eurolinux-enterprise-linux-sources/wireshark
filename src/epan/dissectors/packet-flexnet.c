@@ -3,7 +3,7 @@
  * Routines for Amateur Packet Radio protocol dissection
  * Copyright 2005,2006,2007,2008,2009,2010,2012 R.W. Stearn <richard@rns-stearn.demon.co.uk>
  *
- * $Id$
+ * $Id: packet-flexnet.c 47751 2013-02-19 23:17:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

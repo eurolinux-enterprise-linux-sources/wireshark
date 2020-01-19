@@ -1,6 +1,6 @@
 /* iseries.h
  *
- * $Id$
+ * $Id: iseries.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * Copyright (c) 2005 by Martin Warnes <martin@warnes.homeip.net>

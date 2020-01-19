@@ -1,6 +1,6 @@
 /* Standalone program to test functionality of exceptions.
  *
- * $Id$
+ * $Id: exntest.c 48917 2013-04-18 19:22:24Z guy $
  *
  * Copyright (c) 2004 MX Telecom Ltd. <richardv@mxtelecom.com>
  *

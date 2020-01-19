@@ -9,7 +9,7 @@
  *          Laboratories, Inc., http://www.PacketCable.com/
  * www.iana.org/assignments/mgcp-localconnectionoptions
  *
- * $Id$
+ * $Id: packet-mgcp.c 48260 2013-03-12 06:41:00Z etxrab $
  *
  * Copyright (c) 2000 by Ed Warnicke <hagbard@physics.rutgers.edu>
  * Copyright (c) 2004 by Thomas Anders <thomas.anders [AT] blue-cable.de>
@@ -36,6 +36,7 @@
 #include "config.h"
 
 #include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
 
 #include <epan/packet.h>
@@ -1021,7 +1022,7 @@ static gboolean is_mgcp_rspcode(tvbuff_t *tvb, gint offset, gint maxlength)
 	if (maxlength >= 3)
 	{
 		tvb_get_nstringz0(tvb, offset, sizeof(word), word);
-		if (g_ascii_isdigit(word[0]) && g_ascii_isdigit(word[1]) && g_ascii_isdigit(word[2]))
+		if (isdigit(word[0]) && isdigit(word[1]) && isdigit(word[2]))
 		{
 			returnvalue = TRUE;
 		}
@@ -1160,7 +1161,7 @@ static gint tvb_parse_param(tvbuff_t* tvb, gint offset, gint len, int** hf)
 					for (counter = 1;
 					    ((len > (counter + tvb_current_offset-offset)) &&
 					    (is_rfc2234_alpha(tempchar = tvb_get_guint8(tvb, tvb_current_offset+counter)) ||
-					     g_ascii_isdigit(tempchar))) ;
+					     isdigit(tempchar))) ;
 					     counter++);
 
 					if (tempchar == ':')

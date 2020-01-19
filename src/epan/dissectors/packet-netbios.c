@@ -5,7 +5,7 @@
  *
  * derived from the packet-nbns.c
  *
- * $Id$
+ * $Id: packet-netbios.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* packet-usb-hid.h
  *
- * $Id$
+ * $Id: packet-usb-hid.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * USB HID dissector
  * By Adam Nielsen <a.nielsen@shikadi.net> 2009

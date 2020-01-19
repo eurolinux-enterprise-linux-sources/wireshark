@@ -2,7 +2,7 @@
  * Routines for Gadu-Gadu dissection
  * Copyright 2011,2012, Jakub Zawadzki <darkjames-ws@darkjames.pl>
  *
- * $Id$
+ * $Id: packet-gadu-gadu.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Protocol documentation available at http://toxygen.net/libgadu/protocol/
  *

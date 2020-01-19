@@ -2,7 +2,7 @@
  * Routines for ADwin protocol dissection
  * Copyright 2010, Thomas Boehne <TBoehne[AT]ADwin.de>
  *
- * $Id$
+ * $Id: packet-adwin.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * API for a counter tree for Wireshark
  * 2004, Luis E. G. Ontanon
  *
- * $Id$
+ * $Id: stats_tree.c 52974 2013-10-29 22:55:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

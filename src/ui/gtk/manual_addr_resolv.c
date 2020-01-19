@@ -2,7 +2,7 @@
  * Dialog box for manual address resolve
  * Copyright 2010 Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: manual_addr_resolv.c 48528 2013-03-24 16:47:38Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

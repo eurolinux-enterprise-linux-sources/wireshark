@@ -2,7 +2,7 @@
 # H.323 conformation file
 # 2007  Tomas Kukosa
 
-# $Id$
+# $Id: h323.cnf 23309 2007-10-29 19:25:37Z kukosa $
 
 #.IMPORT ../h225/h225-exp.cnf
 

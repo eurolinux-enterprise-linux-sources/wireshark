@@ -3,7 +3,7 @@
  *
  * Copyright 2008, Gerald Combs <gerald@wireshark.org>
  *
- * $Id$
+ * $Id: geoip_db.c 48450 2013-03-21 14:29:58Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

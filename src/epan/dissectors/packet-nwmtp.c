@@ -3,7 +3,7 @@
  * Copyright 2010 by Holger Hans Peter Freyther <zecke@selfish.org>
  * Copyright 2010 by On-Waves
  *
- * $Id$
+ * $Id: packet-nwmtp.c 46993 2013-01-07 22:12:38Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

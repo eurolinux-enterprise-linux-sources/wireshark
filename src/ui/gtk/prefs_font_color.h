@@ -1,7 +1,7 @@
 /* prefs_font_color.h
  * Definitions for stream preferences window
  *
- * $Id$
+ * $Id: prefs_font_color.h 46909 2013-01-03 01:02:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

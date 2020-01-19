@@ -3,7 +3,7 @@
  * Copyright 2007 Anders Broman <anders.broman@ericsson.com>
  * Built from the gsm-map dissector Copyright 2004 - 2005, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-ansi_tcap-template.c 48440 2013-03-20 06:50:56Z etxrab $
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
  * Copyright 1998 Gerald Combs

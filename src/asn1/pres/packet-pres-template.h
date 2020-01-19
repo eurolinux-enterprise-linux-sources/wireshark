@@ -1,7 +1,7 @@
 /* packet-pres.h
  * Routines for pres packet dissection
  *
- * $Id$
+ * $Id: packet-pres-template.h 46520 2012-12-12 15:17:36Z stig $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

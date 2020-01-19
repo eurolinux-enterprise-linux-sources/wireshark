@@ -11,7 +11,7 @@
  * supplementary services
  * Copyright 2013, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-isdn-sup.c 51875 2013-09-09 18:52:33Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

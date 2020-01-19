@@ -3,7 +3,7 @@
         This is the executable that goes into Platypus apps
     Copyright (C) 2003 Sveinbjorn Thordarson <sveinbt@hi.is>
 
-    $Id$
+    $Id: main.c 48892 2013-04-17 01:44:00Z guy $
 
     With modifications by Aaron Voisine for gimp.app
     With modifications by Marianne gagnon for Wilber-loves-apple

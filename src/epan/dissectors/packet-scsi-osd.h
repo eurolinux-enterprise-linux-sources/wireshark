@@ -1,7 +1,7 @@
 /* packet-scsi-osd.h
  * Ronnie sahlberg 2006
  *
- * $Id$
+ * $Id: packet-scsi-osd.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

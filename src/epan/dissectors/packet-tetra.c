@@ -9,7 +9,7 @@
 /* packet-tetra.c
  * Routines for TETRA packet dissection
  *
- *$Id$
+ *$Id: packet-tetra.c 50688 2013-07-17 01:34:46Z gerald $
  *
  * Copyright (c) 2007 - 2011 Professional Mobile Communication Research Group,
  *    Beijing Institute of Technology, China

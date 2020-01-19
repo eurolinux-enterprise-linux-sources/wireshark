@@ -4,7 +4,7 @@
  * 2003  Graeme Reid (graeme.reid@norwoodsystems.com)
  * Copyright 2005, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-h450-template.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

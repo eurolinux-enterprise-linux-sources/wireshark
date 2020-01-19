@@ -3,7 +3,7 @@
  * Copyright 2006 _FF_
  * Francesco Fondelli <francesco dot fondelli, gmail dot com>
  *
- * $Id$
+ * $Id: packet-pktgen.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -9,7 +9,7 @@
  * doesn't itself know whether to pop up a dialog or print something
  * to the standard error.
  *
- * $Id$
+ * $Id: report_err.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

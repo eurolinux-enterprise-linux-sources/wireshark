@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for ASN.1 plugin
 #
-# $Id$
+# $Id: Makefile.am 48261 2013-03-12 06:53:39Z jake $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

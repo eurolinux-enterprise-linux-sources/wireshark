@@ -2,7 +2,7 @@
  * Sub-dissectors for IPMI messages (netFn=Storage)
  * Copyright 2007-2008, Alexey Neyman, Pigeon Point Systems <avn@pigeonpoint.com>
  *
- * $Id$
+ * $Id: packet-ipmi-storage.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

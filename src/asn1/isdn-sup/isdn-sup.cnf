@@ -2,7 +2,7 @@
 # isdn_sup conformation file
 # 2013  Anders Broman
 
-# $Id$
+# $Id: isdn-sup.cnf 51875 2013-09-09 18:52:33Z gerald $
 
 #.OPT
 BER

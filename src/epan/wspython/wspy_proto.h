@@ -1,6 +1,6 @@
 /* wspy_proto.h
  *
- * $Id$
+ * $Id: wspy_proto.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark Protocol Python Binding
  *

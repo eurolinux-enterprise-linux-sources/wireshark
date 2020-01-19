@@ -1,7 +1,7 @@
 /*
  *  packet-h248_2.c
  *
- * $Id$
+ * $Id: packet-h248_2.c 47448 2013-02-02 17:40:52Z wmeier $
  *
  *  H.248.2
  *  Gateway control protocol: Facsimile, text conversation and call discrimination packages

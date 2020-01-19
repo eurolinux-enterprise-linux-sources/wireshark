@@ -2,7 +2,7 @@
  * Declarations of exported routines from mpeg-sect dissector
  * Copyright 2012, Weston Schmidt <weston_schmidt@alumni.purdue.edu>
  *
- * $Id$
+ * $Id: packet-mpeg-sect.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

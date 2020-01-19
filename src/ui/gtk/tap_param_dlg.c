@@ -2,7 +2,7 @@
  * Routines for parameter dialog used by gui taps
  * Copyright 2003 Lars Roland
  *
- * $Id$
+ * $Id: tap_param_dlg.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

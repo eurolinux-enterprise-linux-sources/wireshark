@@ -1,7 +1,7 @@
 /* file.c
  * File I/O routines
  *
- * $Id$
+ * $Id: file.c 51931 2013-09-10 15:39:51Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -455,10 +455,8 @@ cf_reset_state(capture_file *cf)
   cf->finfo_selected = NULL;
 
   /* No frame link-layer types, either. */
-  if (cf->linktypes != NULL) {
-    g_array_free(cf->linktypes, TRUE);
-    cf->linktypes = NULL;
-  }
+  g_array_free(cf->linktypes, TRUE);
+  cf->linktypes = NULL;
 
   /* Clear the packet list. */
   packet_list_freeze();
@@ -1057,6 +1055,13 @@ int
 cf_get_packet_count(capture_file *cf)
 {
   return cf->count;
+}
+
+/* XXX - use a macro instead? */
+void
+cf_set_packet_count(capture_file *cf, int packet_count)
+{
+  cf->count = packet_count;
 }
 
 /* XXX - use a macro instead? */
@@ -4793,7 +4798,7 @@ cf_open_failure_alert_box(const char *filename, int err, gchar *err_info,
     case WTAP_ERR_UNSUPPORTED:
       /* Seen only when opening a capture file for reading. */
       simple_error_message_box(
-            "The file \"%s\" contains record data that Wireshark doesn't support.\n",
+            "The file \"%s\" isn't a capture file in a format Wireshark understands.\n"
             "(%s)",
             display_basename, err_info);
       g_free(err_info);

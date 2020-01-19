@@ -1,6 +1,6 @@
 /* ipfix.h
  *
- * $Id$
+ * $Id: ipfix.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * Copyright (c) 2010 by Hadriel Kaplan <hadrielk@yahoo.com>

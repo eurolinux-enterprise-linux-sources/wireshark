@@ -2,7 +2,7 @@
  * Portable Exception Handling for ANSI C.
  * Copyright (C) 1999 Kaz Kylheku <kaz@ashi.footprints.net>
  *
- * $Id$
+ * $Id: except.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Free Software License:
  *

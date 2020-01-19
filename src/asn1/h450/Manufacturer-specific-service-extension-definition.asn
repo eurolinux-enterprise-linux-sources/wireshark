@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.1/1998/Manufacturer-specific-service-extension-definition.asn
 --
--- $Id$
+-- $Id: Manufacturer-specific-service-extension-definition.asn 22417 2007-07-30 08:01:59Z kukosa $
 --
 
 -- Module Manufacturer-specific-service-extension-definition (H.450.1:02/1998)

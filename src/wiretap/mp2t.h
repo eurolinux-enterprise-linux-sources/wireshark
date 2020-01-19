@@ -4,7 +4,7 @@
  * Written by Weston Schmidt <weston_schmidt@alumni.purdue.edu>
  * Copyright 2012 Weston Schmidt
  *
- * $Id$
+ * $Id: mp2t.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * This program is free software; you can redistribute it and/or

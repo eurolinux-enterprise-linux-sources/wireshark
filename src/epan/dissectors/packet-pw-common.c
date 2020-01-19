@@ -2,7 +2,7 @@
  * Common functions and objects for PWE3 dissectors.
  * Copyright 2009, Artem Tamazov <artem.tamazov@tellabs.com>
  *
- * $Id$
+ * $Id: packet-pw-common.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

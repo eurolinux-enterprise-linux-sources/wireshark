@@ -1,6 +1,6 @@
 /* pppdump.h
  *
- * $Id$
+ * $Id: pppdump.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright (c) 2000 by Gilbert Ramirez <gram@alumni.rice.edu>
  *

@@ -1,7 +1,7 @@
 /* file_dialog.h
  * Common file dialog definitions
  *
- * $Id$
+ * $Id: file_dialog.h 45764 2012-10-24 15:52:17Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

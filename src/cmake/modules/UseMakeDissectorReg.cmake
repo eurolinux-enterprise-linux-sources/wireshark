@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: UseMakeDissectorReg.cmake 45118 2012-09-25 01:20:51Z jmayer $
 #
 MACRO(REGISTER_DISSECTOR_FILES _outputfile _registertype )
 	# FIXME: Only the Python stuff has been implemented

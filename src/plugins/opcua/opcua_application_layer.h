@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_application_layer.h 36283 2011-03-23 08:03:02Z stig $
 **
 ** Copyright (C) 2006-2007 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

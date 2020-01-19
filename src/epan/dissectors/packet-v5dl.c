@@ -3,7 +3,7 @@
  * Rolf Fiedler <rolf.fiedler@innoventif.de> using the LAPD code of
  * Gilbert Ramirez <gram@alumni.rice.edu>
  *
- * $Id$
+ * $Id: packet-v5dl.c 47459 2013-02-03 22:29:48Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

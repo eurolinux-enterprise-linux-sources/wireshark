@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: wsgetopt.c 48869 2013-04-16 00:00:09Z eapache $
    Copied from glibc-2.15 modified to compile on Windows.
 
    Getopt for GNU.

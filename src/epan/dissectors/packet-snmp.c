@@ -25,7 +25,7 @@
  * See RFC 2578 for Structure of Management Information Version 2 (SMIv2)
  * Copyright (C) 2007 Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: packet-snmp.c 51425 2013-08-19 11:25:35Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

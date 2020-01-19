@@ -6,7 +6,7 @@
 # Questions and answer content can be found below. Section and
 # question numbers will be automatically generated.
 #
-# $Id$
+# $Id: faq.py 48912 2013-04-18 17:10:47Z gerald $
 
 import sys
 import string

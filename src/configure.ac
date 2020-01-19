@@ -1,9 +1,9 @@
-# $Id$
+# $Id: configure.ac 51940 2013-09-10 19:59:42Z gerald $
 #
 
 m4_define([version_major], [1])
 m4_define([version_minor], [10])
-m4_define([version_micro], [14])
+m4_define([version_micro], [3])
 m4_define([version_micro_extra], version_micro)
 m4_append([version_micro_extra], [])
 
@@ -974,15 +974,7 @@ else
 		# documentation I can find online.
 		#
 		CFLAGS="-Ae +O2 $CFLAGS"
-		if test "$CC" = "$CC_FOR_BUILD"; then
-			#
-			# We're building the build tools with the same
-			# compiler as the one with which we're building
-			# Wireshark, so add the flags to the flags for
-			# that compiler as well.
-			#
-			CFLAGS_FOR_BUILD="-Ae +O2 $CFLAGS"
-		fi
+		CFLAGS_FOR_BUILD="-Ae +O2 $CFLAGS"
 		CXXFLAGS="+O2 $CFLAGS"
 		AC_MSG_RESULT(HP ANSI C compiler - added -Ae +O2)
 		;;
@@ -1398,13 +1390,7 @@ else
 
 	CPPFLAGS="-DGDK_PIXBUF_DISABLE_DEPRECATED $CPPFLAGS"
 	CPPFLAGS="-DGDK_DISABLE_DEPRECATED $CPPFLAGS"
-	if test \( $gtk_config_major_version -eq 3 -a $gtk_config_minor_version -ge 10 \) ; then
-		## Allow use of deprecated & disable deprecated warnings if Gtk >= 3.10;
-		##  The deprecations in Gtk 3.10 will not be fixed ...
-		CPPFLAGS="-DGDK_DISABLE_DEPRECATION_WARNINGS $CPPFLAGS"
-	else
-		CPPFLAGS="-DGTK_DISABLE_DEPRECATED $CPPFLAGS"
-	fi
+	CPPFLAGS="-DGTK_DISABLE_DEPRECATED $CPPFLAGS"
 	CPPFLAGS="-DGTK_DISABLE_SINGLE_INCLUDES $CPPFLAGS"
 	if test ! \( $gtk_config_major_version -eq 2 -a $gtk_config_minor_version -lt 20 \) ; then
 		# Enable GSEAL when building with GTK > 2.20
@@ -2145,17 +2131,6 @@ AC_CHECK_HEADERS(direct.h dirent.h fcntl.h grp.h inttypes.h netdb.h pwd.h stdarg
 AC_CHECK_HEADERS(sys/ioctl.h sys/param.h sys/socket.h sys/sockio.h sys/stat.h sys/time.h sys/types.h sys/utsname.h sys/wait.h)
 AC_CHECK_HEADERS(netinet/in.h)
 AC_CHECK_HEADERS(arpa/inet.h arpa/nameser.h)
-
-#
-# On Linux, check for some additional headers, which we need as a
-# workaround for a bonding driver bug and for libpcap's current lack
-# of its own workaround for that bug.
-#
-case "$host_os" in
-linux*)
-	AC_CHECK_HEADERS(linux/sockios.h linux/if_bonding.h,,,[#include <sys/socket.h>])
-	;;
-esac
 
 dnl SSL Check
 SSL_LIBS=''

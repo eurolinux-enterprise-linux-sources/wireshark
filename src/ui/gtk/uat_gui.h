@@ -1,7 +1,7 @@
 /*
  *  uat_gui.h
  *
- *  $Id$
+ *  $Id: uat_gui.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  *  User Accessible Tables GUI
  *  Mantain an array of user accessible data strucures

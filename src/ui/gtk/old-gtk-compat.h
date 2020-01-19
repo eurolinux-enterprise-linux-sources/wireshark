@@ -2,7 +2,7 @@
  * Definitions to provide some functions that are not present in older
  * GTK versions (down to 2.12.0)
  *
- * $Id$
+ * $Id: old-gtk-compat.h 44929 2012-09-16 18:00:56Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

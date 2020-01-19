@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for the TShark taps
 #
-# $Id$
+# $Id: Makefile.am 44974 2012-09-18 17:40:50Z morriss $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: golay.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Provides routines for encoding and decoding the extended Golay
  * (24,12,8) code.

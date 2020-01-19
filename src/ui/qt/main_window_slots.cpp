@@ -1,6 +1,6 @@
 /* main_window.cpp
  *
- * $Id$
+ * $Id: main_window_slots.cpp 49760 2013-06-04 07:38:48Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -51,7 +51,6 @@
 #include "capture_session.h"
 #endif
 
-#include "color_filters.h"
 #include "wsutil/file_util.h"
 
 #include "epan/column.h"
@@ -973,36 +972,6 @@ void MainWindow::recreatePacketList()
     cfile.columns_changed = FALSE; /* Reset value */
 }
 
-void MainWindow::fieldsChanged()
-{
-    // Reload color filters
-    color_filters_reload();
-
-    // Syntax check filter
-    // TODO: Check if syntax filter is still valid after fields have changed
-    //       and update background color.
-    if (cfile.dfilter) {
-        // Check if filter is still valid
-        dfilter_t *dfp = NULL;
-        if (!dfilter_compile(cfile.dfilter, &dfp)) {
-            // TODO: Not valid, enable "Apply" button.
-            g_free(cfile.dfilter);
-            cfile.dfilter = NULL;
-        }
-        dfilter_free(dfp);
-    }
-
-    if (have_custom_cols(&cfile.cinfo)) {
-        /* Recreate packet list according to new/changed/deleted fields */
-        recreatePacketList();
-    } else if (cfile.state != FILE_CLOSED) {
-        /* Redissect packets if we have any */
-        redissectPackets();
-    }
-
-    proto_free_deregistered_fields();
-}
-
 // On Qt4 + OS X with unifiedTitleAndToolBarOnMac set it's possible to make
 // the main window obnoxiously wide.
 
@@ -1274,9 +1243,7 @@ void MainWindow::actionEditCopyTriggered(MainWindow::CopySelected selection_type
         break;
     case CopySelectedValue:
         if (cap_file_->edt != 0) {
-            gchar* field_str = get_node_field_value(cap_file_->finfo_selected, cap_file_->edt);
-            clip.append(field_str);
-            g_free(field_str);
+            clip.append(get_node_field_value(cap_file_->finfo_selected, cap_file_->edt));
         }
         break;
     }

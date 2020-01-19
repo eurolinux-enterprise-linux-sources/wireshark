@@ -20,7 +20,7 @@
  *
  * (c) Copyright 2001 Ashok Narayanan <ashokn@cisco.com>
  *
- * $Id$
+ * $Id: text2pcap-scanner.l 47616 2013-02-10 20:21:05Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

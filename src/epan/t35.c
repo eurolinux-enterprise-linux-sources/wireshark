@@ -2,7 +2,7 @@
  * T.35 and H.221 tables
  * 2003  Tomas Kukosa
  *
- * $Id$
+ * $Id: t35.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

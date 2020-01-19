@@ -3,7 +3,7 @@
  * payloads (i.e., payloads when there could be an Ethernet trailer and
  * possibly an FCS).
  *
- * $Id$
+ * $Id: packet-ethertype.c 52974 2013-10-29 22:55:21Z gerald $
  *
  * Gilbert Ramirez <gram@alumni.rice.edu>
  *

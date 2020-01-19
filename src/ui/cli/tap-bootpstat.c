@@ -1,7 +1,7 @@
 /* tap-bootpstat.c
  * boop_stat   2003 Jean-Michel FAYARD
  *
- * $Id$
+ * $Id: tap-bootpstat.c 48108 2013-03-05 22:15:20Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

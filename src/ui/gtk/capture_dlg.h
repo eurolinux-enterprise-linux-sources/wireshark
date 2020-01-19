@@ -2,7 +2,7 @@
  * Definitions for the "Capture Options" dialog and dialog windows popped
  * up from it
  *
- * $Id$
+ * $Id: capture_dlg.h 46780 2012-12-26 12:24:55Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

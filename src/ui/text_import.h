@@ -3,7 +3,7 @@
  * State machine for text import
  * November 2010, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: text_import.h 48750 2013-04-05 14:30:33Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for DCERPC Distributed Link tracking Server packet disassembly
  * Copyright 2003, Ronnie Sahlberg
  *
- * $Id$
+ * $Id: packet-dcerpc-trksvr.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

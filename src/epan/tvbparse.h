@@ -4,7 +4,7 @@
 *
 * Copyright 2005, Luis E. Garcia Ontanon <luis@ontanon.org>
 *
-* $Id$
+* $Id: tvbparse.h 47992 2013-03-01 23:53:11Z rbalint $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

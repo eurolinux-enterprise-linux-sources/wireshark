@@ -10,7 +10,7 @@
  * provided by the EIA-485 physical layer."  See section 9.3 for the
  * frame format.
  *
- * $Id$
+ * $Id: packet-mstp.c 46324 2012-12-02 04:49:13Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

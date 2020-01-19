@@ -2,7 +2,7 @@
  * File read and write routines for Visual Networks cap files.
  * Copyright (c) 2001, Tom Nisbet  tnisbet@visualnetworks.com
  *
- * $Id$
+ * $Id: visual.c 48348 2013-03-17 09:20:13Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -144,14 +144,14 @@ struct visual_read_info
 {
     guint32 num_pkts;           /* Number of pkts in the file */
     guint32 current_pkt;        /* Next packet to be read */
-    time_t  start_time;         /* Capture start time in seconds */
+    double  start_time;         /* Capture start time in microseconds */
 };
 
 
 /* Additional information for writing Visual files */
 struct visual_write_info
 {
-    time_t  start_time;         /* Capture start time in seconds */
+    guint start_time;        /* Capture start time in seconds */
     int     index_table_index;  /* Index of the next index entry */
     int     index_table_size;   /* Allocated size of the index table */
     guint32 * index_table;      /* File offsets for the packets */
@@ -253,7 +253,7 @@ int visual_open(wtap *wth, int *err, gchar **err_info)
        break;
 
     default:
-        *err = WTAP_ERR_UNSUPPORTED;
+        *err = WTAP_ERR_UNSUPPORTED_ENCAP;
         *err_info = g_strdup_printf("visual: network type %u unknown or unsupported",
                                      vfile_hdr.media_type);
         return -1;
@@ -267,13 +267,13 @@ int visual_open(wtap *wth, int *err, gchar **err_info)
     /* Set up the pointers to the handlers for this file type */
     wth->subtype_read = visual_read;
     wth->subtype_seek_read = visual_seek_read;
-    wth->tsprecision = WTAP_FILE_TSPREC_MSEC;
+    wth->tsprecision = WTAP_FILE_TSPREC_USEC;
 
     /* Add Visual-specific information to the wiretap struct for later use. */
     visual = (struct visual_read_info *)g_malloc(sizeof(struct visual_read_info));
     wth->priv = (void *)visual;
     visual->num_pkts = pletohl(&vfile_hdr.num_pkts);
-    visual->start_time = pletohl(&vfile_hdr.start_time);
+    visual->start_time = ((double) pletohl(&vfile_hdr.start_time)) * 1000000;
     visual->current_pkt = 1;
 
     return 1;
@@ -294,7 +294,9 @@ static gboolean visual_read(wtap *wth, int *err, gchar **err_info,
     struct visual_atm_hdr vatm_hdr;
     int phdr_size = sizeof(vpkt_hdr);
     int ahdr_size = sizeof(vatm_hdr);
-    guint32 relmsecs;
+    time_t  secs;
+    guint32 usecs;
+    double  t;
 
     /* Check for the end of the packet data.  Note that a check for file EOF
        will not work because there are index values stored after the last
@@ -371,9 +373,12 @@ static gboolean visual_read(wtap *wth, int *err, gchar **err_info,
     wth->phdr.presence_flags = WTAP_HAS_TS|WTAP_HAS_CAP_LEN;
 
     /* Set the packet time and length. */
-    relmsecs = pletohl(&vpkt_hdr.ts_delta);
-    wth->phdr.ts.secs = visual->start_time + relmsecs/1000;
-    wth->phdr.ts.nsecs = (relmsecs % 1000)*1000000;
+    t = visual->start_time;
+    t += ((double)pletohl(&vpkt_hdr.ts_delta))*1000;
+    secs = (time_t)(t/1000000);
+    usecs = (guint32)(t - secs*1000000);
+    wth->phdr.ts.secs = secs;
+    wth->phdr.ts.nsecs = usecs * 1000;
     
     /* Most visual capture types include FCS checks in the original length value, but
     * but don't include the FCS as part of the payload or captured length. 
@@ -713,7 +718,7 @@ static gboolean visual_dump(wtap_dumper *wdh, const struct wtap_pkthdr *phdr,
     if (visual->index_table_index == 0)
     {
         /* This is the first packet.  Save its start time as the file time. */
-        visual->start_time = phdr->ts.secs;
+        visual->start_time = (guint32) phdr->ts.secs;
 
         /* Initialize the index table */
         visual->index_table = (guint32 *)g_malloc(1024 * sizeof *visual->index_table);
@@ -722,7 +727,7 @@ static gboolean visual_dump(wtap_dumper *wdh, const struct wtap_pkthdr *phdr,
 
     /* Calculate milliseconds since capture start. */
     delta_msec = phdr->ts.nsecs / 1000000;
-    delta_msec += (guint32)((phdr->ts.secs - visual->start_time) * 1000);
+    delta_msec += ( (guint32) phdr->ts.secs - visual->start_time) * 1000;
     vpkt_hdr.ts_delta = htolel(delta_msec);
 
     /* Fill in the length fields. */

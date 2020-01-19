@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_serviceparser.h 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -25,7 +25,6 @@
 #include <glib.h>
 #include <epan/packet.h>
 
-void parseServiceFault(proto_tree *tree, tvbuff_t *tvb, gint *pOffset);
 void parseFindServersRequest(proto_tree *tree, tvbuff_t *tvb, gint *pOffset);
 void parseFindServersResponse(proto_tree *tree, tvbuff_t *tvb, gint *pOffset);
 void parseGetEndpointsRequest(proto_tree *tree, tvbuff_t *tvb, gint *pOffset);

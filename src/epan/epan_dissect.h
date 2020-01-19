@@ -1,6 +1,6 @@
 /* epan_dissect.h
  *
- * $Id$
+ * $Id: epan_dissect.h 45451 2012-10-10 19:05:30Z darkjames $
  *
  * Wireshark Protocol Analyzer Library
  *

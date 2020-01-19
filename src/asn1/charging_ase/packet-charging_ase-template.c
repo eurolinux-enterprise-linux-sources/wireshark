@@ -1,7 +1,7 @@
 /* packet-charging_ase-template.c
  * Copyright 2009 , Anders Broman <anders.broman [AT] ericsson.com>
  *
- * $Id$
+ * $Id: packet-charging_ase-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

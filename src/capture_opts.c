@@ -1,7 +1,7 @@
 /* capture_opts.c
  * Routines for capture options setting
  *
- * $Id$
+ * $Id: capture_opts.c 51874 2013-09-09 18:28:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -29,6 +29,7 @@
 #ifdef HAVE_LIBPCAP
 
 #include <string.h>
+#include <ctype.h>
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -108,7 +109,7 @@ capture_opts_init(capture_options *capture_opts)
   capture_opts->has_autostop_packets            = FALSE;
   capture_opts->autostop_packets                = 0;
   capture_opts->has_autostop_filesize           = FALSE;
-  capture_opts->autostop_filesize               = 1000;             /* 1 MB */
+  capture_opts->autostop_filesize               = 1024;             /* 1 MiB */
   capture_opts->has_autostop_duration           = FALSE;
   capture_opts->autostop_duration               = 60;               /* 1 min */
 
@@ -214,7 +215,7 @@ capture_opts_log(const char *log_domain, GLogLevelFlags log_level, capture_optio
 
     g_log(log_domain, log_level, "AutostopFiles   (%u) : %u", capture_opts->has_autostop_files, capture_opts->autostop_files);
     g_log(log_domain, log_level, "AutostopPackets (%u) : %u", capture_opts->has_autostop_packets, capture_opts->autostop_packets);
-    g_log(log_domain, log_level, "AutostopFilesize(%u) : %u (KB)", capture_opts->has_autostop_filesize, capture_opts->autostop_filesize);
+    g_log(log_domain, log_level, "AutostopFilesize(%u) : %u (KiB)", capture_opts->has_autostop_filesize, capture_opts->autostop_filesize);
     g_log(log_domain, log_level, "AutostopDuration(%u) : %u", capture_opts->has_autostop_duration, capture_opts->autostop_duration);
 }
 
@@ -241,7 +242,7 @@ set_autostop_criterion(capture_options *capture_opts, const char *autostoparg)
    * as we allow it in the preferences file, we might as well
    * allow it here).
    */
-  while (g_ascii_isspace(*p))
+  while (isspace((guchar)*p))
     p++;
   if (*p == '\0') {
     /*
@@ -292,7 +293,7 @@ get_ring_arguments(capture_options *capture_opts, const char *arg)
    * as we allow it in the preferences file, we might as well
    * allow it here).
    */
-  while (g_ascii_isspace(*p))
+  while (isspace((guchar)*p))
     p++;
   if (*p == '\0') {
     /*
@@ -338,7 +339,7 @@ get_sampling_arguments(capture_options *capture_opts, const char *arg)
     p = colonp;
     *p++ = '\0';
 
-    while (g_ascii_isspace(*p))
+    while (isspace((guchar)*p))
         p++;
     if (*p == '\0') {
         *colonp = ':';
@@ -396,7 +397,7 @@ get_auth_arguments(capture_options *capture_opts, const char *arg)
     p = colonp;
     *p++ = '\0';
 
-    while (g_ascii_isspace(*p))
+    while (isspace((guchar)*p))
         p++;
 
     if (capture_opts->ifaces->len > 0) {

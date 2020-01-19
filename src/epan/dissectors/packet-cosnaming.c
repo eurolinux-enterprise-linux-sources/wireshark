@@ -1,6 +1,6 @@
 /* packet-cosnaming.c
  *
- * $Id$
+ * $Id: packet-cosnaming.c 47160 2013-01-19 10:54:09Z jake $
  *
  * Routines for IDL dissection
  *

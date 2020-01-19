@@ -2,7 +2,7 @@
  * Declarations of exported routines from LDP dissector
  * Copyright 2004, Carlos Pignataro <cpignata@cisco.com>
  *
- * $Id$
+ * $Id: packet-ldp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

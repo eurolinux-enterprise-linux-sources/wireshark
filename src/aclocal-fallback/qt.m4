@@ -1,5 +1,5 @@
 # Based on gtk-2.0.m4.
-# $Id$
+# $Id: qt.m4 47553 2013-02-08 02:51:14Z morriss $
 
 dnl AM_PATH_QT([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
 dnl Test for Qt+ and define Qt_CFLAGS and Qt_LIBS.

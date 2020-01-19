@@ -1,7 +1,7 @@
 
 ; Installer.nsi - installs Wireshark Portable onto a PortableApps enabled device
 
-; $Id$
+; $Id: Installer.nsi 48328 2013-03-15 21:46:25Z gerald $
 
 ;Copyright 2007 John T. Haller
 

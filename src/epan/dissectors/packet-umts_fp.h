@@ -1,7 +1,7 @@
 /* packet-fp.h
  *
  * Martin Mathieson
- * $Id$
+ * $Id: packet-umts_fp.h 44423 2012-08-10 15:22:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

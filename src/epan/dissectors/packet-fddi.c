@@ -7,7 +7,7 @@
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *
- * $Id$
+ * $Id: packet-fddi.c 45721 2012-10-22 18:14:54Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

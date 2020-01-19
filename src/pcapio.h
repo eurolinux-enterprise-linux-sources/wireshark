@@ -1,7 +1,7 @@
 /* pcapio.h
  * Declarations of our own routins for writing libpcap files.
  *
- * $Id$
+ * $Id: pcapio.h 46891 2013-01-02 04:01:22Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

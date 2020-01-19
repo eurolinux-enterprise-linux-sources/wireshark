@@ -1,7 +1,7 @@
 # Makefile.am.inc
 # Include file for Makefile.am files to get additional rules
 #
-# $Id$
+# $Id: Makefile.am.inc 47879 2013-02-25 18:12:20Z rbalint $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

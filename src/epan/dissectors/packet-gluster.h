@@ -4,7 +4,7 @@
  * With contributions from:
  *    Shreedhara LG <shreedharlg@gmail.com>
  *
- * $Id$
+ * $Id: packet-gluster.h 52173 2013-09-22 16:42:21Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

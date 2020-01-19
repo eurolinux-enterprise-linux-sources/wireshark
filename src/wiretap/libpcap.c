@@ -1,6 +1,6 @@
 /* libpcap.c
  *
- * $Id$
+ * $Id: libpcap.c 48552 2013-03-25 22:04:15Z eapache $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -63,7 +63,7 @@ typedef enum {
 	BAD_READ,		/* the file is probably not valid */
 	OTHER_FORMAT		/* the file may be valid, but not in this format */
 } libpcap_try_t;
-static libpcap_try_t libpcap_try(wtap *wth, int *err, gchar **err_info);
+static libpcap_try_t libpcap_try(wtap *wth, int *err);
 
 static gboolean libpcap_read(wtap *wth, int *err, gchar **err_info,
     gint64 *data_offset);
@@ -248,7 +248,7 @@ int libpcap_open(wtap *wth, int *err, gchar **err_info)
 
 	file_encap = wtap_pcap_encap_to_wtap_encap(hdr.network);
 	if (file_encap == WTAP_ENCAP_UNKNOWN) {
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("pcap: network type %u unknown or unsupported",
 		    hdr.network);
 		return -1;
@@ -357,7 +357,7 @@ int libpcap_open(wtap *wth, int *err, gchar **err_info)
 		 */
 		wth->file_type = WTAP_FILE_PCAP_SS991029;
 		first_packet_offset = file_tell(wth->fh);
-		switch (libpcap_try(wth, err, err_info)) {
+		switch (libpcap_try(wth, err)) {
 
 		case BAD_READ:
 			/*
@@ -406,7 +406,7 @@ int libpcap_open(wtap *wth, int *err, gchar **err_info)
 			wth->file_type = WTAP_FILE_PCAP;
 		}
 		first_packet_offset = file_tell(wth->fh);
-		switch (libpcap_try(wth, err, err_info)) {
+		switch (libpcap_try(wth, err)) {
 
 		case BAD_READ:
 			/*
@@ -442,7 +442,7 @@ int libpcap_open(wtap *wth, int *err, gchar **err_info)
 		if (file_seek(wth->fh, first_packet_offset, SEEK_SET, err) == -1) {
 			return -1;
 		}
-		switch (libpcap_try(wth, err, err_info)) {
+		switch (libpcap_try(wth, err)) {
 
 		case BAD_READ:
 			/*
@@ -505,7 +505,7 @@ done:
 }
 
 /* Try to read the first two records of the capture file. */
-static libpcap_try_t libpcap_try(wtap *wth, int *err, gchar **err_info)
+static libpcap_try_t libpcap_try(wtap *wth, int *err)
 {
 	/*
 	 * pcaprec_ss990915_hdr is the largest header type.
@@ -516,7 +516,7 @@ static libpcap_try_t libpcap_try(wtap *wth, int *err, gchar **err_info)
 	/*
 	 * Attempt to read the first record's header.
 	 */
-	if (libpcap_read_header(wth, err, err_info, &first_rec_hdr) == -1) {
+	if (libpcap_read_header(wth, err, NULL, &first_rec_hdr) == -1) {
 		if (*err == 0 || *err == WTAP_ERR_SHORT_READ) {
 			/*
 			 * EOF or short read - assume the file is in this
@@ -555,7 +555,7 @@ static libpcap_try_t libpcap_try(wtap *wth, int *err, gchar **err_info)
 	/*
 	 * Now attempt to read the second record's header.
 	 */
-	if (libpcap_read_header(wth, err, err_info, &second_rec_hdr) == -1) {
+	if (libpcap_read_header(wth, err, NULL, &second_rec_hdr) == -1) {
 		if (*err == 0 || *err == WTAP_ERR_SHORT_READ) {
 			/*
 			 * EOF or short read - assume the file is in this
@@ -773,41 +773,22 @@ static int libpcap_read_header(wtap *wth, int *err, gchar **err_info,
 		return -1;
 	}
 
-        if (hdr->hdr.orig_len > 64*1024*1024) {
-                /*
-                 * In theory I guess the on-the-wire packet size can be
-                 * arbitrarily large, and it can certainly be larger than the
-                 * maximum snapshot length which bounds the snapshot size,
-                 * but any file claiming 64MB in a single packet is *probably*
-                 * corrupt, and treating them as such makes the heuristics
-                 * much more reliable. See, for example,
-                 *
-                 *    https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9634
-                 *
-                 * (64MB is an arbitrary size at this point).
-                 */
-                *err = WTAP_ERR_BAD_FILE;
-                if (err_info != NULL) {
-                        *err_info = g_strdup_printf("pcap: File claims packet was %u bytes on the wire",
-                            hdr->hdr.orig_len);
-                }
-                return -1;
-        }
-
-        /* Disabling because this is not a fatal error, and packets that have
-         * one such packet probably have thousands. For discussion, see
-         * https://www.wireshark.org/lists/wireshark-dev/201307/msg00076.html
-         * and related messages.
-         *
-         * The packet contents will be copied to a Buffer, which expands
-         * as necessary to hold the contents; we don't have to worry
-         * about fixed-length buffers allocated based on the original
-         * snapshot length. */
-#if 0
-	if (hdr->hdr.incl_len > wth->snapshot_length) {
-		g_warning("pcap: File has packet larger than file's snapshot length.");
+	if (hdr->hdr.orig_len > WTAP_MAX_PACKET_SIZE) {
+		/*
+		 * Probably a corrupt capture file; return an error,
+		 * so that our caller doesn't blow up trying to
+		 * cope with a huge "real" packet length, and so that
+		 * the code to try to guess what type of libpcap file
+		 * this is can tell when it's not the type we're guessing
+		 * it is.
+		 */
+		*err = WTAP_ERR_BAD_FILE;
+		if (err_info != NULL) {
+			*err_info = g_strdup_printf("pcap: File has %u-byte packet, bigger than maximum of %u",
+			    hdr->hdr.orig_len, WTAP_MAX_PACKET_SIZE);
+		}
+		return -1;
 	}
-#endif
 
 	return bytes_read;
 }
@@ -974,7 +955,7 @@ static gboolean libpcap_dump(wtap_dumper *wdh,
 	rec_hdr.hdr.incl_len = phdr->caplen + phdrsize;
 	rec_hdr.hdr.orig_len = phdr->len + phdrsize;
 
-	if (rec_hdr.hdr.incl_len > WTAP_MAX_PACKET_SIZE) {
+	if (rec_hdr.hdr.incl_len > WTAP_MAX_PACKET_SIZE || rec_hdr.hdr.orig_len > WTAP_MAX_PACKET_SIZE) {
 		*err = WTAP_ERR_BAD_FILE;
 		return FALSE;
 	}

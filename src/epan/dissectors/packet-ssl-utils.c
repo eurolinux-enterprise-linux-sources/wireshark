@@ -2,7 +2,7 @@
  * ssl manipulation functions
  * By Paolo Abeni <paolo.abeni@email.com>
  *
- * $Id$
+ * $Id: packet-ssl-utils.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -36,7 +36,6 @@
 #include <epan/emem.h>
 #include <epan/strutil.h>
 #include <epan/addr_resolv.h>
-#include <epan/pint.h>
 #include <epan/ipv6-utils.h>
 #include <wsutil/file_util.h>
 
@@ -1337,7 +1336,6 @@ ssl_hmac_final(SSL_HMAC* md, guchar* data, guint* datalen)
 
     algo = gcry_md_get_algo (*(md));
     len  = gcry_md_get_algo_dlen(algo);
-    DISSECTOR_ASSERT(len <= *datalen);
     memcpy(data, gcry_md_read(*(md), algo), len);
     *datalen = len;
 }
@@ -1634,7 +1632,7 @@ ssl_private_decrypt(guint len, guchar* encr_data, SSL_PRIVATE_KEY* pk)
     ssl_debug_printf("pcry_private_decrypt: stripping %d bytes, decr_len %" G_GSIZE_MODIFIER "u\n",
         rc, decr_len);
     ssl_print_data("decrypted_unstrip_pre_master", decr_data_ptr, decr_len);
-    memmove(decr_data_ptr, &decr_data_ptr[rc], decr_len - rc);
+    g_memmove(decr_data_ptr, &decr_data_ptr[rc], decr_len - rc);
     decr_len -= rc;
 
 out:
@@ -1671,7 +1669,7 @@ out:
     ssl_debug_printf("pcry_private_decrypt: stripping %d bytes, decr_len %d\n",
         rc, decr_len);
     ssl_print_data("decrypted_unstrip_pre_master", decr_data_ptr, decr_len);
-    memmove(decr_data_ptr, &decr_data_ptr[rc], decr_len - rc);
+    g_memmove(decr_data_ptr, &decr_data_ptr[rc], decr_len - rc);
     decr_len -= rc;
 #endif /* SSL_FAST */
     gcry_mpi_release(text);
@@ -1707,8 +1705,6 @@ static const gchar *digests[]={
     "SHA256",
     "SHA384"
 };
-
-#define DIGEST_MAX_SIZE 48
 
 static const gchar *ciphers[]={
     "DES",
@@ -1822,7 +1818,7 @@ tls_hash(StringInfo* secret, StringInfo* seed, gint md, StringInfo* out)
     guint     left;
     gint      tocpy;
     guint8   *A;
-    guint8    _A[DIGEST_MAX_SIZE],tmp[DIGEST_MAX_SIZE];
+    guint8    _A[48],tmp[48];
     guint     A_l,tmp_l;
     SSL_HMAC  hm;
     ptr  = out->data;
@@ -1837,7 +1833,6 @@ tls_hash(StringInfo* secret, StringInfo* seed, gint md, StringInfo* out)
     while(left){
         ssl_hmac_init(&hm,secret->data,secret->data_len,md);
         ssl_hmac_update(&hm,A,A_l);
-        A_l = sizeof(_A);
         ssl_hmac_final(&hm,_A,&A_l);
         ssl_hmac_cleanup(&hm);
         A=_A;
@@ -1845,7 +1840,6 @@ tls_hash(StringInfo* secret, StringInfo* seed, gint md, StringInfo* out)
         ssl_hmac_init(&hm,secret->data,secret->data_len,md);
         ssl_hmac_update(&hm,A,A_l);
         ssl_hmac_update(&hm,seed->data,seed->data_len);
-        tmp_l = sizeof(tmp);
         ssl_hmac_final(&hm,tmp,&tmp_l);
         ssl_hmac_cleanup(&hm);
 
@@ -2458,7 +2452,7 @@ tls_check_mac(SslDecoder*decoder, gint ct, gint ver, guint8* data,
     SSL_HMAC hm;
     gint     md;
     guint32  len;
-    guint8   buf[DIGEST_MAX_SIZE];
+    guint8   buf[48];
     gint16   temp;
 
     md=ssl_get_digest_by_name(digests[decoder->cipher_suite->dig-0x40]);
@@ -2492,7 +2486,6 @@ tls_check_mac(SslDecoder*decoder, gint ct, gint ver, guint8* data,
     ssl_hmac_update(&hm,data,datalen);
 
     /* get digest and digest len*/
-    len = sizeof(buf);
     ssl_hmac_final(&hm,buf,&len);
     ssl_hmac_cleanup(&hm);
     ssl_print_data("Mac", buf, len);
@@ -2573,7 +2566,7 @@ dtls_check_mac(SslDecoder*decoder, gint ct,int ver, guint8* data,
     SSL_HMAC hm;
     gint     md;
     guint32  len;
-    guint8   buf[DIGEST_MAX_SIZE];
+    guint8   buf[20];
     gint16   temp;
 
     md=ssl_get_digest_by_name(digests[decoder->cipher_suite->dig-0x40]);
@@ -2604,7 +2597,6 @@ dtls_check_mac(SslDecoder*decoder, gint ct,int ver, guint8* data,
     ssl_hmac_update(&hm,buf,2);
     ssl_hmac_update(&hm,data,datalen);
     /* get digest and digest len */
-    len = sizeof(buf);
     ssl_hmac_final(&hm,buf,&len);
     ssl_hmac_cleanup(&hm);
     ssl_print_data("Mac", buf, len);
@@ -2683,10 +2675,6 @@ ssl_decrypt_record(SslDecryptSession*ssl,SslDecoder* decoder, gint ct,
 
     /* Now strip off the padding*/
     if(decoder->cipher_suite->block!=1) {
-        if (inl < 1) { /* Should this check happen earlier? */
-            ssl_debug_printf("ssl_decrypt_record failed: input length %d too small\n", inl);
-            return -1;
-        }
         pad=out_str->data[inl-1];
         worklen-=(pad+1);
         ssl_debug_printf("ssl_decrypt_record found padding %d final len %d\n",
@@ -3360,15 +3348,15 @@ ssl_private_key_hash  (gconstpointer v)
 {
     const SslService *key;
     guint        l, hash, len ;
-    const guint8 *cur;
+    const guint* cur;
 
     key  = (const SslService *)v;
     hash = key->port;
     len  = key->addr.len;
-    cur  = (const guint8 *) key->addr.data;
+    cur  = (const guint*) key->addr.data;
 
-    for (l=4; (l<len); l+=4, cur+=4)
-        hash = hash ^ pntohl(cur);
+    for (l=4; (l<len); l+=4, cur++)
+        hash = hash ^ (*cur);
 
     return hash;
 }
@@ -4049,7 +4037,7 @@ ssl_print_data(const gchar* name, const guchar* data, size_t len)
         fputc('|', ssl_debug_file);
         for (j=i, k=0; k<16 && j<len; ++j, ++k) {
             guchar c = data[j];
-            if (!g_ascii_isprint(c) || (c=='\t')) c = '.';
+            if (!isprint(c) || (c=='\t')) c = '.';
             fputc(c, ssl_debug_file);
         }
         for (; k<16; ++k)

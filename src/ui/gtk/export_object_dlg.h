@@ -2,7 +2,7 @@
  * Common routines for tracking & saving objects found in streams of data
  * Copyright 2007, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: export_object_dlg.h 45647 2012-10-18 21:14:43Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

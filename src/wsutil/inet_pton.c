@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 1996,1999 by Internet Software Consortium.
  *
- * $Id$
+ * $Id: inet_pton.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above

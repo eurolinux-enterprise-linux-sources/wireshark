@@ -1,7 +1,7 @@
 ## Makefile for building codecs.lib with Microsoft C and nmake
 ## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake
 #
-# $Id$
+# $Id: Makefile.nmake 41943 2012-04-04 20:46:49Z morriss $
 
 include ..\config.nmake
 

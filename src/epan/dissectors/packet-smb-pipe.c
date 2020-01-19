@@ -8,7 +8,7 @@ XXX  Fixme : shouldn't show [malformed frame] for long packets
  * significant rewrite to tvbuffify the dissector, Ronnie Sahlberg and
  * Guy Harris 2001
  *
- * $Id$
+ * $Id: packet-smb-pipe.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -36,6 +36,7 @@ XXX  Fixme : shouldn't show [malformed frame] for long packets
 #include <time.h>
 #include <string.h>
 #include <glib.h>
+#include <ctype.h>
 #include <epan/packet.h>
 #include <epan/dissectors/packet-smb.h>
 #include "packet-smb-pipe.h"
@@ -1624,12 +1625,12 @@ get_count(const guchar *desc, int *countp)
 	int count = 0;
 	guchar c;
 
-	if (!g_ascii_isdigit(*desc)) {
+	if (!isdigit(*desc)) {
 		*countp = 1;	/* no count was supplied */
 		return desc;
 	}
 
-	while ((c = *desc) != '\0' && g_ascii_isdigit(c)) {
+	while ((c = *desc) != '\0' && isdigit(c)) {
 		count = (count * 10) + c - '0';
 		desc++;
 	}

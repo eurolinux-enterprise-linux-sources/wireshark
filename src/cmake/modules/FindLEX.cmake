@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindLEX.cmake 34885 2010-11-15 20:25:28Z jmayer $
 #
 # - Find lex executable
 #

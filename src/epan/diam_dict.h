@@ -2,7 +2,7 @@
  ** diam_dict.h
  ** Diameter Dictionary Import Routines
  **
- ** $Id$
+ ** $Id: diam_dict.h 48869 2013-04-16 00:00:09Z eapache $
  **
  ** (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
  **

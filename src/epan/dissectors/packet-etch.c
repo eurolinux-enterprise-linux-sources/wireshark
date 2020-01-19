@@ -2,7 +2,7 @@
  *
  * Copyright (c) 2010, Holger Grandy, BMW Car IT GmbH (holger.grandy@bmw-carit.de)
  *
- * $Id$
+ * $Id: packet-etch.c 48919 2013-04-18 19:45:22Z eapache $
  *
  * Apache Etch Protocol dissector
  * http://incubator.apache.org/etch/

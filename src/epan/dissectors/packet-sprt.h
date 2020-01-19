@@ -3,7 +3,7 @@
  * Routines for SPRT dissection
  * SPRT = Simple Packet Relay Transport
  *
- * $Id$
+ * $Id: packet-sprt.h 43897 2012-07-21 15:32:36Z wmeier $
  *
  * Written by Jamison Adcock <jamison.adcock@cobham.com>
  * for Sparta Inc., dba Cobham Analytic Solutions

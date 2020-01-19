@@ -1,7 +1,7 @@
 /* packet-bacapp.h
  * by fkraemer, SAUTER
  *
- * $Id$
+ * $Id: packet-bacapp.h 47800 2013-02-21 15:32:29Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

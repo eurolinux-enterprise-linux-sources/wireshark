@@ -1,7 +1,7 @@
 /* capture_file_dlg.c
  * Dialog boxes for handling capture files
  *
- * $Id$
+ * $Id: capture_file_dlg.c 49781 2013-06-05 04:51:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

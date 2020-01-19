@@ -1,7 +1,7 @@
 /* exceptions.h
  * Wireshark's exceptions.
  *
- * $Id$
+ * $Id: exceptions.h 48917 2013-04-18 19:22:24Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

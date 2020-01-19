@@ -1,7 +1,7 @@
 /* filters.c
  * Code for reading and writing the filters file.
  *
- * $Id$
+ * $Id: filters.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -107,36 +107,6 @@ remove_filter_entry(GList *fl, GList *fl_entry)
   g_free(filt->strval);
   g_free(filt);
   return g_list_remove_link(fl, fl_entry);
-}
-
-static int
-skip_whitespace(FILE *ff)
-{
-  int c;
-
-  while ((c = getc(ff)) != EOF && c != '\n' && isascii(c) && isspace(c))
-    ;
-  return c;
-}
-
-static int
-getc_crlf(FILE *ff)
-{
-  int c;
-
-  c = getc(ff);
-  if (c == '\r') {
-    /* Treat CR-LF at the end of a line like LF, so that if we're reading
-     * a Windows-format file on UN*X, we handle it the same way we'd handle
-     * a UN*X-format file. */
-    c = getc(ff);
-    if (c != EOF && c != '\n') {
-      /* Put back the character after the CR, and process the CR normally. */
-      ungetc(c, ff);
-      c = '\r';
-    }
-  }
-  return c;
 }
 
 void
@@ -254,12 +224,15 @@ read_filter_list(filter_list_type_t list_type, char **pref_path_return,
        quotes, running to the end of the line. */
 
     /* Skip over leading white space, if any. */
-    c = skip_whitespace(ff);
+    while ((c = getc(ff)) != EOF && isspace(c)) {
+      if (c == '\n') {
+	/* Blank line. */
+	continue;
+      }
+    }
 
     if (c == EOF)
       break;	/* Nothing more to read */
-    if (c == '\n')
-      continue; /* Blank line. */
 
     /* "c" is the first non-white-space character.
        If it's not a quote, it's an error. */
@@ -274,7 +247,7 @@ read_filter_list(filter_list_type_t list_type, char **pref_path_return,
     /* Get the name of the filter. */
     filt_name_index = 0;
     for (;;) {
-      c = getc_crlf(ff);
+      c = getc(ff);
       if (c == EOF || c == '\n')
 	break;	/* End of line - or end of file */
       if (c == '"') {
@@ -289,7 +262,7 @@ read_filter_list(filter_list_type_t list_type, char **pref_path_return,
       }
       if (c == '\\') {
 	/* Next character is escaped */
-	c = getc_crlf(ff);
+	c = getc(ff);
 	if (c == EOF || c == '\n')
 	  break;	/* End of line - or end of file */
       }
@@ -320,7 +293,10 @@ read_filter_list(filter_list_type_t list_type, char **pref_path_return,
     }
 
     /* Skip over separating white space, if any. */
-    c = skip_whitespace(ff);
+    while ((c = getc(ff)) != EOF && isspace(c)) {
+      if (c == '\n')
+	break;
+    }
 
     if (c == EOF) {
       if (!ferror(ff)) {
@@ -352,7 +328,7 @@ read_filter_list(filter_list_type_t list_type, char **pref_path_return,
       filt_expr_index++;
 
       /* Get the next character. */
-      c = getc_crlf(ff);
+      c = getc(ff);
       if (c == EOF || c == '\n')
 	break;
     }
@@ -624,3 +600,4 @@ void copy_filter_list(filter_list_type_t dest_type, filter_list_type_t src_type)
         *flpp_dest = add_filter_entry(*flpp_dest, filt->name, filt->strval);
     }
 }
+

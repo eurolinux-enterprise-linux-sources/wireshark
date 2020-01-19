@@ -2,7 +2,7 @@
  * Routines for X.519 Internet Directly Mapped Procotol (IDMP) packet dissection
  * Graeme Lunt 2010
  *
- * $Id$
+ * $Id: packet-idmp-template.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

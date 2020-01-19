@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for Wireshark Memory Manager
 #
-# $Id$
+# $Id: Makefile.am 48436 2013-03-20 00:28:36Z eapache $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -62,7 +62,7 @@ checkapi:
 	$(LIBWMEM_SRC)
 
 #
-# Editor modelines  -  https://www.wireshark.org/tools/modelines.html
+# Editor modelines  -  http://www.wireshark.org/tools/modelines.html
 #
 # Local variables:
 # c-basic-offset: 8

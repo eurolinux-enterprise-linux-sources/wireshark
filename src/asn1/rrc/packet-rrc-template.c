@@ -4,7 +4,7 @@
  * (3GPP TS 25.331  packet dissection
  * Copyright 2006-2010, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-rrc-template.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

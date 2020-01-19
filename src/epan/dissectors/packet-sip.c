@@ -10,7 +10,7 @@
  * Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  * Copyright 2011, Anders Broman <anders.broman@ericsson.com>, Johan Wahl <johan.wahl@ericsson.com>
  *
- * $Id$
+ * $Id: packet-sip.c 52959 2013-10-29 18:59:13Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -34,6 +34,8 @@
  */
 
 #include "config.h"
+
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -792,9 +794,6 @@ static gboolean sip_desegment_body = TRUE;
  */
 static gboolean sip_retrans_the_same_sport = TRUE;
 
-/* whether we hold off tracking RTP conversations until an SDP answer is received */
-static gboolean sip_delay_sdp_changes = FALSE;
-
 /* Extension header subdissectors */
 static dissector_table_t ext_hdr_subdissector_table;
 
@@ -1552,13 +1551,12 @@ dissect_sip_contact_item(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gi
 			queried_offset = tvb_find_guint8(tvb, queried_offset+1, line_end_offset - queried_offset, '"');
 			if(queried_offset==-1){
 				/* We have an opening quote but no closing quote. */
+				queried_offset = line_end_offset;
+			}
+			current_offset =  tvb_find_guint8(tvb, queried_offset+1, line_end_offset - queried_offset, ';');
+			if(current_offset==-1){
+				/* Last parameter, line end */
 				current_offset = line_end_offset;
-			} else {
-				current_offset = tvb_pbrk_guint8(tvb, queried_offset+1, line_end_offset - queried_offset, ",;", &c);
-				if(current_offset==-1){
-					/* Last parameter, line end */
-					current_offset = line_end_offset;
-				}
 			}
 		}else{
 			current_offset = queried_offset;
@@ -1801,7 +1799,7 @@ static void dissect_sip_via_header(tvbuff_t *tvb, proto_tree *tree, gint start_o
 				transport_slash_count++;
 			}
 			else
-			if (!transport_name_started && (transport_slash_count == 2) && g_ascii_isalpha(c))
+			if (!transport_name_started && (transport_slash_count == 2) && isalpha(c))
 			{
 				transport_name_started = TRUE;
 				transport_start_offset = current_offset;
@@ -1872,7 +1870,7 @@ static void dissect_sip_via_header(tvbuff_t *tvb, proto_tree *tree, gint start_o
 			{
 				c = tvb_get_guint8(tvb, current_offset);
 
-				if (!g_ascii_isdigit(c))
+				if (!isdigit(c))
 				{
 					if (current_offset > port_offset)
 					{
@@ -1940,7 +1938,7 @@ static void dissect_sip_via_header(tvbuff_t *tvb, proto_tree *tree, gint start_o
 			while (current_offset < line_end_offset)
 			{
 				c = tvb_get_guint8(tvb, current_offset);
-				if (!g_ascii_isalpha(c) && (c != '-'))
+				if (!isalpha(c) && (c != '-'))
 				{
 					break;
 				}
@@ -2136,10 +2134,6 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 	 */
 	orig_offset = offset;
 	linelen = tvb_find_line_end(tvb, offset, -1, &next_offset, FALSE);
-	if(linelen==0){
-		return -2;
-	}
-
 	if (tvb_strnlen(tvb, offset, linelen) > -1)
 	{
 		/*
@@ -2367,7 +2361,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 
 					case POS_TO :
 
-						/*if(hdr_tree)*/ {
+						if(hdr_tree) {
 							proto_item *item;
 
 							sip_element_item = proto_tree_add_string_format(hdr_tree,
@@ -2644,7 +2638,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 						   of method name */
 						for (sub_value_offset=0; sub_value_offset < value_len; sub_value_offset++)
 						{
-							if (!g_ascii_isdigit(value[sub_value_offset]))
+							if (!isdigit((guchar)value[sub_value_offset]))
 							{
 								proto_tree_add_uint(cseq_tree, hf_sip_cseq_seq_no,
 								                    tvb, value_offset, sub_value_offset,
@@ -2655,7 +2649,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 
 						for (; sub_value_offset < value_len; sub_value_offset++)
 						{
-							if (g_ascii_isalpha((guchar)value[sub_value_offset]))
+							if (isalpha((guchar)value[sub_value_offset]))
 							{
 								/* Have reached start of method name */
 								break;
@@ -2714,7 +2708,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 						/* RSeq number */
 						for (sub_value_offset=0; sub_value_offset < value_len; sub_value_offset++)
 						{
-							if (!g_ascii_isdigit(value[sub_value_offset]))
+							if (!isdigit((guchar)value[sub_value_offset]))
 							{
 								proto_tree_add_uint(rack_tree, hf_sip_rack_rseq_no,
 								                    tvb, value_offset, sub_value_offset,
@@ -2737,7 +2731,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 						/* CSeq number */
 						for ( ; sub_value_offset < value_len; sub_value_offset++)
 						{
-							if (!g_ascii_isdigit(value[sub_value_offset]))
+							if (!isdigit((guchar)value[sub_value_offset]))
 							{
 								proto_tree_add_uint(rack_tree, hf_sip_rack_cseq_no,
 								                    tvb, value_offset+cseq_no_offset,
@@ -2750,7 +2744,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 						/* Get to start of CSeq method name */
 						for ( ; sub_value_offset < value_len; sub_value_offset++)
 						{
-							if (g_ascii_isalpha((guchar)value[sub_value_offset]))
+							if (isalpha((guchar)value[sub_value_offset]))
 							{
 								/* Have reached start of method name */
 								break;
@@ -2892,7 +2886,7 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 							break;
 						}
 
-						/*if(hdr_tree)*/ {
+						if(hdr_tree) {
 							comma_offset = value_offset;
 							while((comma_offset = dissect_sip_contact_item(tvb, pinfo, sip_element_tree, comma_offset, next_offset)) != -1)
 							{
@@ -3185,15 +3179,15 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 				/* Resends don't count */
 				if (resend_for_packet == 0) {
 					if (line_type == REQUEST_LINE) {
-						setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_OFFER, pinfo->fd->num, sip_delay_sdp_changes);
+						setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_OFFER, pinfo->fd->num);
 					} else if (line_type == STATUS_LINE) {
 						if (stat_info->response_code >= 400) {
 							/* SIP client request failed, so SDP offer should fail */
-							setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_ANSWER_REJECT, request_for_response, sip_delay_sdp_changes);
+							setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_ANSWER_REJECT, request_for_response);
 						}
 						else if ((stat_info->response_code >= 200) && (stat_info->response_code <= 299)) {
 							/* SIP success request, so SDP offer should be accepted */
-							setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_ANSWER_ACCEPT, request_for_response, sip_delay_sdp_changes);
+							setup_sdp_transport(next_tvb, pinfo, SDP_EXCHANGE_ANSWER_ACCEPT, request_for_response);
 						}
 					}
 				} else {
@@ -3201,8 +3195,6 @@ dissect_sip_common(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tr
 				}
 			}
 
-			/* XXX: why is this called even if setup_sdp_transport() was called before? That will
-					parse the SDP a second time, for 'application/sdp' media MIME bodies */
 			found_match = dissector_try_string(media_type_dissector_table,
 			                                   media_type_str_lower_case,
 			                                   next_tvb, pinfo,
@@ -3440,9 +3432,9 @@ sip_parse_line(tvbuff_t *tvb, int offset, gint linelen, guint *token_1_lenp)
 			 */
 			return OTHER_LINE;
 		}
-		if (!g_ascii_isdigit(tvb_get_guint8(tvb, token_2_start)) ||
-		    !g_ascii_isdigit(tvb_get_guint8(tvb, token_2_start + 1)) ||
-		    !g_ascii_isdigit(tvb_get_guint8(tvb, token_2_start + 2))) {
+		if (!isdigit(tvb_get_guint8(tvb, token_2_start)) ||
+		    !isdigit(tvb_get_guint8(tvb, token_2_start + 1)) ||
+		    !isdigit(tvb_get_guint8(tvb, token_2_start + 2))) {
 			/*
 			 * 3 characters yes, 3 digits no.
 			 */
@@ -5222,13 +5214,6 @@ void proto_register_sip(void)
 	    "Retransmissions always use the same source port",
 	    "Whether retransmissions are detected coming from the same source port only.",
 	    &sip_retrans_the_same_sport);
-	prefs_register_bool_preference(sip_module, "delay_sdp_changes",
-	    "Delay SDP changes for tracking media",
-	    "Whether SIP should delay tracking the media (e.g., RTP/RTCP) until an SDP offer "
-	    "is answered. If enabled, mid-dialog changes to SDP and media state only take "
-	    "effect if and when an SDP offer is successfully answered; however enabling this "
-	    "prevents tracking media in early-media call scenarios",
-	    &sip_delay_sdp_changes);
 
 	prefs_register_obsolete_preference(sip_module, "tcp.port");
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: osx-app.sh 50439 2013-07-07 21:36:27Z guy $
 #
 # USAGE
 # osx-app [-s] [-l /path/to/libraries] -bp /path/to/wireshark/bin -p /path/to/Info.plist
@@ -56,7 +56,6 @@ binary_list="
 	tshark
 	wireshark
 "
-cs_binary_list=
 
 # Location for libraries (macosx-setup.sh defaults to whatever the
 # various support libraries use as their standard installation location,
@@ -231,7 +230,6 @@ echo -e "\nFilling app bundle and utility directory...\n"
 for binary in $binary_list ; do
 	# Copy the binary to its destination
 	dest_path="$pkgbin/$binary-bin"
-	cs_binary_list="$cs_binary_list $dest_path"
 	cp -v "$binary_path/$binary" "$dest_path"
 	# TODO Add a "$verbose" variable and command line switch, which sets wether these commands are verbose or not
 
@@ -380,33 +378,6 @@ if [ "$strip" = "true" ]; then
 	chmod +w "$pkglib"/*.dylib
 	strip -x "$pkglib"/*.dylib
 	strip -ur "$binpath"
-fi
-
-codesign_file () {
-	codesign --sign "Developer ID Application: $CODE_SIGN_IDENTITY" --verbose "$1"
-	codesign --verify --verbose "$1" || exit 1
-	spctl --assess --type execute "$1" || exit 1
-}
-
-if [ -n "$CODE_SIGN_IDENTITY" ] ; then
-	security find-identity -v -s "$CODE_SIGN_IDENTITY" -p codesigning
-
-	echo "Signing executables"
-	for binary in $cs_binary_list ; do
-		codesign_file "$binary"
-	done
-	echo "Signing libraries"
-	for library in $pkglib/*.dylib ; do
-		codesign_file "$library"
-	done
-	echo "Signing plugins"
-	for plugin in $pkgplugin/*.so ; do
-		codesign_file "$plugin"
-	done
-	echo "Signing $package"
-	codesign_file "$package"
-else
-	echo "Code signing not performed (no identity)"
 fi
 
 # NOTE: This works for all the dylibs but causes GTK to crash at startup.

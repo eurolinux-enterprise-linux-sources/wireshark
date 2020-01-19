@@ -3,7 +3,7 @@
  * Copyright 2010, Alexis La Goutte <alexis.lagoutte at gmail dot com>
  * BSON dissection added 2011, Thomas Buchanan <tom at thomasbuchanan dot com>
  *
- * $Id$
+ * $Id: packet-mongo.c 45477 2012-10-11 19:20:21Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -431,8 +431,11 @@ dissect_mongo_reply(tvbuff_t *tvb, packet_info *pinfo, guint offset, proto_tree 
 static int
 dissect_mongo_msg(tvbuff_t *tvb, guint offset, proto_tree *tree)
 {
-  proto_tree_add_item(tree, hf_mongo_message, tvb, offset, -1, ENC_ASCII|ENC_NA);
-  offset += tvb_strsize(tvb, offset);
+
+  proto_item *ti;
+
+  ti = proto_tree_add_item(tree, hf_mongo_message, tvb, offset, -1, ENC_ASCII|ENC_NA);
+  offset += proto_item_get_len(ti);
 
   return offset;
 }

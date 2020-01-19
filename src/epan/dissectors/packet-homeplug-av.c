@@ -3,7 +3,7 @@
  *
  * Copyright 2011, Florian Fainelli <florian[AT]openwrt.org>
  *
- * $Id$
+ * $Id: packet-homeplug-av.c 48659 2013-03-30 19:16:51Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

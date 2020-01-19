@@ -2,7 +2,7 @@
  * Routines for WOL dissection
  * Copyright 2007, Christopher Maynard <Chris.Maynard[AT]gtech.com>
  *
- * $Id$
+ * $Id: packet-wol.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

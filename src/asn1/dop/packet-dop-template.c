@@ -2,7 +2,7 @@
  * Routines for X.501 (DSA Operational Attributes)  packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-dop-template.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* display_filter_combo.cpp
  *
- * $Id$
+ * $Id: display_filter_combo.cpp 50957 2013-07-27 22:44:41Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

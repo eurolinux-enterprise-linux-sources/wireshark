@@ -1,7 +1,7 @@
 /* atalk-utils.c
  * Routines for Appletalk utilities (DDP, currently).
  *
- * $Id$
+ * $Id: atalk-utils.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Simon Wilkinson <sxw@dcs.ed.ac.uk>
  *

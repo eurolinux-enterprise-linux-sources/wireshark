@@ -1,6 +1,6 @@
 # register-dissector.py
 #
-# $Id$
+# $Id: register-dissector.py 43536 2012-06-28 22:56:06Z darkjames $
 #
 # Wireshark Protocol Python Binding
 #

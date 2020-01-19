@@ -1,7 +1,7 @@
 /* prefs_filter_expressions.c
  * Submitted by Edwin Groothuis <wireshark@mavetju.org>
  *
- * $Id$
+ * $Id: prefs_filter_expressions.c 46679 2012-12-21 17:07:51Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

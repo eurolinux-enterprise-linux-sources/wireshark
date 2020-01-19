@@ -2,7 +2,7 @@
  * Routines for Infiniband/ERF Dissection
  * Copyright 2008 Endace Technology Limited
  *
- * $Id$
+ * $Id: packet-infiniband.h 48991 2013-04-22 21:32:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

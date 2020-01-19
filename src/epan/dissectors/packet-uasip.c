@@ -2,7 +2,7 @@
  * Routines for UA/UDP (Universal Alcatel over UDP) and NOE/SIP packet dissection.
  * Copyright 2012, Alcatel-Lucent Enterprise <lars.ruoff@alcatel-lucent.com>
  *
- * $Id$
+ * $Id: packet-uasip.c 45848 2012-10-31 13:09:04Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  *
  * Martin Mathieson
  *
- * $Id$
+ * $Id: packet-mac-lte.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -513,7 +513,7 @@ static const value_string buffer_size_vals[] =
     { 10,     "36 < BS <= 42"},
     { 11,     "42 < BS <= 49"},
     { 12,     "49 < BS <= 57"},
-    { 13,     "57 < BS <= 67"},
+    { 13,     "47 < BS <= 67"},
     { 14,     "67 < BS <= 78"},
     { 15,     "78 < BS <= 91"},
     { 16,     "91 < BS <= 107"},

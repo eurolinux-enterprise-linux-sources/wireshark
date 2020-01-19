@@ -2,7 +2,7 @@
  * Routines for Ether-S-I/O dissection (from Saia Burgess Controls AG )
  * Copyright 2010, Christian Durrer <christian.durrer@sensemail.ch>
  *
- * $Id$
+ * $Id: packet-esio.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

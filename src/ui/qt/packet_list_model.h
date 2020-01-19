@@ -1,6 +1,6 @@
 /* packet_list_model.h
  *
- * $Id$
+ * $Id: packet_list_model.h 46576 2012-12-17 23:03:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

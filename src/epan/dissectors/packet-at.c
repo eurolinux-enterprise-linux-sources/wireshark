@@ -3,7 +3,7 @@
  *
  * Copyright 2011, Tyson Key <tyson.key@gmail.com>
  *
- * $Id$
+ * $Id: packet-at.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -51,7 +51,7 @@ static gboolean allowed_chars(tvbuff_t *tvb)
     len = tvb_length(tvb);
     for (offset = 0; offset < len; offset++) {
         val = tvb_get_guint8(tvb, offset);
-        if (!(g_ascii_isprint(val) || (val == 0x0a) || (val == 0x0d)))
+        if (!(isprint(val) || (val == 0x0a) || (val == 0x0d)))
             return (FALSE);
     }
     return (TRUE);

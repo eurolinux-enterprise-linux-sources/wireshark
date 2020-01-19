@@ -1,7 +1,7 @@
 /* prefs.c
  * Routines for handling preferences
  *
- * $Id$
+ * $Id: prefs.c 50871 2013-07-24 18:15:28Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -26,6 +26,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <errno.h>
 
 #ifdef HAVE_UNISTD_H
@@ -350,8 +351,9 @@ prefs_register_module_or_subtree(module_t *parent, const char *name,
          * shifting, etc.
          */
         for (p = name; (c = *p) != '\0'; p++)
-            g_assert(g_ascii_islower(c) || g_ascii_isdigit(c) || c == '_' ||
-                 c == '-' || c == '.');
+            g_assert(isascii(c) &&
+                (islower(c) || isdigit(c) || c == '_' ||
+                 c == '-' || c == '.'));
 
         /*
          * Make sure there's not already a module with that
@@ -730,7 +732,8 @@ register_preference(module_t *module, const char *name, const char *title,
      * and shouldn't require quoting, shifting, etc.
      */
     for (p = name; *p != '\0'; p++)
-        if (!(g_ascii_islower(*p) || g_ascii_isdigit(*p) || *p == '_' || *p == '.'))
+        if (!(isascii((guchar)*p) &&
+            (islower((guchar)*p) || isdigit((guchar)*p) || *p == '_' || *p == '.')))
             g_error("Preference %s.%s contains invalid characters", module->name, name);
 
     /*
@@ -2438,7 +2441,7 @@ prefs_get_string_list(const gchar *str)
       state = PRE_STRING;
       slstr = (gchar *) g_malloc(sizeof(gchar) * COL_MAX_LEN);
       j = 0;
-    } else if (!g_ascii_isspace(cur_c) || state != PRE_STRING) {
+    } else if (!isspace(cur_c) || state != PRE_STRING) {
       /* Either this isn't a white-space character, or we've started a
          string (i.e., already seen a non-white-space character for that
          string and put it into the string).
@@ -3040,19 +3043,6 @@ read_prefs_file(const char *pf_path, FILE *pf,
   cur_var = g_string_new("");
 
   while ((got_c = getc(pf)) != EOF) {
-    if (got_c == '\r') {
-      /* Treat CR-LF at the end of a line like LF, so that if we're reading
-       * a Windows-format file on UN*X, we handle it the same way we'd handle
-       * a UN*X-format file. */
-      got_c = getc(pf);
-      if (got_c == EOF)
-        break;
-      if (got_c != '\n') {
-        /* Put back the character after the CR, and process the CR normally. */
-        ungetc(got_c, pf);
-        got_c = '\r';
-      }
-    }
     if (got_c == '\n') {
       state = START;
       fline++;
@@ -3061,7 +3051,7 @@ read_prefs_file(const char *pf_path, FILE *pf,
 
     switch (state) {
       case START:
-        if (g_ascii_isalnum(got_c)) {
+        if (isalnum(got_c)) {
           if (cur_var->len > 0) {
             if (got_val) {
               /* Call the routine to set the preference; it will parse
@@ -3096,7 +3086,7 @@ read_prefs_file(const char *pf_path, FILE *pf,
           g_string_truncate(cur_var, 0);
           g_string_append_c(cur_var, (gchar) got_c);
           pline = fline;
-        } else if (g_ascii_isspace(got_c) && cur_var->len > 0 && got_val) {
+        } else if (isspace(got_c) && cur_var->len > 0 && got_val) {
           state = PRE_VAL;
         } else if (got_c == '#') {
           state = IN_SKIP;
@@ -3114,7 +3104,7 @@ read_prefs_file(const char *pf_path, FILE *pf,
         }
         break;
       case PRE_VAL:
-        if (!g_ascii_isspace(got_c)) {
+        if (!isspace(got_c)) {
           state = IN_VAL;
           g_string_append_c(cur_val, (gchar) got_c);
         }
@@ -3186,7 +3176,7 @@ prefs_set_uat_pref(char *uat_entry) {
      * as we allow it in the preferences file, we might as well
      * allow it here).
      */
-    while (g_ascii_isspace(*p))
+    while (isspace((guchar)*p))
         p++;
     if (*p == '\0') {
         /*
@@ -3244,7 +3234,7 @@ prefs_set_pref(char *prefarg)
      * as we allow it in the preferences file, we might as well
      * allow it here).
      */
-    while (g_ascii_isspace(*p))
+    while (isspace((guchar)*p))
         p++;
     if (*p == '\0') {
         /*

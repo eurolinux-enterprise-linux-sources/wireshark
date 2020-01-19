@@ -4,7 +4,7 @@
  * AX.25 frames
  * Copyright 2005,2006,2007,2008,2009,2010,2012 R.W. Stearn <richard@rns-stearn.demon.co.uk>
  *
- * $Id$
+ * $Id: packet-ax25.c 48282 2013-03-13 21:14:20Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

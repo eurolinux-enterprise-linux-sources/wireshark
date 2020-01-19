@@ -2,7 +2,7 @@
  * Definitions of routines for ARP packet disassembly that are used
  * elsewhere
  *
- * $Id$
+ * $Id: packet-arp.h 45535 2012-10-14 15:27:52Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  *
  * Martin Mathieson
  *
- * $Id$
+ * $Id: packet-rlc-lte.c 51425 2013-08-19 11:25:35Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

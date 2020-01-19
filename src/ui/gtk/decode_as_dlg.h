@@ -1,6 +1,6 @@
 /* decode_as_dlg.h
  *
- * $Id$
+ * $Id: decode_as_dlg.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Routines to modify dissector tables on the fly.
  *

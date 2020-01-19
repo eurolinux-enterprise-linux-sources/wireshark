@@ -3,7 +3,7 @@
  * Copyright 2002, Jaime Fournier <Jaime.Fournier@hush.com>
  * This information is based off the released idl files from opengroup.
  *
- * $Id$
+ * $Id: packet-dcerpc-dce122.c 47813 2013-02-22 01:34:53Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for MPEG2 (ISO/ISO 13818-1 and co) descriptors
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-mpeg-descriptor.c 48651 2013-03-30 10:59:30Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

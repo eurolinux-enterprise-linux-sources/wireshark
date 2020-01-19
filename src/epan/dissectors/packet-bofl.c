@@ -2,7 +2,7 @@
  * Routines for Wellfleet BOFL dissection
  * Author: Endoh Akira (endoh@netmarks.co.jp)
  *
- * $Id$
+ * $Id: packet-bofl.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@unicom.net>

@@ -1,6 +1,6 @@
 /* netscaler.c
  *
- * $Id$
+ * $Id: netscaler.c 48348 2013-03-17 09:20:13Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 2006 by Ravi Kondamuru <Ravi.Kondamuru@citrix.com>
@@ -577,6 +577,8 @@ int nstrace_open(wtap *wth, int *err, gchar **err_info)
         break;
 
     default:
+        *err = WTAP_ERR_UNSUPPORTED;
+        *err_info = g_strdup_printf("nstrace: file type %d unsupported", wth->file_type);
         g_free(nstrace_buf);
         return 0;
     }

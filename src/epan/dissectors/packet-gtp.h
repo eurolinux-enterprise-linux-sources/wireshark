@@ -1,6 +1,6 @@
 /* packet-gtp.h
  *
- * $Id$
+ * $Id: packet-gtp.h 46537 2012-12-14 11:27:38Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

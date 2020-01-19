@@ -6,7 +6,7 @@
  *
  * Original dissector repository: https://github.com/bistromath/vrt-dissector
  *
- * $Id$
+ * $Id: packet-vrt.c 48638 2013-03-29 13:22:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

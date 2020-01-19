@@ -6,7 +6,7 @@
  * Changed 07/2005 Luis Ontanon <luis@ontanon.org> - use FreeRADIUS' dictionary
  * Changed 10/2006 Alejandro Vaquero <alejandrovaquero@yahoo.com> - add Conversations support
  *
- * $Id$
+ * $Id: packet-radius.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -531,7 +531,7 @@ radius_decrypt_avp(gchar *dest,int dest_len,tvbuff_t *tvb,int offset,int length)
 	for ( i = 0; i < padded_length; i += AUTHENTICATOR_LENGTH ) {
 		for ( j = 0; j < AUTHENTICATOR_LENGTH; j++ ) {
 			c = pd[i + j] ^ digest[j];
-			if ( g_ascii_isprint(c) ) {
+			if ( isprint(c) ) {
 				returned_length = g_snprintf(&dest[totlen], dest_len - totlen,
 					"%c", c);
 				totlen += MIN(returned_length, dest_len - totlen - 1);

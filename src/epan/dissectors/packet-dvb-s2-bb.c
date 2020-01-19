@@ -9,7 +9,7 @@
  *
  * Copyright 2012, Tobias Rutz <tobias.rutz@work-microwave.de>
  *
- * $Id$
+ * $Id: packet-dvb-s2-bb.c 52970 2013-10-29 21:58:59Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

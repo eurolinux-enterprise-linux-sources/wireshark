@@ -5,7 +5,7 @@
  *
  * Author: Lu Pan <lu.pan@intel.com>
  *
- * $Id$
+ * $Id: mac_hd_generic_decoder.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

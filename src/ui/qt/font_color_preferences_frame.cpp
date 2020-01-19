@@ -1,6 +1,6 @@
 /* font_color_preferences_frame.cpp
  *
- * $Id$
+ * $Id: font_color_preferences_frame.cpp 47409 2013-02-01 09:21:38Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

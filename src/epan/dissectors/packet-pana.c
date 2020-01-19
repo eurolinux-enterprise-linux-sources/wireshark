@@ -2,7 +2,7 @@
  * Routines for Protocol for carrying Authentication for Network Access dissection
  * Copyright 2006, Peter Racz <racz@ifi.unizh.ch>
  *
- * $Id$
+ * $Id: packet-pana.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* main_window.cpp
  *
- * $Id$
+ * $Id: main_window.cpp 49760 2013-06-04 07:38:48Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -209,8 +209,6 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(filterExpressionsChanged()));
     connect(wsApp, SIGNAL(filterExpressionsChanged()),
             this, SLOT(filterExpressionsChanged()));
-    connect(wsApp, SIGNAL(fieldsChanged()),
-            this, SLOT(fieldsChanged()));
 
     connect(main_welcome_, SIGNAL(startCapture()),
             this, SLOT(startCapture()));

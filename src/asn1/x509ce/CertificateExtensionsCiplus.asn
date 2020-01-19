@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: CertificateExtensionsCiplus.asn 43485 2012-06-25 21:16:43Z etxrab $
 -- Module CertificateExtensionsCiplus
 --  X.509 certificate extensions defined by CI+ (www.ci-plus.com)
 CertificateExtensionsCiplus DEFINITIONS IMPLICIT TAGS ::=

@@ -1,6 +1,6 @@
 /* color_utils.h
  *
- * $Id$
+ * $Id: color_utils.h 47240 2013-01-24 01:10:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

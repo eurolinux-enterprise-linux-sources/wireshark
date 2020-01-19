@@ -3,7 +3,7 @@
  * See also: export_object.c / export_object.h for common code
  * Copyright 2007, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: export_object_http.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

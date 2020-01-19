@@ -1,7 +1,7 @@
 /*
  * crc7.h
  *  
- * $Id$
+ * $Id: crc7.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Functions and types for CRC checks.
  *

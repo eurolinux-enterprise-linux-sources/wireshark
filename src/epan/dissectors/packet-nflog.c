@@ -1,7 +1,7 @@
 /* packet-nflog.c
  * Copyright 2011,2012 Jakub Zawadzki <darkjames-ws@darkjames.pl>
  *
- * $Id$
+ * $Id: packet-nflog.c 46766 2012-12-26 10:30:34Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

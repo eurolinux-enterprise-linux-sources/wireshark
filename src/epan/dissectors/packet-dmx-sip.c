@@ -1,7 +1,7 @@
 /* packet-dmx-sip.c
  * DMX SIP packet disassembly.
  *
- * $Id$
+ * $Id: packet-dmx-sip.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * This dissector is written by
  *

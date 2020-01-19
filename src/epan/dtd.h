@@ -6,7 +6,7 @@
  *
  * Copyright 2005, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: dtd.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

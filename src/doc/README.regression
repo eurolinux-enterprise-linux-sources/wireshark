@@ -1,7 +1,7 @@
 #
 # Wireshark/TShark Regression Testing
 #
-# $Id$
+# $Id: README.regression 18271 2006-05-31 19:12:15Z gerald $
 #
 # This is a sample Makefile for regression testing of the
 # Wireshark engine. These tests use that uses 'tshark -V' to analyze all

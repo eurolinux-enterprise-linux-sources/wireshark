@@ -6,7 +6,7 @@
  * Copyright 2000, Philips Electronics N.V.
  * Written by Andreas Sikkema <h323@ramdyne.nl>
  *
- * $Id$
+ * $Id: packet-rtp.c 52970 2013-10-29 21:58:59Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -879,9 +879,8 @@ srtp_add_address(packet_info *pinfo, address *addr, int port, int other_port,
 	/*
 	 * Update the conversation data.
 	 */
-	/* Free the hash if a different one already exists */
-	/* if (p_conv_data->rtp_dyn_payload != rtp_dyn_payload) */
-	/* 	rtp_free_hash_dyn_payload(p_conv_data->rtp_dyn_payload); */
+	/* Free the hash if already exists */
+	rtp_free_hash_dyn_payload(p_conv_data->rtp_dyn_payload);
 
 	g_strlcpy(p_conv_data->method, setup_method, MAX_RTP_SETUP_METHOD_SIZE+1);
 	p_conv_data->frame_number = setup_frame_number;

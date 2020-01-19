@@ -2,7 +2,7 @@
  * Routines for Digital Audio Access Protocol dissection
  * Copyright 2004, Kelly Byrd <kbyrd@memcpy.com>
  *
- * $Id$
+ * $Id: packet-daap.c 48338 2013-03-16 08:52:09Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

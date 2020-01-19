@@ -1,6 +1,6 @@
 /* file_util.c
  *
- * $Id$
+ * $Id: file_util.c 47773 2013-02-20 19:58:55Z gerald $
  *
  * (Originally part of the Wiretap Library, now part of the Wireshark
  *  utility library)

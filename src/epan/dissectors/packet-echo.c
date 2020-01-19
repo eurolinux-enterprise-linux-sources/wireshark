@@ -6,7 +6,7 @@
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *
- * $Id$
+ * $Id: packet-echo.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

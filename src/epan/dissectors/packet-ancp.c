@@ -8,7 +8,7 @@
  *
  * Copyright 2010, Aniruddha.A (anira@cisco.com)
  *
- * $Id$
+ * $Id: packet-ancp.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

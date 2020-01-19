@@ -2,7 +2,7 @@
  * Routines for BT-UTP dissection
  * Copyright 2011, Xiao Xiangquan <xiaoxiangquan@gmail.com>
  *
- * $Id$
+ * $Id: packet-bt-utp.c 47761 2013-02-20 02:15:20Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

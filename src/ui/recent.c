@@ -2,7 +2,7 @@
  * Recent "preference" handling routines
  * Copyright 2004, Ulf Lamping <ulf.lamping@web.de>
  *
- * $Id$
+ * $Id: recent.c 50994 2013-07-28 23:19:33Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <errno.h>
 
 #include <epan/epan.h>
@@ -1035,7 +1036,7 @@ recent_set_arg(char *prefarg)
 	 * as we allow it in the preferences file, we might as well
 	 * allow it here).
 	 */
-	while (g_ascii_isspace(*p))
+	while (isspace((guchar)*p))
 		p++;
 	if (*p == '\0') {
 		/*

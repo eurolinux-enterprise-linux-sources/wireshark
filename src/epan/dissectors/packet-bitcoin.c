@@ -5,7 +5,7 @@
  *
  * See https://en.bitcoin.it/wiki/Protocol_specification
  *
- * $Id$
+ * $Id: packet-bitcoin.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -256,7 +256,7 @@ create_address_tree(tvbuff_t *tvb, proto_item *ti, guint32 offset)
   offset += 16;
 
   /* port */
-  proto_tree_add_item(tree, hf_address_port, tvb, offset, 2, ENC_BIG_ENDIAN);
+  proto_tree_add_item(tree, hf_address_port, tvb, offset, 2, ENC_LITTLE_ENDIAN);
 
   return tree;
 }

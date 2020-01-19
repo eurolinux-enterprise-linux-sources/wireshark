@@ -1,7 +1,7 @@
 /* crc32.c
  * CRC-32 routine
  *
- * $Id$
+ * $Id: crc32.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

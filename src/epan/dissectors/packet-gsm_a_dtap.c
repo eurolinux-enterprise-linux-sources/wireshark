@@ -78,7 +78,7 @@
  *   Stage 3
  *   (3GPP TS 24.008 version 11.6.0 Release 11)
  *
- * $Id$
+ * $Id: packet-gsm_a_dtap.c 48751 2013-04-05 20:50:24Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

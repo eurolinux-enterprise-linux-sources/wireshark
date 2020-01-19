@@ -1,7 +1,7 @@
 /*
  * Copyright 2004, Irene Ruengeler <i.ruengeler [AT] fh-muenster.de>
  *
- * $Id$
+ * $Id: sctp_byte_graph_dlg.c 50712 2013-07-17 23:21:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  *
  * Basic Encoding Rules (BER) file reading
  *
- * $Id$
+ * $Id: ber.c 46803 2012-12-27 12:19:25Z guy $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

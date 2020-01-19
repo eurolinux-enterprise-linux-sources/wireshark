@@ -1,6 +1,6 @@
 /* packet-usb-masstorage.c
  *
- * $Id$
+ * $Id: packet-usb-masstorage.c 48356 2013-03-17 17:52:26Z etxrab $
  *
  * usb mass storage dissector
  * Ronnie Sahlberg 2006

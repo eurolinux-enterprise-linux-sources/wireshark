@@ -3,7 +3,7 @@
 # By Steve Limkemann <stevelim@dgtech.com>
 # Copyright 1998 Steve Limkemann
 #
-# $Id$
+# $Id: Makefile.am 48261 2013-03-12 06:53:39Z jake $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

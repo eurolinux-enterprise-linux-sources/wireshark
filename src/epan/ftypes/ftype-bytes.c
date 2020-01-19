@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-bytes.c 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <ftypes-int.h>
 #include <string.h>
+#include <ctype.h>
 #include <epan/addr_resolv.h>
 #include <epan/strutil.h>
 #include <epan/oids.h>

@@ -4,7 +4,7 @@
  * Helper routines common to all composite expert statistics
  * tap.
  *
- * $Id$
+ * $Id: expert_comp_table.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

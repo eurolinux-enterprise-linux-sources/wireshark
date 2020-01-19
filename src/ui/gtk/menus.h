@@ -1,7 +1,7 @@
 /* menus.h
  * Menu definitions
  *
- * $Id$
+ * $Id: menus.h 49465 2013-05-20 22:07:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

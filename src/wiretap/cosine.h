@@ -1,6 +1,6 @@
 /* cosine.h
  *
- * $Id$
+ * $Id: cosine.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * CoSine IPNOS L2 debug output parsing
  * Copyright (c) 2002 by Motonori Shindo <motonori@shin.do>

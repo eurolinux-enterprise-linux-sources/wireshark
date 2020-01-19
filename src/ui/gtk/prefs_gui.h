@@ -1,7 +1,7 @@
 /* prefs_gui.h
  * Definitions for GUI preferences window
  *
- * $Id$
+ * $Id: prefs_gui.h 46909 2013-01-03 01:02:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

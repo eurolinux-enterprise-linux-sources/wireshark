@@ -4,7 +4,7 @@
  * Web Browser Plug-in
  * Copyright (C) 2003  Henrik Brix Andersen <brix@gimp.org>
  *
- * $Id$
+ * $Id: webbrowser.c 46785 2012-12-26 13:18:58Z eapache $
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

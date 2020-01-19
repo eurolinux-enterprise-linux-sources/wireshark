@@ -1,7 +1,7 @@
 /* range_utils.c
  * Packet range routines (save, print, ...) for GTK things
  *
- * $Id$
+ * $Id: range_utils.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Ulf Lamping <ulf.lamping@web.de>
  *

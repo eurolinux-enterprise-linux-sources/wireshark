@@ -1,7 +1,7 @@
 /* console_win32.h
  * Console support for MSWindows
  *
- * $Id$
+ * $Id: console_win32.h 45693 2012-10-21 19:12:18Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -45,7 +45,7 @@ void create_console(void);
  */
 void destroy_console(void);
 
-/** Set console wait. GTK+ only.
+/** Set console wait.
  * @param console_wait set/no set console wait
  */
 void set_console_wait(gboolean console_wait);
@@ -54,7 +54,7 @@ void set_console_wait(gboolean console_wait);
  */
 gboolean get_console_wait(void);
 
-/** Set has console. GTK+ only.
+/** Set has console.
  * @param has_console set/no set has_console
  */
 void set_has_console(gboolean has_console);

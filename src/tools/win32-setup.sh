@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: win32-setup.sh 48979 2013-04-22 20:49:02Z pascal $
 
 # 32-bit wrapper for win-setup.sh.
 

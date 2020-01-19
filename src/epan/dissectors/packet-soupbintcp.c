@@ -2,7 +2,7 @@
  * Routines for SoupBinTCP 3.0 protocol dissection
  * Copyright 2013 David Arnold <davida@pobox.com>
  *
- * $Id$
+ * $Id: packet-soupbintcp.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

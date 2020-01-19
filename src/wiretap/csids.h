@@ -1,6 +1,6 @@
  /* csids.h
  *
- * $Id$
+ * $Id: csids.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright (c) 2000 by Mike Hall <mlh@io.com>
  * Copyright (c) Cisco Systems

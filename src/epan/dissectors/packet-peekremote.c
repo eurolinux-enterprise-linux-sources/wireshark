@@ -17,7 +17,7 @@
  *
  * Tested with frames captured from a Cisco WCS.
  *
- * $Id$
+ * $Id: packet-peekremote.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright 2007 Joerg Mayer (see AUTHORS file)
  *
@@ -147,7 +147,7 @@ proto_reg_handoff_peekremote(void)
 {
   dissector_handle_t peekremote_handle;
 
-  ieee80211_handle = find_dissector("wlan");
+  ieee80211_handle = find_dissector("wlan_datapad");
 
   peekremote_handle = create_dissector_handle(dissect_peekremote, proto_peekremote);
   dissector_add_uint("udp.port", 5000, peekremote_handle);

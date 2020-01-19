@@ -2,7 +2,7 @@
  *
  * Routines for RFC 2435 JPEG dissection
  *
- * $Id$
+ * $Id: packet-jpeg.c 46014 2012-11-12 22:36:09Z pascal $
  *
  * Copyright 2006
  * Erwin Rol <erwin@erwinrol.com>

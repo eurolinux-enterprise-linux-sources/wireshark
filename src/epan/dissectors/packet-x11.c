@@ -3,7 +3,7 @@
  * Copyright 2000, Christophe Tronche <ch.tronche@computer.org>
  * Copyright 2003, Michael Shuldman
  *
- * $Id$
+ * $Id: packet-x11.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2521,9 +2521,6 @@ static void x11_init_protocol(void)
 
       for (state = x11_conv_data_list; state != NULL; ) {
             x11_conv_data_t *last;
-
-            g_hash_table_destroy(state->eventcode_funcs);
-            g_hash_table_destroy(state->reply_funcs);
 
             g_hash_table_destroy(state->seqtable);
             g_hash_table_destroy(state->valtable);

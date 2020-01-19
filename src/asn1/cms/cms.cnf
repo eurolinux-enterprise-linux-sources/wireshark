@@ -1,7 +1,7 @@
 # CMS.cnf
 # CMS conformation file
 
-# $Id$
+# $Id: cms.cnf 46013 2012-11-12 22:00:53Z stig $
 
 #.IMPORT ../x509af/x509af-exp.cnf
 #.IMPORT ../x509ce/x509ce-exp.cnf

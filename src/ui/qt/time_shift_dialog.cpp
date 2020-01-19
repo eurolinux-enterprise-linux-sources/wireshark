@@ -1,6 +1,6 @@
 /* time_shift_dialog.cpp
  *
- * $Id$
+ * $Id: time_shift_dialog.cpp 47182 2013-01-20 18:33:06Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

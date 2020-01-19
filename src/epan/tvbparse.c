@@ -2,7 +2,7 @@
  *
  * Copyright 2005, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: tvbparse.c 48025 2013-03-02 23:05:27Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -251,7 +251,7 @@ static int cond_not_char(tvbparse_t* tt, const int offset, const tvbparse_wanted
     if (TVBPARSE_DEBUG & TVBPARSE_DEBUG_NOT_CHAR) g_warning("cond_not_char: control='%s'",wanted->control.str);
 #endif
 
-    if ( offset >= tt->end_offset ) {
+    if (! offset < tt->end_offset ) {
         return -1;
     }
 

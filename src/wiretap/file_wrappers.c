@@ -1,6 +1,6 @@
 /* file_wrappers.c
  *
- * $Id$
+ * $Id: file_wrappers.c 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

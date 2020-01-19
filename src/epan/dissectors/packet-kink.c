@@ -4,7 +4,7 @@
  *
  * Copyright 2004, Takeshi Nakashima <T.Nakashima@jp.yokogawa.com>
  *
- * $Id$
+ * $Id: packet-kink.c 47908 2013-02-27 03:35:04Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

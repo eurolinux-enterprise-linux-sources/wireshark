@@ -1,6 +1,6 @@
 /* main_status_bar.cpp
  *
- * $Id$
+ * $Id: main_status_bar.cpp 49761 2013-06-04 07:39:26Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

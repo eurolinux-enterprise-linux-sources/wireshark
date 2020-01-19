@@ -1,6 +1,6 @@
 # To be included into the asn1 Makefiles for Windows builds
 #
-# $Id$
+# $Id: Makefile.inc.nmake 43536 2012-06-28 22:56:06Z darkjames $
 #
 #
 # Wireshark - Network traffic analyzer

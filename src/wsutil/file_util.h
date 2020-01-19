@@ -1,7 +1,7 @@
 /* file_util.h
  * File utility definitions
  *
- * $Id$
+ * $Id: file_util.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for Wireshark
 #
-# $Id$
+# $Id: Makefile.am 51190 2013-08-07 16:43:53Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

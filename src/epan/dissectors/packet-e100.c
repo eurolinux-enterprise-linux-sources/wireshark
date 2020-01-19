@@ -1,7 +1,7 @@
 /* packet-e100.c
  * Routines for Arbor Networks E100 packet encapsulation disassembly
  *
- * $Id$
+ * $Id: packet-e100.c 48344 2013-03-16 20:22:54Z etxrab $
  *
  * Copyright (c) 2009 by Bradley Higgins <bhiggins@arbor.net>
  *

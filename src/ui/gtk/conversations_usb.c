@@ -1,7 +1,7 @@
 /* conversations_usb.c 2007 Jon Smirl
  * modified from conversations_eth.c   2003 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: conversations_usb.c 46402 2012-12-05 15:56:36Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -16,7 +16,7 @@
  *  Faculty of Electrical Engineering <www.fel.cvut.cz>
  *  Department of Control Engineering <dce.felk.cvut.cz>                
  *                   
- * $Id$
+ * $Id: packet-rtps.h 48727 2013-04-04 12:22:04Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -23,7 +23,7 @@
 	/*
 	 * uat_load.l
 	 *
-	 * $Id$
+	 * $Id: uat_load.l 48960 2013-04-22 02:10:49Z mmann $
 	 *
 	 *  User Accessible Tables
 	 *  Mantain an array of user accessible data strucures

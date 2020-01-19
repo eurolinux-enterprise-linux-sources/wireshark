@@ -3,7 +3,7 @@
  * used for Signaling Compression (SigComp) dissection.
  * Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: sigcomp_state_hdlr.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

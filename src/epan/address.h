@@ -2,7 +2,7 @@
  * Definitions for structures storing addresses, and for the type of
  * variables holding port-type values
  *
- * $Id$
+ * $Id: address.h 48605 2013-03-28 03:06:30Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

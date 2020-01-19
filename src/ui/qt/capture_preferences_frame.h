@@ -1,6 +1,6 @@
 /* capture_preferences_frame.h
  *
- * $Id$
+ * $Id: capture_preferences_frame.h 47403 2013-02-01 00:14:15Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_extensionobjectids.h 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -36,6 +36,7 @@
 #define OpcUaId_ApplicationDescription_Encoding_DefaultBinary 310
 #define OpcUaId_RequestHeader_Encoding_DefaultBinary 391
 #define OpcUaId_ResponseHeader_Encoding_DefaultBinary 394
+#define OpcUaId_ServiceFault_Encoding_DefaultBinary 397
 #define OpcUaId_FindServersRequest_Encoding_DefaultBinary 422
 #define OpcUaId_FindServersResponse_Encoding_DefaultBinary 425
 #define OpcUaId_UserTokenPolicy_Encoding_DefaultBinary 306

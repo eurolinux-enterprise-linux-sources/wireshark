@@ -2,7 +2,7 @@
 * Routines for UA (Universal Alcatel) packet dissection.
 * Copyright 2011, Marek Tews <marek@trx.com.pl>
 *
-* $Id$
+* $Id: packet-ua.h 43538 2012-06-28 23:18:38Z darkjames $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

@@ -3,7 +3,7 @@
  *
  * Copyright 2009, Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: packet-bjnp.c 48319 2013-03-15 16:39:30Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

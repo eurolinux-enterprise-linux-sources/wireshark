@@ -2,7 +2,7 @@
  * Routines for AASP (Aastra Signalling Protocol) packet dissection.
  * Copyright 2011, Marek Tews <marek.tews@gmail.com>
  *
- * $Id$
+ * $Id: packet-aastra-aasp.c 48265 2013-03-12 20:00:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

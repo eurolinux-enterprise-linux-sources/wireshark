@@ -6,7 +6,7 @@
  *
  * (c) Copyright 2008, Yukiyo Akisada <Yukiyo.Akisada@jp.yokogawa.com>
  *
- * $Id$
+ * $Id: packet-ff.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

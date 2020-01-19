@@ -195,14 +195,12 @@ MAP-DialoguePDU				B "0.4.0.0.1.1.1.1" "map-DialogueAS"
 # End ROS
 #----------------------------------------------------------------------------------------
 
-#.FN_BODY PrivateExtension/extId  FN_VARIANT = _str  VAL_PTR = &actx->external.direct_reference
-%(DEFAULT_BODY)s
-  actx->external.direct_ref_present = (actx->external.direct_reference != NULL) ? TRUE : FALSE;
+#.FN_PARS PrivateExtension/extId  FN_VARIANT = _str  VAL_PTR = &obj_id
 
 #.FN_BODY PrivateExtension/extType
   proto_tree_add_text(tree, tvb, offset, -1, "Extension Data");
-  if (actx->external.direct_ref_present){
-	 offset=call_ber_oid_callback(actx->external.direct_reference, tvb, offset, actx->pinfo, tree);
+  if (obj_id){
+	 offset=call_ber_oid_callback(obj_id, tvb, offset, actx->pinfo, tree);
   }else{
 	 call_dissector(data_handle, tvb, actx->pinfo, tree);
 	 offset = tvb_length_remaining(tvb,offset);
@@ -353,13 +351,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
 	if (!actx->value_ptr)
 		return offset;
-	if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-		if (gsmmap_pdu_type == 1) {
-			actx->pinfo->p2p_dir = P2P_DIR_SENT;
-		} else {
-			actx->pinfo->p2p_dir = P2P_DIR_RECV;
-		}
-	}
 	dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MO-ForwardSM-Arg
@@ -369,9 +360,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
 	if (!actx->value_ptr)
 		return offset;
-	if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-		actx->pinfo->p2p_dir = P2P_DIR_RECV;
-	}
 	dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MO-ForwardSM-Res
@@ -381,9 +369,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
         if (!actx->value_ptr)
                 return offset;
-        if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-                actx->pinfo->p2p_dir = P2P_DIR_SENT;
-        }
         dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MT-ForwardSM-Arg
@@ -393,9 +378,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
 	if (!actx->value_ptr)
 		return offset;
-	if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-		actx->pinfo->p2p_dir = P2P_DIR_SENT;
-	}
 	dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MT-ForwardSM-Res
@@ -405,9 +387,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
         if (!actx->value_ptr)
                 return offset;
-        if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-                actx->pinfo->p2p_dir = P2P_DIR_RECV;
-        }
         dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MT-ForwardSM-VGCS-Arg
@@ -417,9 +396,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
         if (!actx->value_ptr)
                 return offset;
-        if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-                actx->pinfo->p2p_dir = P2P_DIR_SENT;
-        }
         dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY MT-ForwardSM-VGCS-Res
@@ -429,9 +405,6 @@ actx->pinfo->p2p_dir = P2P_DIR_RECV;
 
         if (!actx->value_ptr)
                 return offset;
-        if (actx->pinfo->p2p_dir == P2P_DIR_UNKNOWN) {
-                actx->pinfo->p2p_dir = P2P_DIR_RECV;
-        }
         dissector_try_uint(sms_dissector_table, 0, (tvbuff_t*)actx->value_ptr, actx->pinfo, top_tree);
 
 #.FN_BODY SS-Status VAL_PTR = &parameter_tvb

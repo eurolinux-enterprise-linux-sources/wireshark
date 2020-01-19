@@ -1,7 +1,7 @@
 /* preference_utils.h
  * Routines for handling preferences
  *
- * $Id$
+ * $Id: preference_utils.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

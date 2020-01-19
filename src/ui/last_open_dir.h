@@ -2,7 +2,7 @@
  * Routines to fetch the last directory in which a file was opened;
  * its implementation is GUI-dependent, but the API isn't
  *
- * $Id$
+ * $Id: last_open_dir.h 45767 2012-10-24 15:52:45Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

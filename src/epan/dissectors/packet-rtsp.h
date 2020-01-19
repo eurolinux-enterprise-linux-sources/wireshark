@@ -1,6 +1,6 @@
 /* packet-rtsp.h
  *
- * $Id$
+ * $Id: packet-rtsp.h 47992 2013-03-01 23:53:11Z rbalint $
  * Liberally copied from packet-http.h, 
  * by Stephane GORSE (Orange Labs / France Telecom)
  *

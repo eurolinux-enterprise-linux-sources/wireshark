@@ -6,7 +6,7 @@
 
    Copyright (C) Andrew Tridgell 1998
 
-   $Id$
+   $Id: rc4.c 48848 2013-04-14 18:55:28Z eapache $
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

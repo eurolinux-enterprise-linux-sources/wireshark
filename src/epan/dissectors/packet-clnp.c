@@ -1,7 +1,7 @@
 /* packet-clnp.c
  * Routines for ISO/OSI network protocol packet disassembly
  *
- * $Id$
+ * $Id: packet-clnp.c 49159 2013-05-04 08:20:32Z alagoutte $
  * Laurent Deniel <laurent.deniel@free.fr>
  * Ralf Schneider <Ralf.Schneider@t-online.de>
  *

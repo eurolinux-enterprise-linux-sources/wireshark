@@ -1,7 +1,7 @@
 /* packet-icmp.h
  * Definitions for ICMP: http://tools.ietf.org/html/rfc792.
  *
- * $Id$
+ * $Id: packet-icmp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -23,7 +23,7 @@
  *
  * Some structures from RFC2630
  *
- * $Id$
+ * $Id: packet-kerberos-template.c 48429 2013-03-19 21:22:31Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

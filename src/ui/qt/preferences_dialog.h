@@ -1,6 +1,6 @@
 /* preferences_dialog.h
  *
- * $Id$
+ * $Id: preferences_dialog.h 47158 2013-01-19 00:57:57Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

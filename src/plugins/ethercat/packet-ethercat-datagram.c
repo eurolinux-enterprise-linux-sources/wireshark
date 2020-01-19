@@ -1,7 +1,7 @@
 /* packet-ethercat-datagram.c
  * Routines for ethercat packet disassembly
  *
- * $Id$
+ * $Id: packet-ethercat-datagram.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

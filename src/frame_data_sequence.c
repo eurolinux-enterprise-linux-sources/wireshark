@@ -1,7 +1,7 @@
 /* frame_data_sequence.c
  * Implements a sequence of frame_data structures
  *
- * $Id$
+ * $Id: frame_data_sequence.c 48589 2013-03-27 17:14:42Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

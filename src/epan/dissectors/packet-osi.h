@@ -1,6 +1,6 @@
 /* packet-osi.h
  *
- * $Id$
+ * $Id: packet-osi.h 46060 2012-11-17 22:12:37Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

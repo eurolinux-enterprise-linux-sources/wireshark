@@ -1,7 +1,7 @@
 # ros-err.cnf
 # ROS ReturnError common code
 # Copyright 2007 Tomas Kukosa
-# $Id$
+# $Id: ros-err.cnf 35224 2010-12-20 05:35:29Z guy $
 
 #.FN_HDR ReturnError
   dissector_handle_t err_handle = NULL;

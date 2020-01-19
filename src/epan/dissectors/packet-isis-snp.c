@@ -1,7 +1,7 @@
 /* packet-isis-snp.c
  * Routines for decoding isis complete & partial SNP and their payload
  *
- * $Id$
+ * $Id: packet-isis-snp.c 45017 2012-09-20 02:03:38Z morriss $
  * Stuart Stanley <stuarts@mxmail.net>
  *
  * Wireshark - Network traffic analyzer

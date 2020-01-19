@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindGMODULE2.cmake 34248 2010-09-25 15:38:12Z jmayer $
 #
 # - Try to find GModule2 
 # Find GModule headers, libraries and the answer to all questions.

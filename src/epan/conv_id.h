@@ -1,7 +1,7 @@
 /* conv_id.h
  * conv_id   2011 Robert Bullen
  *
- * $Id$
+ * $Id: conv_id.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

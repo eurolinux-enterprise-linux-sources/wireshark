@@ -1,5 +1,5 @@
 <!-- WSDG Chapter Sources -->
-<!-- $Id$ -->
+<!-- $Id: WSDG_chapter_sources.xml 48110 2013-03-05 22:26:03Z morriss $ -->
 
 <chapter id="ChapterSources">
   <title>Work with the Wireshark sources</title>
@@ -1051,7 +1051,7 @@ Index: file.h
 	<orderedlist>
 	<listitem>
 	<para>
-	Verify that that file is complete (has Wireshark boilerplate, $Id$, etc).
+	Verify that that file is complete (has Wireshark boilerplate, $Id: WSDG_chapter_sources.xml 48110 2013-03-05 22:26:03Z morriss $, etc).
 	</para>
 	</listitem>
 	<listitem>

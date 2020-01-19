@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2003 by Matthijs Melchior <matthijs.melchior@xs4all.nl>
  *
- * $Id$
+ * $Id: packet-asn1.c 50710 2013-07-17 22:20:12Z gerald $
  *
  * A plugin for:
  *

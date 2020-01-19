@@ -1,6 +1,6 @@
 /* decode_as_ber.h
  *
- * $Id$
+ * $Id: decode_as_ber.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Routines to modify BER decoding on the fly.
  * Only internally used between decode_as_dlg and decode_as_ber

@@ -3,7 +3,7 @@
  *
  * metatech <metatech[AT]flashmail.com>
  *
- * $Id$
+ * $Id: packet-starteam.c 46491 2012-12-10 20:10:30Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

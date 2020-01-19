@@ -1,7 +1,7 @@
 /**
  * airpdcap_rijndael.h
  *
- * $Id$
+ * $Id: airpdcap_rijndael.h 29228 2009-07-29 10:01:14Z sahlberg $
  *
  * @version 3.0 (December 2000)
  *

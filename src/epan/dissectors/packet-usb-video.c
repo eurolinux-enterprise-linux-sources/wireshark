@@ -1,6 +1,6 @@
 /* packet-usb-video.c
  *
- * $Id$
+ * $Id: packet-usb-video.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Forked from packet-usb-masstorage.c 35224 2010-12-20 05:35:29Z guy
  * which was authored by Ronnie Sahlberg (2006)

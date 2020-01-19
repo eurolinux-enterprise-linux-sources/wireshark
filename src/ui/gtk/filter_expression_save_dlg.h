@@ -1,7 +1,7 @@
 /* filter_expression_save_dlg.h
  * Submitted by Edwin Groothuis <wireshark@mavetju.org>
  *
- * $Id$
+ * $Id: filter_expression_save_dlg.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

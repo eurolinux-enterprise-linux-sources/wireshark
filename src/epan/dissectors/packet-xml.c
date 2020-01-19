@@ -3,7 +3,7 @@
  *
  * (C) 2005, Luis E. Garcia Ontanon.
  *
- * $Id$
+ * $Id: packet-xml.c 51425 2013-08-19 11:25:35Z pascal $
  *
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.
@@ -107,7 +107,6 @@ static const gchar *default_media_types[] = {
     "text/vnd.wap.sl",
     "text/vnd.wap.co",
     "text/vnd.wap.emn",
-    "application/atom+xml",
     "application/auth-policy+xml",
     "application/ccmp+xml",
     "application/cpim-pidf+xml",

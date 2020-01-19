@@ -1,4 +1,4 @@
-$Id$
+$Id: README.developer 34578 2010-10-20 01:15:12Z wmeier $
 
 This is a very quick and very dirty guide to adding support for new
 capture file formats.  If you see any errors or have any improvements,

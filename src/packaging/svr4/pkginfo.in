@@ -1,4 +1,4 @@
-# $Id$
+# $Id: pkginfo.in 41594 2012-03-16 03:39:51Z guy $
 # @configure_input@
 PKG="@PACKAGE@"
 NAME="@PACKAGE@ @VERSION@"

@@ -1,7 +1,7 @@
 /* print_dlg.c
  * Dialog boxes for printing and exporting to text files
  *
- * $Id$
+ * $Id: print_dlg.c 48736 2013-04-04 17:20:36Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

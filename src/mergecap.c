@@ -1,6 +1,6 @@
 /* Combine two dump files, either by appending or by merging by timestamp
  *
- * $Id$
+ * $Id: mergecap.c 48222 2013-03-10 11:51:25Z tuexen $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -47,7 +47,7 @@
 #include "wsutil/wsgetopt.h"
 #endif
 
-#include "version.h"
+#include "svnversion.h"
 #include "merge.h"
 #include "wsutil/file_util.h"
 
@@ -108,8 +108,8 @@ usage(void)
 {
 
   fprintf(stderr, "Mergecap %s"
-#ifdef GITVERSION
-	  " (" GITVERSION " from " GITBRANCH ")"
+#ifdef SVNVERSION
+	  " (" SVNVERSION " from " SVNPATH ")"
 #endif
 	  "\n", VERSION);
   fprintf(stderr, "Merge two or more capture files into one.\n");

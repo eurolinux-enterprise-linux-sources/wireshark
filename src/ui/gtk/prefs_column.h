@@ -1,7 +1,7 @@
 /* prefs_column.h
  * Definitions for column preferences window
  *
- * $Id$
+ * $Id: prefs_column.h 47231 2013-01-23 19:04:36Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

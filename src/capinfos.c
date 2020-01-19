@@ -3,7 +3,7 @@
  *
  * Copyright 2004 Ian Schorr
  *
- * $Id$
+ * $Id: capinfos.c 48841 2013-04-13 18:15:46Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -109,7 +109,7 @@
 #include <wsutil/unicode-utils.h>
 #endif /* _WIN32 */
 
-#include "version.h"
+#include "svnversion.h"
 
 /*
  * By default capinfos now continues processing
@@ -1019,8 +1019,8 @@ usage(gboolean is_error)
   }
 
   fprintf(output, "Capinfos %s"
-#ifdef GITVERSION
-      " (" GITVERSION " from " GITBRANCH ")"
+#ifdef SVNVERSION
+      " (" SVNVERSION " from " SVNPATH ")"
 #endif
       "\n", VERSION);
   fprintf(output, "Prints various information (infos) about capture files.\n");
@@ -1419,7 +1419,6 @@ main(int argc, char *argv[])
         case WTAP_ERR_UNSUPPORTED:
         case WTAP_ERR_UNSUPPORTED_ENCAP:
         case WTAP_ERR_BAD_FILE:
-        case WTAP_ERR_DECOMPRESS:
           fprintf(stderr, "(%s)\n", err_info);
           g_free(err_info);
           break;

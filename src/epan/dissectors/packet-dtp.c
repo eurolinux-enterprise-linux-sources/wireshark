@@ -1,7 +1,7 @@
 /* packet-dtp.c
  * Routines for the disassembly for Cisco Dynamic Trunking Protocol
  *
- * $Id$
+ * $Id: packet-dtp.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

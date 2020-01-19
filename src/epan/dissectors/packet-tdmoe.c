@@ -2,7 +2,7 @@
  * Routines for TDM over Ethernet packet disassembly
  * Copyright 2010, Haakon Nessjoen <haakon.nessjoen@gmail.com>
  *
- * $Id$
+ * $Id: packet-tdmoe.c 48743 2013-04-05 05:09:31Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

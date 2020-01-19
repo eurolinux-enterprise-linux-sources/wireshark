@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2005 by Alejandro Vaquero <alejandro.vaquero@verso.com>
  *
- * $Id$
+ * $Id: packet-actrace.c 48265 2013-03-12 20:00:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

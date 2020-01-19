@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: IN-SCF-SRF-ops-args.asn 22459 2007-08-06 12:16:20Z etxrab $
 -- Module IN-SCF-SRF-ops-args (Q.1248.3:07/2001)
 IN-SCF-SRF-ops-args {itu-t recommendation q 1248 modules(1)
   in-scf-srf-ops-args(12) version1(0)} DEFINITIONS IMPLICIT TAGS ::=

@@ -6,7 +6,7 @@
  *
  * Francesco Fondelli <francesco dot fondelli, gmail dot com>
  *
- * $Id$
+ * $Id: packet-dccp.c 48338 2013-03-16 08:52:09Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

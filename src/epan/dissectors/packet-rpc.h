@@ -1,6 +1,6 @@
 /* packet-rpc.h
  *
- * $Id$
+ * $Id: packet-rpc.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * (c) 1999 Uwe Girlich
  *

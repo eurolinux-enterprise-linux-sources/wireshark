@@ -1,6 +1,6 @@
 /* import_text_dialog.h
  *
- * $Id$
+ * $Id: import_text_dialog.h 48745 2013-04-05 06:43:38Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

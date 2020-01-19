@@ -11,7 +11,7 @@
  * EIS <-> SCS support, (P)SIG <-> MUX support, MUX <-> CiM support and (P) <-> CiP support
  * Copyright 2010, Giuliano Fabris <giuliano.fabris@appeartv.com> / AppearTV
  *
- * $Id$
+ * $Id: packet-simulcrypt.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-isis-snp.h
  * Defines and such for CSNP, PSNP, and their payloads
  *
- * $Id$
+ * $Id: packet-isis-snp.h 43536 2012-06-28 22:56:06Z darkjames $
  * Stuart Stanley <stuarts@mxmail.net>
  *
  * Wireshark - Network traffic analyzer

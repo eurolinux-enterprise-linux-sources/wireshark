@@ -2,7 +2,7 @@
  *
  * Declarations for disassembly of WTP component of WAP traffic.
  *
- * $Id$
+ * $Id: packet-wtp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

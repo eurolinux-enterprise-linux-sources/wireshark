@@ -2,7 +2,7 @@
  * Routines for DVB (ETSI EN 300 468) Bouquet Association Table (BAT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-bat.c 48891 2013-04-17 01:40:25Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -177,7 +177,7 @@ proto_register_dvb_bat(void)
     static hf_register_info hf[] = {
 
         { &hf_dvb_bat_bouquet_id, {
-            "Bouquet ID", "dvb_bat.bouquet_id",
+            "Service ID", "dvb_bat.sid",
             FT_UINT16, BASE_HEX, NULL, 0, NULL, HFILL
         } },
 

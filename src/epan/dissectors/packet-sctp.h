@@ -2,7 +2,7 @@
  *
  * Defintion of SCTP specific structures used by tap listeners.
  *
- * $Id$
+ * $Id: packet-sctp.h 43536 2012-06-28 22:56:06Z darkjames $
  * Copyright 2004 Michael Tuexen <tuexen [AT] fh-muenster.de>
 
  * Wireshark - Network traffic analyzer

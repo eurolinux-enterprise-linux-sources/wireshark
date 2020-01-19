@@ -7,7 +7,7 @@
  *
  * Copyright 2013, Richard Sharpe <realrichardsharpe[AT]gmail.com>
  *
- * $Id$
+ * $Id: editcap.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -93,7 +93,7 @@
 #undef WS_BUILD_DLL
 #define RESET_SYMBOL_EXPORT
 
-#include "version.h"
+#include "svnversion.h"
 
 #include "ringbuffer.h" /* For RINGBUFFER_MAX_NUM_FILES */
 
@@ -692,9 +692,9 @@ usage(gboolean is_error)
   else
     output = stderr;
 
-    fprintf(output, "Editcap %s"
-#ifdef GITVERSION
-        " (" GITVERSION " from " GITBRANCH ")"
+  fprintf(output, "Editcap %s"
+#ifdef SVNVERSION
+    " (" SVNVERSION " from " SVNPATH ")"
 #endif
     "\n", VERSION);
   fprintf(output, "Edit and/or translate the format of capture files.\n");

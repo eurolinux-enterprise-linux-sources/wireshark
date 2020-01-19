@@ -1,6 +1,6 @@
 /* packet-usb.h
  *
- * $Id$
+ * $Id: packet-usb.h 48184 2013-03-07 23:57:43Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* fileset.c
  * Routines for handling file sets
  *
- * $Id$
+ * $Id: fileset.c 45707 2012-10-22 12:20:36Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -46,6 +46,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -110,7 +111,7 @@ fileset_filename_match_pattern(const char *fname)
     while(minlen--) {
         baselen--;
 
-        if(!g_ascii_isdigit( filename[baselen])) {
+        if(!isdigit( (guchar) filename[baselen])) {
             g_free(filename);
             return FALSE;
         }

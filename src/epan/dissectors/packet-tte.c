@@ -7,7 +7,7 @@
  * TTTech Computertechnik AG, Austria.
  * http://www.tttech.com/solutions/ttethernet/
  *
- * $Id$
+ * $Id: packet-tte.c 47541 2013-02-07 22:07:49Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

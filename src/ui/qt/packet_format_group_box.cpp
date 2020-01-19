@@ -1,6 +1,6 @@
 /* packet_format_group_box.cpp
  *
- * $Id$
+ * $Id: packet_format_group_box.cpp 48811 2013-04-10 21:20:33Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

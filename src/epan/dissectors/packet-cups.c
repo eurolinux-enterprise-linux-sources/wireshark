@@ -5,7 +5,7 @@
 * Charles Levert <charles@comm.polymtl.ca>
 * Copyright 2001 Charles Levert
 *
-* $Id$
+* $Id: packet-cups.c 48338 2013-03-16 08:52:09Z etxrab $
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public License
@@ -24,6 +24,8 @@
 */
 
 #include "config.h"
+
+#include <ctype.h>
 
 #include <glib.h>
 #include <epan/packet.h>
@@ -231,12 +233,12 @@ get_hex_uint(tvbuff_t *tvb, gint offset, gint *next_offset)
     int c;
     guint u = 0;
 
-    while (g_ascii_isxdigit(c = tvb_get_guint8(tvb, offset))) {
-        if (g_ascii_isdigit(c))
+    while (isxdigit(c = tvb_get_guint8(tvb, offset))) {
+        if (isdigit(c))
             c -= '0';
-        else if (g_ascii_isupper(c))
+        else if (isupper(c))
             c -= 'A' - 10;
-        else if (g_ascii_islower(c))
+        else if (islower(c))
             c -= 'a' - 10;
         else
             c = 0; /* This should not happen. */

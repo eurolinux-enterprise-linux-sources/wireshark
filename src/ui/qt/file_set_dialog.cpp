@@ -1,6 +1,6 @@
 /* fileset_dialog.cpp
  *
- * $Id$
+ * $Id: file_set_dialog.cpp 45849 2012-10-31 15:40:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

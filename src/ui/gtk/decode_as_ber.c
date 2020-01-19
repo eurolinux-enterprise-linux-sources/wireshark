@@ -1,6 +1,6 @@
 /* decode_as_ber.c
  *
- * $Id$
+ * $Id: decode_as_ber.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Routines to modify BER decoding on the fly.
  *

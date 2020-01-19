@@ -1,7 +1,7 @@
 /* tap-macltestat.c
  * Copyright 2011 Martin Mathieson
  *
- * $Id$
+ * $Id: tap-macltestat.c 48137 2013-03-06 17:35:11Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

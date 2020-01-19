@@ -6,7 +6,7 @@
  * Based on the code from packet-mmrp.c (MMRP) from
  * Markus Seehofer <mseehofe@nt.hirschmann.de> Copyright 2001
  *
- * $Id$
+ * $Id: packet-mrp-msrp.c 45419 2012-10-09 08:49:40Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

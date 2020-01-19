@@ -2,7 +2,7 @@
  * Routines for Base Station Subsystem GPRS Protocol dissection
  * Copyright 2006, Anders Broman <anders.broman [at] ericsson.com>
  *
- * $Id$
+ * $Id: packet-bssgp.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 ## Makefile for building wmem.lib with Microsoft C and nmake
 ## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake
 #
-# $Id$
+# $Id: Makefile.nmake 48517 2013-03-23 23:51:07Z eapache $
 
 include ..\..\config.nmake
 include Makefile.common
@@ -47,7 +47,7 @@ checkapi:
 	$(WMEM_SRC)
 
 #
-# Editor modelines  -  https://www.wireshark.org/tools/modelines.html
+# Editor modelines  -  http://www.wireshark.org/tools/modelines.html
 #
 # Local variables:
 # c-basic-offset: 8

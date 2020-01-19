@@ -4,7 +4,7 @@
  * Copyright 2008 Bruno Premont <bonbons at linux-vserver.org>
  * Copyright 2009 Florian Forster <octo at verplant.org>
  *
- * $Id$
+ * $Id: packet-collectd.c 48334 2013-03-15 22:40:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

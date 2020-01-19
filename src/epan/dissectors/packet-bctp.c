@@ -4,7 +4,7 @@
  *
  *  (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: packet-bctp.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

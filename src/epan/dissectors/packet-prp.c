@@ -4,7 +4,7 @@
  * Copyright 2011, Martin Renold <reld[AT]zhaw.ch>
  * Copyright 2011, Florian Reichert <refl [AT] zhaw.ch>
  *
- * $Id$
+ * $Id: packet-prp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

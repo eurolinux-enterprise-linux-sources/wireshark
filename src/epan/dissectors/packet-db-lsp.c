@@ -3,7 +3,7 @@
  *
  * Copyright 2010, Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: packet-db-lsp.c 48338 2013-03-16 08:52:09Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-ipnet.c
  * Routines for decoding Solaris IPNET packet disassembly
  *
- * $Id$
+ * $Id: packet-ipnet.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

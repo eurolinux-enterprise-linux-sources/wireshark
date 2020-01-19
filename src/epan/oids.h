@@ -1,7 +1,7 @@
 /* oids.h
  * Object IDentifier Support
  *
- * $Id$
+ * $Id: oids.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
  *

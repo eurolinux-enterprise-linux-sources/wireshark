@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for Wireshark
 #
-# $Id$
+# $Id: Makefile.am 51190 2013-08-07 16:43:53Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -555,7 +555,7 @@ am__v_PERL_ = $(am__v_PERL_@AM_DEFAULT_V@)
 am__v_PERL_0 = @echo "  PERL    " $@;
 am__v_PERL_1 =
 
-version.h: FORCE
+svnversion.h: FORCE
 	$(AM_V_PERL)$(PERL) $(srcdir)/make-version.pl $(srcdir)
 
 #
@@ -580,7 +580,7 @@ CLEANFILES =		\
 	vgcore.*
 
 #
-# We have to remove version.h with "make distclean", as, otherwise,
+# We have to remove svnversion.h with "make distclean", as, otherwise,
 # "make distcheck" fails.  We still need to make the tarballs work
 # even if you do "make distclean" and try to rebuild; that's a work in
 # progress.
@@ -591,7 +591,7 @@ CLEANFILES =		\
 #
 DISTCLEANFILES = \
 	ps.c			\
-	version.h
+	svnversion.h
 
 MAINTAINERCLEANFILES =		\
 	$(GENERATED_FILES)	\
@@ -1021,11 +1021,11 @@ BASE_VERSION=`echo "$(VERSION)" | awk -F. '{$$3 = $$3 + 0 ; printf("%d.%d.%d"), 
 PREV_VERSION=`echo "$(VERSION)" | awk -F. '{$$3 = $$3 + 0 ; if ($$3 > 0) $$3-- ; printf("%d.%d.%d"), $$1, $$2, $$3}'`
 PREV_DIR="wireshark-$(PREV_VERSION)"
 PREV_FILE="$(PREV_DIR).tar.bz2"
-PREV_URL="https://www.wireshark.org/download/src/all-versions/$(PREV_FILE)"
+PREV_URL="http://www.wireshark.org/download/src/all-versions/$(PREV_FILE)"
 
 patch-bzip2: distdir
 	if test x$(BASE_VERSION) != x$(PREV_VERSION) ; then \
-		curl --time-cond $(PREV_FILE) --location --output $(PREV_FILE) $(PREV_URL) && \
+		curl -z $(PREV_FILE) -o $(PREV_FILE) $(PREV_URL) && \
 		tar -xjf $(PREV_FILE) && \
 		diff -urN $(PREV_DIR) $(distdir) | bzip2 > patch-wireshark-$(PREV_VERSION)-to-$(VERSION).bz2 && \
 		echo "Created patch-bzip2" ; \
@@ -1040,24 +1040,19 @@ patch-bzip2: distdir
 # Yes, that violate's autofoo's principle of relocatability.
 # What we (probably) should do is check `pkg-config --variable=prefix gtk+-2.0` to know where
 # to install this stuff...
-#
-# Do not use the -T flag to the install command, as it's not portable.
-# Some versions of install don't support a -T flag at all, and the
-# FreeBSD install command has a -T flag that takes an argument and
-# that has completely different semantics.
 install_desktop_files:
 	mkdir -p $(DESTDIR)/usr/share/{mime/packages,applications}
-	install -m 644 $(srcdir)/wireshark-mime-package.xml $(DESTDIR)/usr/share/mime/packages/wireshark.xml
+	install -m 644 -T wireshark-mime-package.xml $(DESTDIR)/usr/share/mime/packages/wireshark.xml
 	if test x$(DESKTOP_FILE_INSTALL) != x ; then \
-		$(DESKTOP_FILE_INSTALL) --dir $(DESTDIR)/usr/share/applications $(srcdir)/wireshark.desktop; \
+		$(DESKTOP_FILE_INSTALL) --dir $(DESTDIR)/usr/share/applications wireshark.desktop; \
 	else \
-		install -m 644 $(srcdir)/wireshark.desktop $(DESTDIR)/usr/share/applications/wireshark.desktop; \
+		install -m 644 -T wireshark.desktop $(DESTDIR)/usr/share/applications/wireshark.desktop; \
 	fi
 	for size in 16 24 32 48 64 128 256; \
 	do \
 		mkdir -p $(DESTDIR)/usr/share/icons/hicolor/$${size}x$${size}/{apps,mimetypes} ; \
-		install -m 644 $(srcdir)/image/wsicon$${size}.png $(DESTDIR)/usr/share/icons/hicolor/$${size}x$${size}/apps/wireshark.png ; \
-		install -m 644 $(srcdir)/image/WiresharkDoc-$${size}.png $(DESTDIR)/usr/share/icons/hicolor/$${size}x$${size}/mimetypes/application-wireshark-doc.png ; \
+		install -m 644 image/wsicon$${size}.png  $(DESTDIR)/usr/share/icons/hicolor/$${size}x$${size}/apps/wireshark.png ; \
+		install -m 644 -T image/WiresharkDoc-$${size}.png  $(DESTDIR)/usr/share/icons/hicolor/$${size}x$${size}/mimetypes/application-wireshark-doc.png ; \
 	done
 	@echo "Don't forget to run \"update-desktop-database\" and \"update-mime-database /usr/share/mime\""
 

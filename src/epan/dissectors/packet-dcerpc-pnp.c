@@ -2,7 +2,7 @@
  * Routines for the pnp (Plug and Play) MSRPC interface
  * Copyright 2005 Jean-Baptiste Marchand <jbm@hsc.fr>
  *
- * $Id$
+ * $Id: packet-dcerpc-pnp.c 47310 2013-01-26 21:42:36Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

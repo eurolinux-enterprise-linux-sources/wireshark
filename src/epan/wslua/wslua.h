@@ -7,7 +7,7 @@
  * (c) 2007, Tamas Regos <tamas.regos@ericsson.com>
  * (c) 2008, Balint Reczey <balint.reczey@ericsson.com>
  *
- * $Id$
+ * $Id: wslua.h 48542 2013-03-24 23:49:22Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -34,6 +34,7 @@
 #include <glib.h>
 #include <errno.h>
 #include <string.h>
+#include <ctype.h>
 #include <lua.h>
 #include <lualib.h>
 #include <lauxlib.h>
@@ -438,7 +439,6 @@ extern void lua_prime_all_fields(proto_tree* tree);
 extern int Proto_commit(lua_State* L);
 
 extern Tvb* push_Tvb(lua_State* L, tvbuff_t* tvb);
-extern gboolean push_TvbRange(lua_State* L, tvbuff_t* tvb, int offset, int len);
 extern void clear_outstanding_Tvb(void);
 extern void clear_outstanding_TvbRange(void);
 

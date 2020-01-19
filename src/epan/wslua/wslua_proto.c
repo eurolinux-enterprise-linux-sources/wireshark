@@ -6,7 +6,7 @@
  * (c) 2006, Luis E. Garcia Ontanon <luis@ontanon.org>
  * (c) 2007, Tamas Regos <tamas.regos@ericsson.com>
  *
- * $Id$
+ * $Id: wslua_proto.c 51875 2013-09-09 18:52:33Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -297,17 +297,18 @@ WSLUA_METAMETHOD Prefs__newindex(lua_State* L) {
             luaL_error(L,"a preference named %s exists already",name);
             return 0;
         }
-        /*
+    /*
          * Make sure that only lower-case ASCII letters, numbers,
          * underscores, and dots appear in the preference name.
-         */
-        for (c = name; *c != '\0'; c++) {
-            if (!g_ascii_islower(*c) && !g_ascii_isdigit(*c) && *c != '_' && *c != '.')
-            {
-                luaL_error(L,"illegal preference name \"%s\", only lower-case ASCII letters, numbers, underscores and dots may be used",name);
-                return 0;
-            }
+     */
+    for (c = name; *c != '\0'; c++) {
+        if (!isascii((guchar)*c) ||
+           (!islower((guchar)*c) && !isdigit((guchar)*c) && *c != '_' && *c != '.'))
+        {
+            luaL_error(L,"illegal preference name \"%s\", only lower-case ASCII letters, numbers, underscores and dots may be used",name);
+            return 0;
         }
+    }
 
         if ( ! p->next) {
             p->next = pref;
@@ -389,11 +390,6 @@ WSLUA_METAMETHOD Prefs__index(lua_State* L) {
     const gchar* name = luaL_checkstring(L,WSLUA_ARG_Prefs__index_NAME);
 
     if (! ( name && prefs_p ) ) return 0;
-
-    if (!prefs_p->next) {
-        luaL_error(L,"No preference is registered yet");
-        return 0;
-    }
 
     prefs_p = prefs_p->next;
 
@@ -621,7 +617,7 @@ static true_false_string* true_false_string_from_table(lua_State* L, int idx) {
 WSLUA_CONSTRUCTOR ProtoField_new(lua_State* L) { /* Creates a new field to be used in a protocol. */
 #define WSLUA_ARG_ProtoField_new_NAME 1 /* Actual name of the field (the string that appears in the tree).  */
 #define WSLUA_ARG_ProtoField_new_ABBR 2 /* Filter name of the field (the string that is used in filters).  */
-#define WSLUA_ARG_ProtoField_new_TYPE 3 /* Field Type: one of ftypes.BOOLEAN,
+#define WSLUA_ARG_ProtoField_new_TYPE 3 /* Field Type: one of ftypes.NONE, ftypes.PROTOCOL, ftypes.BOOLEAN,
 	ftypes.UINT8, ftypes.UINT16, ftypes.UINT24, ftypes.UINT32, ftypes.UINT64, ftypes.INT8, ftypes.INT16
 	ftypes.INT24, ftypes.INT32, ftypes.INT64, ftypes.FLOAT, ftypes.DOUBLE, ftypes.ABSOLUTE_TIME
 	ftypes.RELATIVE_TIME, ftypes.STRING, ftypes.STRINGZ, ftypes.UINT_STRING, ftypes.ETHER, ftypes.BYTES
@@ -632,138 +628,64 @@ WSLUA_CONSTRUCTOR ProtoField_new(lua_State* L) { /* Creates a new field to be us
 #define WSLUA_OPTARG_ProtoField_new_MASK 6 /* The bitmask to be used.  */
 #define WSLUA_OPTARG_ProtoField_new_DESCR 7 /* The description of the field.  */
 
-    ProtoField f;
-    int nargs = lua_gettop(L);
-    const gchar* name = luaL_checkstring(L,WSLUA_ARG_ProtoField_new_NAME);
-    const gchar* abbr = luaL_checkstring(L,WSLUA_ARG_ProtoField_new_ABBR);
-    enum ftenum type;
+    ProtoField f = (wslua_field_t *)g_malloc(sizeof(wslua_field_t));
     value_string* vs = NULL;
     true_false_string* tfs = NULL;
-    unsigned base;
-    guint32 mask = (guint32)luaL_optnumber(L, WSLUA_OPTARG_ProtoField_new_MASK, 0x0);
-    const gchar *blob = luaL_optstring(L,WSLUA_OPTARG_ProtoField_new_DESCR,NULL);
+    const gchar *blob;
 
-    if (lua_isnumber(L,WSLUA_ARG_ProtoField_new_TYPE)) {
-        type = (enum ftenum)luaL_checkint(L,WSLUA_ARG_ProtoField_new_TYPE);
-    } else {
-        type = get_ftenum(luaL_checkstring(L,WSLUA_ARG_ProtoField_new_TYPE));
+    /* will be using -2 as far as the field has not been added to an array then it will turn -1 */
+    f->hfid = -2;
+    f->ett = -1;
+    f->name = g_strdup(luaL_checkstring(L,WSLUA_ARG_ProtoField_new_NAME));
+    f->abbr = g_strdup(luaL_checkstring(L,WSLUA_ARG_ProtoField_new_ABBR));
+    f->type = get_ftenum(luaL_checkstring(L,WSLUA_ARG_ProtoField_new_TYPE));
+
+    /*XXX do it better*/
+    if (f->type == FT_NONE) {
+        g_free(f->name);
+        g_free(f->abbr);
+        g_free(f);
+        WSLUA_ARG_ERROR(ProtoField_new,TYPE,"invalid ftypes");
     }
 
-    if (lua_isnumber(L, WSLUA_OPTARG_ProtoField_new_BASE)) {
-        base = luaL_optint(L, WSLUA_OPTARG_ProtoField_new_BASE, BASE_NONE);
-    } else {
-        base = string_to_base(luaL_optstring(L, WSLUA_OPTARG_ProtoField_new_BASE, "BASE_NONE"));
-    }
-
-    if (!abbr || !abbr[0]) {
+    if (!f->abbr || !f->abbr[0]) {
         WSLUA_ARG_ERROR(ProtoField_new,ABBR,"Missing abbrev");
     }
 
-    if (proto_check_field_name(abbr)) {
+    if (proto_check_field_name(f->abbr)) {
+        g_free(f->name);
+        g_free(f->abbr);
+        g_free(f);
         WSLUA_ARG_ERROR(ProtoField_new,ABBR,"Invalid char in abbrev");
     }
 
-    switch (type) {
-    case FT_FRAMENUM:
-        if (base != BASE_NONE) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"FRAMENUM must use base.NONE");
-        }
-        if (mask) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,MASK,"FRAMENUM can not have a bitmask");
-        }
-        break;
-    case FT_UINT8:
-    case FT_UINT16:
-    case FT_UINT24:
-    case FT_UINT32:
-    case FT_UINT64:
-    case FT_INT8:
-    case FT_INT16:
-    case FT_INT24:
-    case FT_INT32:
-    case FT_INT64:
-        if (base == BASE_NONE) {
-            base = BASE_DEC;  /* Default base for integer */
-        } else if (base < BASE_DEC || base > BASE_HEX_DEC) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"Base must be either base.DEC, base.HEX, base.OCT,"
-                               " base.DEC_HEX, base.DEC_HEX or base.HEX_DEC");
-        }
-        if ((base == BASE_HEX || base == BASE_OCT) &&
-            (type == FT_INT8 || type == FT_INT16 || type == FT_INT24 || type == FT_INT32 || type == FT_INT64))
-        {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"This type does not display as hexadecimal");
-        }
-        if (nargs >= WSLUA_OPTARG_ProtoField_new_VOIDSTRING && !lua_isnil(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING)) {
-            if (type == FT_UINT64 || type == FT_INT64) {
-                WSLUA_OPTARG_ERROR(ProtoField_new,VOIDSTRING,"This type does not support value string");
-                return 0;
-            } else {
-                vs = value_string_from_table(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING);
-            }
-        }
-        break;
-    case FT_BOOLEAN:
-        if (mask == 0x0 && base != BASE_NONE) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"Base must be base.NONE if bitmask is zero.");
-        }
-        if (mask != 0x0 && (base < 1 || base > 64)) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"Base must be between 1 and 64 if bitmask is non-zero.");
-        }
-        if (nargs >= WSLUA_OPTARG_ProtoField_new_VOIDSTRING && !lua_isnil(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING)) {
+    if (! lua_isnil(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING) ) {
+        if (f->type == FT_BOOLEAN) {
             tfs = true_false_string_from_table(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING);
         }
-        break;
-    case FT_ABSOLUTE_TIME:
-        if (base == BASE_NONE) {
-            base = ABSOLUTE_TIME_LOCAL;  /* Default base for FT_ABSOLUTE_TIME */
-        } else if (base < ABSOLUTE_TIME_LOCAL || base > ABSOLUTE_TIME_DOY_UTC) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"Base must be either LOCAL, UTC, or DOY_UTC");
+        else {
+            vs = value_string_from_table(L,WSLUA_OPTARG_ProtoField_new_VOIDSTRING);
         }
-        if (mask) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,MASK,"ABSOLUTE_TIME can not have a bitmask");
-        }
-        break;
-    case FT_IPv4:
-    case FT_IPv6:
-    case FT_IPXNET:
-    case FT_ETHER:
-    case FT_FLOAT:
-    case FT_DOUBLE:
-    case FT_RELATIVE_TIME:
-    case FT_STRING:
-    case FT_STRINGZ:
-    case FT_BYTES:
-    case FT_UINT_BYTES:
-    case FT_GUID:
-    case FT_OID:
-        if (base != BASE_NONE) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,BASE,"Base must be base.NONE");
-        }
-        if (mask) {
-            WSLUA_OPTARG_ERROR(ProtoField_new,MASK,"This type can not have a bitmask");
-        }
-        break;
-    case FT_NONE:
-    default:
-        WSLUA_ARG_ERROR(ProtoField_new,TYPE,"Invalid field type");
-    }
 
-    f = g_new(wslua_field_t,1);
+        if (vs) {
+            f->vs = VALS(vs);
+        } else if (tfs) {
+            f->vs = TFS(tfs);
+        } else {
+            g_free(f->name);
+            g_free(f->abbr);
+            g_free(f);
+            return 0;
+        }
 
-    f->hfid = -2;
-    f->ett = -1;
-    f->name = g_strdup(name);
-    f->abbr = g_strdup(abbr);
-    f->type = type;
-    f->base = base;
-    if (tfs) {
-        f->vs = TFS(tfs);
-    } else if (vs) {
-        f->vs = VALS(vs);
     } else {
         f->vs = NULL;
     }
-    f->mask = mask;
+
+    /* XXX: need BASE_ERROR */
+    f->base = string_to_base(luaL_optstring(L, WSLUA_OPTARG_ProtoField_new_BASE, "BASE_NONE"));
+    f->mask = (guint32)luaL_optnumber(L, WSLUA_OPTARG_ProtoField_new_MASK, 0x0);
+    blob = luaL_optstring(L,WSLUA_OPTARG_ProtoField_new_DESCR,NULL);
     if (blob && strcmp(blob, f->name) != 0) {
         f->blob = g_strdup(blob);
     } else {
@@ -950,7 +872,7 @@ static int ProtoField_boolean(lua_State* L, enum ftenum type) {
     const gchar* abbr = luaL_checkstring(L,1);
     const gchar* name = luaL_optstring(L,2,abbr);
     unsigned base = luaL_optint(L, 3, BASE_NONE);
-    true_false_string* tfs = NULL;
+    true_false_string* tfs = (lua_gettop(L) > 3) ? true_false_string_from_table(L,4) : NULL;
     guint32 mask = (guint32)luaL_optnumber(L,5,0);
     const gchar* blob = luaL_optstring(L,6,NULL);
 
@@ -974,10 +896,6 @@ static int ProtoField_boolean(lua_State* L, enum ftenum type) {
     if (proto_check_field_name(abbr)) {
       luaL_argerror(L,1,"Invalid char in abbrev");
       return 0;
-    }
-
-    if (lua_gettop(L) > 3 && !lua_isnil(L,4)) {
-        tfs = true_false_string_from_table(L,4);
     }
 
     f = g_new(wslua_field_t,1);

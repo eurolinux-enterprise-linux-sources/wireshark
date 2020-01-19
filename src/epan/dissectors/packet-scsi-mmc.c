@@ -2,7 +2,7 @@
  * Ronnie Sahlberg 2006
  * copied from packet-scsi.c
  *
- * $Id$
+ * $Id: packet-scsi-mmc.c 47932 2013-02-28 03:15:57Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

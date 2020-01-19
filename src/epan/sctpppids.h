@@ -1,7 +1,7 @@
 /* sctpppids.h
  * Declarations of SCTP payload protocol IDs.
  *
- * $Id$
+ * $Id: sctpppids.h 44500 2012-08-14 20:31:49Z tuexen $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

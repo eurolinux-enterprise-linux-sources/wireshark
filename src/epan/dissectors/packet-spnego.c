@@ -15,7 +15,7 @@
  * Copyright 2005, Ronnie Sahlberg (krb decryption)
  * Copyright 2005, Anders Broman (converted to asn2wrs generated dissector)
  *
- * $Id$
+ * $Id: packet-spnego.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

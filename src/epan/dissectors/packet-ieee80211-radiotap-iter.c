@@ -4,7 +4,7 @@
  * Copyright 2007		Andy Green <andy@warmcat.com>
  * Copyright 2009		Johannes Berg <johannes@sipsolutions.net>
  *
- * $Id$
+ * $Id: packet-ieee80211-radiotap-iter.c 47813 2013-02-22 01:34:53Z cmaynard $
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as

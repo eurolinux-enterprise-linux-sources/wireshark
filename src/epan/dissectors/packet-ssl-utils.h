@@ -2,7 +2,7 @@
  * ssl manipulation functions
  * By Paolo Abeni <paolo.abeni@email.com>
  *
- * $Id$
+ * $Id: packet-ssl-utils.h 48174 2013-03-07 18:37:58Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

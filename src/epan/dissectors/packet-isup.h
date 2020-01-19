@@ -1,6 +1,6 @@
 /* packet-isup.h
  *
- * $Id$
+ * $Id: packet-isup.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright 2003, Michael Lum <mlum [AT] telostech.com>,
  * In association with Telos Technology Inc.

@@ -1,7 +1,7 @@
 /* iface_monitor.h
  * interface monitor by Pontus Fuchs <pontus.fuchs@gmail.com>
  *
- * $Id$
+ * $Id: iface_monitor.h 43545 2012-06-29 18:04:11Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

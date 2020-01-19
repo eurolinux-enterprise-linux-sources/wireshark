@@ -2,7 +2,7 @@
  * Routine and tables for analyzing an ISPC according to Q.708
  * Copyright 2010, Gerasimos Dimitriadis <dimeg [AT] intracom.gr>
  *
- * $Id$
+ * $Id: packet-q708.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

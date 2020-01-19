@@ -1,6 +1,6 @@
 /* packet-bluetooth-hci.h
  *
- * $Id$
+ * $Id: packet-bluetooth-hci.h 47655 2013-02-14 15:29:25Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

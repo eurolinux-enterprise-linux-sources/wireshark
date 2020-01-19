@@ -1,6 +1,6 @@
 /* hcidump.h
  *
- * $Id$
+ * $Id: hcidump.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright (c) 2003 by Marcel Holtmann <marcel@holtmann.org>
  *

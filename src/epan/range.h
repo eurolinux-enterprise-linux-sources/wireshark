@@ -1,7 +1,7 @@
 /* range.h
  * Range routines
  *
- * $Id$
+ * $Id: range.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Dick Gooris <gooris@lucent.com>
  * Ulf Lamping <ulf.lamping@web.de>

@@ -2,7 +2,7 @@
 * Routines for megaco packet disassembly
 * RFC 3015
 *
-* $Id$
+* $Id: packet-megaco.c 49218 2013-05-09 15:22:30Z martink $
 *
 * Christian Falckenberg, 2002/10/17
 * Copyright (c) 2002 by Christian Falckenberg
@@ -43,6 +43,7 @@
 #include "config.h"
 
 #include <stdlib.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -338,7 +339,6 @@ dissect_megaco_text(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     gcp_cmd_type_t cmd_type = GCP_CMD_NONE;
     gcp_wildcard_t wild_term = GCP_WILDCARD_NONE;
     proto_item *hidden_item;
-    gboolean        short_form;
 
     top_tree=tree;
     /* Initialize variables */
@@ -379,9 +379,10 @@ dissect_megaco_text(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
      */
     if(!tvb_get_nstringz0(tvb,tvb_offset,sizeof(word),word)) return;
 
-    short_form = (tvb_get_guint8(tvb, tvb_offset ) == '!');
 
-    if (g_ascii_strncasecmp(word, "MEGACO", 6) != 0 && !short_form){
+
+
+    if (g_ascii_strncasecmp(word, "MEGACO", 6) != 0 && tvb_get_guint8(tvb, tvb_offset ) != '!'){
         gint8 ber_class;
         gboolean pc;
         gint32 tag;
@@ -426,7 +427,7 @@ dissect_megaco_text(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     /* assume at least one digit in version */
     tvb_current_offset = tvb_previous_offset + 1;
 
-    if (g_ascii_isdigit(tvb_get_guint8(tvb, tvb_current_offset))) {
+    if (isdigit(tvb_get_guint8(tvb, tvb_current_offset))) {
         /* 2-digit version */
         tvb_current_offset++;
     }
@@ -519,7 +520,7 @@ dissect_megaco_text(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
     /* Find token length */
     for (tvb_offset=tvb_previous_offset; tvb_offset < tvb_len-1; tvb_offset++){
-        if (!g_ascii_isalpha(tvb_get_guint8(tvb, tvb_offset ))){
+        if (!isalpha(tvb_get_guint8(tvb, tvb_offset ))){
             break;
         }
     }
@@ -967,7 +968,7 @@ nextcontext:
                 if ( tempchar != 'E' ){
 
 					/* Short form used */
-                    if (short_form){
+                    if ( tvb_get_guint8(tvb, 0 ) == '!'){
 
                         switch ( tempchar ){
 
@@ -1487,7 +1488,7 @@ dissect_megaco_descriptors(tvbuff_t *tvb, proto_tree *megaco_tree_command_line, 
 
         /* Find token length */
         for (tvb_offset=tvb_previous_offset; tvb_offset < tvb_descriptors_end_offset -1; tvb_offset++){
-            if (!g_ascii_isalpha(tvb_get_guint8(tvb, tvb_offset ))){
+            if (!isalpha(tvb_get_guint8(tvb, tvb_offset ))){
                 break;
             }
         }
@@ -1668,7 +1669,7 @@ dissect_megaco_mediadescriptor(tvbuff_t *tvb, proto_tree *megaco_tree_command_li
 
         /* Find token length */
         for (tvb_next_offset=tvb_current_offset; tvb_next_offset < tvb_last_RBRKT; tvb_next_offset++){
-                if (!g_ascii_isalpha(tvb_get_guint8(tvb, tvb_next_offset ))){
+                if (!isalpha(tvb_get_guint8(tvb, tvb_next_offset ))){
                 break;
             }
         }
@@ -2071,7 +2072,7 @@ dissect_megaco_signaldescriptor(tvbuff_t *tvb, packet_info *pinfo, proto_tree *m
     tvb_signals_end_offset   = tvb_RBRKT;
     tvb_signals_start_offset = tvb_previous_offset;
 
-    if(g_ascii_toupper(tvb_get_guint8(tvb, tvb_previous_offset+1))=='G')
+    if(toupper(tvb_get_guint8(tvb, tvb_previous_offset+1))=='G')
       tokenlen = 2;                             /* token is compact text (SG) */
     else
       tokenlen = 7;                             /* token must be verbose text (Signals) */
@@ -2378,7 +2379,7 @@ dissect_megaco_servicechangedescriptor(tvbuff_t *tvb, proto_tree *megaco_tree,  
         tvb_previous_offset = megaco_tvb_skip_wsp(tvb, tvb_previous_offset);
         /* Find token length */
         for (tvb_offset=tvb_previous_offset; tvb_offset < tvb_RBRKT; tvb_offset++){
-            if (!g_ascii_isalpha(tvb_get_guint8(tvb, tvb_offset ))){
+            if (!isalpha(tvb_get_guint8(tvb, tvb_offset ))){
                 break;
             }
         }
@@ -3106,7 +3107,7 @@ dissect_megaco_LocalControldescriptor(tvbuff_t *tvb, proto_tree *megaco_mediades
         for (tvb_offset=tvb_current_offset; tvb_offset < tvb_next_offset; tvb_offset++){
             guint8 octet;
             octet = tvb_get_guint8(tvb, tvb_offset);
-            if (!g_ascii_isalnum(octet)){
+            if (!isalnum(octet)){
                 if ((octet!='/')&&(octet!='_')){
                     break;
                 }
@@ -3293,7 +3294,7 @@ static void tvb_raw_text_add(tvbuff_t *tvb, proto_tree *tree){
                             "%s", tvb_format_text_wsp(tvb,tvb_linebegin,
                                                       linelen));
         tvb_linebegin = tvb_lineend;
-    } while ( tvb_lineend < tvb_len && linelen > 0);
+    } while ( tvb_lineend < tvb_len );
 }
 
 /*

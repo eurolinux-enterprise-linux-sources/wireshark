@@ -6,7 +6,7 @@
 #
 # Copyright 2009, Kovarththanan Rajaratnam <kovarththanan.rajaratnam@gmail.com>
 #
-# $Id$
+# $Id: indexcap.py 44175 2012-07-31 23:16:26Z morriss $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

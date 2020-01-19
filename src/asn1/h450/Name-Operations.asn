@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.8/2000/Name-Operations.asn
 --
--- $Id$
+-- $Id: Name-Operations.asn 22417 2007-07-30 08:01:59Z kukosa $
 --
 
 -- Module Name-Operations (H.450.8:02/2000)

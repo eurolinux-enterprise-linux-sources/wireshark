@@ -1,7 +1,7 @@
 /* packet-tcp.c
  * Routines for TCP packet disassembly
  *
- * $Id$
+ * $Id: packet-tcp.c 52961 2013-10-29 19:55:40Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -844,9 +844,8 @@ tcp_analyze_sequence_number(packet_info *pinfo, guint32 seq, guint32 ack, guint3
      * event that the SYN or SYN/ACK packet is not seen
      * (this solves bug 1542)
      */
-    if(tcpd->fwd->base_seq_set == FALSE) {
+    if(tcpd->fwd->base_seq==0) {
         tcpd->fwd->base_seq = (flags & TH_SYN) ? seq : seq-1;
-        tcpd->fwd->base_seq_set = TRUE;
     }
 
     /* Only store reverse sequence if this isn't the SYN
@@ -860,9 +859,8 @@ tcp_analyze_sequence_number(packet_info *pinfo, guint32 seq, guint32 ack, guint3
 	 * all other packets the ISN is unknown, so ack-1 is
 	 * as good a guess as ack.
      */
-    if( (tcpd->rev->base_seq_set==FALSE) && (flags & TH_ACK) ) {
+    if( (tcpd->rev->base_seq==0) && (flags & TH_ACK) ) {
         tcpd->rev->base_seq = ack-1;
-        tcpd->rev->base_seq_set = TRUE;
     }
 
     if( flags & TH_ACK ) {
@@ -2636,7 +2634,6 @@ dissect_tcpopt_mptcp(const ip_tcp_opt *optp _U_, tvbuff_t *tvb,
     guint8 indx;
     guint8 flags;
     guint8 ipver;
-    int start_offset = offset;
 
     ti = proto_tree_add_text(opt_tree, tvb, offset, optlen, "Multipath TCP");
     mptcp_tree = proto_item_add_subtree(ti, ett_tcp_option_mptcp);
@@ -2810,12 +2807,9 @@ dissect_tcpopt_mptcp(const ip_tcp_opt *optp _U_, tvbuff_t *tvb,
                             2, ENC_BIG_ENDIAN);
                 offset += 2;
 
-                if ((int)optlen >= offset-start_offset+4)
-                {
-                    proto_tree_add_item(mptcp_tree,
-                                hf_tcp_option_mptcp_checksum, tvb, offset,
-                                2, ENC_BIG_ENDIAN);
-                }
+                proto_tree_add_item(mptcp_tree,
+                            hf_tcp_option_mptcp_checksum, tvb, offset,
+                            2, ENC_BIG_ENDIAN);
             }
             break;
 
@@ -4216,7 +4210,7 @@ dissect_tcp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
      * mission later.
      */
     if(tcpd && ((tcph->th_flags&(TH_SYN|TH_ACK))==TH_SYN) &&
-       (tcpd->fwd->base_seq_set == TRUE) &&
+       (tcpd->fwd->base_seq!=0) &&
        (tcph->th_seq!=tcpd->fwd->base_seq) ) {
         if (!(pinfo->fd->flags.visited)) {
             conv=conversation_new(pinfo->fd->num, &pinfo->src, &pinfo->dst, pinfo->ptype, pinfo->srcport, pinfo->destport, 0);

@@ -1,7 +1,7 @@
 /* disabled_protos.c
  * Code for reading and writing the disabled protocols file.
  *
- * $Id$
+ * $Id: disabled_protos.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <errno.h>
 
 #ifdef HAVE_UNISTD_H
@@ -180,7 +181,7 @@ read_disabled_protos_list_file(const char *ff_path, FILE *ff,
        a protocol to be disabled. */
 
     /* Skip over leading white space, if any. */
-    while ((c = getc(ff)) != EOF && g_ascii_isspace(c)) {
+    while ((c = getc(ff)) != EOF && isspace(c)) {
       if (c == '\n') {
 	/* Blank line. */
 	continue;
@@ -201,7 +202,7 @@ read_disabled_protos_list_file(const char *ff_path, FILE *ff,
       c = getc(ff);
       if (c == EOF)
 	break;	/* End of file, or I/O error */
-      if (g_ascii_isspace(c))
+      if (isspace(c))
         break;	/* Trailing white space, or end of line. */
       if (c == '#')
         break;	/* Start of comment, running to end of line. */
@@ -215,9 +216,9 @@ read_disabled_protos_list_file(const char *ff_path, FILE *ff,
       prot_name_index++;
     }
 
-    if (g_ascii_isspace(c) && c != '\n') {
+    if (isspace(c) && c != '\n') {
       /* Skip over trailing white space. */
-      while ((c = getc(ff)) != EOF && c != '\n' && g_ascii_isspace(c))
+      while ((c = getc(ff)) != EOF && c != '\n' && isspace(c))
         ;
       if (c != EOF && c != '\n' && c != '#') {
 	/* Non-white-space after the protocol name; warn about it,

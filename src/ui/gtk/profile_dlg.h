@@ -2,7 +2,7 @@
  * Definitions for dialog box for profiles editing.
  * Stig Bjorlykke <stig@bjorlykke.org>, 2008
  *
- * $Id$
+ * $Id: profile_dlg.h 49465 2013-05-20 22:07:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

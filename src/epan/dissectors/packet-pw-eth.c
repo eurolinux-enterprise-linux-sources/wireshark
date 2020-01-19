@@ -5,7 +5,7 @@
  *
  * Francesco Fondelli <francesco dot fondelli, gmail dot com>
  *
- * $Id$
+ * $Id: packet-pw-eth.c 46420 2012-12-06 15:15:05Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -9,7 +9,7 @@
  * Added support for Connection Configuration Object
  *   ryan wamsley * Copyright 2007
  *
- * $Id$
+ * $Id: packet-cip.h 46020 2012-11-13 13:14:48Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

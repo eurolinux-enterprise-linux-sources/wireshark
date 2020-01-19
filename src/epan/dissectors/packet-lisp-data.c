@@ -2,7 +2,7 @@
  * Routines for LISP Data Message dissection
  * Copyright 2010, Lorand Jakab <lj@lispmon.net>
  *
- * $Id$
+ * $Id: packet-lisp-data.c 49190 2013-05-06 23:31:24Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

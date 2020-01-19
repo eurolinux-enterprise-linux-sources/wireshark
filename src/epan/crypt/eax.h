@@ -2,7 +2,7 @@
  * Encryption and decryption routines implementing the EAX' encryption mode
  * Copyright 2010, Edward J. Beroset, edward.j.beroset@us.elster.com
  *
- * $Id$
+ * $Id: eax.h 45016 2012-09-20 01:48:30Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

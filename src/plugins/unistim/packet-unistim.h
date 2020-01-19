@@ -3,7 +3,7 @@
   * definitions and function prototypes for main dissectors
   * Copyright 2007 Don Newton <dnewton@cypresscom.net>
   *
-  * $Id$
+  * $Id: packet-unistim.h 43536 2012-06-28 22:56:06Z darkjames $
   *
   * Wireshark - Network traffic analyzer
   * By Gerald Combs <gerald@wireshark.org>

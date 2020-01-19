@@ -1,7 +1,7 @@
 # mpeg-audio.cnf
 # mpeg-audio conformation file
 #
-# $Id$
+# $Id: mpeg-audio.cnf 21114 2007-03-22 11:43:07Z sahlberg $
 
 #.TYPE_ATTR
 ID3v1/tag TYPE=FT_STRING

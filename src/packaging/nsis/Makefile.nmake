@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: Makefile.nmake 48999 2013-04-23 17:36:23Z gerald $
 #
 # NSIS is a free packager/installer/uninstaller program for Win32.
 # It was originally written for the Winamp package, but various
@@ -90,7 +90,7 @@ user-guide.chm::
 
 NSIS_FLAGS=\
 	/DPROGRAM_NAME=$(PROGRAM_NAME) \
-	/DMAKEDIR="$(MAKEDIR)" \
+	/DMAKEDIR=$(MAKEDIR) \
 	/DSTAGING_DIR=$(STAGING_DIR) \
 	/DWIRESHARK_TARGET_PLATFORM=$(WIRESHARK_TARGET_PLATFORM) \
 	/DTARGET_MACHINE=$(TARGET_MACHINE) \

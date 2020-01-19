@@ -9,7 +9,7 @@
 	Instructions on how to download and install Pidl can be 
 	found at http://wiki.wireshark.org/Pidl
 
-	$Id$
+	$Id: packet-dcerpc-misc.h 44323 2012-08-08 03:28:02Z morriss $
 */
 
 

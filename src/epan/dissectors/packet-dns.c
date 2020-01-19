@@ -2,7 +2,7 @@
  * Routines for DNS packet disassembly
  * Copyright 2004, Nicolas DICHTEL - 6WIND - <nicolas.dichtel@6wind.com>
  *
- * $Id$
+ * $Id: packet-dns.c 52974 2013-10-29 22:55:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

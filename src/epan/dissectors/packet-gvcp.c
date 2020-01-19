@@ -2,7 +2,7 @@
  * Routines for gvcp (GigEVision Control Protocol) dissection
  * Copyright 2010, Adrian Daerr <adrian.daerr@gmx.de>
  *
- * $Id$
+ * $Id: packet-gvcp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

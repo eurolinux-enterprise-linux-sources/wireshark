@@ -3,7 +3,7 @@
  * Scanner for text import
  * November 2010, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: text_import_scanner.h 45767 2012-10-24 15:52:45Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* airpdcap_interop.h
  *
- * $Id$
+ * $Id: airpdcap_interop.h 24599 2008-03-10 17:20:15Z gerald $
  *
  * Copyright (c) 2006 CACE Technologies, Davis (California)
  * All rights reserved.

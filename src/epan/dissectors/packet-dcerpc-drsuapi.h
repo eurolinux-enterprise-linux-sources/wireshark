@@ -5,7 +5,7 @@
 /* packet-dcerpc-drsuapi.h
  * Routines for DRSUAPI packet disassembly
  *
- * $Id$
+ * $Id: packet-dcerpc-drsuapi.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

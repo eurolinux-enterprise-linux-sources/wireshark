@@ -2,7 +2,7 @@
 -- See also ITU-T Q.950 (06/2000)
 -- See also the index of all ASN.1 assignments needed in this document
 --
--- $Id$
+-- $Id: General-Error-List.asn 37005 2011-05-06 01:47:16Z morriss $
 --
 
 General-Error-List {itu-t recommendation q 950 general-error-list(1)}

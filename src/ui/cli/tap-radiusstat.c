@@ -1,7 +1,7 @@
 /* tap-radiusstat.c
  * Copyright 2006 Alejandro Vaquero <alejandrovaquero@yahoo.com>
  *
- * $Id$
+ * $Id: tap-radiusstat.c 48161 2013-03-07 07:05:45Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

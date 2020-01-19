@@ -4,7 +4,7 @@
  *
  * Copyright (c) Novell, Inc. 2002-2003
  *
- * $Id$
+ * $Id: packet-ndps.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

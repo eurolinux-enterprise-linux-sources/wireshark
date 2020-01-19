@@ -8,7 +8,7 @@
  *
  * (c) 2007 Joost Yervante Damad <joost[AT]teluna.org>
  *
- * $Id$
+ * $Id: packet-epmd.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

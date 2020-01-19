@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindFOP.cmake 32004 2010-02-25 12:30:44Z jmayer $
 #
 # - Find unix commands from cygwin
 # This module looks for some usual Unix commands.

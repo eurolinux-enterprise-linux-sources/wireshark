@@ -3,7 +3,7 @@
  * Author: Stephane Bryant <sbryant@glycon.org>
  * Copyright 2010 Stonyfish Inc.
  *
- * $Id$
+ * $Id: packet-reload-framing.c 48409 2013-03-18 22:38:56Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

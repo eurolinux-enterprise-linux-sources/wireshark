@@ -1,6 +1,6 @@
 /* profile_dialog.cpp
  *
- * $Id$
+ * $Id: profile_dialog.cpp 46942 2013-01-05 02:30:58Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

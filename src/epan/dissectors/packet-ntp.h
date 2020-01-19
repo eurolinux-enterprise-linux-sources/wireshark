@@ -1,7 +1,7 @@
 /* packet-ntp.h
  * Definitions for packet disassembly structures and routines
  *
- * $Id$
+ * $Id: packet-ntp.h 45783 2012-10-25 12:54:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

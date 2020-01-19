@@ -3,7 +3,7 @@
  * Copyright 2005, Ulf Lamping <ulf.lamping@web.de>
  * Copyright 2006-2007, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: packet-vnc.c 50266 2013-06-30 20:09:41Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

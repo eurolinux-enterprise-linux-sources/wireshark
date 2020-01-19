@@ -10,7 +10,7 @@
  * Dinesh G Dutt (ddutt@cisco.com)
  * Ronnie sahlberg 2006
  *
- * $Id$
+ * $Id: packet-scsi-ssc.c 48380 2013-03-17 19:25:00Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

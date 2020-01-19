@@ -1,7 +1,7 @@
 /* packet-iana-oui.c
  * Register an LLC dissector table for the IANA's OUI 00:00:5e
  *
- * $Id$
+ * $Id: packet-iana-oui.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

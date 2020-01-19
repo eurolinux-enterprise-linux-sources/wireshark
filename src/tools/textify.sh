@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: textify.sh 32440 2010-04-09 21:42:51Z gerald $
 #
 # Text file conversion script for packaging on Windows
 #

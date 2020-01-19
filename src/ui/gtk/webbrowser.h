@@ -1,7 +1,7 @@
 /* webbrowser.h
  * Web browser activation functions
  *
- * $Id$
+ * $Id: webbrowser.h 44987 2012-09-18 21:51:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

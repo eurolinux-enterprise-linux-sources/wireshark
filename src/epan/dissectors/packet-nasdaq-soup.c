@@ -2,7 +2,7 @@
  * Routines for NASDAQ SOUP 2.0 Protocol dissection
  * Copyright 2007,2008 Didier Gautheron <dgautheron@magic.fr>
  *
- * $Id$
+ * $Id: packet-nasdaq-soup.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

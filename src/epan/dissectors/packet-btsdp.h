@@ -1,6 +1,6 @@
 /* packet-btsdp.h
  *
- * $Id$
+ * $Id: packet-btsdp.h 48640 2013-03-29 17:25:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

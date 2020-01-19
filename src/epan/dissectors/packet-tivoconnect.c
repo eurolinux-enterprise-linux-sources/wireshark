@@ -7,7 +7,7 @@
  * IANA's full name is "TiVoConnect Beacon", where as TiVo's own
  * documentation calls this protocol "TiVoConnect Discovery Protocol".
  *
- * $Id$
+ * $Id: packet-tivoconnect.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

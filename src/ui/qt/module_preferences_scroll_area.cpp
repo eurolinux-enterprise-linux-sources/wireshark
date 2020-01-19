@@ -1,6 +1,6 @@
 /* module_preferences_scroll_area.cpp
  *
- * $Id$
+ * $Id: module_preferences_scroll_area.cpp 47573 2013-02-08 18:07:34Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

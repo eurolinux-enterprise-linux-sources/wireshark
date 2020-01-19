@@ -2,7 +2,7 @@
  *
  * Utility routines for WAP dissectors
  *
- * $Id$
+ * $Id: packet-wap.c 46490 2012-12-10 19:12:05Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

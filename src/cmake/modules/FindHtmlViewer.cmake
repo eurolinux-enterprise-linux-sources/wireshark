@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindHtmlViewer.cmake 34200 2010-09-23 06:59:41Z jmayer $
 #
 # - Find an html viewer program
 #

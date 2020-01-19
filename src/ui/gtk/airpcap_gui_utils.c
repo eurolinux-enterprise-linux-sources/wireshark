@@ -1,6 +1,6 @@
 /* airpcap_gui_utils.c
  *
- * $Id$
+ * $Id: airpcap_gui_utils.c 48202 2013-03-08 22:10:06Z etxrab $
  *
  * Giorgio Tino <giorgio.tino@cacetech.com>
  * Copyright (c) CACE Technologies, LLC 2006

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id$
+# $Id: build-gtk.sh 24640 2008-03-15 18:31:52Z gerald $
 #
 # Based on the Imendio 'build-gtk.sh' script.
 #

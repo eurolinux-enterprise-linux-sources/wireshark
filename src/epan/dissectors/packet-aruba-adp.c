@@ -1,7 +1,7 @@
 /* packet-aruba-adp.c
  * Routines for Aruba ADP header disassembly
  *
- * $Id$
+ * $Id: packet-aruba-adp.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Giles Scott < gscott <at> arubanetworks dot com>
  *

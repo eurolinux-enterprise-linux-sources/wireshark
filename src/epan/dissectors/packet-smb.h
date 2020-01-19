@@ -2,7 +2,7 @@
  * Defines for SMB packet dissection
  * Copyright 1999, Richard Sharpe <rsharpe@ns.aus.com>
  *
- * $Id$
+ * $Id: packet-smb.h 48210 2013-03-09 08:44:14Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

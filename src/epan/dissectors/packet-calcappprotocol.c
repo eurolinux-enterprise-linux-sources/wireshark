@@ -5,7 +5,7 @@
  *
  * Copyright 2006 by Thomas Dreibholz <dreibh [AT] exp-math.uni-essen.de>
  *
- * $Id$
+ * $Id: packet-calcappprotocol.c 48313 2013-03-15 06:26:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

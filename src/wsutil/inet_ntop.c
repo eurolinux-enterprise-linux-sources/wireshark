@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: inet_ntop.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Copyright (c) 1996-1999 by Internet Software Consortium.
  *

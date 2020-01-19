@@ -1,7 +1,7 @@
 # cdt.cnf
 # Compressed Data Type conformation file
 
-# $Id$
+# $Id: cdt.cnf 36013 2011-02-20 17:03:29Z stig $
 
 #.EXPORTS
 CompressedData

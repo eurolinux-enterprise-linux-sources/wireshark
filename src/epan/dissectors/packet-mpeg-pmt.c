@@ -2,7 +2,7 @@
  * Routines for MPEG2 (ISO/ISO 13818-1) Program Map Table (PMT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-mpeg-pmt.c 48737 2013-04-04 18:32:26Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

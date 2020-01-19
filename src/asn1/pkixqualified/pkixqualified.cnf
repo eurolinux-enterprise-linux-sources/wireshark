@@ -1,7 +1,7 @@
 # PKIXqualified.cnf
 # PKIXqualified conformation file
 
-# $Id$
+# $Id: pkixqualified.cnf 26104 2008-08-31 12:55:45Z etxrab $
 
 #.IMPORT ../x509ce/x509ce-exp.cnf
 #.IMPORT ../x509af/x509af-exp.cnf

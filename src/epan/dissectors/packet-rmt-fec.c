@@ -17,7 +17,7 @@
  *     Simple XOR, Reed-Solomon, and Parity Check Matrix-based FEC Schemes draft-peltotalo-rmt-bb-fec-supp-xor-pcm-rs-00
  *     IANA RMT FEC parameters (http://www.iana.org/assignments/rmt-fec-parameters)
  *
- * $Id$
+ * $Id: packet-rmt-fec.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

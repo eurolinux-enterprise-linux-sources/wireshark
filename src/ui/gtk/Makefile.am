@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for the GTK interface routines for Wireshark
 #
-# $Id$
+# $Id: Makefile.am 49061 2013-04-26 21:32:23Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

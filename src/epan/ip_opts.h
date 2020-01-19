@@ -2,7 +2,7 @@
  * Definitions of structures and routines for dissection of options that
  * work like IPv4 options
  *
- * $Id$
+ * $Id: ip_opts.h 50710 2013-07-17 22:20:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

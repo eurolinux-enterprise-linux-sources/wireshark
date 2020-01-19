@@ -9,7 +9,7 @@
  * names of its contributors may be used to endorse or promote products 
  * derived from this software without specific prior written permission.
  *
- * $Id$
+ * $Id: packet-dtn.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

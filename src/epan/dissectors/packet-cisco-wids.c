@@ -2,7 +2,7 @@
  * Routines for dissecting wireless ids packets sent from a Cisco
  * access point to the WLSE (or whatever)
  *
- * $Id$
+ * $Id: packet-cisco-wids.c 47924 2013-02-27 22:43:54Z guy $
  *
  * Copyright 2006 Joerg Mayer (see AUTHORS file)
  *

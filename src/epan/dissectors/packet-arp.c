@@ -1,7 +1,7 @@
 /* packet-arp.c
  * Routines for ARP packet disassembly (RFC 826)
  *
- * $Id$
+ * $Id: packet-arp.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

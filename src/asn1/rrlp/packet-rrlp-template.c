@@ -2,7 +2,7 @@
  * Routines for 3GPP Radio Resource LCS Protocol (RRLP) packet dissection
  * Copyright 2006, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-rrlp-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

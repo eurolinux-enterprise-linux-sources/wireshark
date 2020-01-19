@@ -2,7 +2,7 @@
  * conversations_table   2003 Ronnie Sahlberg
  * Helper routines common to all conversations taps.
  *
- * $Id$
+ * $Id: conversations_table.h 46027 2012-11-14 02:53:41Z martinm $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

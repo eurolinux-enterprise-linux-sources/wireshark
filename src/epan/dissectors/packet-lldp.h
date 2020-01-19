@@ -6,7 +6,7 @@
  * July 2005
  * Modified by: Brian Bogora <brian_bogora@mitel.com>
  *
- * $Id$
+ * $Id: packet-lldp.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

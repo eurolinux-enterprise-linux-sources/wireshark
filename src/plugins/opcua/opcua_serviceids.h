@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_serviceids.h 32577 2010-04-27 13:50:43Z morriss $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -22,7 +22,6 @@
 **
 ******************************************************************************/
 
-#define OpcUaId_ServiceFault_Encoding_DefaultBinary 397
 #define OpcUaId_TestStackRequest_Encoding_DefaultBinary 410
 #define OpcUaId_TestStackResponse_Encoding_DefaultBinary 413
 #define OpcUaId_TestStackExRequest_Encoding_DefaultBinary 416

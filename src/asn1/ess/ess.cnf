@@ -1,7 +1,7 @@
 # ess.cnf
 # ExtendedSecurityServices conformation file
 
-# $Id$
+# $Id: ess.cnf 39413 2011-10-14 07:44:20Z stig $
 
 #.IMPORT ../x509af/x509af-exp.cnf
 #.IMPORT ../x509ce/x509ce-exp.cnf

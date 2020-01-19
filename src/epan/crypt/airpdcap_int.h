@@ -1,6 +1,6 @@
 /* airpcap_int.h
  *
- * $Id$
+ * $Id: airpdcap_int.h 40595 2012-01-19 22:55:37Z rbalint $
  *
  * Copyright (c) 2006 CACE Technologies, Davis (California)
  * All rights reserved.

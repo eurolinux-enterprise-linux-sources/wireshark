@@ -1,7 +1,7 @@
 /**
  * airpdcap_rijndael.c
  *
- * $Id$
+ * $Id: airpdcap_rijndael.c 40511 2012-01-15 12:29:44Z jmayer $
  *
  * @version 3.0 (December 2000)
  *

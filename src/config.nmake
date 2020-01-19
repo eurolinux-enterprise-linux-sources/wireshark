@@ -1,4 +1,4 @@
-# $Id$
+# $Id: config.nmake 51940 2013-09-10 19:59:42Z gerald $
 
 # Some more information about the settings in this file can be found in
 # the file README.windows and the Developer's Guide (available online).
@@ -22,15 +22,15 @@ WIRESHARK_TARGET_PLATFORM=win32
 
 ##### Versions #####
 
-# The Git description of our build. Updated by make-version.pl
-GIT_REVISION=0
+# The SVN revision of our build. Updated by make-version.pl
+SVN_REVISION=53022
 
 # The current Wireshark version. Recommended: Leave unchanged.
 # Updated by make-version.pl
 VERSION_MAJOR=1
 VERSION_MINOR=10
-VERSION_MICRO=14
-VERSION_BUILD=$(GIT_REVISION)
+VERSION_MICRO=3
+VERSION_BUILD=$(SVN_REVISION)
 
 # Local build information. Recommended: Unique string for your
 # environment, e.g. "-JackStackBarbecue". Updated by make-version.pl
@@ -58,7 +58,6 @@ WIRESHARK_LIB_DIR=C:\$(PROGRAM_NAME)-$(WIRESHARK_TARGET_PLATFORM)-libs-1.10
 # This setting is used only inside this file.
 #
 PROGRAM_FILES=$(PROGRAMFILES)
-PROGRAM_FILES_W6432=$(PROGRAMW6432)
 
 #
 # Location of the "tools" directory. This affects HTML2TXT below and should
@@ -731,25 +730,14 @@ UNIX2DOS=u2d
 TEXTIFY=$(SH) $(TOOLS_DIR)/textify.sh
 
 #
-# Optional: Build the NSIS installer.
+# Optional: To build the NSIS installer.
 #
-# If NSIS is installed in a standard location (under Program Files
-# or Program Files (x86)) you shouldn't have to change anything.
+# If you have the NSIS package, set this to the NSIS executable.
 #
-# If NSIS is installed in a custom location uncomment the following
-# line and adjust the path accordingly.
+# If you don't have NSIS, comment this line out, so that MAKENSIS
+# isn't defined.
 #
-
-#MAKENSIS="\custom\path\to\NSIS\makensis.exe"
-
-# Find NSIS automatically
-!IF !DEFINED(MAKENSIS)
-!IF EXIST("$(PROGRAM_FILES)\NSIS\makensis.exe")
 MAKENSIS="$(PROGRAM_FILES)\NSIS\makensis.exe"
-!ELSE IF EXIST("$(PROGRAM_FILES_W6432)\NSIS\makensis.exe")
-MAKENSIS="$(PROGRAM_FILES_W6432)\NSIS\makensis.exe"
-!ENDIF
-!ENDIF
 
 #
 # Optional: To build the NSIS PortableApps installer.
@@ -1163,7 +1151,7 @@ LYNX=lynx
 # The RC_VERSION should be comma-separated, not dot-separated,
 # as per Graham Bloice's message in
 #
-#	http://www.wireshark.org/lists/ethereal-dev/200303/msg00283.html
+#	http://www.ethereal.com/lists/ethereal-dev/200303/msg00283.html
 #
 # "The RC_VERSION variable in config.nmake should be comma separated.
 # This allows the resources to be built correctly and the version

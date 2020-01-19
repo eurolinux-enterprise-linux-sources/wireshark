@@ -3,7 +3,7 @@
  *
  * (c) 2006, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: wslua_gui.c 48337 2013-03-16 08:12:29Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

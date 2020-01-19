@@ -3,7 +3,7 @@
  * Author: Stephane Bryant <sbryant@glycon.org>
  * Copyright 2010 Stonyfish Inc.
  *
- * $Id$
+ * $Id: packet-reload.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

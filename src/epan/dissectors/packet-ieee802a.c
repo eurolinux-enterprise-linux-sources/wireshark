@@ -1,7 +1,7 @@
 /* packet-ieee802a.c
  * Routines for IEEE 802a
  *
- * $Id$
+ * $Id: packet-ieee802a.c 50688 2013-07-17 01:34:46Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -85,7 +85,6 @@ dissect_ieee802a(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 	tvbuff_t	*next_tvb;
 	const gchar	*manuf;
 	guint8		oui[3];
-	guint32		oui32;
 	guint16		pid;
 	oui_info_t	*oui_info;
 	dissector_table_t subdissector_table;
@@ -100,7 +99,6 @@ dissect_ieee802a(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 	}
 
 	tvb_memcpy(tvb, oui, 0, 3);
-	oui32 = oui[0] << 16 | oui[1] << 8 | oui[2];
 	manuf = get_manuf_name_if_known(oui);
 	pid = tvb_get_ntohs(tvb, 3);
 
@@ -111,7 +109,7 @@ dissect_ieee802a(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 	}
 	if (tree) {
 		proto_tree_add_uint_format_value(ieee802a_tree, hf_ieee802a_oui,
-		    tvb, 0, 3, oui32, "%s (%s)",
+		    tvb, 0, 3, oui[0] << 16 | oui[1] << 8 | oui[2], "%s (%s)",
 		    bytes_to_str_punct(oui, 3, ':'), manuf ? manuf : "Unknown");
 	}
 
@@ -120,7 +118,7 @@ dissect_ieee802a(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 	 */
 	if (oui_info_table != NULL &&
 	    (oui_info = (oui_info_t *)g_hash_table_lookup(oui_info_table,
-	      GUINT_TO_POINTER(oui32))) != NULL) {
+	      GUINT_TO_POINTER(oui))) != NULL) {
 		/*
 		 * Yes - use it.
 		 */

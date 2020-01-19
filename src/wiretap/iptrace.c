@@ -1,6 +1,6 @@
 /* iptrace.c
  *
- * $Id$
+ * $Id: iptrace.c 47258 2013-01-24 18:08:25Z gram $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -216,7 +216,7 @@ static gboolean iptrace_read_1_0(wtap *wth, int *err, gchar **err_info,
 	wth->phdr.ts.nsecs = 0;
 
 	if (wth->phdr.pkt_encap == WTAP_ENCAP_UNKNOWN) {
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("iptrace: interface type IFT=0x%02x unknown or unsupported",
 		    pkt_hdr.if_type);
 		return FALSE;
@@ -437,7 +437,7 @@ static gboolean iptrace_read_2_0(wtap *wth, int *err, gchar **err_info,
  * reported easily back to the Wireshark develoer.
 
 	if (wth->phdr.pkt_encap == WTAP_ENCAP_UNKNOWN) {
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("iptrace: interface type IFT=0x%02x unknown or unsupported",
 		    pkt_hdr.if_type);
 		return FALSE;

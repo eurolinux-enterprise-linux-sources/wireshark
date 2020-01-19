@@ -1,7 +1,7 @@
 /* gui_stat_menu.h
  * GTK+-specific menu definitions for use by stats
  *
- * $Id$
+ * $Id: gui_stat_menu.h 48855 2013-04-15 18:25:04Z martinm $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

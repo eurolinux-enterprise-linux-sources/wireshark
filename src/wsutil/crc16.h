@@ -3,7 +3,7 @@
  *
  * 2004 Richard van der Hoff <richardv@mxtelecom.com>
  *
- * $Id$
+ * $Id: crc16.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

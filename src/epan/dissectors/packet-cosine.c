@@ -1,7 +1,7 @@
 /* packet-cosine.c
  * Routines for decoding CoSine IPNOS L2 debug output
  *
- * $Id$
+ * $Id: packet-cosine.c 48319 2013-03-15 16:39:30Z etxrab $
  *
  * Motonori Shindo <motonori@shin.do>
  *

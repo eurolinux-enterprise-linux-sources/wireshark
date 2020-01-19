@@ -2,7 +2,7 @@
  * SCTP chunk counter for wireshark
  * Copyright 2005 Oleg Terletsky <oleg.terletsky@comverse.com>
  *
- * $Id$
+ * $Id: tap-sctpchunkstat.c 48161 2013-03-07 07:05:45Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

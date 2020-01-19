@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: packet-wimaxmacphy.h 48869 2013-04-16 00:00:09Z eapache $
  *
  * Routines for wimaxmacphy (WiMAX MAX SHY over Ethernet) packet dissection
  * Copyright 2008, Mobile Metrics - http://mobilemetrics.net/

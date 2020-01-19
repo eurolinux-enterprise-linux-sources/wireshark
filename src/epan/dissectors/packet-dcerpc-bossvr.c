@@ -5,7 +5,7 @@
  * This information is based off the released idl files from opengroup.
  * ftp://ftp.opengroup.org/pub/dce122/dce/src/file.tar.gz file/bosserver/bbos_ncs_interface.idl
  *
- * $Id$
+ * $Id: packet-dcerpc-bossvr.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

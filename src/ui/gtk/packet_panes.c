@@ -1,7 +1,7 @@
 /* packet_panes.c
  * Routines for GTK+ packet display (packet details and hex dump panes)
  *
- * $Id$
+ * $Id: packet_panes.c 51129 2013-08-03 01:03:13Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for IrCOMM dissection
  * Copyright 2003 Jan Kiszka <jan.kiszka@web.de>
  *
- * $Id$
+ * $Id: packet-ircomm.c 47617 2013-02-10 20:52:21Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

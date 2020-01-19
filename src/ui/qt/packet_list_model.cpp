@@ -1,6 +1,6 @@
 /* packet_list_model.cpp
  *
- * $Id$
+ * $Id: packet_list_model.cpp 46576 2012-12-17 23:03:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -183,8 +183,6 @@ QVariant PacketListModel::data(const QModelIndex &index, int role) const
         cinfo = &cap_file_->cinfo;
     else
         cinfo = NULL;
-
-    memset(&phdr, 0, sizeof(struct wtap_pkthdr));
 
     if (!cap_file_ || !cf_read_frame_r(cap_file_, fdata, &phdr, pd)) {
         /*

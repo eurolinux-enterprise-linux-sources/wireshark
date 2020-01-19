@@ -1,7 +1,7 @@
 /* packet-epmd.h
  * Definitions for EPMD (Erlang Port Mapper Daemon) messages
  *
- * $Id$
+ * $Id: packet-epmd.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

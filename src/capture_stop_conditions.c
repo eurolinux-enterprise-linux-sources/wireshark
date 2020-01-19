@@ -1,7 +1,7 @@
 /* capture_stop_conditions.c
  * Implementation for 'stop condition handler'.
  *
- * $Id$
+ * $Id: capture_stop_conditions.c 51874 2013-09-09 18:28:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

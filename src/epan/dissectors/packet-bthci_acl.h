@@ -1,6 +1,6 @@
 /* packet-bthci_acl.h
  *
- * $Id$
+ * $Id: packet-bthci_acl.h 48660 2013-03-30 21:43:18Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

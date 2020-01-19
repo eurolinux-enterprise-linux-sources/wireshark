@@ -1,7 +1,7 @@
 /* Reorder the frames from an input dump file, and write to output dump file.
  * Martin Mathieson and Jakub Jawadzki
  *
- * $Id$
+ * $Id: reordercap.c 50936 2013-07-26 21:51:57Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -44,8 +44,8 @@
 static void usage(void)
 {
     fprintf(stderr, "Reordercap %s"
-#ifdef GITVERSION
-	  " (" GITVERSION " from " GITBRANCH ")"
+#ifdef SVNVERSION
+	  " (" SVNVERSION " from " SVNPATH ")"
 #endif
 	  "\n", VERSION);
     fprintf(stderr, "Reorder timestamps of input file frames into output file.\n");
@@ -89,8 +89,6 @@ frame_write(FrameRecord_t *frame, wtap *wth, wtap_dumper *pdh,
     gchar  *err_info;
     struct wtap_pkthdr phdr;
     guint8 buf[65535];
-
-    memset(&phdr, 0, sizeof(struct wtap_pkthdr));
 
     DEBUG_PRINT("\nDumping frame (offset=%" G_GINT64_MODIFIER "u, length=%u)\n", 
                 frame->offset, frame->length);

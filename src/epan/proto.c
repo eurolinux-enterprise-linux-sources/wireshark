@@ -1,7 +1,7 @@
 /* proto.c
  * Routines for protocol tree
  *
- * $Id$
+ * $Id: proto.c 51876 2013-09-09 19:05:44Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <glib.h>
 #include <float.h>
 
@@ -257,11 +258,7 @@ struct _protocol {
 /* List of all protocols */
 static GList *protocols = NULL;
 
-/* Deregistered fields */
-static GPtrArray *deregistered_fields = NULL;
-static GPtrArray *deregistered_data = NULL;
-
-#define INITIAL_NUM_PROTOCOL_HFINFO    1500
+#define INITIAL_NUM_PROTOCOL_HFINFO	1500
 
 /* Contains information about a field when a dissector calls
  * proto_tree_add_item.  */
@@ -353,8 +350,6 @@ proto_init(void (register_all_protocols_func)(register_cb cb, gpointer client_da
 	gpa_hfinfo.allocated_len = 0;
 	gpa_hfinfo.hfi           = NULL;
 	gpa_name_tree            = g_tree_new_full(wrs_strcmp_with_data, NULL, NULL, save_same_name_hfinfo);
-	deregistered_fields      = g_ptr_array_new();
-	deregistered_data        = g_ptr_array_new();
 
 	/* Initialize the ftype subsystem */
 	ftypes_initialize();
@@ -458,17 +453,6 @@ proto_cleanup(void)
 		g_free(gpa_hfinfo.hfi);
 		gpa_hfinfo.hfi           = NULL;
 	}
-
-	if (deregistered_fields) {
-		g_ptr_array_free(deregistered_fields, FALSE);
-		deregistered_fields = NULL;
-	}
-
-	if (deregistered_data) {
-		g_ptr_array_free(deregistered_data, FALSE);
-		deregistered_data = NULL;
-	}
-
 	g_free(tree_is_expanded);
 	tree_is_expanded = NULL;
 }
@@ -3541,24 +3525,32 @@ get_hfi_and_length(int hfindex, tvbuff_t *tvb, const gint start, gint *length,
 		switch (hfinfo->type) {
 
 		case FT_PROTOCOL:
-		case FT_NONE:
-		case FT_BYTES:
-		case FT_STRING:
 			/*
-			 * We allow FT_PROTOCOLs to be zero-length -
-			 * for example, an ONC RPC NULL procedure has
+			 * We allow this to be zero-length - for
+			 * example, an ONC RPC NULL procedure has
 			 * neither arguments nor reply, so the
 			 * payload for that protocol is empty.
 			 *
-			 * We also allow the others to be zero-length -
-			 * because that's the way the code has been for a
-			 * long, long time.
-			 *
-			 * However, we want to ensure that the start
-			 * offset is not *past* the byte past the end
-			 * of the tvbuff: we throw an exception in that
-			 * case.
+			 * However, if the length is negative, the
+			 * start offset is *past* the byte past the
+			 * end of the tvbuff, so we throw an
+			 * exception.
 			 */
+			*length = tvb_length_remaining(tvb, start);
+			if (*length < 0) {
+				/*
+				 * Use "tvb_ensure_bytes_exist()"
+				 * to force the appropriate exception
+				 * to be thrown.
+				 */
+				tvb_ensure_bytes_exist(tvb, start, 0);
+			}
+			DISSECTOR_ASSERT(*length >= 0);
+			break;
+
+		case FT_NONE:
+		case FT_BYTES:
+		case FT_STRING:
 			*length = tvb_ensure_length_remaining(tvb, start);
 			DISSECTOR_ASSERT(*length >= 0);
 			break;
@@ -4498,7 +4490,7 @@ proto_register_protocol(const char *name, const char *short_name,
 	char *existing_name;
 	gint *key;
 	guint i;
-	gchar c;
+	guchar c;
 	gboolean found_invalid;
 
 	/*
@@ -4538,7 +4530,7 @@ proto_register_protocol(const char *name, const char *short_name,
 	found_invalid = FALSE;
 	for (i = 0; filter_name[i]; i++) {
 		c = filter_name[i];
-		if (!(g_ascii_islower(c) || g_ascii_isdigit(c) || c == '-' || c == '_' || c == '.')) {
+		if (!(islower(c) || isdigit(c) || c == '-' || c == '_' || c == '.')) {
 			found_invalid = TRUE;
 		}
 	}
@@ -4874,50 +4866,9 @@ proto_unregister_field (const int parent, gint hf_id)
 			g_tree_steal (gpa_name_tree, hf->hfinfo.abbrev);
 			proto->fields = g_list_remove_link (proto->fields, field);
 			proto->last_field = g_list_last (proto->fields);
-			g_ptr_array_add(deregistered_fields, gpa_hfinfo.hfi[hf_id]);
 			break;
 		}
 	}
-}
-
-void
-proto_add_deregistered_data (void *data)
-{
-    g_ptr_array_add(deregistered_data, data);
-}
-
-static void
-free_deregistered_field (gpointer data, gpointer user_data _U_)
-{
-    header_field_info *hfi = (header_field_info *) data;
-    gint hf_id = hfi->id;
-
-    g_free((char *)hfi->name);
-    g_free((char *)hfi->abbrev);
-    g_free((char *)hfi->blurb);
-    if (hfi->parent == -1)
-        g_slice_free(header_field_info, hfi);
-
-    gpa_hfinfo.hfi[hf_id] = NULL; /* Invalidate this hf_id / proto_id */
-}
-
-static void
-free_deregistered_data (gpointer data, gpointer user_data _U_)
-{
-    g_free (data);
-}
-
-/* free deregistered fields and data */
-void
-proto_free_deregistered_fields (void)
-{
-    g_ptr_array_foreach(deregistered_fields, free_deregistered_field, NULL);
-    g_ptr_array_free(deregistered_fields, TRUE);
-    deregistered_fields = g_ptr_array_new();
-
-    g_ptr_array_foreach(deregistered_data, free_deregistered_data, NULL);
-    g_ptr_array_free(deregistered_data, TRUE);
-    deregistered_data = g_ptr_array_new();
 }
 
 /* chars allowed in field abbrev */
@@ -6557,9 +6508,6 @@ proto_registrar_dump_values(void)
 
 	len = gpa_hfinfo.len;
 	for (i = 0; i < len ; i++) {
-		if (gpa_hfinfo.hfi[i] == NULL)
-			continue; /* This is a deregistered protocol or field */
-
 		PROTO_REGISTRAR_GET_NTH(i, hfinfo);
 
 		 if (hfinfo->id == hf_text_only) {
@@ -6719,9 +6667,6 @@ proto_registrar_dump_fields(void)
 
 	len = gpa_hfinfo.len;
 	for (i = 0; i < len ; i++) {
-		if (gpa_hfinfo.hfi[i] == NULL)
-			continue; /* This is a deregistered protocol or header field */
-
 		PROTO_REGISTRAR_GET_NTH(i, hfinfo);
 
 		/*

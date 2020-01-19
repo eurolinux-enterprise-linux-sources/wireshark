@@ -8,7 +8,7 @@
  * Copyright 2001, 2002, Jeff Morriss <jeff.morriss.ws [AT] gmail.com>,
  * updated by Michael Tuexen <tuexen [AT] fh-muenster.de>
  *
- * $Id$
+ * $Id: packet-m2pa.c 46292 2012-11-29 20:15:37Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

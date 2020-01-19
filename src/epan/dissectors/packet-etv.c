@@ -3,7 +3,7 @@
  * Routines for ETV-AM from OC-SP-ETV-AM1.0-IO5
  * Copyright 2012, Weston Schmidt <weston_schmidt@alumni.purdue.edu>
  *
- * $Id$
+ * $Id: packet-etv.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

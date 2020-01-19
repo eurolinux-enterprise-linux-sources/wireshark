@@ -3,7 +3,7 @@
  * This is a generated file.  Please modify 'configure.in'
  */
 
- /* $Id$ */
+ /* $Id: glibconfig.h 24640 2008-03-15 18:31:52Z gerald $ */
 
 #ifndef __G_LIBCONFIG_H__
 #define __G_LIBCONFIG_H__

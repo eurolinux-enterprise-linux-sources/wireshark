@@ -2,7 +2,7 @@
  * Routines for OICQ - IM software,popular in China - packet dissection
  * (c) Copyright Secfire <secfire@gmail.com>
  *
- * $Id$
+ * $Id: packet-oicq.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * OICQ is an IM software,which is popular in China. And,
  * OICQ has more than 10 millions users at present.

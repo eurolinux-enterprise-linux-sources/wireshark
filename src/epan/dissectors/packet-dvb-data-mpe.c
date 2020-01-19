@@ -2,7 +2,7 @@
  * Routines for DVB-DATA (ETSI EN 301 192) MultiProtocol Encapsulation
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-data-mpe.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

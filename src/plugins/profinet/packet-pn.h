@@ -1,7 +1,7 @@
 /* packet-pn.h
  * Common functions for other PROFINET protocols like DCP, MRP, ...
  *
- * $Id$
+ * $Id: packet-pn.h 46522 2012-12-12 18:47:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

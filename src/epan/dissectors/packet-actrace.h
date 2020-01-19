@@ -1,7 +1,7 @@
 /* packet-actrace.h
  * Routines for AudioCodes Trunk traces packet disassembly
  *
- * $Id$
+ * $Id: packet-actrace.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Copyright (c) 2005 by Alejandro Vaquero <alejandro.vaquero@verso.com>
  *

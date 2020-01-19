@@ -1,6 +1,6 @@
 /* export_sslkeys.h
  *
- * $Id$
+ * $Id: export_sslkeys.h 45589 2012-10-16 18:14:16Z gerald $
  *
  * Export SSL Session Keys dialog
  * by Sake Blok <sake@euronet.nl> (20110526)

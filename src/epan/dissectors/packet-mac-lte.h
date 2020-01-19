@@ -1,7 +1,7 @@
 /* packet-mac-lte.h
  *
  * Martin Mathieson
- * $Id$
+ * $Id: packet-mac-lte.h 48859 2013-04-15 20:56:49Z martinm $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

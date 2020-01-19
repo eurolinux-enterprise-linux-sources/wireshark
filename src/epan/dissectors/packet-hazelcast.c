@@ -8,7 +8,7 @@
  * reversed from this code:
  * http://code.google.com/p/hazelcast/source/browse/branches/1.9.4/hazelcast/src/main/java/com/hazelcast/nio/Packet.java
  *
- * $Id$
+ * $Id: packet-hazelcast.c 48685 2013-04-01 15:29:49Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

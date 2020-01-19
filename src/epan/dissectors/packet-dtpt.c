@@ -5,7 +5,7 @@
  * Uwe Girlich <uwe@planetquake.com>
  *	http://www.synce.org/moin/ProtocolDocumentation/DesktopPassThrough
  *
- * $Id$
+ * $Id: packet-dtpt.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 # ros-rej.cnf
 # ROS Reject common code
 # Copyright 2007 Tomas Kukosa
-# $Id$
+# $Id: ros-rej.cnf 22936 2007-09-24 11:01:53Z kukosa $
 
 #.FN_HDR Reject
   const gchar *descr = "";

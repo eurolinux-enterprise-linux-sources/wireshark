@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: goose.asn 40628 2012-01-21 12:21:29Z etxrab $
 IEC61850 DEFINITIONS ::= BEGIN
 
 GOOSEpdu ::= CHOICE {

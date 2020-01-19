@@ -2,7 +2,7 @@
  * Dissects a variant of 3GPP TS 27.010 multiplexing protocol
  * Copyright 2011, Hans-Christoph Schemmel <hans-christoph.schemmel[AT]cinterion.com>
  *
- * $Id$
+ * $Id: packet-mux27010.c 48685 2013-04-01 15:29:49Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Common routines for ASN.1
  * 2007  Anders Broman
  *
- * $Id$
+ * $Id: asn1.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

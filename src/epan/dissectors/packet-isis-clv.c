@@ -1,7 +1,7 @@
 /* packet-isis-clv.c
  * Common CLV decode routines.
  *
- * $Id$
+ * $Id: packet-isis-clv.c 46745 2012-12-25 22:39:11Z guy $
  * Stuart Stanley <stuarts@mxmail.net>
  *
  * Wireshark - Network traffic analyzer

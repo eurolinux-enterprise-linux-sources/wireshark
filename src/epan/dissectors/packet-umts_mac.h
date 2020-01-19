@@ -1,6 +1,6 @@
 /* Routines for UMTS FP disassembly
  *
- * $Id$
+ * $Id: packet-umts_mac.h 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

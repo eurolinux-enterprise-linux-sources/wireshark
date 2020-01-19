@@ -1,4 +1,4 @@
-$Id$
+$Id: README.irix 44630 2012-08-23 11:11:24Z jmayer $
 
 1. Some problems seen by one person who tried to build Ethereal on IRIX;
 your mileage may vary.  Some comments have been added.

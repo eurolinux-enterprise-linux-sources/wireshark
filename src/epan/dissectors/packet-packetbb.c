@@ -5,7 +5,7 @@
  * http://tools.ietf.org/html/rfc5444
  * http://tools.ietf.org/html/rfc5498
  *
- * $Id$
+ * $Id: packet-packetbb.c 47204 2013-01-22 02:48:55Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

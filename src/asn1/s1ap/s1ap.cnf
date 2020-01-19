@@ -1,7 +1,7 @@
 # s1ap.cnf
 # s1ap conformation file
 
-# $Id$
+# $Id: s1ap.cnf 48429 2013-03-19 21:22:31Z etxrab $
 
 #.OPT
 PER
@@ -206,7 +206,7 @@ MAX_VAL = asn1_param_get_integer(%(ACTX)s,"upperBound")
   tvbuff_t *parameter_tvb=NULL;
   int length;
   int p_offset;
-  gboolean is_ascii_alpha;
+  gboolean is_ascii;
 
 %(DEFAULT_BODY)s
 
@@ -215,14 +215,14 @@ MAX_VAL = asn1_param_get_integer(%(ACTX)s,"upperBound")
 
   length = tvb_length(parameter_tvb);
 
-  is_ascii_alpha = TRUE;
+  is_ascii = TRUE;
   for (p_offset=0; p_offset < length; p_offset++){
-	 if(!g_ascii_isalpha(tvb_get_guint8(parameter_tvb, p_offset ))){
-		is_ascii_alpha = FALSE;
+	 if(!isalpha(tvb_get_guint8(parameter_tvb, p_offset ))){
+		is_ascii = FALSE;
 		break;
 	 }
   }
-  if (is_ascii_alpha)
+  if (is_ascii)
   		proto_item_append_text(actx->created_item,"(%%s)",tvb_format_text(parameter_tvb, 0, length));
 
 #.END

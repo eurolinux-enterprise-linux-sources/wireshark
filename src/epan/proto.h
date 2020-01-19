@@ -1,7 +1,7 @@
 /* proto.h
  * Definitions for protocol display
  *
- * $Id$
+ * $Id: proto.h 48753 2013-04-05 21:58:43Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1672,18 +1672,9 @@ proto_register_field_array(const int parent, hf_register_info *hf, const int num
 
 /** Unregister an already registered field.
  @param parent the protocol handle from proto_register_protocol()
- @param hf_id the field to deregister */
+ @param hf_id the field to unregister */
 WS_DLL_PUBLIC void
 proto_unregister_field (const int parent, gint hf_id);
-
-/** Add data to be freed when deregistered fields are freed.
- @param data a pointer to data to free */
-WS_DLL_PUBLIC void
-proto_add_deregistered_data (void *data);
-
-/** Free fields deregistered in proto_unregister_field(). */
-WS_DLL_PUBLIC void
-proto_free_deregistered_fields (void);
 
 /** Register a protocol subtree (ett) array.
  @param indices array of ett indices

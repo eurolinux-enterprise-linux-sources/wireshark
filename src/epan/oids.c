@@ -3,7 +3,7 @@
  *
  * (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: oids.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -29,6 +29,7 @@
 #include <glib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "emem.h"
 #include "uat.h"
@@ -268,7 +269,7 @@ static char* alnumerize(const char* name) {
 	char c;
 
 	for (;(c = *r); r++) {
-		if (g_ascii_isalnum(c) || c == '_' || c == '-' || c == '.') {
+		if (isalnum(c) || c == '_' || c == '-' || c == '.') {
 			*(w++) = c;
 		} else if (c == ':' && r[1] == ':') {
 			*(w++) = '.';

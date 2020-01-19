@@ -6,7 +6,7 @@
  * Copyright 2001-2003, Tim Potter <tpot@samba.org>
  * Copyright 2011, Matthieu Patou <mat@matws.net>
  *
- * $Id$
+ * $Id: packet-dcerpc-nt.c 52974 2013-10-29 22:55:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

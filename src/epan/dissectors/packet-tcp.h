@@ -1,6 +1,6 @@
 /* packet-tcp.h
  *
- * $Id$
+ * $Id: packet-tcp.h 48915 2013-04-18 19:11:05Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -147,8 +147,9 @@ struct tcp_multisegment_pdu {
 };
 
 typedef struct _tcp_flow_t {
-	gboolean base_seq_set; /* true if base seq set */
-	guint32 base_seq;	/* base seq number (used by relative sequence numbers)*/
+	guint32 base_seq;	/* base seq number (used by relative sequence numbers)
+				 * or 0 if not yet known.
+				 */
 	tcp_unacked_t *segments;
 	guint32 fin;		/* frame number of the final FIN */
 	guint32 lastack;	/* last seen ack */

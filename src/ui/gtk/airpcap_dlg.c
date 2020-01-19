@@ -1,6 +1,6 @@
 /* airpcap_dlg.c
  *
- * $Id$
+ * $Id: airpcap_dlg.c 48903 2013-04-17 19:52:20Z eapache $
  *
  * Giorgio Tino <giorgio.tino@cacetech.com>
  * Copyright (c) CACE Technologies, LLC 2006

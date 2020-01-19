@@ -4,7 +4,7 @@
  *
  *  (c) 2006, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-h248_q1950.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

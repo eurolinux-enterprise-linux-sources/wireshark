@@ -1,10 +1,9 @@
 /* packet-ess.c
- * Routines for RFC 2634 and RFC 5035 Extended Security Services packet
- * dissection
+ * Routines for RFC5035 Extended Security Services packet dissection
  *   Ronnie Sahlberg 2004
  *   Stig Bjorlykke 2010
  *
- * $Id$
+ * $Id: packet-ess-template.c 48286 2013-03-14 06:26:55Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -121,7 +120,7 @@ ess_dissect_attribute_flags (tvbuff_t *tvb, asn1_ctx_t *actx)
   guint i;
    
   tree = proto_item_add_subtree (actx->created_item, ett_Category_attributes);
-  value = (guint8 *)ep_tvb_memdup (tvb, 0, tvb_length (tvb));
+  value = tvb_get_ephemeral_string (tvb, 0, tvb_length (tvb));
   
   for (i = 0; i < num_ess_category_attributes; i++) {
     ess_category_attributes_t *u = &(ess_category_attributes[i]);

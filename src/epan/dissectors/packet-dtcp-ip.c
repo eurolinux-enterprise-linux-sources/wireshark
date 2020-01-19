@@ -4,7 +4,7 @@
  *
  * Copyright 2012, Martin Kaiser <martin@kaiser.cx>
  *
- * $Id$
+ * $Id: packet-dtcp-ip.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

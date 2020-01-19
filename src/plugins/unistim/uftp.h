@@ -3,7 +3,7 @@
   * definitions for uftp commands and messages
   * Copyright 2007 Chad Singer <csinger@cypresscom.net>
   *
-  * $Id$
+  * $Id: uftp.h 43536 2012-06-28 22:56:06Z darkjames $
   *
   * Wireshark - Network traffic analyzer
   * By Gerald Combs <gerald@wireshark.org>

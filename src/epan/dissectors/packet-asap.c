@@ -17,7 +17,7 @@
  * Copyright 2004, 2005, 2006, 2007 Michael Tuexen <tuexen [AT] fh-muenster.de>
  * Copyright 2008 Thomas Dreibholz <dreibh [AT] iem.uni-due.de>
  *
- * $Id$
+ * $Id: packet-asap.c 48282 2013-03-13 21:14:20Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

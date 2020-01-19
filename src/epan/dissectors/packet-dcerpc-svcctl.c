@@ -4,7 +4,7 @@
  * Copyright 2003, Ronnie Sahlberg,  added function dissectors
  * Copyright 2010, Brett Kuskie <fullaxx@gmail.com>
  *
- * $Id$
+ * $Id: packet-dcerpc-svcctl.c 48023 2013-03-02 22:54:39Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

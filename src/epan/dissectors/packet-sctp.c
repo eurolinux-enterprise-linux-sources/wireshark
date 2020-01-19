@@ -3,7 +3,7 @@
  * Copyright 2000-2012 Michael Tuexen <tuexen [AT] fh-muenster.de>
  * Copyright 2011 Thomas Dreibholz <dreibh [AT] iem.uni-due.de>
  *
- * $Id$
+ * $Id: packet-sctp.c 48294 2013-03-14 08:41:11Z stig $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

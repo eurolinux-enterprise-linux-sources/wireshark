@@ -3,7 +3,7 @@
  * Copyright 2007, Collabora Ltd.
  *   @author: Sjoerd Simons <sjoerd.simons@collabora.co.uk>
  *
- * $Id$
+ * $Id: packet-clique-rm.c 48313 2013-03-15 06:26:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

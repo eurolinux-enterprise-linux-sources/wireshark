@@ -1,7 +1,7 @@
 /* capture-pcap-util-unix.c
  * UN*X-specific utility routines for packet capture
  *
- * $Id$
+ * $Id: capture-pcap-util-unix.c 46159 2012-11-23 22:28:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

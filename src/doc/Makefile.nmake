@@ -1,7 +1,7 @@
 # Makefile.nmake
 # Nmake file for Wireshark documentation
 #
-# $Id$
+# $Id: Makefile.nmake 48133 2013-03-06 13:31:08Z rbalint $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

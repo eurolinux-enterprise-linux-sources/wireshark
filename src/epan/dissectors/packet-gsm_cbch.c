@@ -3,7 +3,7 @@
  *
  * Copyright 2011, Mike Morrin <mike.morrin [AT] ipaccess.com>
  *
- * $Id$
+ * $Id: packet-gsm_cbch.c 49687 2013-06-02 00:06:01Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* color_edit_dlg.h
  * Definitions for dialog boxes for color filters
  *
- * $Id$
+ * $Id: color_edit_dlg.h 47976 2013-03-01 16:31:42Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

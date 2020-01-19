@@ -1,5 +1,5 @@
 /* packet-regreqmp.c
- * $Id$
+ * $Id: packet-regreqmp.c 45015 2012-09-20 01:29:52Z morriss $
  * Routines for REG-REQ-MP Message dissection
  * Copyright 2007, Bruno Verstuyft  <bruno.verstuyft@excentis.com>
  *

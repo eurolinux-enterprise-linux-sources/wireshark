@@ -1,6 +1,6 @@
 # ConfigureChecks.cmake
 #
-# $Id$
+# $Id: ConfigureChecks.cmake 48932 2013-04-19 16:38:28Z jmayer $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -62,35 +62,6 @@ check_include_file("unistd.h"            HAVE_UNISTD_H)
 check_include_file("windows.h"           HAVE_WINDOWS_H)
 check_include_file("winsock2.h"          HAVE_WINSOCK2_H)
 
-#
-# On Linux, check for some additional headers, which we need as a
-# workaround for a bonding driver bug and for libpcap's current lack
-# of its own workaround for that bug.
-#
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-	#
-	# Those header files require <sys/socket.h>.
-	#
-	check_c_source_compiles(
-		"#include <sys/socket.h>
-		#include <linux/sockios.h>
-		int main(void)
-		{
-			return 0;
-		}"
-		HAVE_LINUX_SOCKIOS_H
-	)
-	check_c_source_compiles(
-		"#include <sys/socket.h>
-		#include <linux/if_bonding.h>
-		int main(void)
-		{
-			return 0;
-		}"
-		HAVE_LINUX_IF_BONDING_H
-	)
-endif()
-
 #Functions
 include(CheckFunctionExists)
 check_function_exists("chown"            HAVE_CHOWN)
@@ -114,6 +85,7 @@ include(CheckSymbolExists)
 check_symbol_exists(tzname "time.h" HAVE_TZNAME)
 
 # Check for stuff that isn't testable via the tests above
+#include(CheckCSourceCompiles)
 check_c_source_compiles(
 	"#include <linux/nl80211.h>
 	int main() {
@@ -132,3 +104,4 @@ check_c_source_compiles(
 	}"
 	HAVE_NL80211
 )
+

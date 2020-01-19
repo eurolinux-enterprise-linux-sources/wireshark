@@ -2,7 +2,7 @@
  * Routines for PKCS#12: Personal Information Exchange packet dissection
  * Graeme Lunt 2006
  *
- * $Id$
+ * $Id: packet-pkcs12-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* airpdcap_ccmp.c
  *
- * $Id$
+ * $Id: airpdcap_ccmp.c 40511 2012-01-15 12:29:44Z jmayer $
  *
  * Copyright (c) 2002-2005 Sam Leffler, Errno Consulting
  * Copyright (c) 2006 CACE Technologies, Davis (California)

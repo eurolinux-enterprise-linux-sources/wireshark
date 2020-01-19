@@ -3,7 +3,7 @@
  *
  * Copyright 2012, Michal Labedzki for Tieto Corporation
  *
- * $Id$
+ * $Id: packet-btavrcp.c 48685 2013-04-01 15:29:49Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

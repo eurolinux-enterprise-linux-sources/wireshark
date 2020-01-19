@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: copy-slider.sh 24640 2008-03-15 18:31:52Z gerald $
 
 cp -f slider-vert.png slider-vert-prelight.png
 cp -f slider-vert.png slider-horiz-prelight.png

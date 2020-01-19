@@ -15,7 +15,7 @@
  *
  * Copyright (c) 2001, Daniel Thompson <d.thompson@gmx.net>
  *
- * $Id$
+ * $Id: peekclassic.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

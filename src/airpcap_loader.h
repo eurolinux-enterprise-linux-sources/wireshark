@@ -1,7 +1,7 @@
 /* airpcap_loader.h
  * Declarations of routines for the "About" dialog
  *
- * $Id$
+ * $Id: airpcap_loader.h 47697 2013-02-17 03:16:57Z guy $
  *
  * Giorgio Tino <giorgio.tino@cacetech.com>
  * Copyright (c) CACE Technologies, LLC 2006

@@ -1,7 +1,7 @@
 /* packet-ipxwan.c
  * Routines for NetWare IPX WAN Protocol
  *
- * $Id$
+ * $Id: packet-ipxwan.c 45572 2012-10-16 03:07:06Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

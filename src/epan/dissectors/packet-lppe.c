@@ -10,7 +10,7 @@
  * Routines for LPP Extensions (LLPe) packet dissection
  * Copyright 2012, Pascal Quantin <pascal.quantin@gmail.com>
  *
- * $Id$
+ * $Id: packet-lppe.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

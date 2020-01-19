@@ -5,7 +5,7 @@
  * with the gracious authorization of STE
  * Copyright (c) 2011 ST-Ericsson
  *
- * $Id$
+ * $Id: packet-gsm_rlcmac.h 46301 2012-11-30 09:42:58Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* toshiba.c
  *
- * $Id$
+ * $Id: toshiba.c 46819 2012-12-27 22:59:39Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

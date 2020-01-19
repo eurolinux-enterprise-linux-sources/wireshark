@@ -3,7 +3,7 @@
  *
  * Richard Sharpe <rsharpe@ns.aus.com>
  *
- * $Id$
+ * $Id: packet-time.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -66,8 +66,8 @@ dissect_time(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     time_tree = proto_item_add_subtree(ti, ett_time);
 
     proto_tree_add_text(time_tree, tvb, 0, 0,
-			pinfo->srcport==pinfo->match_uint ? "Type: Response":"Type: Request");
-    if (pinfo->srcport == pinfo->match_uint) {
+			pinfo->srcport==TIME_PORT ? "Type: Response":"Type: Request");
+    if (pinfo->srcport == TIME_PORT) {
       /* seconds since 1900-01-01 00:00:00 GMT, *not* 1970 */
       guint32 delta_seconds = tvb_get_ntohl(tvb, 0);
       proto_tree_add_uint_format(time_tree, hf_time_time, tvb, 0, 4,

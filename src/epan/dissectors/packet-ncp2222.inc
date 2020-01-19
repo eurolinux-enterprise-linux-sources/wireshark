@@ -19,7 +19,7 @@
  * Portions Copyright (c) Gilbert Ramirez 2000-2002
  * Portions Copyright (c) Novell, Inc. 2000-2003
  *
- * $Id$
+ * $Id: packet-ncp2222.inc 50804 2013-07-22 23:06:14Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2732,7 +2732,6 @@ build_expert_data(proto_tree *ncp_tree, const char *hf_name, char *buffer,
     char            temp_buffer[256]="\0";
     gboolean        in_struct=FALSE;
 
-    buffer[0] = '\0';
     tree_loc = ncp_tree->first_child;
     for (tree_pointer=tree_loc; tree_pointer!=NULL; tree_pointer=tree_pointer->next)
     {
@@ -2758,7 +2757,8 @@ build_expert_data(proto_tree *ncp_tree, const char *hf_name, char *buffer,
             case 18:
             case 19:
             case 20:            /* string */
-                uni_to_string(get_finfo_value_string(PTREE_FINFO(tree_pointer)), MIN(get_finfo_length(PTREE_FINFO(tree_pointer)), (guint) buffer_size), buffer);
+                /* XXX: Should we verify: buffer_size is as large as value returned by get_finfo_length(...)  ???      */
+                uni_to_string(get_finfo_value_string(PTREE_FINFO(tree_pointer)), get_finfo_length(PTREE_FINFO(tree_pointer)), buffer);
                 if (repeat_lookup > 0) {
                     if (strlen(temp_buffer) + strlen(buffer) < 250) {
                         g_strlcat(temp_buffer, buffer, 256);

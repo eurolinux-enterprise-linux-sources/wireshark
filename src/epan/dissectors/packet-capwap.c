@@ -2,7 +2,7 @@
  * Routines for CAPWAP dissection (RFC 5415 / RFC5416)
  * Copyright 2009,  Alexis La Goutte <alexis.lagoutte at gmail dot com>
  *
- * $Id$
+ * $Id: packet-capwap.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -241,9 +241,6 @@ static int hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_g = -1
 static int hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_a = -1;
 static int hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_b = -1;
 
-static int hf_capwap_data_keep_alive = -1;
-static int hf_capwap_data_keep_alive_length = -1;
-
 static int hf_msg_fragments = -1;
 static int hf_msg_fragment = -1;
 static int hf_msg_fragment_overlap = -1;
@@ -384,9 +381,6 @@ static const value_string message_type[] = {
     { 24, "Clear Configuration Response" },
     { 25, "Station Configuration Request" },
     { 26, "Station Configuration Response" },
-    /* RFC5416 : Section 3 : IEEE 802.11 Specific CAPWAP Control Messages */
-    { 3398913, "IEEE 802.11 WLAN Configuration Request" },
-    { 3398914, "IEEE 802.11 WLAN Configuration Response" },
     { 0,     NULL     }
 };
 /* ************************************************************************* */
@@ -717,23 +711,20 @@ static void capwap_reassemble_init(void)
 static void
 dissect_capwap_data_message_bindings_ieee80211(tvbuff_t *tvb, proto_tree *data_message_binding_tree, guint offset, packet_info *pinfo)
 {
-    proto_item *data_message_binding_item, *ti;
+    proto_item *data_message_binding_item;
     proto_tree *sub_data_message_binding_tree;
 
     if (global_capwap_data_udp_port == pinfo->destport)
     {
-        guint16 data_rate;
         /* (WTP -> AC) IEEE 802.11 Frame Info */
-        data_message_binding_item = proto_tree_add_item(data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi, tvb, offset, 4, ENC_NA);
+        data_message_binding_item = proto_tree_add_item(data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi,tvb, offset, 4, ENC_NA);
         sub_data_message_binding_tree = proto_item_add_subtree(data_message_binding_item, ett_capwap);
 
-        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_rssi, tvb, offset, 1, ENC_BIG_ENDIAN);
+        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_rssi,tvb, offset, 1, ENC_BIG_ENDIAN);
 
-        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_snr, tvb, offset+1, 1, ENC_BIG_ENDIAN);
+        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_snr,tvb, offset+1, 1, ENC_BIG_ENDIAN);
 
-        ti = proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_data_rate, tvb, offset+2, 2, ENC_BIG_ENDIAN);
-        data_rate = tvb_get_ntohs(tvb, offset+2);
-        proto_item_append_text(ti, " (%.1f Mb/s)", ((float)data_rate / 10));
+        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_fi_data_rate,tvb, offset+2, 2, ENC_BIG_ENDIAN);
     }
     else
     {
@@ -741,9 +732,9 @@ dissect_capwap_data_message_bindings_ieee80211(tvbuff_t *tvb, proto_tree *data_m
         data_message_binding_item = proto_tree_add_item(data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_dest_wlan,tvb, offset, 4, ENC_NA);
         sub_data_message_binding_tree = proto_item_add_subtree(data_message_binding_item, ett_capwap);
 
-        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_dw_wlan_id_bitmap, tvb, offset, 2, ENC_BIG_ENDIAN);
+        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_dw_wlan_id_bitmap,tvb, offset, 2, ENC_BIG_ENDIAN);
 
-        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_dw_reserved, tvb, offset+2, 2, ENC_BIG_ENDIAN);
+        proto_tree_add_item(sub_data_message_binding_tree, hf_capwap_header_wireless_data_ieee80211_dw_reserved,tvb, offset+2, 2, ENC_BIG_ENDIAN);
     }
 }
 
@@ -1186,34 +1177,6 @@ dissect_capwap_message_element(tvbuff_t *tvb, proto_tree *capwap_control_tree, g
 
 /* Returns the number of bytes consumed by this option. */
 static int
-dissect_capwap_data_keep_alive(tvbuff_t *tvb, packet_info *pinfo, proto_tree *capwap_data_tree, guint offset)
-{
-    guint16 len;
-    guint plen = 0, offset_end;
-    proto_item *ti;
-    proto_tree *capwap_data_keep_alive_tree;
-
-    ti = proto_tree_add_item(capwap_data_tree, hf_capwap_data_keep_alive, tvb, offset, tvb_reported_length(tvb), ENC_NA);
-    capwap_data_keep_alive_tree = proto_item_add_subtree(ti, ett_capwap);
-
-    ti = proto_tree_add_item(capwap_data_keep_alive_tree, hf_capwap_data_keep_alive_length, tvb, offset, 2, ENC_BIG_ENDIAN);
-    len = tvb_get_ntohs(tvb, offset);
-    if (len != tvb_reported_length(tvb))
-        expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_WARN, "Invalid Keep Alive length");
-
-    plen += 2;
-
-    offset_end = tvb_reported_length(tvb);
-
-    while (offset+plen < offset_end) {
-        plen += dissect_capwap_message_element_type(tvb, capwap_data_keep_alive_tree, offset+plen);
-    }
-
-    return plen;
-}
-
-/* Returns the number of bytes consumed by this option. */
-static int
 dissect_capwap_control_header(tvbuff_t *tvb, proto_tree *capwap_control_tree, guint offset, packet_info *pinfo)
 {
     guint plen = 0;
@@ -1229,9 +1192,9 @@ dissect_capwap_control_header(tvbuff_t *tvb, proto_tree *capwap_control_tree, gu
     capwap_control_msg_type_tree = proto_item_add_subtree(ti_flag, ett_capwap);
 
     proto_tree_add_item(capwap_control_msg_type_tree, hf_capwap_control_header_msg_type_enterprise_nbr, tvb, offset, 3, ENC_BIG_ENDIAN);
-    proto_tree_add_item(capwap_control_msg_type_tree, hf_capwap_control_header_msg_type_enterprise_specific, tvb, offset, 4, ENC_BIG_ENDIAN);
+    proto_tree_add_item(capwap_control_msg_type_tree, hf_capwap_control_header_msg_type_enterprise_specific, tvb, offset+3, 1, ENC_BIG_ENDIAN);
 
-    col_append_fstr(pinfo->cinfo, COL_INFO, " - %s",val_to_str(tvb_get_ntohl(tvb, offset),message_type,"Unknown Message Type (0x%x)"));
+    col_append_fstr(pinfo->cinfo, COL_INFO, " - %s",val_to_str(tvb_get_guint8(tvb, offset+3),message_type,"Unknown Message Type (0x%02x)"));
 
     plen += 4;
     /* Sequence 8 bits */
@@ -1294,12 +1257,8 @@ dissect_capwap_header(tvbuff_t *tvb, proto_tree *capwap_control_tree, guint offs
     *fragment_is = ((flags & 0x80) == 0x80) ? TRUE : FALSE;
     *fragment_more = ((flags &0x40) == 0x40) ? FALSE : TRUE;
 
-    /* Type of Payload (for CAPWAP Data Packet), use 0xff for Keep-Alive */
-    if (flags &0x08 /* data channel Keep-Alive packet */) {
-        col_append_str(pinfo->cinfo, COL_INFO, " Keep-Alive");
-        *payload_type = 0xff;
-    } else
-        *payload_type = tvb_get_bits8(tvb, (offset+plen)*8+15,1);
+    /* Type of Payload (for CAPWAP Data Packet) */
+    *payload_type = tvb_get_bits8(tvb, (offset+plen)*8+15,1);
 
     plen += 3;
 
@@ -1562,13 +1521,7 @@ dissect_capwap_data(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     if (payload_type == 0) {
         /* IEEE 802.3 Frame */
         call_dissector(ieee8023_handle, next_tvb, pinfo, tree);
-    }
-    else if (payload_type == 0xff) {
-        /* CAPWAP Keep-Alive Payload */
-        offset += dissect_capwap_data_keep_alive(next_tvb, pinfo, capwap_data_tree, 0);
-    }
-    else
-    {
+    } else {
         switch (payload_wbid) {
         case 0: /* Reserved - Cisco seems to use this instead of 1 */
             /* It seems that just calling ieee80211_handle is not
@@ -1586,7 +1539,8 @@ dissect_capwap_data(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
         }
     }
     pinfo->fragmented = save_fragmented;
-    }
+}
+
 
 void
 proto_register_capwap_control(void)
@@ -1702,7 +1656,7 @@ proto_register_capwap_control(void)
             NULL, HFILL }},
         { &hf_capwap_header_wireless_data_ieee80211_fi_rssi,
         { "Wireless data ieee80211 RSSI (dBm)", "capwap.header.wireless.data.ieee80211.fi.rssi",
-            FT_INT8, BASE_DEC, NULL, 0x00,
+            FT_UINT8, BASE_DEC, NULL, 0x00,
             NULL, HFILL }},
         { &hf_capwap_header_wireless_data_ieee80211_fi_snr,
         { "Wireless data ieee80211 SNR (dB)", "capwap.header.wireless.data.ieee80211.fi.snr",
@@ -1746,7 +1700,7 @@ proto_register_capwap_control(void)
             NULL, HFILL }},
         { &hf_capwap_control_header_msg_type_enterprise_specific,
         { "Message Type (Enterprise Specific)", "capwap.control.header.message_type.enterprise_specific",
-            FT_UINT32, BASE_DEC, VALS(message_type), 0x00,
+            FT_UINT8, BASE_DEC, VALS(message_type), 0x00,
             NULL, HFILL }},
         { &hf_capwap_control_header_seq_number,
         { "Sequence Number", "capwap.control.header.sequence_number",
@@ -2218,17 +2172,9 @@ proto_register_capwap_control(void)
             FT_BOOLEAN, 4, TFS(&tfs_true_false), 0x0002,
             NULL, HFILL }},
         { &hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_b,
-            { "Radio Type 802.11b", "capwap.control.message_element.ieee80211_wtp_info_radio.radio_type_b",
+            { "Radio Type 802.11g", "capwap.control.message_element.ieee80211_wtp_info_radio.radio_type_b",
             FT_BOOLEAN, 4, TFS(&tfs_true_false), 0x0001,
             NULL, HFILL }},
-
-        /* Data Channel Keep-Alive entries */
-        { & hf_capwap_data_keep_alive,
-            { "Keep-Alive", "capwap.keep_alive", FT_NONE, BASE_NONE,
-            NULL, 0x00, NULL, HFILL } },
-        { & hf_capwap_data_keep_alive_length,
-            { "Message Element Length", "capwap.keep_alive.length", FT_UINT16, BASE_DEC,
-            NULL, 0x00, NULL, HFILL } },
 
         /* Fragment entries */
         { &hf_msg_fragments,

@@ -1,7 +1,7 @@
 /* chdlctypes.h
  * Defines Cisco HDLC packet types that aren't just Ethernet types
  *
- * $Id$
+ * $Id: chdlctypes.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

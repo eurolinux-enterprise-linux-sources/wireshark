@@ -1,7 +1,7 @@
 /* util.c
  * Utility routines
  *
- * $Id$
+ * $Id: util.c 45766 2012-10-24 15:52:35Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* byte_view_tab.h
  *
- * $Id$
+ * $Id: byte_view_tab.h 45953 2012-11-06 21:49:16Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

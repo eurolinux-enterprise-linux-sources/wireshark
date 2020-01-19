@@ -5,7 +5,7 @@
  *
  * Copyright 2009 by Thomas Dreibholz <dreibh [AT] iem.uni-due.de>
  *
- * $Id$
+ * $Id: packet-netperfmeter.c 47459 2013-02-03 22:29:48Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

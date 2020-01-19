@@ -5,7 +5,7 @@
  *
  * Author: Lu Pan <lu.pan@intel.com>
  *
- * $Id$
+ * $Id: wimax_tlv.c 47978 2013-03-01 19:05:25Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

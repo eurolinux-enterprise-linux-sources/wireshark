@@ -1,7 +1,7 @@
 /* column-utils.c
  * Routines for column utilities.
  *
- * $Id$
+ * $Id: column-utils.c 49777 2013-06-04 21:40:58Z sake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -382,11 +382,9 @@ col_append_sep_fstr(column_info *cinfo, const gint el, const gchar *separator,
           len += sep_len;
         }
       }
-      if (len < max_len) {
-        va_start(ap, format);
-        g_vsnprintf(&cinfo->col_buf[i][len], max_len - len, format, ap);
-        va_end(ap);
-      }
+      va_start(ap, format);
+      g_vsnprintf(&cinfo->col_buf[i][len], max_len - len, format, ap);
+      va_end(ap);
     }
   }
 }

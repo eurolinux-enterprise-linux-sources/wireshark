@@ -1,7 +1,7 @@
 # mms.cnf
 # mms conformation file
 
-# $Id$
+# $Id: mms.cnf 46748 2012-12-26 05:57:06Z guy $
 
 #.MODULE_IMPORT
 ISO-8650-ACSE-1 acse

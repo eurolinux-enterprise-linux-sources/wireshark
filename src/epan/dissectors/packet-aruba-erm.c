@@ -2,7 +2,7 @@
  * Routines for the disassembly of Aruba encapsulated remote mirroring frames
  * (Adapted from packet-hp-erm.c and packet-cisco-erspan.c)
  *
- * $Id$
+ * $Id: packet-aruba-erm.c 48282 2013-03-13 21:14:20Z etxrab $
  *
  * Copyright 2010  Alexis La Goutte <alexis.lagoutte at gmail dot com>
  *

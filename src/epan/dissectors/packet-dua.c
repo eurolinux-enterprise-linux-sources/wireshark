@@ -9,7 +9,7 @@
  *
  * Copyright 2005, Michael Tuexen <tuexen [AT] fh-muenster.de>
  *
- * $Id$
+ * $Id: packet-dua.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

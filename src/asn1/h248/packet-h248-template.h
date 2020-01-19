@@ -4,7 +4,7 @@
  * Ronnie Sahlberg 2004
  * Luis Ontanon 2005
  *
- * $Id$
+ * $Id: packet-h248-template.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

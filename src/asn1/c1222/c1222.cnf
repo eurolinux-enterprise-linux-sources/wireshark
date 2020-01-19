@@ -2,7 +2,7 @@
 # C1222 conformation file
 # Copyright 2010, Edward J. Beroset, edward.j.beroset@us.elster.com
 
-# $Id$
+# $Id: c1222.cnf 49721 2013-06-03 17:44:22Z gerald $
 
 #.MODULE_IMPORT
 IMPORT ../acse/acse.inf

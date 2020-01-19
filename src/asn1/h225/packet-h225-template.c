@@ -2,7 +2,7 @@
  * Routines for h225 packet dissection
  * Copyright 2005, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-h225-template.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

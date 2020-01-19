@@ -3,7 +3,7 @@
  *
  * metatech <metatechbe@gmail.com>
  *
- * $Id$
+ * $Id: packet-mq.c 52973 2013-10-29 22:19:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

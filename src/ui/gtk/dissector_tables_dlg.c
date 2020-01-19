@@ -1,7 +1,7 @@
 /* dissector_tables_dlg.c
  * dissector_tables_dlg   2010 Anders Broman
  *
- * $Id$
+ * $Id: dissector_tables_dlg.c 48212 2013-03-09 10:09:58Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

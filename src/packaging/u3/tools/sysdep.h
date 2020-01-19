@@ -1,7 +1,7 @@
 /* sysdep.h
  * UUID system dependent routines
  *
- * $Id$
+ * $Id: sysdep.h 47802 2013-02-21 18:23:29Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* conversations_rsvp.c
  * conversations_rsvp.c  August 2005, Manu Pathak <mapathak@cisco.com>
  *
- * $Id$
+ * $Id: conversations_rsvp.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

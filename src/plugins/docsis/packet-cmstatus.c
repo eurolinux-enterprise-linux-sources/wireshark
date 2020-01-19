@@ -2,7 +2,7 @@
  * Routines for DOCSIS 3.0 CM-STATUS Report Message dissection.
  * Copyright 2011, Hendrik Robbel <hendrik.robbel[AT]kabeldeutschland.de>
  *
- * $Id$
+ * $Id: packet-cmstatus.c 47045 2013-01-13 02:03:55Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

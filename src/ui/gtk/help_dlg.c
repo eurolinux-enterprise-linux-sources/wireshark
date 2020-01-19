@@ -1,6 +1,6 @@
 /* help_dlg.c
  *
- * $Id$
+ * $Id: help_dlg.c 45594 2012-10-16 19:47:43Z gerald $
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *

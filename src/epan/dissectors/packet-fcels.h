@@ -2,7 +2,7 @@
  * Fibre Channel Extended Link Services Definitions (ddutt@cisco.com)
  * Copyright 2001, Dinesh G Dutt <ddutt@cisco.com>
  *
- * $Id$
+ * $Id: packet-fcels.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

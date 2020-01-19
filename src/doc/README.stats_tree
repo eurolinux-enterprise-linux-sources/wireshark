@@ -1,4 +1,4 @@
-$Id$
+$Id: README.stats_tree 47992 2013-03-01 23:53:11Z rbalint $
 tapping with stats_tree
 
 Let's suppose that you want to write a tap only to keep counters, and you

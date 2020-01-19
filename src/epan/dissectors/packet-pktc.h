@@ -3,7 +3,7 @@
  * Ronnie Sahlberg 2004
  * See the spec: PKT-SP-SEC-I10-040113.pdf
  *
- * $Id$
+ * $Id: packet-pktc.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

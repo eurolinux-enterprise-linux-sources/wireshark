@@ -1,4 +1,4 @@
---  $Id$
+--  $Id: rtse.asn 33907 2010-08-24 07:44:36Z etxrab $
 -- RTSE definition from 
 --   http://www.itu.int/ITU-T/asn1/database/itu-t/x/x228/1988/Reliable-Transfer-APDU.html
 -- and modified to pass through asn2wrs

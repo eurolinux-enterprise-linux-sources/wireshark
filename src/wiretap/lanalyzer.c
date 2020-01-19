@@ -1,6 +1,6 @@
 /* lanalyzer.c
  *
- * $Id$
+ * $Id: lanalyzer.c 48552 2013-03-25 22:04:15Z eapache $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -415,7 +415,7 @@ int lanalyzer_open(wtap *wth, int *err, gchar **err_info)
 						wth->file_encap = WTAP_ENCAP_TOKEN_RING;
 						break;
 					default:
-						*err = WTAP_ERR_UNSUPPORTED;
+						*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 						*err_info = g_strdup_printf("lanalyzer: board type %u unknown",
 						    board_type);
 						return -1;

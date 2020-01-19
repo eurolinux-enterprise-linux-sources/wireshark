@@ -5,7 +5,7 @@
  * Based on the code from packet-gvrp.c (GVRP) from
  * Kevin Shi <techishi@ms22.hinet.net> Copyright 2000
  *
- * $Id$
+ * $Id: packet-gmrp.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

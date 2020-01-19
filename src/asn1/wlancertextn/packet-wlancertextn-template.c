@@ -2,7 +2,7 @@
  * Routines for Wireless Certificate Extension (RFC3770)
  *  Ronnie Sahlberg 2005
  *
- * $Id$
+ * $Id: packet-wlancertextn-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

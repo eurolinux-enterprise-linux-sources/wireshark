@@ -4,7 +4,7 @@
  *
  * Copyright 2013, Michal Labedzki for Tieto Corporation
  *
- * $Id$
+ * $Id: packet-btmcap.c 48661 2013-03-30 21:47:27Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -3,7 +3,7 @@
  *
  * Implemented as a tap named "expert".
  *
- * $Id$
+ * $Id: expert.c 50710 2013-07-17 22:20:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for DVB (ETSI EN 300 468) Time Offset Table (TOT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-tot.c 48890 2013-04-17 01:36:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

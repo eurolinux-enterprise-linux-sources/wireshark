@@ -1,6 +1,6 @@
 /* wap-wpadefs.h
  *
- * $Id$
+ * $Id: wep-wpadefs.h 24599 2008-03-10 17:20:15Z gerald $
  *
  * Copyright (c) 2006 CACE Technologies, Davis (California)
  * All rights reserved.

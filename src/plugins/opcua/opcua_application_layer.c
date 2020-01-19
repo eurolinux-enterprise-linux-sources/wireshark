@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_application_layer.c 45015 2012-09-20 01:29:52Z morriss $
 **
 ** Copyright (C) 2006-2007 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -33,8 +33,10 @@ static const value_string g_nodeidmasks[] = {
     { 1, "Four byte encoded Numeric" },
     { 2, "Numeric of arbitrary length" },
     { 3, "String" },
-    { 4, "GUID" },
-    { 5, "ByteString" },
+    { 4, "URI" },
+    { 5, "GUID" },
+    { 6, "ByteString" },
+    { 0x80, "UriMask" },
     { 0, NULL }
 };
 
@@ -100,8 +102,9 @@ int parseServiceNodeId(proto_tree *tree, tvbuff_t *tvb, gint *pOffset)
         iOffset+=4;
         break;
     case 0x03: /* string */
-    case 0x04: /* guid */
-    case 0x05: /* byte string*/
+    case 0x04: /* uri */
+    case 0x05: /* guid */
+    case 0x06: /* byte string */
         /* NOT USED */
         break;
     };

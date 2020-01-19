@@ -1,6 +1,6 @@
 /* airpcap_wep.c
  *
- *  $Id$
+ *  $Id: airpdcap_wep.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Copyright (c) 2002-2005 Sam Leffler, Errno Consulting
  * Copyright (c) 2006 CACE Technologies, Davis (California)

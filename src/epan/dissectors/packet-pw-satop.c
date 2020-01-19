@@ -2,7 +2,7 @@
  * Routines for SAToP PW dissection as per RFC4553.
  * Copyright 2009, Dmitry Trebich, Artem Tamazov <artem.tamazov@tellabs.com>
  *
- * $Id$
+ * $Id: packet-pw-satop.c 48400 2013-03-18 21:16:23Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

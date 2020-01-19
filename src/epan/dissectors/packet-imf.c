@@ -1,7 +1,7 @@
 /* packet-imf.c
  * Routines for Internet Message Format (IMF) packet disassembly
  *
- * $Id$
+ * $Id: packet-imf.c 48400 2013-03-18 21:16:23Z etxrab $
  *
  * Copyright (c) 2007 by Graeme Lunt
  *
@@ -25,6 +25,8 @@
  */
 
 #include "config.h"
+
+#include <ctype.h>
 
 #include <epan/packet.h>
 #include <epan/addr_resolv.h>
@@ -358,7 +360,7 @@ dissect_imf_address(tvbuff_t *tvb, int offset, int length, proto_item *item, pac
 
     /* consume any whitespace */
     for(addr_pos++ ;addr_pos < (offset + length); addr_pos++) {
-      if(!g_ascii_isspace(tvb_get_guint8(tvb, addr_pos))) {
+      if(!isspace(tvb_get_guint8(tvb, addr_pos))) {
         break;
       }
     }
@@ -398,7 +400,7 @@ dissect_imf_mailbox(tvbuff_t *tvb, int offset, int length, proto_item *item, pac
     /* XXX: the '<' could be in the display name */
 
     for(; offset < addr_pos; offset++) {
-      if(!g_ascii_isspace(tvb_get_guint8(tvb, offset))) {
+      if(!isspace(tvb_get_guint8(tvb, offset))) {
         break;
       }
     }
@@ -512,7 +514,7 @@ dissect_imf_siolabel(tvbuff_t *tvb, int offset, int length, proto_item *item, pa
     end_offset = tvb_find_guint8(tvb, item_offset, length - (item_offset - offset), ';');
 
     /* skip leading space */
-    while (g_ascii_isspace(tvb_get_guint8(tvb, item_offset))) {
+    while (isspace(tvb_get_guint8(tvb, item_offset))) {
       item_offset++;
     }
 
@@ -524,12 +526,12 @@ dissect_imf_siolabel(tvbuff_t *tvb, int offset, int length, proto_item *item, pa
     }
 
     value_offset = tvb_find_guint8(tvb, item_offset, length - (item_offset - offset), '=') + 1;
-    while (g_ascii_isspace(tvb_get_guint8(tvb, value_offset))) {
+    while (isspace(tvb_get_guint8(tvb, value_offset))) {
       value_offset++;
     }
 
     value_length = item_length - (value_offset - item_offset);
-    while (g_ascii_isspace(tvb_get_guint8(tvb, value_offset + value_length - 1))) {
+    while (isspace(tvb_get_guint8(tvb, value_offset + value_length - 1))) {
       value_length--;
     }
 
@@ -593,7 +595,7 @@ dissect_imf_content_type(tvbuff_t *tvb, int offset, int length, proto_item *item
 
   /* first strip any whitespace */
   for(i = 0; i < length; i++) {
-    if(!g_ascii_isspace(tvb_get_guint8(tvb, offset + i))) {
+    if(!isspace(tvb_get_guint8(tvb, offset + i))) {
       offset += i;
       break;
     }
@@ -739,7 +741,7 @@ dissect_imf(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
       /* remove any leading whitespace */
 
       for(value_offset = start_offset; value_offset < end_offset; value_offset++)
-        if(!g_ascii_isspace(tvb_get_guint8(tvb, value_offset))) {
+        if(!isspace(tvb_get_guint8(tvb, value_offset))) {
           break;
         }
 
@@ -862,10 +864,14 @@ header_fields_initialize_cb (void)
     /* Unregister all fields */
     for (i = 0; i < hf_size; i++) {
       proto_unregister_field (proto_imf, *(hf[i].p_id));
+
       g_free (hf[i].p_id);
+      g_free ((char *) hf[i].hfinfo.name);
+      g_free ((char *) hf[i].hfinfo.abbrev);
+      g_free ((char *) hf[i].hfinfo.blurb);
     }
     g_hash_table_destroy (custom_field_table);
-    proto_add_deregistered_data (hf);
+    g_free (hf);
     custom_field_table = NULL;
   }
 

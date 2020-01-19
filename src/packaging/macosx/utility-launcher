@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id$
+# $Id: utility-launcher 26612 2008-10-28 21:53:39Z stig $
 #
 # Wireshark CLI utility launcher
 

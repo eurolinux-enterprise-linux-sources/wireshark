@@ -14,7 +14,7 @@
  * into proprietary software; there is no requirement for such software to
  * contain a copyright notice related to this source.
  *
- * $Id$
+ * $Id: except.h 47992 2013-03-01 23:53:11Z rbalint $
  * $Name:  $
  */
 

@@ -1,6 +1,6 @@
 /* wtap-int.h
  *
- * $Id$
+ * $Id: wtap-int.h 48348 2013-03-17 09:20:13Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

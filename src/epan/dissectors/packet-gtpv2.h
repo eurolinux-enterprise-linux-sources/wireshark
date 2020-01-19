@@ -1,6 +1,6 @@
 /* packet-gtpv2.h
  *
- * $Id$
+ * $Id: packet-gtpv2.h 45834 2012-10-30 06:28:59Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

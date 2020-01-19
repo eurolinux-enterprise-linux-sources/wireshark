@@ -1,7 +1,7 @@
 /* stat_menu.h
  * Menu definitions for use by stats
  *
- * $Id$
+ * $Id: stat_menu.h 37560 2011-06-05 23:04:11Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

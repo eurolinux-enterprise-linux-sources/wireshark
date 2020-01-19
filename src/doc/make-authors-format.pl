@@ -1,4 +1,4 @@
-# $Id$
+# $Id: make-authors-format.pl 48991 2013-04-22 21:32:55Z gerald $
 
 # Convert AUTHORS-SHORT file for use in man page and HTML documentation
 # after processing through pod2man and pod2html.

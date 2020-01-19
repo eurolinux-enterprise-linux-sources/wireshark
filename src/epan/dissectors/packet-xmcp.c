@@ -2,7 +2,7 @@
  * Routines for eXtensible Messaging Client Protocol (XMCP) dissection
  * Copyright 2011, Glenn Matthews <glenn.matthews@cisco.com>
  *
- * $Id$
+ * $Id: packet-xmcp.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

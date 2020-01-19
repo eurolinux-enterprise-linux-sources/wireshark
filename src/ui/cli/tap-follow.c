@@ -2,7 +2,7 @@
  *
  * Copyright 2011-2013, QA Cafe <info@qacafe.com>
  *
- * $Id$
+ * $Id: tap-follow.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -662,7 +662,7 @@ followDraw(
               data[ii] = bin[ii];
             break;
             default:
-              data[ii] = g_ascii_isprint(bin[ii]) ? bin[ii] : '.';
+              data[ii] = isprint(bin[ii]) ? bin[ii] : '.';
               break;
             }
           }

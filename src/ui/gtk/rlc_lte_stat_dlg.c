@@ -1,7 +1,7 @@
 /* rlc_lte_stat_dlg.c
  * Copyright 2010 Martin Mathieson
  *
- * $Id$
+ * $Id: rlc_lte_stat_dlg.c 48855 2013-04-15 18:25:04Z martinm $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

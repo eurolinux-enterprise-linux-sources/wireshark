@@ -2,7 +2,7 @@
  * Routines for Media Resource Control Protocol Version 2 (MRCPv2) dissection
  * Copyright 2012, Zeljko Ancimer  <zancimer[AT]gmail.com>
  *
- * $Id$
+ * $Id: packet-mrcpv2.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -40,6 +40,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -412,6 +413,7 @@ dissect_mrcpv2_common(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     gint offset;
     gint value_offset;
     gint str_len;
+    gchar helper_str[256];
     gchar *header_name;
     gchar *header_value;
     LINE_TYPE line_type = UNKNOWN_LINE;
@@ -486,7 +488,7 @@ dissect_mrcpv2_common(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
                 return -1;
             field4 = tvb_get_ephemeral_string(tvb, sp_start, sp_end - sp_start);
 
-            if (g_ascii_isdigit(field3[0])) /* request ID is number, so it has to be response */
+            if (isdigit(field3[0])) /* request ID is number, so it has to be response */
                 line_type = RESPONSE_LINE;
             else
                 line_type = EVENT_LINE;
@@ -610,7 +612,8 @@ dissect_mrcpv2_common(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
                 if (content_length > 0)
                 { /* content length > 0 and CRLF detected, this has to be msg body */
                     offset += 2; /* skip separating CRLF */
-                    proto_tree_add_item(mrcpv2_tree, hf_mrcpv2_Data, tvb, offset, tvb_len - offset, ENC_ASCII|ENC_NA);
+                    proto_tree_add_string_format(mrcpv2_tree, hf_mrcpv2_Data, tvb, offset, tvb_len - offset,
+                        helper_str, "Message data: %s", tvb_format_text(tvb, offset, tvb_len - offset));
                     next_offset = tvb_len; /* we are done */
                 }
                 continue;
@@ -1047,7 +1050,7 @@ proto_register_mrcpv2(void)
             FT_STRING, BASE_NONE, NULL, 0, NULL, HFILL }
         },
         { &hf_mrcpv2_Data,
-            { "Message data", "mrcpv2.Data",
+            { "Data", "mrcpv2.Data",
             FT_STRING, BASE_NONE, NULL, 0, NULL, HFILL }
         },
         { &hf_mrcpv2_Method,

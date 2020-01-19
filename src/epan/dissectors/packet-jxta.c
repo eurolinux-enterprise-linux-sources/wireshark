@@ -10,7 +10,7 @@
  * packet-imap.c, Copyright 1999, Richard Sharpe <rsharpe@ns.aus.com>
  * Copied from packet-pop.c, packet-jabber.c, packet-udp.c, packet-http.c
  *
- * $Id$
+ * $Id: packet-jxta.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

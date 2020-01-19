@@ -3,7 +3,7 @@
  * Copyright (C) 2003, Digium
  * Mark Spencer <markster@digium.com>
  *
- * $Id$
+ * $Id: packet-iax2.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

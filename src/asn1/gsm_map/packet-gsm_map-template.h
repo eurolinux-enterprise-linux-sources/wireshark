@@ -2,7 +2,7 @@
  * Routines for GSM MAP packet dissection
  * Copyright 2004 - 2006, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-gsm_map-template.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

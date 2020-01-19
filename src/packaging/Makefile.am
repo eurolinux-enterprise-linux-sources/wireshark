@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: Makefile.am 35752 2011-02-02 06:14:27Z jake $
 #
 SUBDIRS = macosx rpm svr4 nsis
 

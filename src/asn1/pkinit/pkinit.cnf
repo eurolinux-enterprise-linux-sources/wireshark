@@ -1,7 +1,7 @@
 # pkinit.cnf
 # pkinit conformation file
 
-# $Id$
+# $Id: pkinit.cnf 43771 2012-07-17 19:43:17Z pascal $
 
 #.MODULE_IMPORT
 PKIX1Explicit88              pkix1explicit

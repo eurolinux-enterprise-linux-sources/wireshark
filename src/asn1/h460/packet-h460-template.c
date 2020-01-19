@@ -2,7 +2,7 @@
  * Routines for H.460.x packet dissection
  * 2007  Tomas Kukosa
  *
- * $Id$
+ * $Id: packet-h460-template.c 47256 2013-01-24 11:54:18Z kukosa $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

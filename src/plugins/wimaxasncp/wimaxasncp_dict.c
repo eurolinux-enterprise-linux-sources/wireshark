@@ -869,7 +869,7 @@ char *WimaxasncpDicttext;
 	 ** wimaxasncp_dict.h
 	 ** WIMAXASNCP Dictionary Import Routines
 	 **
-	 ** $Id$
+	 ** $Id: wimaxasncp_dict.l 48439 2013-03-20 05:59:22Z etxrab $
 	 **
 	 ** (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
 	 ** (c) 2007, Stephen Croll <stephen.d.croll@gmail.com>

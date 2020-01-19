@@ -1,7 +1,7 @@
 /* packet-pdcp-lte.h
  *
  * Martin Mathieson
- * $Id$
+ * $Id: packet-pdcp-lte.h 47891 2013-02-26 01:06:19Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

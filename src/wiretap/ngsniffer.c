@@ -1,6 +1,6 @@
 /* ngsniffer.c
  *
- * $Id$
+ * $Id: ngsniffer.c 46979 2013-01-06 19:41:55Z alagoutte $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -638,7 +638,7 @@ ngsniffer_open(wtap *wth, int *err, gchar **err_info)
 	/* Check the data link type. */
 	if (version.network >= NUM_NGSNIFF_ENCAPS
 	    || sniffer_encap[version.network] == WTAP_ENCAP_UNKNOWN) {
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("ngsniffer: network type %u unknown or unsupported",
 		    version.network);
 		return -1;
@@ -740,11 +740,7 @@ ngsniffer_open(wtap *wth, int *err, gchar **err_info)
 
 	/* We haven't allocated any uncompression buffers yet. */
 	ngsniffer->seq.buf = NULL;
-	ngsniffer->seq.nbytes = 0;
-	ngsniffer->seq.nextout = 0;
 	ngsniffer->rand.buf = NULL;
-	ngsniffer->rand.nbytes = 0;
-	ngsniffer->rand.nextout = 0;
 
 	/* Set the current file offset; the offset in the compressed file
 	   and in the uncompressed data stream currently the same. */
@@ -880,9 +876,10 @@ process_header_records(wtap *wth, int *err, gchar **err_info, gint16 maj_vers,
 				wth->fh);
 			if (bytes_read != bytes_to_read) {
 				*err = file_error(wth->fh, err_info);
-				if (*err == 0)
+				if (*err == 0) {
 					*err = WTAP_ERR_SHORT_READ;
-				return -1;
+					return -1;
+				}
 			}
 
 			switch (maj_vers) {
@@ -935,7 +932,7 @@ process_rec_header2_v2(wtap *wth, unsigned char *buffer, guint16 length,
 		/*
 		 * There's not enough data to compare.
 		 */
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("ngsniffer: WAN capture has too-short protocol list");
 		return -1;
 	}
@@ -946,7 +943,7 @@ process_rec_header2_v2(wtap *wth, unsigned char *buffer, guint16 length,
 		 */
 		wth->file_encap = WTAP_ENCAP_LAPB;
 	} else {
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("ngsniffer: WAN capture protocol string %.*s unknown",
 		    length, buffer);
 		return -1;
@@ -966,7 +963,7 @@ process_rec_header2_v145(wtap *wth, unsigned char *buffer, guint16 length,
 		/*
 		 * There is no 5th byte; give up.
 		 */
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup("ngsniffer: WAN capture has no network subtype");
 		return -1;
 	}
@@ -1035,7 +1032,7 @@ process_rec_header2_v145(wtap *wth, unsigned char *buffer, guint16 length,
 				/*
 				 * There is no 5th byte; give up.
 				 */
-				*err = WTAP_ERR_UNSUPPORTED;
+				*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 				*err_info = g_strdup("ngsniffer: WAN bridge/router capture has no ISDN flag");
 				return -1;
 			}
@@ -1053,7 +1050,7 @@ process_rec_header2_v145(wtap *wth, unsigned char *buffer, guint16 length,
 		/*
 		 * Reject these until we can figure them out.
 		 */
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("ngsniffer: WAN network subtype %u unknown or unsupported",
 		    buffer[4]);
 		return -1;
@@ -2287,8 +2284,7 @@ SnifferDecompress(unsigned char *inbuf, size_t inlen, unsigned char *outbuf,
 	}
 
 	bit_mask  = 0;  /* don't have any bits yet */
-	/* Process until we've consumed all the input */
-	while (pin < pin_end)
+	while (1)
 	{
 		/* Shift down the bit mask we use to see whats encoded */
 		bit_mask = bit_mask >> 1;
@@ -2296,30 +2292,20 @@ SnifferDecompress(unsigned char *inbuf, size_t inlen, unsigned char *outbuf,
 		/* If there are no bits left, time to get another 16 bits */
 		if ( 0 == bit_mask )
 		{
-			/* make sure there are at least *three* bytes
-			   available - the two bytes of the bit value,
-			   plus one byte after it */
-			if ( pin + 2 >= pin_end )
-			{
-				*err = WTAP_ERR_UNC_TRUNCATED;
-				return ( -1 );
-			}
 			bit_mask  = 0x8000;  /* start with the high bit */
 			bit_value = pletohs(pin);   /* get the next 16 bits */
 			pin += 2;          /* skip over what we just grabbed */
+			if ( pin >= pin_end )
+			{
+				*err = WTAP_ERR_UNC_TRUNCATED;	 /* data was oddly truncated */
+				return ( -1 );
+			}
 		}
 
 		/* Use the bits in bit_value to see what's encoded and what is raw data */
 		if ( !(bit_mask & bit_value) )
 		{
 			/* bit not set - raw byte we just copy */
-
-			/* If length would put us past end of output, avoid overflow */
-			if ( pout + 1 > pout_end )
-			{
-				*err = WTAP_ERR_UNC_OVERFLOW;
-				return ( -1 );
-			}
 			*(pout++) = *(pin++);
 		}
 		else
@@ -2414,12 +2400,6 @@ SnifferDecompress(unsigned char *inbuf, size_t inlen, unsigned char *outbuf,
 					*err = WTAP_ERR_UNC_OVERFLOW;
 					return ( -1 );
 				}
-				/* Check if offset would cause us to copy on top of ourselves */
-				if ( pout - offset + length > pout )
-				{
-					*err = WTAP_ERR_UNC_BAD_OFFSET;
-					return ( -1 );
-				}
 
 				/* Copy the string from previous text to output position,
 				   advance output pointer */
@@ -2449,12 +2429,6 @@ SnifferDecompress(unsigned char *inbuf, size_t inlen, unsigned char *outbuf,
 					*err = WTAP_ERR_UNC_OVERFLOW;
 					return ( -1 );
 				}
-				/* Check if offset would cause us to copy on top of ourselves */
-				if ( pout - offset + length > pout )
-				{
-					*err = WTAP_ERR_UNC_BAD_OFFSET;
-					return ( -1 );
-				}
 
 				/* Copy the string from previous text to output position,
 				   advance output pointer */
@@ -2463,6 +2437,10 @@ SnifferDecompress(unsigned char *inbuf, size_t inlen, unsigned char *outbuf,
 				break;
 			}
 		}
+
+		/* If we've consumed all the input, we are done */
+		if ( pin >= pin_end )
+			break;
 	}
 
 	return (int) ( pout - outbuf );  /* return length of expanded text */

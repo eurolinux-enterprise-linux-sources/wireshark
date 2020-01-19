@@ -1,6 +1,6 @@
 /* ngsniffer.h
  *
- * $Id$
+ * $Id: ngsniffer.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

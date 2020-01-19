@@ -2,7 +2,7 @@
  * Routines for PN-PTCP (PROFINET Precision Time Clock Protocol)
  * packet dissection.
  *
- * $Id$
+ * $Id: packet-pn-ptcp.c 46529 2012-12-13 18:17:47Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

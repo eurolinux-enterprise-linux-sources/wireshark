@@ -11,7 +11,7 @@
  *  [5] ETSI TS 101 376-4-12 V3.2.1 - GMR-1 3G 44.060
  *  [6] ETSI TS 101 376-5-6 V1.3.1 - GMR-1 05.008
  *
- * $Id$
+ * $Id: packet-gmr1_common.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

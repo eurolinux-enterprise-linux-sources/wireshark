@@ -2,7 +2,7 @@
  * Routines for UA/UDP (Universal Alcatel over UDP) and NOE packet dissection.
  * Copyright 2012, Alcatel-Lucent Enterprise <lars.ruoff@alcatel-lucent.com>
  *
- * $Id$
+ * $Id: packet-noe.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

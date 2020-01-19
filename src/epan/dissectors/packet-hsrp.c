@@ -3,7 +3,7 @@
  *
  * Heikki Vatiainen <hessu@cs.tut.fi>
  *
- * $Id$
+ * $Id: packet-hsrp.c 49189 2013-05-06 23:18:02Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

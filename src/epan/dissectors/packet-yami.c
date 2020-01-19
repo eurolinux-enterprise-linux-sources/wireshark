@@ -3,7 +3,7 @@
  * Copyright 2010, Pawel Korbut
  * Copyright 2012, Jakub Zawadzki <darkjames-ws@darkjames.pl>
  *
- * $Id$
+ * $Id: packet-yami.c 48317 2013-03-15 16:35:54Z etxrab $
  *
  * Protocol documentation available at http://www.inspirel.com/yami4/book/B-2.html
  *

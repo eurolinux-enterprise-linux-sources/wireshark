@@ -1,6 +1,6 @@
 /* recent_file_status.h
  *
- * $Id$
+ * $Id: recent_file_status.h 44766 2012-09-04 08:18:31Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

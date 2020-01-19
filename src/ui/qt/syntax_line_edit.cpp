@@ -1,6 +1,6 @@
 /* syntax_line_edit.cpp
  *
- * $Id$
+ * $Id: syntax_line_edit.cpp 48811 2013-04-10 21:20:33Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

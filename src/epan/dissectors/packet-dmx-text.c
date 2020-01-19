@@ -1,7 +1,7 @@
 /* packet-dmx-text.c
  * DMX Text packet disassembly.
  *
- * $Id$
+ * $Id: packet-dmx-text.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * This dissector is written by
  *

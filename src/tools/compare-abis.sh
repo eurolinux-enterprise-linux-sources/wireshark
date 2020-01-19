@@ -2,7 +2,7 @@
 
 
 # Compare ABIs of two Wireshark working copies
-# $Id$
+# $Id: compare-abis.sh 51931 2013-09-10 15:39:51Z gerald $
 
 # Tested with abi-compliance-checker 1.96.1
 

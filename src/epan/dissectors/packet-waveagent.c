@@ -2,7 +2,7 @@
  * Routines for WaveAgent dissection
  * Copyright 2009-2011, Tom Cook <tcook@ixiacom.com>
  *
- * $Id$
+ * $Id: packet-waveagent.c 47390 2013-01-31 18:31:28Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@ All files in this directory are dual licensed by the licenses
 included below, unless the individual license of a file says
 otherwise.
 
- $Id$
+ $Id: LICENSE.txt 19708 2006-10-26 16:39:34Z jmayer $
 
 ###################################################################
 #

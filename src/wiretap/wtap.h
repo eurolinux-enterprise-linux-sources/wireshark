@@ -1,6 +1,6 @@
 /* wtap.h
  *
- * $Id$
+ * $Id: wtap.h 48847 2013-04-14 16:00:34Z pascal $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -328,10 +328,10 @@ extern "C" {
 
 /*
  * Maximum packet size we'll support.
- * 262144 is the largest snapshot length that libpcap supports, so we
+ * 65535 is the largest snapshot length that libpcap supports, so we
  * use that.
  */
-#define WTAP_MAX_PACKET_SIZE    262144
+#define WTAP_MAX_PACKET_SIZE    65535
 
 /*
  * "Pseudo-headers" are used to supply to the clients of wiretap

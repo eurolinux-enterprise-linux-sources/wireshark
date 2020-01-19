@@ -1,6 +1,6 @@
 /* packet_range_group_box.h
  *
- * $Id$
+ * $Id: packet_range_group_box.h 45860 2012-11-01 20:57:45Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -4,7 +4,7 @@
  *
  * Copyright 2008, Stig Bjorlykke <stig@bjorlykke.org>, Thales Norway AS
  *
- * $Id$
+ * $Id: packet-rpcap.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

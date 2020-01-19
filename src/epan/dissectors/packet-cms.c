@@ -11,7 +11,7 @@
  *   Ronnie Sahlberg 2004
  *   Stig Bjorlykke 2010
  *
- * $Id$
+ * $Id: packet-cms.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2207,7 +2207,7 @@ void proto_register_cms(void) {
         "Name", HFILL }},
     { &hf_cms_serialNumber,
       { "serialNumber", "cms.serialNumber",
-        FT_INT64, BASE_DEC, NULL, 0,
+        FT_INT32, BASE_DEC, NULL, 0,
         "CertificateSerialNumber", HFILL }},
     { &hf_cms_keyAttrId,
       { "keyAttrId", "cms.keyAttrId",

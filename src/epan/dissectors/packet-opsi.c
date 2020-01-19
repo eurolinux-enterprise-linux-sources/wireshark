@@ -2,7 +2,7 @@
  * Routines for OPSI protocol dissection
  * Copyright 2004, Laurent Rabret (France Telecom R&D) <laurent.rabret@i.hate.spams.org>
  *
- * $Id$
+ * $Id: packet-opsi.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

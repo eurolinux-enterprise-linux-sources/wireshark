@@ -3,7 +3,7 @@
  * Original Author Mark C. Brown <mbrown@hp.com>
  * Copyright (C) 2004 Hewlett-Packard Development Company, L.P.
  *
- * $Id$
+ * $Id: packet-pagp.c 45478 2012-10-11 19:39:32Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

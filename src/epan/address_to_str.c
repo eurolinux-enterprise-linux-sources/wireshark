@@ -1,7 +1,7 @@
 /* address_to_str.c
  * Routines for utilities to convert addresses to strings.
  *
- * $Id$
+ * $Id: address_to_str.c 48312 2013-03-15 05:42:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-esl.c
  * Routines for EtherCAT Switch Link disassembly
  *
- * $Id$
+ * $Id: packet-esl.c 45071 2012-09-23 16:25:28Z darkjames $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

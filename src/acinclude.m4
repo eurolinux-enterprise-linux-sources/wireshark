@@ -2,7 +2,7 @@ dnl Macros that test for specific features.
 dnl This file is part of the Autoconf packaging for Wireshark.
 dnl Copyright (C) 1998-2000 by Gerald Combs.
 dnl
-dnl $Id$
+dnl $Id: acinclude.m4 50710 2013-07-17 22:20:12Z gerald $
 dnl
 dnl This program is free software; you can redistribute it and/or modify
 dnl it under the terms of the GNU General Public License as published by
@@ -1664,15 +1664,11 @@ if test "x$ac_supports_gcc_flags" = "xyes" ; then
                             # the saved value plus just the new option.
                             #
                             CFLAGS="$CFLAGS_saved $GCC_OPTION"
-                            if test "$CC" = "$CC_FOR_BUILD"; then
-                              #
-                              # We're building the build tools with the
-                              # same compiler with which we're building
-                              # Wireshark, so add the flags to the flags
-                              # for that compiler as well.
-                              #
-                              CFLAGS_FOR_BUILD="$CFLAGS_FOR_BUILD $GCC_OPTION"
-                            fi
+                            #
+                            # Add it to the flags we use when building
+                            # build tools.
+                            #
+                            CFLAGS_FOR_BUILD="$CFLAGS_FOR_BUILD $GCC_OPTION"
                             if test "$2" != C ; then
                               #
                               # Add it to the C++ flags as well.
@@ -1691,15 +1687,11 @@ if test "x$ac_supports_gcc_flags" = "xyes" ; then
                         # the saved value plus just the new option.
                         #
                         CFLAGS="$CFLAGS_saved $GCC_OPTION"
-                        if test "$CC" = "$CC_FOR_BUILD"; then
-                          #
-                          # We're building the build tools with the
-                          # same compiler with which we're building
-                          # Wireshark, so add the flags to the flags
-                          # for that compiler as well.
-                          #
-                          CFLAGS_FOR_BUILD="$CFLAGS_FOR_BUILD $GCC_OPTION"
-                        fi
+                        #
+                        # Add it to the flags we use when building
+                        # build tools.
+                        #
+                        CFLAGS_FOR_BUILD="$CFLAGS_FOR_BUILD $GCC_OPTION"
                         if test "$2" != C ; then
                           #
                           # Add it to the C++ flags as well.

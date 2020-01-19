@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-double.c 45948 2012-11-06 13:28:59Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

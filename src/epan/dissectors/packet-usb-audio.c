@@ -1,6 +1,6 @@
 /* packet-usb-audio.c
  *
- * $Id$
+ * $Id: packet-usb-audio.c 48491 2013-03-22 23:59:54Z guy $
  *
  * usb audio dissector
  * Tomasz Mon 2012

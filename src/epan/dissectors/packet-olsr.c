@@ -9,7 +9,7 @@
  * Updated to Olsr.org and NRLOLSR packages by Henning Rogge <rogge@fgan.de>
  * http://www.ietf.org/rfc/rfc3626.txt
  *
- * $Id$
+ * $Id: packet-olsr.c 47390 2013-01-31 18:31:28Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -5,7 +5,7 @@
 # Script to run CppCheck Static Analyzer.
 # http://cppcheck.sourceforge.net/
 #
-# $Id$
+# $Id: cppcheck.sh 45542 2012-10-14 19:30:33Z eapache $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* packet-btrfcomm.h
  *
- * $Id$
+ * $Id: packet-btrfcomm.h 47632 2013-02-11 15:04:53Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -26,7 +26,7 @@
 	*
 	* Copyright 2004, Luis E. Garcia Ontanon <luis@ontanon.org>
 	*
-	* $Id$
+	* $Id: mate_parser.l 48449 2013-03-21 03:07:23Z wmeier $
 	*
 	* Wireshark - Network traffic analyzer
 	* By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for USB HUB dissection
  * Copyright 2009, Marton Nemeth <nm127@freemail.hu>
  *
- * $Id$
+ * $Id: packet-usb-hub.c 48356 2013-03-17 17:52:26Z etxrab $
  *
  * USB HUB Specification can be found in the Universal Serial Bus
  * Specification 2.0, Chapter 11 Hub Specification.

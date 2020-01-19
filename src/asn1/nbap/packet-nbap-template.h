@@ -1,6 +1,6 @@
 /* packet-nbap-template.h
  *
- * $Id$
+ * $Id: packet-nbap-template.h 44154 2012-07-31 08:40:22Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

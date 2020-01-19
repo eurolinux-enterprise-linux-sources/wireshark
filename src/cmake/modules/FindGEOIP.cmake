@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindGEOIP.cmake 39307 2011-10-08 06:09:38Z jmayer $
 #
 # - Find GeoIP
 # Find the native GEOIP includes and library

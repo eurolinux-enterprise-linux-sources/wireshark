@@ -1,7 +1,7 @@
 /* capture_sync.h
  * Synchronisation between Wireshark capture parent and child instances
  *
- * $Id$
+ * $Id: capture_sync.h 49758 2013-06-04 07:33:53Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 <? wireshark:protocol proto_name="rss" hierarchy="yes" ?>
 <!--
-$Id:$
+$Id: rss.dtd 19612 2006-10-19 18:35:10Z lego $
 -->
 
 <!--

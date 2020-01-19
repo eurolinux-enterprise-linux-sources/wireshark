@@ -1,7 +1,7 @@
 /* main_welcome.h
  * Welcome "page"
  *
- * $Id$
+ * $Id: main_welcome.h 48827 2013-04-12 11:56:00Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -40,6 +40,8 @@ typedef struct selected_name_s {
   gboolean activate;
 } selected_name_t;
 
+GtkWidget *welcome_new(void);
+
 /* reset the list of recently used files */
 void main_welcome_reset_recent_capture_files(void);
 
@@ -49,7 +51,22 @@ void main_welcome_add_recent_capture_file(const char *widget_cf_name, GObject *m
 /* reload the list of interfaces */
 void welcome_if_panel_reload(void);
 
+/** Push a status message into the welcome screen header similar to
+ *  statusbar_push_*_msg(). This hides everything under the header.
+ *  If msg is dynamically allocated, it is up to the caller to free
+ *  it. If msg is NULL, the default message will be shown.
+ *
+ * @param msg The message
+ */
+void welcome_header_push_msg(const gchar *msg);
+
 void welcome_header_set_message(gchar *msg);
+
+/** Pop a status message from the welcome screen. If there are no
+ *  messages on the stack, the default message and the main columns
+ *  will be shown.
+ */
+void welcome_header_pop_msg(void);
 
 GtkWidget* get_welcome_window(void);
 

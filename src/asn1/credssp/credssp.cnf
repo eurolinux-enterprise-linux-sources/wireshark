@@ -1,6 +1,6 @@
 # credssp.cnf
 # Credential Security Support Provider (CredSSP) conformance file
-# $Id$
+# $Id: credssp.cnf 44871 2012-09-11 08:26:48Z darkjames $
 
 #.PDU
 TSRequest

@@ -2,7 +2,7 @@
  * Routines for X.509 Selected Attribute Types packet dissection
  *  Ronnie Sahlberg 2004
  *
- * $Id$
+ * $Id: packet-x509sat-template.c 46013 2012-11-12 22:00:53Z stig $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

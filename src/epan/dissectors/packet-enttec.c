@@ -1,7 +1,7 @@
 /* packet-enttec.c
  * Routines for ENTTEC packet disassembly
  *
- * $Id$
+ * $Id: packet-enttec.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Copyright (c) 2003,2004 by Erwin Rol <erwin@erwinrol.com>
  *

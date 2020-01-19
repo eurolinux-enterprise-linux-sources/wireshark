@@ -4,7 +4,7 @@
  * 2004  Alejandro Vaquero, add support Conversations for SDP
  * 2006  Alejandro Vaquero, add T30 reassemble and dissection
  *
- * $Id$
+ * $Id: packet-t38-template.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

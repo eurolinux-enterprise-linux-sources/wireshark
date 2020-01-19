@@ -2,7 +2,7 @@
  * Routines for Agent Extensibility (AgentX) Protocol disassembly
  * RFC 2257
  *
- * $Id$
+ * $Id: packet-agentx.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Copyright (c) 2005 by Oleg Terletsky <oleg.terletsky@comverse.com>
  *

@@ -2,7 +2,7 @@
  * A counter tree API for Wireshark dissectors
  * 2005, Luis E. G. Ontanon
  *
- * $Id$
+ * $Id: stats_tree.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

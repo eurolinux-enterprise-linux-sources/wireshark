@@ -10,7 +10,7 @@
 # Usage:
 # fixhf.pl file1 [file2 file3 ...]
 #
-# $Id$
+# $Id: fixhf.pl 43538 2012-06-28 23:18:38Z darkjames $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

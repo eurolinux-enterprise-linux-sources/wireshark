@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: IPAddrAndASCertExtn.asn 24473 2008-02-26 18:05:24Z etxrab $
 -- RFC 3779         X.509 Extensions for IP Addr and AS ID        June 2004
 --
    IPAddrAndASCertExtn { iso(1) identified-organization(3) dod(6)

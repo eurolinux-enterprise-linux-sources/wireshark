@@ -6,7 +6,7 @@
  * draft-ietf-core-link-format-06.txt
  * Shoichi Sakane <sakane@tanu.org>
  *
- * $Id$
+ * $Id: packet-coap.c 48471 2013-03-22 00:12:44Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

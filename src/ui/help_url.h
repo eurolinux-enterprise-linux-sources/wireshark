@@ -1,6 +1,6 @@
 /* help_dlg.h
  *
- * $Id$
+ * $Id: help_url.h 45764 2012-10-24 15:52:17Z alagoutte $
  *
  * Some content from gtk/help_dlg.h by Laurent Deniel <laurent.deniel@free.fr>
  *

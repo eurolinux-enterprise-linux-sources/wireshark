@@ -2,7 +2,7 @@
  * Routines for DVB (ETSI EN 300 468) Event Information Table (EIT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-eit.c 48706 2013-04-02 19:04:25Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

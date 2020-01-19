@@ -3,7 +3,7 @@
  * Routines for RDT dissection
  * RDT = Real Data Transport
  *
- * $Id$
+ * $Id: packet-rdt.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Written by Martin Mathieson
  *

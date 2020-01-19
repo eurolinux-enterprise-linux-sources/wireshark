@@ -1,6 +1,6 @@
 /* firewall_rules_dlg.c
  *
- * $Id$
+ * $Id: firewall_dlg.c 49781 2013-06-05 04:51:03Z etxrab $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

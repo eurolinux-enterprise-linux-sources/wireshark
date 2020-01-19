@@ -10,7 +10,7 @@
  * Routines for X.420 (X.400 Message Transfer) packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-p22.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

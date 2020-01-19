@@ -1,6 +1,6 @@
 ## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake
 #
-# $Id$
+# $Id: Makefile.nmake 47709 2013-02-17 19:07:27Z guy $
 #
 #
 # Wireshark - Network traffic analyzer

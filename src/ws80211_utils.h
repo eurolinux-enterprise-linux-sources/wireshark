@@ -1,7 +1,7 @@
 /*
  * Copyright 2012, Pontus Fuchs <pontus.fuchs@gmail.com>
  *
- * $Id$
+ * $Id: ws80211_utils.h 46849 2012-12-29 20:56:11Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

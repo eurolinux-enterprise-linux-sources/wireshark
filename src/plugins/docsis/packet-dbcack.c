@@ -2,7 +2,7 @@
  * Routines for DOCSIS 3.0 Dynamic Bonding Change Acknowledge Message dissection.
  * Copyright 2010, Guido Reismueller <g.reismueller[AT]avm.de>
  *
- * $Id$
+ * $Id: packet-dbcack.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

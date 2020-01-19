@@ -15,7 +15,7 @@
  *
  * Routines for V5.2-User Adaptation Layer dissection
  *
- * $Id$
+ * $Id: packet-v5ua.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Extension of ISDN Q.921-User Adaptation Layer dissection
  * Copyright 2002, Michael Tuexen <Michael.Tuexen[AT]siemens.com>

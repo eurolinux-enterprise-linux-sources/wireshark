@@ -1,7 +1,7 @@
 /* ipproto.c
  * Routines for converting IPv4 protocol/IPv6 nxthdr field into string
  *
- * $Id$
+ * $Id: ipproto.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -101,7 +101,7 @@ static const value_string ipproto_val[] = {
     { IP_PROTO_ICMPV6,  "ICMPv6" },                 /* 58 IPv6-ICMP ICMP for IPv6 [RFC1883] */
     { IP_PROTO_NONE,    "IPv6 no next header" },    /* 59 IPv6-NoNxt No Next Header for IPv6 [RFC1883] */
     { IP_PROTO_DSTOPTS, "IPv6 destination option" },/* 60 IPv6-Opts Destination Options for IPv6 [RFC1883] */
-    { 61, "any host internal protocol" },           /* 61  any host internal protocol [Internet_Assigned_Numbers_Authority] */
+    { IP_PROTO_SHIM6_OLD, "SHIM6 header" },         /* 61  any host internal protocol [Internet_Assigned_Numbers_Authority] */
     { IP_PROTO_MIPV6_OLD, "Mobile IPv6 (old)" },    /* 62 CFTP CFTP [Forsdick, H., "CFTP", Network Message, Bolt Beranek and Newman, January 1982.][Harry_Forsdick] */
     { 63, "any local network" },                    /* 63  any local network [Internet_Assigned_Numbers_Authority] */
     { IP_PROTO_SATEXPAK,"SATNET EXPAK" },           /* 64 SAT-EXPAK SATNET and Backroom EXPAK [Steven_Blumenthal] */

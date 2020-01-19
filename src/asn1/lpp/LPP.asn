@@ -1,5 +1,5 @@
 -- 3GPP TS 36.355 V11.2.0 (2013-03)
--- $Id$
+-- $Id: LPP.asn 48443 2013-03-20 21:14:25Z pascal $
 --
 
 LPP-PDU-Definitions {

@@ -1,7 +1,7 @@
 /* packet-ppcap.c
  * Copyright 2012, Ericsson AB
  *
- * $Id$
+ * $Id: packet-ppcap.c 48400 2013-03-18 21:16:23Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

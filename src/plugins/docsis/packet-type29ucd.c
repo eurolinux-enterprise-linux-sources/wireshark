@@ -2,7 +2,7 @@
  * Routines for Type 29 UCD - DOCSIS 2.0 only - Message dissection
  * Copyright 2003, Brian Wheeler <brian.wheeler[AT]arrisi.com>
  *
- * $Id$
+ * $Id: packet-type29ucd.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

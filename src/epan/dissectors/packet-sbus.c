@@ -2,7 +2,7 @@
  * Routines for Ether-S-Bus dissection
  * Copyright 2010, Christian Durrer <christian.durrer@sensemail.ch>
  *
- * $Id$
+ * $Id: packet-sbus.c 48508 2013-03-23 13:09:09Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -8,7 +8,7 @@
  *
  * for specifications.
  *
- * $Id$
+ * $Id: packet-ppi-vector.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

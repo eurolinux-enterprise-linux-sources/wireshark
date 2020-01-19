@@ -1,7 +1,7 @@
 /*
  *  uat-int.h
  *
- *  $Id$
+ *  $Id: uat-int.h 48960 2013-04-22 02:10:49Z mmann $
  *
  *  User Accessible Tables
  *  Mantain an array of user accessible data strucures
@@ -80,9 +80,6 @@ void uat_reset(void);
 
 WS_DLL_PUBLIC
 void* uat_add_record(uat_t*, const void* orig_rec_ptr, gboolean valid_rec);
-
-WS_DLL_PUBLIC
-void uat_update_record(uat_t *uat, const void *data, gboolean valid_rec);
 
 WS_DLL_PUBLIC
 void uat_swap(uat_t*, guint idx_a, guint idx_b);

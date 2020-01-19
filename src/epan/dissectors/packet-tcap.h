@@ -8,7 +8,7 @@
 #line 1 "../../asn1/tcap/packet-tcap-template.h"
 /* packet-tcap.h
  *
- * $Id$
+ * $Id: packet-tcap.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Copyright 2004, Tim Endean <endeant@hotmail.com>
  *

@@ -2,7 +2,7 @@
  * Dialog box for editing or adding packet comments.
  * Copyright 2012 Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: edit_packet_comment_dlg.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

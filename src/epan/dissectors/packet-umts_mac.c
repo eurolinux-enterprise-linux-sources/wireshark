@@ -1,6 +1,6 @@
 /* Routines for UMTS MAC (3GPP TS 25.321) disassembly
  *
- * $Id$
+ * $Id: packet-umts_mac.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

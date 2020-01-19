@@ -1,6 +1,6 @@
 /* packet-ethercat-datagram.h
  *
- * $Id$
+ * $Id: packet-ethercat-datagram.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

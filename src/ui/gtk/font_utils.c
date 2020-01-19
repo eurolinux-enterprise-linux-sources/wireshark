@@ -1,7 +1,7 @@
 /* font_utils.c
  * Utilities to use for font manipulation
  *
- * $Id$
+ * $Id: font_utils.c 47240 2013-01-24 01:10:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

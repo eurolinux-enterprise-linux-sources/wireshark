@@ -2,7 +2,7 @@
  * camel message counter for tshark
  * Copyright 2006 Florent DROUIN
  *
- * $Id$
+ * $Id: tap-camelcounter.c 48108 2013-03-05 22:15:20Z etxrab $
  *
  * This part of code is extracted from tap-h225counter.c from Lars Roland
  *

@@ -28,7 +28,7 @@
  *      in Heimdal:
  *      http://loka.it.su.se/source/xref/heimdal/heimdal/lib/asn1/k5.asn1
  *
- * $Id$
+ * $Id: packet-kerberos.c 48400 2013-03-18 21:16:23Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

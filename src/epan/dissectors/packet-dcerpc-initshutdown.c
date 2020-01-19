@@ -7,7 +7,7 @@
 	Instructions on how to download and install Pidl can be 
 	found at http://wiki.wireshark.org/Pidl
 
-	$Id$
+	$Id: packet-dcerpc-initshutdown.c 45017 2012-09-20 02:03:38Z morriss $
 */
 
 

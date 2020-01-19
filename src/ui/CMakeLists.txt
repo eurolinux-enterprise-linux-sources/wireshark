@@ -1,6 +1,6 @@
 # CMakeLists.txt
 #
-# $Id$
+# $Id: CMakeLists.txt 47767 2013-02-20 06:51:16Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

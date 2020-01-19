@@ -2,7 +2,7 @@
  * ISC OMAPI (Object Management API) dissector
  * Copyright 2006, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: packet-omapi.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -117,7 +117,6 @@ dissect_omapi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
   if (tvb_reported_length_remaining(tvb, 0) < 8)
   {
     /* Payload too small for OMAPI */
-    ptvcursor_free(cursor);
     DISSECTOR_ASSERT_NOT_REACHED();
   }
   else if (tvb_reported_length_remaining(tvb, 0) < 24)
@@ -129,7 +128,6 @@ dissect_omapi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     col_set_str(pinfo->cinfo, COL_INFO, "Status message");
     proto_item_append_text(ti, ", Status message");
 
-    ptvcursor_free(cursor);
     return;
   }
   else if ( !(tvb_get_ntohl(tvb, 8) || tvb_get_ntohl(tvb, 12)) )
@@ -219,8 +217,6 @@ dissect_omapi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
   if (authlength > 0) {
     ptvcursor_add(cursor, hf_omapi_signature, authlength, ENC_NA);
   }
-
-  ptvcursor_free(cursor);
 }
 
 void

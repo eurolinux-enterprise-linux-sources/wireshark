@@ -12,7 +12,7 @@
  * Modified and added on the basis of information and names from the eMule 0.50 source code
  * found at http://www.emule-project.net
  *
- * $Id$
+ * $Id: packet-edonkey.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

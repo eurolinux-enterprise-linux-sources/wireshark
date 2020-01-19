@@ -4,7 +4,7 @@
  * Written by Frank Kingswood <frank.kingswood@artimi.com>
  * Copyright 2008, Artimi Ltd.
  *
- * $Id$
+ * $Id: packet-vicp.c 46928 2013-01-04 05:22:43Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

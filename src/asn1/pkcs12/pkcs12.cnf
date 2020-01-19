@@ -1,7 +1,7 @@
 # pkcs12.cnf
 # PKCS12 conformation file
 
-# $Id$
+# $Id: pkcs12.cnf 31961 2010-02-23 04:35:23Z guy $
 
 #.MODULE_IMPORT
 PKCS-7	cms

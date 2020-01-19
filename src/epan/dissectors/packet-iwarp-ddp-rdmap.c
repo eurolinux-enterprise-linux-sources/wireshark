@@ -5,7 +5,7 @@
  * Copyright 2008, Yves Geissbuehler <yves.geissbuehler@gmx.net>
  * Copyright 2008, Philip Frey <frey.philip@gmail.com>
  *
- * $Id$
+ * $Id: packet-iwarp-ddp-rdmap.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

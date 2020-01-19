@@ -1,7 +1,7 @@
 /* expert_comp_dlg.h
  * expert_comp_dlg   2005 Greg Morris
  *
- * $Id$
+ * $Id: expert_comp_dlg.h 44852 2012-09-10 19:48:16Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

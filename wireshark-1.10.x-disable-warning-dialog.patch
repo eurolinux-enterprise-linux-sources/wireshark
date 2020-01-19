@@ -2,7 +2,7 @@ diff --git a/ui/gtk/main.c b/ui/gtk/main.c
 index 82cff80..0137c3b 100644
 --- a/ui/gtk/main.c
 +++ b/ui/gtk/main.c
-@@ -2043,50 +2043,6 @@ read_configuration_files(char **gdp_path, char **dp_path)
+@@ -2040,50 +2040,6 @@ read_configuration_files(char **gdp_path, char **dp_path)
    return prefs_p;
  }
  
@@ -53,7 +53,7 @@ index 82cff80..0137c3b 100644
  /* And now our feature presentation... [ fade to music ] */
  int
  main(int argc, char *argv[])
-@@ -3039,7 +2995,6 @@ main(int argc, char *argv[])
+@@ -3030,7 +2986,6 @@ main(int argc, char *argv[])
       up on top of us. */
    if (cf_name) {
      show_main_window(TRUE);
@@ -61,7 +61,7 @@ index 82cff80..0137c3b 100644
      if (rfilter != NULL) {
        if (!dfilter_compile(rfilter, &rfcode)) {
          bad_dfilter_alert_box(top_level, rfilter);
-@@ -3117,7 +3072,6 @@ main(int argc, char *argv[])
+@@ -3108,7 +3063,6 @@ main(int argc, char *argv[])
            dfilter_free(rfcode);
          cfile.rfcode = NULL;
          show_main_window(FALSE);
@@ -69,7 +69,7 @@ index 82cff80..0137c3b 100644
          main_set_for_capture_in_progress(FALSE);
          set_capture_if_dialog_for_capture_in_progress(FALSE);
        }
-@@ -3134,7 +3088,6 @@ main(int argc, char *argv[])
+@@ -3125,7 +3079,6 @@ main(int argc, char *argv[])
        }
        /* "-k" was specified; start a capture. */
        show_main_window(FALSE);
@@ -77,7 +77,7 @@ index 82cff80..0137c3b 100644
  
        /* If no user interfaces were specified on the command line,
           copy the list of selected interfaces to the set of interfaces
-@@ -3152,7 +3105,6 @@ main(int argc, char *argv[])
+@@ -3143,7 +3096,6 @@ main(int argc, char *argv[])
        }
      } else {
        show_main_window(FALSE);
@@ -85,7 +85,7 @@ index 82cff80..0137c3b 100644
        main_set_for_capture_in_progress(FALSE);
        set_capture_if_dialog_for_capture_in_progress(FALSE);
      }
-@@ -3163,7 +3115,6 @@ main(int argc, char *argv[])
+@@ -3154,7 +3106,6 @@ main(int argc, char *argv[])
      }
  #else /* HAVE_LIBPCAP */
      show_main_window(FALSE);

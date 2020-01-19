@@ -1,7 +1,7 @@
 /* print_mswin.h
  * Printing support for MSWindows
  *
- * $Id$
+ * $Id: print_win32.h 46771 2012-12-26 11:27:21Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

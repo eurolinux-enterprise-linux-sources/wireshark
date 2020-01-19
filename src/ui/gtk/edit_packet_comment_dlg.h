@@ -1,7 +1,7 @@
 /* edit_packet_comment_dlg.h
  * Dialog box for editing or adding packet comments.
  *
- * $Id$
+ * $Id: edit_packet_comment_dlg.h 47780 2013-02-20 22:18:56Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

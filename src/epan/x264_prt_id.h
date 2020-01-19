@@ -1,7 +1,7 @@
 /* x264_prt_id.h
  * Definitions of X.264/ISO 11570 transport protocol IDs
  *
- * $Id$
+ * $Id: x264_prt_id.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

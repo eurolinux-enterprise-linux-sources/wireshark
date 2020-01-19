@@ -6,7 +6,7 @@
  *    Copyright 2009, Jochen Bartl <jochen.bartl@gmail.co
  *    Copyright 2000, Paul Ionescu <paul@acorp.ro>
  *
- * $Id$
+ * $Id: packet-eigrp.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

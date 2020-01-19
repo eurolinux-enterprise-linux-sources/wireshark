@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: network_instruments.c 46803 2012-12-27 12:19:25Z guy $
  */
 
 /***************************************************************************
@@ -226,14 +226,14 @@ int network_instruments_open(wtap *wth, int *err, gchar **err_info)
 
     /* check the packet's magic number */
     if (packet_header.packet_magic != observer_packet_magic) {
-        *err = WTAP_ERR_UNSUPPORTED;
+        *err = WTAP_ERR_UNSUPPORTED_ENCAP;
         *err_info = g_strdup_printf("Observer: unsupported packet version %ul", packet_header.packet_magic);
         return -1;
     }
 
     /* check the data link type */
     if (observer_to_wtap_encap(packet_header.network_type) == WTAP_ENCAP_UNKNOWN) {
-        *err = WTAP_ERR_UNSUPPORTED;
+        *err = WTAP_ERR_UNSUPPORTED_ENCAP;
         *err_info = g_strdup_printf("Observer: network type %u unknown or unsupported", packet_header.network_type);
         return -1;
     }

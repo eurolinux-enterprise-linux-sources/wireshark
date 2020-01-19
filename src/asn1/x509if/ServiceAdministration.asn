@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: ServiceAdministration.asn 30409 2009-10-08 17:26:57Z krj $
 -- Module ServiceAdministration (X.501:08/2005)
 ServiceAdministration {joint-iso-itu-t ds(5) module(1)
   serviceAdministration(33) 5} DEFINITIONS ::=

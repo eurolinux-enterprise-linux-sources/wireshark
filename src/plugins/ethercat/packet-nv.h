@@ -1,6 +1,6 @@
 /* packet-nv.h
  *
- * $Id$
+ * $Id: packet-nv.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

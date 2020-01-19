@@ -1,7 +1,7 @@
 /*
  *  FIPS-180-1 compliant SHA-1 implementation
  *
- *  $Id$
+ *  $Id: sha1.h 44709 2012-08-31 09:25:36Z etxrab $
  *
  *  Copyright (C) 2001-2003  Christophe Devine
  *  Copyright (C) 2012       Chris Elston, Katalix Systems Ltd <celston@katalix.com>

@@ -1,7 +1,7 @@
 /* main.h
  * Global defines, etc.
  *
- * $Id$
+ * $Id: main.h 47889 2013-02-25 23:35:13Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -357,9 +357,6 @@ extern void reset_tap_update_timer(void);
 
 /** Change configuration profile */
 extern void change_configuration_profile(const gchar *profile_name);
-
-/** Update GUI for changes in fields */
-extern void main_fields_changed (void);
 
 /** redissect packets and update UI */
 extern void redissect_packets(void);

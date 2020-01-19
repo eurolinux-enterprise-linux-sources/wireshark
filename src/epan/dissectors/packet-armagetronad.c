@@ -2,7 +2,7 @@
  * Routines for the Armagetronad packet dissection
  * Copyright 2005, Guillaume Chazarain <guichaz@yahoo.fr>
  *
- * $Id$
+ * $Id: packet-armagetronad.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

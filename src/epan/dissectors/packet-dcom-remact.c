@@ -2,7 +2,7 @@
  * Routines for DCOM Remote Activation
  * Copyright 2001, Todd Sabin <tas@webspan.net>
  *
- * $Id$
+ * $Id: packet-dcom-remact.c 48344 2013-03-16 20:22:54Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

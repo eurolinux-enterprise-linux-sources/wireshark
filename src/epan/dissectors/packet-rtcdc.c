@@ -10,7 +10,7 @@
  * in the future, but I'll leave it in for now.
  * Copyright 2012 - 2013, Michael Tuexen <tuexen@wireshark.org>
  *
- * $Id$
+ * $Id: packet-rtcdc.c 51367 2013-08-15 03:39:38Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

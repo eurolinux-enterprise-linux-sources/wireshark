@@ -2,7 +2,7 @@
  * Routines for AMR dissection
  * Copyright 2005-2008, Anders Broman <anders.broman[at]ericsson.com>
  *
- * $Id$
+ * $Id: packet-amr.c 49465 2013-05-20 22:07:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

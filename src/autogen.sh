@@ -2,7 +2,7 @@
 #
 # Run this to generate all the initial makefiles.
 #
-# $Id$
+# $Id: autogen.sh 50436 2013-07-07 21:11:57Z guy $
 
 DIE=true
 PROJECT="Wireshark"

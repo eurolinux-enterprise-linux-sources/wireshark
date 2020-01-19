@@ -1,7 +1,7 @@
 /* asm_utils.c
  * Functions optionally implemented in assembler
  *
- * $Id$
+ * $Id: asm_utils.c 48338 2013-03-16 08:52:09Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

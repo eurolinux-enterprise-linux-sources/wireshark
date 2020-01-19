@@ -1,6 +1,6 @@
 AMC: Wireless Analyzer Captured Data (AirMagnet)
 ------------------------------------------------
-$Id$
+$Id: README.airmagnet 38561 2011-08-16 13:16:33Z morriss $
 
 This is just a braindump from looking at some Airmagnet capture files,
 in one case having a look at a decoded display in Airmagnet itself.

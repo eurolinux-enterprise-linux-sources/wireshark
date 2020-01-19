@@ -4,7 +4,7 @@
  *    Mijo Safradin <mijo at linux.vnet.ibm.com>
  * Copyright 2011,2012  IBM Corp.
  *
- * $Id$
+ * $Id: packet-ecp-oui.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

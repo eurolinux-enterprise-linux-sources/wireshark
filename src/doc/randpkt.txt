@@ -1,6 +1,6 @@
 Random Packet Generator
 -----------------------
-$Id$
+$Id: randpkt.txt 18271 2006-05-31 19:12:15Z gerald $
 
 randpkt is a small utility creates a libpcap trace file full of random packets.
 You can control the number of packets, the maximum size of each packet,

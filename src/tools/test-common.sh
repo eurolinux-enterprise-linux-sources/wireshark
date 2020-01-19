@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: test-common.sh 50213 2013-06-28 15:32:17Z morriss $
 
 # Common variables and functions for fuzz and randpkt tests.
 

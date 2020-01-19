@@ -1,7 +1,7 @@
 /* version_info.c
  * Routines to report version information for stuff used by Wireshark
  *
- * $Id$
+ * $Id: version_info.c 48534 2013-03-24 18:22:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -43,7 +43,7 @@
 #include "capture-pcap-util.h"
 #include <wsutil/unicode-utils.h>
 
-#include "version.h"
+#include "svnversion.h"
 
 #ifdef HAVE_WINDOWS_H
 #include <windows.h>
@@ -58,10 +58,10 @@
 # include <sys/capability.h>
 #endif
 
-#ifdef GITVERSION
-	const char *wireshark_gitversion = " (" GITVERSION " from " GITBRANCH ")";
+#ifdef SVNVERSION
+	const char *wireshark_svnversion = " (" SVNVERSION " from " SVNPATH ")";
 #else
-	const char *wireshark_gitversion = "";
+	const char *wireshark_svnversion = "";
 #endif
 
 /*
@@ -615,7 +615,7 @@ do_cpuid(int *CPUInfo, guint32 selector){
 	__cpuid(CPUInfo, selector);
 }
 #elif defined(__GNUC__)
-#if defined(__x86_64__)
+#if defined(__x86_64__)  
 static inline void
 do_cpuid(guint32 *CPUInfo, int selector)
 {
@@ -682,7 +682,7 @@ static void get_mem_info(GString *str _U_)
 	MEMORYSTATUSEX statex;
 
 	statex.dwLength = sizeof (statex);
-
+	
 	if(GlobalMemoryStatusEx (&statex))
 		g_string_append_printf(str, ", with ""%" G_GINT64_MODIFIER "d" "MB of physical memory.\n", statex.ullTotalPhys/(1024*1024));
 #endif
@@ -820,7 +820,7 @@ const char *
 get_copyright_info(void)
 {
 	return
-"Copyright 1998-2015 Gerald Combs <gerald@wireshark.org> and contributors.\n"
+"Copyright 1998-2013 Gerald Combs <gerald@wireshark.org> and contributors.\n"
 "This is free software; see the source for copying conditions. There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n";
 }

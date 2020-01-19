@@ -2,7 +2,7 @@
  * Wireshark Memory Manager String Utilities
  * Copyright 2012, Evan Huus <eapache@gmail.com>
  *
- * $Id$
+ * $Id: wmem_strutl.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

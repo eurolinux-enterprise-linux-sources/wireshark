@@ -1,6 +1,6 @@
 /* buffer.h
  *
- * $Id$
+ * $Id: buffer.h 47948 2013-02-28 19:35:59Z rbalint $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

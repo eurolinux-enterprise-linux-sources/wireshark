@@ -1,6 +1,6 @@
 /* follow.h
  *
- * $Id$
+ * $Id: follow.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright 1998 Mike Hall <mlh@io.com>
  *

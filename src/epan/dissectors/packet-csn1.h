@@ -4,7 +4,7 @@
  * with the gracious authorization of STE
  * Copyright (c) 2011 ST-Ericsson
  *
- * $Id$
+ * $Id: packet-csn1.h 46753 2012-12-26 06:16:39Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

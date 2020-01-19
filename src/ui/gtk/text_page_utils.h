@@ -1,7 +1,7 @@
 /* text_page.h
  * Declarations of routine to construct a simple text page from a file.
  *
- * $Id$
+ * $Id: text_page_utils.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

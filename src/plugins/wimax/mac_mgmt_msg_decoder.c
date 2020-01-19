@@ -5,7 +5,7 @@
  *
  * Author: Lu Pan <lu.pan@intel.com>
  *
- * $Id$
+ * $Id: mac_mgmt_msg_decoder.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

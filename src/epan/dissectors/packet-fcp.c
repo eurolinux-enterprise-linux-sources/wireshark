@@ -2,7 +2,7 @@
  * Routines for Fibre Channel Protocol for SCSI (FCP)
  * Copyright 2001, Dinesh G Dutt <ddutt@cisco.com>
  *
- * $Id$
+ * $Id: packet-fcp.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-time.c 45948 2012-11-06 13:28:59Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -23,6 +23,7 @@
 #include "config.h"
 
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
 /*
@@ -139,7 +140,7 @@ get_nsecs(char *startp, int *nsecs)
 	while (p != startp) {
 		p--;
 
-		if (!g_ascii_isdigit(*p)) {
+		if (!isdigit((unsigned char)*p)) {
 			/*
 			 * Not a digit - error.
 			 */
@@ -262,7 +263,7 @@ absolute_val_from_string(fvalue_t *fv, char *s, LogFunc logfunc)
 		if (*curptr != '.')
 			goto fail;	/* it's not */
 		curptr++;	/* skip the "." */
-		if (!g_ascii_isdigit((unsigned char)*curptr))
+		if (!isdigit((unsigned char)*curptr))
 			goto fail;	/* not a digit, so not valid */
 		if (!get_nsecs(curptr, &fv->value.time.nsecs))
 			goto fail;

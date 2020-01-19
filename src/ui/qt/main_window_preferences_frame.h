@@ -1,6 +1,6 @@
 /* main_window_preferences_frame.h
  *
- * $Id$
+ * $Id: main_window_preferences_frame.h 47214 2013-01-22 18:27:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

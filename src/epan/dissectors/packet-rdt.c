@@ -6,7 +6,7 @@
  * Copyright 2005
  * Written by Martin Mathieson and Tom Marshall
  *
- * $Id$
+ * $Id: packet-rdt.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

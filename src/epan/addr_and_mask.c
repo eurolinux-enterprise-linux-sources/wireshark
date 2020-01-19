@@ -2,7 +2,7 @@
  * Routines to fetch IPv4 and IPv6 addresses from a tvbuff and then mask
  * out bits other than those covered by a prefix length
  *
- * $Id$
+ * $Id: addr_and_mask.c 45016 2012-09-20 01:48:30Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

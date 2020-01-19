@@ -5,7 +5,7 @@
  * Updated to RFC4210 CMPv2 and associated "Transport Protocols for CMP" draft
  *   Martin Peylo 2008
  *
- * $Id$
+ * $Id: packet-cmp-template.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

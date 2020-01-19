@@ -3,7 +3,7 @@
  *
  * Definitions for routines for u-law, A-law and linear PCM conversions
  *
- * $Id$
+ * $Id: g711.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

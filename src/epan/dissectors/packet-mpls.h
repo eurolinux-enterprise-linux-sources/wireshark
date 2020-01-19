@@ -8,7 +8,7 @@
  * (c) Copyright 2011, Shobhank Sharma <ssharma5@ncsu.edu>
  *                     added MPLS Generic Associated Channel as per RFC 5586
  *
- * $Id$
+ * $Id: packet-mpls.h 45703 2012-10-22 02:41:19Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

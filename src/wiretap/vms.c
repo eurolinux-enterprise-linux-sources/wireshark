@@ -1,6 +1,6 @@
 /* vms.c
  *
- * $Id$
+ * $Id: vms.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wiretap Library
  * Copyright (c) 2001 by Marc Milgram <ethereal@mmilgram.NOSPAMmail.net>
@@ -36,6 +36,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /* This module reads the output of the various VMS TCPIP trace utilities
  * such as TCPIPTRACE, TCPTRACE and UCX$TRACE
@@ -322,12 +323,12 @@ isdumpline( gchar *line )
 {
     int i, j;
 
-    while (*line && !g_ascii_isalnum(*line))
+    while (*line && !isalnum((guchar)*line))
 	line++;
 
     for (j=0; j<4; j++) {
 	for (i=0; i<8; i++, line++)
-	    if (! g_ascii_isxdigit(*line))
+	    if (! isxdigit((guchar)*line))
 		return FALSE;
 
 	for (i=0; i<3; i++, line++)
@@ -335,7 +336,7 @@ isdumpline( gchar *line )
 		return FALSE;
     }
 
-    return g_ascii_isspace(*line);
+    return isspace((guchar)*line);
 }
 
 /* Parses a packet record header. */
@@ -398,7 +399,7 @@ parse_vms_rec_hdr(FILE_T fh, struct wtap_pkthdr *phdr, int *err, gchar **err_inf
 	}
         if ( (! pkt_len) && (p = strstr(line, "Length"))) {
             p += sizeof("Length ");
-            while (*p && ! g_ascii_isdigit(*p))
+            while (*p && ! isdigit((guchar)*p))
                 p++;
 
             if ( !*p ) {
@@ -456,7 +457,7 @@ parse_vms_hex_dump(FILE_T fh, int pkt_len, guint8* buf, int *err,
 		}
 		line[VMS_LINE_LENGTH] = '\0';
 	    }
-            while (line[offset] && !g_ascii_isxdigit(line[offset]))
+            while (line[offset] && !isxdigit((guchar)line[offset]))
                 offset++;
 	}
 	if (!parse_single_hex_dump_line(line, buf, i,

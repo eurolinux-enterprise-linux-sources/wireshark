@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: golay.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Provides routines for encoding and decoding the extended Golay
  * (24,12,8) code.

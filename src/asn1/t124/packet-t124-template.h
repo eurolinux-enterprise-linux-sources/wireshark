@@ -2,7 +2,7 @@
  * Routines for t124 packet dissection
  * Copyright 2010, Graeme Lunt
  *
- * $Id$
+ * $Id: packet-t124-template.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

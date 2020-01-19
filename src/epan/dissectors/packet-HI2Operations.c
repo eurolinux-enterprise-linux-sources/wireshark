@@ -10,7 +10,7 @@
  * Routines for HI2 (ETSI TS 101 671 V3.5.1 (2009-11))
  *  Erwin van Eijk 2010
  *
- * $Id$
+ * $Id: packet-HI2Operations.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

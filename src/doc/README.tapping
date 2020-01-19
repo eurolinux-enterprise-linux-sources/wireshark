@@ -1,4 +1,4 @@
-$Id$
+$Id: README.tapping 36480 2011-04-05 20:21:59Z cmaynard $
 
 The TAP system in Wireshark is a powerful and flexible mechanism to get event
 driven notification on packets matching certain protocols and/or filters.

@@ -2,7 +2,7 @@
  * Routines for Universal Computer Protocol dissection
  * Copyright 2001, Tom Uijldert <tom.uijldert@cmg.nl>
  *
- * $Id$
+ * $Id: packet-ucp.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -392,7 +392,6 @@ static const value_string vals_parm_PID[] = {
     {  339, "PC appl. over X.25 (X.121)" },
     {  439, "PC appl. over ISDN (E.164)" },
     {  539, "PC appl. over TCP/IP" },
-    {  639, "PC appl. via abbreviated number" },
     {  0, NULL },
 };
 
@@ -1577,7 +1576,7 @@ add_30O(proto_tree *tree, tvbuff_t *tvb)
     UcpHandleByte(hf_ucp_parm_DD);
     UcpHandleTime(hf_ucp_parm_DDT);     /* DDMMYYHHmm */
     UcpHandleTime(hf_ucp_parm_VP);      /* DDMMYYHHmm */
-    UcpHandleIRAString(hf_ucp_parm_AMsg);
+    UcpHandleData(hf_ucp_data_section);
 }
 
 static void

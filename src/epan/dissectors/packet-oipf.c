@@ -2,7 +2,7 @@
  * Dissector for Open IPTV Forum protocols
  * Copyright 2012, Martin Kaiser <martin@kaiser.cx>
  *
- * $Id$
+ * $Id: packet-oipf.c 48339 2013-03-16 09:37:06Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

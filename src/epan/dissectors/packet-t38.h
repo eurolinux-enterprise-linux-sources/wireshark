@@ -12,7 +12,7 @@
  * 2003 Hans Viens
  * 2004 Alejandro Vaquero, add support to conversation
  *
- * $Id$
+ * $Id: packet-t38.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

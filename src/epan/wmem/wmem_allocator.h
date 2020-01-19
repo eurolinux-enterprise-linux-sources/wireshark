@@ -2,7 +2,7 @@
  * Definitions for the Wireshark Memory Manager Allocator
  * Copyright 2012, Evan Huus <eapache@gmail.com>
  *
- * $Id$
+ * $Id: wmem_allocator.h 47548 2013-02-08 01:47:48Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

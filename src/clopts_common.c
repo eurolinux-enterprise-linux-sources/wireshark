@@ -1,7 +1,7 @@
 /* clopts_common.c
  * Handle command-line arguments common to Wireshark and TShark
  *
- * $Id$
+ * $Id: clopts_common.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Anything in Anything protocol
  * Copyright 2008, Jelmer Vernooij <jelmer@samba.org>
  *
- * $Id$
+ * $Id: packet-ayiya.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

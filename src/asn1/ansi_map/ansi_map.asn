@@ -1,5 +1,5 @@
 -- Copyright 2005 - 2009 Anders Broman
--- $Id$
+-- $Id: ansi_map.asn 38159 2011-07-21 22:46:07Z etxrab $
 MAP-Protocol{ 0 identified-organization (4) etsi (0) mobileDomain (0) gsm-Network (1) modules (3) map-Protocol (4) version5 (5) }
 
 DEFINITIONS ::=

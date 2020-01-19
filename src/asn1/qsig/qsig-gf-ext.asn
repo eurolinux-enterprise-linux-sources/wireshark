@@ -5,7 +5,7 @@
 --
 -- 9.2 Manufacturer specific additions to standardised operations
 --
--- $Id$
+-- $Id: qsig-gf-ext.asn 22361 2007-07-20 09:54:47Z kukosa $
 --
 
 Manufacturer-specific-service-extension-class-asn1-97 {iso(1) standard(0)

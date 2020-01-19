@@ -2,7 +2,7 @@
  * packet-ieee80211-radiotap.h
  *	Declarations for packet-ieee80211-radiotap.c
  *
- * $Id$
+ * $Id: packet-ieee80211-radiotap.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

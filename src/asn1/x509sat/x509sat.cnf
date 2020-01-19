@@ -1,7 +1,7 @@
 # x509sat.cnf
 # X509SAT conformation file
 
-# $Id$
+# $Id: x509sat.cnf 48008 2013-03-02 14:51:04Z etxrab $
 
 #.TYPE_ATTR
 GUID			TYPE = FT_GUID  DISPLAY = BASE_NONE  STRING = NULL BITMASK = 0

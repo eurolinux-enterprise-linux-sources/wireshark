@@ -2,7 +2,7 @@
  * Routines for ATM over TCP dissection
  * Copyright 2011, Alexis La Goutte <alexis.lagoutte at gmail dot com>
  *
- * $Id$
+ * $Id: packet-atmtcp.c 48282 2013-03-13 21:14:20Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

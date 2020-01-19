@@ -4,7 +4,7 @@
  * By Jakob Bratkovic <j.bratkovic@iskratel.si> and
  * Miha Jemec <m.jemec@iskratel.si>
  *
- * $Id$
+ * $Id: mcast_stream.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * based on rtp_stream.c
  * Copyright 2003, Alcatel Business Systems

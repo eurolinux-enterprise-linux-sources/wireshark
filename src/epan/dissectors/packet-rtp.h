@@ -3,7 +3,7 @@
  * Routines for RTP dissection
  * RTP = Real time Transport Protocol
  *
- * $Id$
+ * $Id: packet-rtp.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright 2000, Philips Electronics N.V.
  * Written by Andreas Sikkema <andreas.sikkema@philips.com>

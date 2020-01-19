@@ -1,7 +1,7 @@
 /* packet-smb2.h
  * Defines for SMB2 packet dissection
  *
- * $Id$
+ * $Id: packet-smb2.h 48355 2013-03-17 16:48:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

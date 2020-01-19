@@ -1,7 +1,7 @@
 /*-
  * Copyright (c) 2003, 2004 David Young.  All rights reserved.
  *
- * $Id$
+ * $Id: packet-ieee80211-radiotap-defs.h 44985 2012-09-18 20:46:05Z alagoutte $
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions

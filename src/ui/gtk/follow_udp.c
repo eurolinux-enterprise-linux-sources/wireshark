@@ -1,7 +1,7 @@
 /* follow_udp.c
  * UDP specific routines for following traffic streams
  *
- * $Id$
+ * $Id: follow_udp.c 48217 2013-03-09 17:33:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -179,7 +179,7 @@ follow_udp_stream_cb(GtkWidget *w _U_, gpointer data _U_)
 		struct e_in6_addr ipaddr;
 		memcpy(&ipaddr, stats.ip_address[0], 16);
 		hostname0 = get_hostname6(&ipaddr);
-		memcpy(&ipaddr, stats.ip_address[1], 16);
+		memcpy(&ipaddr, stats.ip_address[0], 16);
 		hostname1 = get_hostname6(&ipaddr);
 	} else {
 		guint32 ipaddr;
@@ -197,9 +197,7 @@ follow_udp_stream_cb(GtkWidget *w _U_, gpointer data _U_)
 	/* Both Stream Directions */
 	both_directions_string = g_strdup_printf("Entire conversation (%u bytes)", follow_info->bytes_written[0] + follow_info->bytes_written[1]);
 
-	if ((follow_info->client_port == stats.port[0]) &&
-	    ((stats.is_ipv6 && (memcmp(follow_info->client_ip.data, stats.ip_address[0], 16) == 0)) ||
-	     (!stats.is_ipv6 && (memcmp(follow_info->client_ip.data, stats.ip_address[0], 4) == 0)))) {
+	if(follow_info->client_port == stats.port[0]) {
 		server_to_client_string =
 			g_strdup_printf("%s:%s " UTF8_RIGHTWARDS_ARROW " %s:%s (%u bytes)",
 					hostname0, port0,

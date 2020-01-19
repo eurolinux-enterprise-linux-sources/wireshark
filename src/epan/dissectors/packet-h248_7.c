@@ -5,7 +5,7 @@
  *
  *  (c) 2007, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: packet-h248_7.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

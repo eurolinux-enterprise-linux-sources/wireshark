@@ -2,7 +2,7 @@
  * Dialog box for profiles editing
  * Stig Bjorlykke <stig@bjorlykke.org>, 2008
  *
- * $Id$
+ * $Id: profile.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

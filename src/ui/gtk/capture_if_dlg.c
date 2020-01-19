@@ -1,7 +1,7 @@
 /* capture_if_dlg.c
  * Routines for the capture interface dialog
  *
- * $Id$
+ * $Id: capture_if_dlg.c 49759 2013-06-04 07:37:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

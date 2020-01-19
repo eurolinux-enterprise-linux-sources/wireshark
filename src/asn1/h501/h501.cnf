@@ -2,7 +2,7 @@
 # H.501 conformation file
 # 2007  Tomas Kukosa
 
-# $Id$
+# $Id: h501.cnf 48741 2013-04-04 21:01:27Z pascal $
 
 #.INCLUDE ../h225/h225-exp.cnf
 #.INCLUDE ../h235/h235-exp.cnf

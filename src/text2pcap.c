@@ -6,7 +6,7 @@
  *
  * (c) Copyright 2001 Ashok Narayanan <ashokn@cisco.com>
  *
- * $Id$
+ * $Id: text2pcap.c 51009 2013-07-29 08:38:16Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -109,6 +109,7 @@
 #  define __EXTENSIONS__
 #endif
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -134,7 +135,7 @@
 
 #include "pcapio.h"
 #include "text2pcap.h"
-#include "version.h"
+#include "svnversion.h"
 
 #ifdef _WIN32
 #include <wsutil/unicode-utils.h>
@@ -787,8 +788,8 @@ write_file_header (void)
     gboolean success;
 
     if (use_pcapng) {
-#ifdef GITVERSION
-        const char *appname = "text2pcap (" GITVERSION " from " GITBRANCH ")";
+#ifdef SVNVERSION
+        const char *appname = "text2pcap (" SVNVERSION " from " SVNPATH ")";
 #else
         const char *appname = "text2pcap";
 #endif
@@ -1214,7 +1215,7 @@ parse_token (token_t token, char *str)
                     tmp_str[1] = pkt_lnstart[i*3+1];
                     tmp_str[2] = '\0';
                     /* it is a valid convertable string */
-                    if (!g_ascii_isxdigit(tmp_str[0]) || !g_ascii_isxdigit(tmp_str[1])) {
+                    if (!isxdigit(tmp_str[0]) || !isxdigit(tmp_str[0])) {
                         break;
                     }
                     s2[i] = (char)strtoul(tmp_str, (char **)NULL, 16);
@@ -1277,8 +1278,8 @@ usage (void)
 {
     fprintf(stderr,
             "Text2pcap %s"
-#ifdef GITVERSION
-            " (" GITVERSION " from " GITBRANCH ")"
+#ifdef SVNVERSION
+            " (" SVNVERSION " from " SVNPATH ")"
 #endif
             "\n"
             "Generate a capture file from an ASCII hexdump of packets.\n"

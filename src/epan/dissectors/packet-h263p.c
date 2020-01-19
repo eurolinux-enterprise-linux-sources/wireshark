@@ -8,7 +8,7 @@
  * Copyright 2008 Richard van der Hoff, MX Telecom
  * <richardv@mxtelecom.com>
  *
- * $Id$
+ * $Id: packet-h263p.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

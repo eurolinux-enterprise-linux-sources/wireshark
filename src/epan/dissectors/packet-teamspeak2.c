@@ -3,7 +3,7 @@
  * By brooss <brooss.teambb@gmail.com>
  * Copyright 2008 brooss
  *
- * $Id$
+ * $Id: packet-teamspeak2.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

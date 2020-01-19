@@ -1,6 +1,6 @@
 /* i4btrace.c
  *
- * $Id$
+ * $Id: i4btrace.c 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1999 by Bert Driehuis <driehuis@playbeing.org>

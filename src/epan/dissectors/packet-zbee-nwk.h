@@ -3,7 +3,7 @@
  * By Owen Kirby <osk@exegin.com>
  * Copyright 2009 Exegin Technologies Limited
  *
- * $Id$
+ * $Id: packet-zbee-nwk.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -6,7 +6,7 @@
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.
  *
- * $Id$
+ * $Id: packet-app-pkix-cert.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

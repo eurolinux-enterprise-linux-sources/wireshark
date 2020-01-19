@@ -5,7 +5,7 @@
 # ASN.1 to Wireshark dissector compiler
 # 2004 Tomas Kukosa
 #
-# $Id$
+# $Id: asn2wrs.py 48812 2013-04-10 21:24:19Z gerald $
 #
 
 """ASN.1 to Wireshark dissector compiler"""

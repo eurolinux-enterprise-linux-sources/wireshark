@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
-<!-- $Id$ -->
+<!-- $Id: Info.plist 24640 2008-03-15 18:31:52Z gerald $ -->
 <plist version="0.9">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>

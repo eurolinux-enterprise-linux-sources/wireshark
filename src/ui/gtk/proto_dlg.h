@@ -1,6 +1,6 @@
 /* proto_dlg.h
  *
- * $Id$
+ * $Id: proto_dlg.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *

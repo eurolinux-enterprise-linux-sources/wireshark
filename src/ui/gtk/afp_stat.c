@@ -2,7 +2,7 @@
  * Based on
  * smb_stat   2003 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: afp_stat.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

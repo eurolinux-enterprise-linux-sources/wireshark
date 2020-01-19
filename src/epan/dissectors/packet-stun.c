@@ -6,7 +6,7 @@
  * Copyright 2008, Gael Breard <gael@breard.org>
  * Copyright 2013, Media5 Corporation, David Bergeron <dbergeron@media5corp.com>
  *
- * $Id$
+ * $Id: packet-stun.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

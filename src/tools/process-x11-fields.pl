@@ -6,7 +6,7 @@
 #
 # Copyright 2000, Christophe Tronche <ch.tronche[AT]computer.org>
 #
-# $Id$
+# $Id: process-x11-fields.pl 48991 2013-04-22 21:32:55Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

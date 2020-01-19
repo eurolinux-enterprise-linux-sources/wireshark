@@ -2,7 +2,7 @@
  * Sub-dissectors for IPMI messages (netFn=Bridge)
  * Copyright 2007-2008, Alexey Neyman, Pigeon Point Systems <avn@pigeonpoint.com>
  *
- * $Id$
+ * $Id: packet-ipmi-bridge.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* filter_expressions_preferences_frame.h
  *
- * $Id$
+ * $Id: filter_expressions_preferences_frame.h 47522 2013-02-06 18:22:54Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

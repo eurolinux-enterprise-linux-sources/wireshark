@@ -1,6 +1,6 @@
 # wspy_libws.py
 #
-# $Id$
+# $Id: wspy_libws.py 43536 2012-06-28 22:56:06Z darkjames $
 #
 # Wireshark Protocol Python Binding
 #

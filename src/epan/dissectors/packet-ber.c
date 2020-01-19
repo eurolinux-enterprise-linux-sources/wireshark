@@ -2,7 +2,7 @@
  * Helpers for ASN.1/BER dissection
  * Ronnie Sahlberg (C) 2004
  *
- * $Id$
+ * $Id: packet-ber.c 48944 2013-04-20 21:20:00Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -4854,7 +4854,7 @@ dissect_ber_constrained_bitstring(gboolean implicit_tag, asn1_ctx_t *actx, proto
         bitstring = tvb_get_ephemeral_string(tvb, offset, len);
 
         while (nb->p_id) {
-            if ((len > 0) && (pad < 8*len) && (nb->bit < (8*len-pad))) {
+            if ((len > 0) && (nb->bit < (8*len-pad))) {
                 val = tvb_get_guint8(tvb, offset + nb->bit/8);
                 bitstring[(nb->bit/8)] &= ~(0x80 >> (nb->bit%8));
                 val &= 0x80 >> (nb->bit%8);

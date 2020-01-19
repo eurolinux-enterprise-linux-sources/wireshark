@@ -1,6 +1,6 @@
 /* interface_tree.h
  *
- * $Id$
+ * $Id: interface_tree.h 46351 2012-12-03 20:38:32Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

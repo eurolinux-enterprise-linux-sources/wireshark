@@ -1,4 +1,4 @@
-# $Id$
+# $Id: Makefile.am 47224 2013-01-23 12:08:15Z etxrab $
 #
 MAINTAINERCLEANFILES = \
 	Makefile.in

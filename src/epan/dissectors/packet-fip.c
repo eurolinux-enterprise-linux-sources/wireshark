@@ -3,7 +3,7 @@
  * Routines for FIP dissection - FCoE Initialization Protocol
  * Copyright (c) 2008 Cisco Systems, Inc. (jeykholt@cisco.com)
  *
- * $Id$
+ * $Id: packet-fip.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

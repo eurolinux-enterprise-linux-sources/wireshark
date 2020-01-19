@@ -3,7 +3,7 @@
  *
  * Copyright 2012, Allan M. Madsen <allan.m@madsen.dk>
  *
- * $Id$
+ * $Id: packet-btatt.c 48661 2013-03-30 21:47:27Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -359,8 +359,8 @@ dissect_btatt(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
         offset += 2;
         proto_tree_add_item(st, hf_btatt_uuid16, tvb, offset, 2, ENC_LITTLE_ENDIAN);
         offset += 2;
-        proto_tree_add_item(st, hf_btatt_value, tvb, offset, -1, ENC_NA);
-        offset = tvb_reported_length(tvb);
+        if( tvb_length_remaining(tvb, offset)  > 0)
+            proto_tree_add_item(st, hf_btatt_value, tvb, offset, -1, ENC_NA);
         break;
 
     case 0x07: /* Find By Type Value Response */
@@ -438,7 +438,6 @@ dissect_btatt(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     case 0x0d: /* Read Blob Response */
     case 0x0f: /* Multiple Read Response */
         proto_tree_add_item(st, hf_btatt_value, tvb, offset, -1, ENC_NA);
-        offset = tvb_reported_length(tvb);
         break;
 
     case 0x0c: /* Read Blob Request */
@@ -501,7 +500,6 @@ dissect_btatt(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
         proto_tree_add_item(st, hf_btatt_handle, tvb, offset, 2, ENC_LITTLE_ENDIAN);
         offset += 2;
         proto_tree_add_item(st, hf_btatt_value, tvb, offset, -1, ENC_NA);
-        offset = tvb_reported_length(tvb);
         break;
 
     case 0x16: /* Prepare Write Request */
@@ -513,7 +511,6 @@ dissect_btatt(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
         proto_tree_add_item(st, hf_btatt_offset, tvb, offset, 2, ENC_LITTLE_ENDIAN);
         offset += 2;
         proto_tree_add_item(st, hf_btatt_value, tvb, offset, -1, ENC_NA);
-        offset = tvb_reported_length(tvb);
         break;
 
     case 0x18: /* Execute Write Request */

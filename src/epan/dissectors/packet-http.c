@@ -9,7 +9,7 @@
  * Copyright 2002, Tim Potter <tpot@samba.org>
  * Copyright 1999, Andrew Tridgell <tridge@samba.org>
  *
- * $Id$
+ * $Id: packet-http.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -34,6 +34,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <errno.h>
 
 #include <glib.h>
@@ -849,15 +850,20 @@ dissect_http_message(tvbuff_t *tvb, int offset, packet_info *pinfo,
 			c = *linep++;
 
 			/*
-			 * This must be a CHAR, and must not be a CTL,
-			 * to be part of a token; that means it must be
-			 * printable ASCII.
+			 * This must be a CHAR to be part of a token; that
+			 * means it must be ASCII.
+			 */
+			if (!isascii(c))
+				break;	/* not ASCII, thus not a CHAR */
+
+			/*
+			 * This mustn't be a CTL to be part of a token.
 			 *
 			 * XXX - what about leading LWS on continuation
 			 * lines of a header?
 			 */
-			if (!g_ascii_isprint(c))
-				break;
+			if (iscntrl(c))
+				break;	/* CTL, not part of a header */
 
 			/*
 			 * This mustn't be a SEP to be part of a token;
@@ -2257,10 +2263,14 @@ header_fields_initialize_cb(void)
 		/* Unregister all fields */
 		for (i = 0; i < hf_size; i++) {
 			proto_unregister_field (proto_http, *(hf[i].p_id));
+
 			g_free (hf[i].p_id);
+			g_free ((char *) hf[i].hfinfo.name);
+			g_free ((char *) hf[i].hfinfo.abbrev);
+			g_free ((char *) hf[i].hfinfo.blurb);
 		}
 		g_hash_table_destroy (header_fields_hash);
-		proto_add_deregistered_data (hf);
+		g_free (hf);
 		header_fields_hash = NULL;
 	}
 
@@ -2457,7 +2467,7 @@ process_header(tvbuff_t *tvb, int offset, int next_offset,
 			if (eh_ptr->content_length < 0 ||
 			    p == value ||
 			    errno == ERANGE ||
-			    (*up != '\0' && !g_ascii_isspace(*up))) {
+			    (*up != '\0' && !isspace(*up))) {
 				/*
 				 * Content length not valid; pretend
 				 * we don't have it.

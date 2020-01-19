@@ -1,7 +1,7 @@
 /* packet-tipc.c
  * Routines for Transparent Inter Process Communication packet dissection
  *
- * $Id$
+ * $Id: packet-tipc.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Copyright 2005-2006, Anders Broman <anders.broman@ericsson.com>
  *

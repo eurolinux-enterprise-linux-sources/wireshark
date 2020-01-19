@@ -1,7 +1,7 @@
 /* sminmpec.h
  * SMI Network Management Private Enterprise Codes for organizations
  *
- * $Id$
+ * $Id: sminmpec.h 48884 2013-04-16 18:12:56Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

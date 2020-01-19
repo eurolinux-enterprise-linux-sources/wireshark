@@ -3,7 +3,7 @@
  * Copyright 2005, Scientific Research Corporation
  * Initial implementation by Jeremy Ouellette <jouellet@scires.com>
  *
- * $Id$
+ * $Id: packet-dis-pdus.h 47119 2013-01-16 17:27:03Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

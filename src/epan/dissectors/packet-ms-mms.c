@@ -5,7 +5,7 @@
  * Copyright 2005
  * Written by Martin Mathieson
  *
- * $Id$
+ * $Id: packet-ms-mms.c 48913 2013-04-18 19:07:44Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

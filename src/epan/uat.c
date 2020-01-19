@@ -1,7 +1,7 @@
 /*
  *  uat.c
  *
- * $Id$
+ * $Id: uat.c 48960 2013-04-22 02:10:49Z mmann $
  *
  *  User Accessible Tables
  *  Mantain an array of user accessible data strucures
@@ -32,6 +32,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 #include <stdarg.h>
 
 #include <glib.h>
@@ -127,7 +128,7 @@ void* uat_add_record(uat_t* uat, const void* data, gboolean valid_rec) {
     /* Save a copy of the raw (possibly that may contain invalid field values) data */
     g_array_append_vals (uat->raw_data, data, 1);
 
-    rec = UAT_INDEX_PTR(uat, uat->raw_data->len - 1);
+    rec = uat->raw_data->data + (uat->record_size * (uat->raw_data->len-1));
 
     if (uat->copy_cb) {
         uat->copy_cb(rec, data, (unsigned int) uat->record_size);
@@ -137,7 +138,7 @@ void* uat_add_record(uat_t* uat, const void* data, gboolean valid_rec) {
         /* Add a "known good" record to the list to be used by the dissector */
         g_array_append_vals (uat->user_data, data, 1);
 
-        rec = UAT_USER_INDEX_PTR(uat, uat->user_data->len - 1);
+        rec = uat->user_data->data + (uat->record_size * (uat->user_data->len-1));
 
         if (uat->copy_cb) {
             uat->copy_cb(rec, data, (unsigned int) uat->record_size);
@@ -149,30 +150,10 @@ void* uat_add_record(uat_t* uat, const void* data, gboolean valid_rec) {
     }
 
     g_array_append_vals (uat->valid_data, &valid_rec, 1);
-    valid = &g_array_index(uat->valid_data, gboolean, uat->valid_data->len-1);
+    valid = (gboolean*)(uat->valid_data->data + (sizeof(gboolean) * (uat->valid_data->len-1)));
     *valid = valid_rec;
 
     return rec;
-}
-
-/* Updates the validity of a record. */
-void uat_update_record(uat_t *uat, const void *data, gboolean valid_rec) {
-    guint pos;
-    gboolean *valid;
-
-    /* Locate internal UAT data pointer. */
-    for (pos = 0; pos < uat->raw_data->len; pos++) {
-        if (UAT_INDEX_PTR(uat, pos) == data) {
-            break;
-        }
-    }
-    if (pos == uat->raw_data->len) {
-        /* Data is not within list?! */
-        g_assert_not_reached();
-    }
-
-    valid = &g_array_index(uat->valid_data, gboolean, pos);
-    *valid = valid_rec;
 }
 
 void uat_swap(uat_t* uat, guint a, guint b) {
@@ -262,7 +243,7 @@ static void putfld(FILE* fp, void* rec, uat_field_t* f) {
             for(i=0;i<fld_len;i++) {
                 char c = fld_ptr[i];
 
-                if (c == '"' || c == '\\' || ! g_ascii_isprint((guchar)c) ) {
+                if (c == '"' || c == '\\' || ! isprint((guchar)c) ) {
                     fprintf(fp,"\\x%.2x",c);
                 } else {
                     putc(c,fp);
@@ -329,13 +310,12 @@ gboolean uat_save(uat_t* uat, const char** error) {
 
     /* Now copy "good" raw_data entries to user_data */
     for ( i = 0 ; i < uat->raw_data->len ; i++ ) {
-        void *rec = UAT_INDEX_PTR(uat, i);
+        void* rec = uat->raw_data->data + (uat->record_size * i);
         gboolean* valid = (gboolean*)(uat->valid_data->data + sizeof(gboolean)*i);
         if (*valid) {
             g_array_append_vals(uat->user_data, rec, 1);
             if (uat->copy_cb) {
-                uat->copy_cb(UAT_USER_INDEX_PTR(uat, uat->user_data->len - 1),
-                             rec, (unsigned int) uat->record_size);
+                uat->copy_cb(UAT_USER_INDEX_PTR(uat,i), rec, (unsigned int) uat->record_size);
             }
 
             UAT_UPDATE(uat);
@@ -490,7 +470,7 @@ gboolean uat_fld_chk_oid(void* u1 _U_, const char* strptr, guint len, const void
     }
 
     for(i = 0; i < len; i++)
-      if(!(g_ascii_isdigit(strptr[i]) || strptr[i] == '.')) {
+      if(!(isdigit(strptr[i]) || strptr[i] == '.')) {
         *err = "Only digits [0-9] and \".\" allowed in an OID";
         break;
       }
@@ -696,7 +676,7 @@ char* uat_unesc(const char* si, guint in_len, guint* len_p) {
                         char c1 = *(s+1);
                         char c0 = *(s+2);
 
-                        if (g_ascii_isxdigit(c1) && g_ascii_isxdigit(c0)) {
+                        if (isxdigit((guchar)c1) && isxdigit((guchar)c0)) {
                             *(p++) = (xton(c1) * 0x10) + xton(c0);
                             s += 2;
                         } else {
@@ -733,7 +713,7 @@ char* uat_esc(const char* buf, guint len) {
     char* s = out;
 
     for (b = (guint8 *)buf; b < end; b++) {
-        if (g_ascii_isprint(*b) ) {
+        if (isprint(*b) ) {
             *(s++) = (*b);
         } else {
             g_snprintf(s,5,"\\x%.2x",((guint)*b));

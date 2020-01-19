@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-pcre.c 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -58,9 +58,12 @@ raw_flag_needed(const gchar *pattern)
     /* find any character whose hex value is two letters */
     len = strlen(s);
     for (i = 0; i < len; i++) {
-        /* Upper and lower-nibble must be >= 0xA */
-        if ((guchar)(s[i] & 0xF0) >= 0xA0 &&
-            (guchar)(s[i] & 0x0F) >= 0x0A)
+        if ((s[i] >= '\xAA' && s[i] <= '\xAF') ||
+            (s[i] >= '\xBA' && s[i] <= '\xBF') ||
+            (s[i] >= '\xCA' && s[i] <= '\xCF') ||
+            (s[i] >= '\xDA' && s[i] <= '\xDF') ||
+            (s[i] >= '\xEA' && s[i] <= '\xEF') ||
+            (s[i] >= '\xFA' && s[i] <= '\xFF'))
         {
             found = TRUE;
             break;

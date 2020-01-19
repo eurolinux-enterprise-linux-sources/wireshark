@@ -3,7 +3,7 @@
  *
  * Copyright 2001, Paul Ionescu <paul@acorp.ro>
  *
- * $Id$
+ * $Id: packet-fr.c 46644 2012-12-20 21:18:26Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

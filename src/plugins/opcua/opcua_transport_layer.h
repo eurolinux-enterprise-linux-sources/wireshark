@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_transport_layer.h 46436 2012-12-07 09:33:40Z etxrab $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

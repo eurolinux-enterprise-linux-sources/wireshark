@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: UseLemon.cmake 30461 2009-10-10 05:51:08Z krj $
 #
 MACRO(ADD_LEMON_FILES _sources )
     set(_lemonpardir ${CMAKE_SOURCE_DIR}/tools/lemon)

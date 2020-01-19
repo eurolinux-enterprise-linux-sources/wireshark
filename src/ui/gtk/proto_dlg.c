@@ -1,6 +1,6 @@
 /* proto_dlg.c
  *
- * $Id$
+ * $Id: proto_dlg.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *

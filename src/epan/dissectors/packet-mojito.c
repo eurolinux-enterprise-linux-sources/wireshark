@@ -4,7 +4,7 @@
  *
  * Copyright (c) 2008 by Travis Dawson <travis.dawson@sprint.com>
  *
- * $Id$
+ * $Id: packet-mojito.c 47891 2013-02-26 01:06:19Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

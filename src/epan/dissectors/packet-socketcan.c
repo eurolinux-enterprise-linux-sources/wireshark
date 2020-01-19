@@ -2,7 +2,7 @@
  * Routines for disassembly of packets from SocketCAN
  * Felix Obenhuber <felix@obenhuber.de>
  *
- * $Id$
+ * $Id: packet-socketcan.c 46292 2012-11-29 20:15:37Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -9,7 +9,7 @@
  *		the data of a backing tvbuff, or can be a composite of
  *		other tvbuffs.
  *
- * $Id$
+ * $Id: tvbuff.c 50710 2013-07-17 22:20:12Z gerald $
  *
  * Copyright (c) 2000 by Gilbert Ramirez <gram@alumni.rice.edu>
  *
@@ -1126,15 +1126,7 @@ tvb_memcpy(tvbuff_t *tvb, void *target, const gint offset, size_t length)
 
 	switch(tvb->type) {
 		case TVBUFF_REAL_DATA:
-			/*
-			 * If the length is 0, there's nothing to do.
-			 * (tvb->real_data could be null if it's allocated with
-			 * a size of length.)
-			 */
-			if (length != 0) {
-				DISSECTOR_ASSERT_NOT_REACHED();
-			}
-			return NULL;
+			DISSECTOR_ASSERT_NOT_REACHED();
 
 		case TVBUFF_SUBSET:
 			return tvb_memcpy(tvb->tvbuffs.subset.tvb, target,
@@ -1145,17 +1137,7 @@ tvb_memcpy(tvbuff_t *tvb, void *target, const gint offset, size_t length)
 			return composite_memcpy(tvb, (guint8 *)target, offset, length);
 	}
 
-	/*
-	 * If the length is 0, there's nothing to do.
-	 * (tvb->real_data could be null if it's allocated with
-	 * a size of length.)
-	 */
-	if (length != 0) {
-		/*
-		 * XXX, fallback to slower method
-		 */
-		DISSECTOR_ASSERT_NOT_REACHED();
-	}
+	DISSECTOR_ASSERT_NOT_REACHED();
 	return NULL;
 }
 

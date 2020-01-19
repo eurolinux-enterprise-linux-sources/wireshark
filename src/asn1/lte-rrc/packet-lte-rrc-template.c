@@ -5,7 +5,7 @@
  * Copyright 2008, Vincent Helfre
  * Copyright 2009-2013, Pascal Quantin
  *
- * $Id$
+ * $Id: packet-lte-rrc-template.c 48463 2013-03-21 20:51:19Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

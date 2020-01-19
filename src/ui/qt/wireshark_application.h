@@ -1,6 +1,6 @@
 /* wireshark_application.c
  *
- * $Id$
+ * $Id: wireshark_application.h 49760 2013-06-04 07:38:48Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -66,8 +66,7 @@ public:
         ColumnsChanged,
         FilterExpressionsChanged,
         PacketDissectionChanged,
-        PreferencesChanged,
-        FieldsChanged
+        PreferencesChanged
     };
 
     void registerUpdate(register_action_e action, const char *message);
@@ -113,7 +112,6 @@ signals:
     void filterExpressionsChanged();
     void packetDissectionChanged();
     void preferencesChanged();
-    void fieldsChanged();
 
 #ifdef HAVE_LIBPCAP
     // XXX It might make more sense to move these to main.cpp or main_window.cpp or their own class.

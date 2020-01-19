@@ -13,7 +13,8 @@ MAINTAINERCLEANFILES = \
 
 EXTRA_DIST = \
 	ChmodBPF/ChmodBPF	\
-	ChmodBPF/org.wireshark.ChmodBPF.plist \
+	ChmodBPF/README.macosx	\
+	ChmodBPF/StartupParameters.plist	\
 	dmg_background.png	\
 	dmg_background.svg	\
 	util_background.png	\

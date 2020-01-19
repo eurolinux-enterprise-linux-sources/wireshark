@@ -2,7 +2,7 @@
  * Routines for D-Bus dissection
  * Copyright 2012, Jakub Zawadzki <darkjames-ws@darkjames.pl>
  *
- * $Id$
+ * $Id: packet-dbus.c 48685 2013-04-01 15:29:49Z jake $
  *
  * Protocol specification available at http://dbus.freedesktop.org/doc/dbus-specification.html
  *

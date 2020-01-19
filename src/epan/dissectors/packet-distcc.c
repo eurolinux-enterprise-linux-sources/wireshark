@@ -3,7 +3,7 @@
  * Copyright 2003, Brad Hards <bradh@frogmouth.net>
  * Copyright 2003, Ronnie Sahlberg, added TCP desegmentation.
  *
- * $Id$
+ * $Id: packet-distcc.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

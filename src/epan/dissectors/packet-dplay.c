@@ -2,7 +2,7 @@
  * This is a dissector for the DirectPlay protocol.
  * Copyright 2006 - 2008 by Kai Blin
  *
- * $Id$
+ * $Id: packet-dplay.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -7,7 +7,7 @@
  *            Lukasz Suchy  <lukasz.suchy@tieto.com>
  * Copyright 2010, Tieto.
  *
- * $Id$
+ * $Id: packet-wai.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

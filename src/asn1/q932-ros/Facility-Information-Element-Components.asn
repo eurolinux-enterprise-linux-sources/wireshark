@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/q/q932/1998-Amd1/Facility-Information-Element-Components.asn
 --
--- $Id$
+-- $Id: Facility-Information-Element-Components.asn 23127 2007-10-10 08:09:19Z jmayer $
 --
 
 -- Module Facility-Information-Element-Components (Q.932:05/1998)

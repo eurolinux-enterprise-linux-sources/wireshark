@@ -2,7 +2,7 @@
  * Routines for NASDAQ TotalView-ITCH version 2.00/3.00 (with Chi-X extension) Protocol dissection
  * Copyright 2007,2008 Didier Gautheron <dgautheron@magic.fr>
  *
- * $Id$
+ * $Id: packet-nasdaq-itch.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

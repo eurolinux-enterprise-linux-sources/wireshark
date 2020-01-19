@@ -1,5 +1,5 @@
 /* packet-mdd.c
- * $Id$
+ * $Id: packet-mdd.c 45015 2012-09-20 01:29:52Z morriss $
  * Routines for MDD Message dissection
  * Copyright 2007, Bruno Verstuyft  <bruno.verstuyft@excentis.com>
  *

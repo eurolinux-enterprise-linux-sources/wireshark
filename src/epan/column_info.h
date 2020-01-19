@@ -1,7 +1,7 @@
 /* column_info.h
  * Definitions for column structures and routines
  *
- * $Id$
+ * $Id: column_info.h 44750 2012-09-03 15:12:49Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

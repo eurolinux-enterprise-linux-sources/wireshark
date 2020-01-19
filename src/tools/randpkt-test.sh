@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# $Id$
+# $Id: randpkt-test.sh 47307 2013-01-26 20:36:57Z gerald $
 
 # Randpkt testing script for TShark
 #

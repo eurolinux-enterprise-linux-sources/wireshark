@@ -1,4 +1,4 @@
-$Id$
+$Id: README.design 18271 2006-05-31 19:12:15Z gerald $
 
 Unfortunately, the closest thing to a design document is the
 "README.developer" document in the "doc" directory of the Wireshark

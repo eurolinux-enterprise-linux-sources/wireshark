@@ -1,6 +1,6 @@
 /*
  *
- * $Id$
+ * $Id: reedsolomon.c 25240 2008-05-05 20:38:27Z etxrab $
  *
  * Reed-Solomon coding and decoding
  * Phil Karn (karn@ka9q.ampr.org) September 1996

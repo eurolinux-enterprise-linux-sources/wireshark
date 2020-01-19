@@ -1,7 +1,7 @@
 /* afn.c
  * RFC 1700 address family numbers
  *
- * $Id$
+ * $Id: afn.c 45016 2012-09-20 01:48:30Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

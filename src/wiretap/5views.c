@@ -1,6 +1,6 @@
 /* 5views.c
  *
- * $Id$
+ * $Id: 5views.c 48348 2013-03-17 09:20:13Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -170,7 +170,7 @@ int _5views_open(wtap *wth, int *err, gchar **err_info)
 		break;
 */
 	default:
-		*err = WTAP_ERR_UNSUPPORTED;
+		*err = WTAP_ERR_UNSUPPORTED_ENCAP;
 		*err_info = g_strdup_printf("5views: network type %u unknown or unsupported",
 		    Capture_Header.Info_Header.FileType);
 		return -1;

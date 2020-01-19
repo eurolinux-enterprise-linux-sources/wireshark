@@ -1,7 +1,7 @@
 /* qt_gui_utils.h
  * Declarations of GTK+-specific UI utility routines
  *
- * $Id$
+ * $Id: qt_ui_utils.h 47522 2013-02-06 18:22:54Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

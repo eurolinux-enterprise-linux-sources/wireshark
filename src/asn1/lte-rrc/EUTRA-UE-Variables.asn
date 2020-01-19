@@ -1,5 +1,5 @@
 -- 3GPP TS 36.331 V11.3.0 (2013-03)
--- $Id$
+-- $Id: EUTRA-UE-Variables.asn 48463 2013-03-21 20:51:19Z pascal $
 --
 EUTRA-UE-Variables DEFINITIONS AUTOMATIC TAGS ::=
 

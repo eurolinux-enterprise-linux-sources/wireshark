@@ -1,7 +1,7 @@
 /* packet-erf.c
  * Routines for ERF encapsulation dissection
  *
- * $Id$
+ * $Id: packet-erf.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

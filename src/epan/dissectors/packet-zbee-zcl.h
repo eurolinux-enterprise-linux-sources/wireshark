@@ -3,7 +3,7 @@
  * By Fred Fierling <fff@exegin.com>
  * Copyright 2009 Exegin Technologies Limited
  *
- * $Id$
+ * $Id: packet-zbee-zcl.h 48462 2013-03-21 19:49:49Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -141,7 +141,7 @@ typedef struct{
 #define ZBEE_ZCL_DIR_RECEIVED                   1
 /* seconds elapsed from year 1970 to 2000 */
 #define ZBEE_ZCL_NSTIME_UTC_OFFSET              (((3*365 + 366)*7 + 2*365)*24*3600)
-#define IS_ANALOG_SUBTYPE(x)    ( (x & 0xF0) == 0x20 || (x & 0xF8) == 0x38 || (x & 0xF8) == 0xE0 )
+#define IS_ANALOG_SUBTYPE(x)    ( (x & 0xe0) == 0x20 || (x & 0xe0) == 0xe0 )
 
 /* ZCL Status Enumerations */
 #define ZBEE_ZCL_STAT_SUCCESS                       0x00

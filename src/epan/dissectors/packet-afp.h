@@ -1,7 +1,7 @@
 /* packet-afp.h
  * Definitions for packet disassembly structures and routines
  *
- * $Id$
+ * $Id: packet-afp.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

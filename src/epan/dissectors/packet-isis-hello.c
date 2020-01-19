@@ -1,7 +1,7 @@
 /* packet-isis-hello.c
  * Routines for decoding isis hello packets and their CLVs
  *
- * $Id$
+ * $Id: packet-isis-hello.c 47891 2013-02-26 01:06:19Z wmeier $
  * Stuart Stanley <stuarts@mxmail.net>
  *
  * Wireshark - Network traffic analyzer

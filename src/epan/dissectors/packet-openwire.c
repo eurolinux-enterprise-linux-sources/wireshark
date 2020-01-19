@@ -3,7 +3,7 @@
  *
  * metatech <metatechbe@gmail.com>
  *
- * $Id$
+ * $Id: packet-openwire.c 52490 2013-10-10 13:08:02Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

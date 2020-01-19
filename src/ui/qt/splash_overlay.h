@@ -1,6 +1,6 @@
 /* splash_overlay.h
  *
- * $Id$
+ * $Id: splash_overlay.h 45939 2012-11-05 22:25:06Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

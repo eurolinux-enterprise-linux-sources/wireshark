@@ -12,7 +12,7 @@
  *
  * Copyright 2002, Jeff Morriss <jeff.morriss.ws [AT] gmail.com>
  *
- * $Id$
+ * $Id: packet-sccpmg.c 48510 2013-03-23 13:09:27Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

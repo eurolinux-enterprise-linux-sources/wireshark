@@ -3,7 +3,7 @@
  * Routines for Amateur Packet Radio protocol dissection
  * Copyright 2007,2008,2009,2010,2012 R.W. Stearn <richard@rns-stearn.demon.co.uk>
  *
- * $Id$
+ * $Id: packet-aprs.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -42,6 +42,7 @@
 #include "config.h"
 
 #include <string.h>
+#include <ctype.h>
 #include <math.h>
 
 #include <glib.h>
@@ -516,7 +517,7 @@ dissect_aprs_msg(	tvbuff_t	  *tvb,
 
 	ch = tvb_get_guint8( tvb, offset );
 
-	if ( g_ascii_isdigit( ch ) )
+	if ( isdigit( ch ) )
 		{
 		if ( wind )
 			proto_tree_add_item( msg_tree, *msg_items->hf_msg_dir, tvb, offset, 3, ENC_ASCII|ENC_NA );
@@ -912,7 +913,7 @@ dissect_aprs_weather(	tvbuff_t   *tvb,
 	weather_tree = proto_item_add_subtree( tc, ett_aprs_weather_idx );
 
 	ch = tvb_get_guint8( tvb, offset );
-	if ( g_ascii_isdigit( ch ) )
+	if ( isdigit( ch ) )
 		{
 		proto_tree_add_item( weather_tree, *weather_items->hf_weather_dir, tvb, offset, 3, ENC_ASCII|ENC_NA );
 		offset += 3;
@@ -1027,7 +1028,7 @@ aprs_timestamp( proto_tree *aprs_tree, tvbuff_t *tvb, int offset )
 	tzone = "zulu";
 
 	ch= tvb_get_guint8( tvb, offset + 6 );
-	if ( g_ascii_isdigit( ch ) )
+	if ( isdigit( ch ) )
 		{ /* MDHM */
 		proto_tree_add_item( aprs_tree, hf_aprs_mdhm, tvb, offset, data_len, ENC_ASCII|ENC_NA );
 		proto_tree_add_string( aprs_tree, hf_aprs_tz, tvb, offset, data_len, tzone );
@@ -1213,7 +1214,7 @@ aprs_position( proto_tree *aprs_tree, tvbuff_t *tvb, int offset, gboolean with_m
 	gboolean probably_a_msg	    = FALSE;
 	gboolean probably_not_a_msg = FALSE;
 
-	if ( g_ascii_isdigit( tvb_get_guint8( tvb, offset ) ) )
+	if ( isdigit( tvb_get_guint8( tvb, offset ) ) )
 		{
 		offset		= aprs_default_string( aprs_tree, tvb, offset, 8, hf_aprs_lat );
 		symbol_table_id = tvb_get_guint8( tvb, offset );

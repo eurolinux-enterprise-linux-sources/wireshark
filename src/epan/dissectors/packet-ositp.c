@@ -2,7 +2,7 @@
  * Routines for ISO/OSI transport protocol (connection-oriented
  * and connectionless) packet disassembly
  *
- * $Id$
+ * $Id: packet-ositp.c 49721 2013-06-03 17:44:22Z gerald $
  * Laurent Deniel <laurent.deniel@free.fr>
  * Ralf Schneider <Ralf.Schneider@t-online.de>
  *

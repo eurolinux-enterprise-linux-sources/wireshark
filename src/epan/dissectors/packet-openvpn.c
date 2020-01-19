@@ -13,7 +13,7 @@
  *   Stiftinger Thomas
  *   Werner Sebastian
  *
- * $Id$
+ * $Id: packet-openvpn.c 48491 2013-03-22 23:59:54Z guy $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

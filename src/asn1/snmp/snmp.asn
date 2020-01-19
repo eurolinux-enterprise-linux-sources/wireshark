@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: snmp.asn 39114 2011-09-23 22:44:28Z gerald $
 RFC1157-SNMP DEFINITIONS ::= BEGIN
    
 --      IMPORTS

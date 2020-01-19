@@ -2,7 +2,7 @@
  * Routines for PPI-GEOLOCATION  dissection
  * Copyright 2010, Harris Corp, jellch@harris.com
  *
- * $Id$
+ * $Id: packet-ppi-geolocation-common.c 47813 2013-02-22 01:34:53Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

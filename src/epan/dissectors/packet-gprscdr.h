@@ -10,7 +10,7 @@
  * Routines for gprscdr packet dissection
  * Copyright 2011, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-gprscdr.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

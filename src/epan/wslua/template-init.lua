@@ -5,7 +5,7 @@
 --  This file is going to be executed before any other lua script.
 --  It can be used to load libraries, disable functions and more.
 --
--- $Id$
+-- $Id: template-init.lua 49730 2013-06-03 22:03:32Z etxrab $
 --
 -- Wireshark - Network traffic analyzer
 -- By Gerald Combs <gerald@wireshark.org>

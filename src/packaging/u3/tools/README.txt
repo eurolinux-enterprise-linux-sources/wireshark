@@ -1,4 +1,4 @@
-$Id$
+$Id: README.txt 21694 2007-05-06 08:15:17Z gal $
 
 utest.exe is a UUID generator based on the example code provided in RFC4122 and using the gcrypt libraries for the MD5/SHA1 algorithms. It has only been tested on Windows to date.
 

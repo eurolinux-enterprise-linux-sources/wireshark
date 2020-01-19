@@ -9,7 +9,7 @@
 * doesn't itself know whether to pop up a dialog or print something
 * to the standard error.
 *
-* $Id$
+* $Id: report_err.c 45016 2012-09-20 01:48:30Z morriss $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

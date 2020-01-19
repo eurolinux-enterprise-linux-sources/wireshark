@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for Wiretap
 #
-# $Id$
+# $Id: Makefile.am 51940 2013-09-10 19:59:42Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -30,7 +30,7 @@ include Makefile.common
 noinst_LTLIBRARIES = libwiretap_generated.la
 lib_LTLIBRARIES = libwiretap.la
 # http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
-libwiretap_la_LDFLAGS = -version-info 3:14:0 @LDFLAGS_SHAREDLIB@
+libwiretap_la_LDFLAGS = -version-info 3:3:0 @LDFLAGS_SHAREDLIB@
 
 AM_NON_GENERATED_CFLAGS =-DWS_BUILD_DLL
 

@@ -2,7 +2,7 @@
  * Dissector for Hilscher netANALYZER frames.
  * Copyright 2008-2011, Hilscher GmbH, Holger Pfrommer hpfrommer[AT]hilscher.com
  *
- * $Id$
+ * $Id: packet-netanalyzer.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Packet structure:
  * +---------------------------+

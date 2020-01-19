@@ -1,7 +1,7 @@
 /* color_edit_dlg.c
  * Definitions for single color filter edit dialog boxes
  *
- * $Id$
+ * $Id: color_edit_dlg.c 48606 2013-03-28 06:36:44Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

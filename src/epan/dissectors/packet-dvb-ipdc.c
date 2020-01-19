@@ -2,7 +2,7 @@
  * Routines for ETSI IP Datacast ESG Bootstrap parsing
  * Copyright 2009 by Holger Hans Peter Freyther <zecke@selfish.org>
  *
- * $Id$
+ * $Id: packet-dvb-ipdc.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

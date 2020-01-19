@@ -1,6 +1,6 @@
 /* packet-gtp.c
  *
- * $Id$
+ * $Id: packet-gtp.c 48873 2013-04-16 05:42:17Z etxrab $
  *
  * Routines for GTP dissection
  * Copyright 2001, Michal Melerowicz <michal.melerowicz@nokia.com>
@@ -3939,7 +3939,7 @@ decode_quintuplet(tvbuff_t * tvb, int offset, proto_tree * tree, guint16 count)
         ext_tree_quint = proto_item_add_subtree(te_quint, ett_gtp_quint);
 
 
-        proto_tree_add_text(ext_tree_quint, tvb, offset + q_offset, 16, "RAND: %s", tvb_bytes_to_str(tvb, offset + q_offset, 16));
+        proto_tree_add_text(ext_tree_quint, tvb, offset + q_offset, 16, "RAND: %s", tvb_bytes_to_str(tvb, offset, 16));
         q_offset = q_offset + 16;
         xres_len = tvb_get_guint8(tvb, offset + q_offset);
         proto_tree_add_text(ext_tree_quint, tvb, offset + q_offset, 1, "XRES length: %u", xres_len);
@@ -4593,7 +4593,7 @@ decode_apn(tvbuff_t * tvb, int offset, guint16 length, proto_tree * tree, proto_
     guint	curr_len;
 
     /* init buffer and copy it */
-    memset(str, 0, MAX_APN_LENGTH+1);
+    memset(str, 0, MAX_APN_LENGTH);
     tvb_memcpy(tvb, str, offset, length<MAX_APN_LENGTH?length:MAX_APN_LENGTH);
 
     curr_len = 0;
@@ -7601,10 +7601,6 @@ decode_gtp_data_req(tvbuff_t * tvb, int offset, packet_info * pinfo _U_, proto_t
     length = tvb_get_ntohs(tvb, offset);
     proto_tree_add_text(ext_tree, tvb, offset, 2, "Length: %u", length);
     offset+=2;
-
-    if (length == 0) {
-        return 3;
-    }
 
     /* Octet 4 Number of Data Records */
     no = tvb_get_guint8(tvb, offset);

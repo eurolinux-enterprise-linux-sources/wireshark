@@ -8,7 +8,7 @@
 *
 * Copyright 2005, Luis E. Garcia Ontanon <luis.ontanon [AT] gmail.com>
 *
-* $Id$
+* $Id: packet-alcap.c 48272 2013-03-12 21:58:04Z etxrab $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

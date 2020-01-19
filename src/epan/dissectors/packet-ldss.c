@@ -3,7 +3,7 @@
  * Copyright 2009, Vasantha Crabb <vcrabb@managesoft.com.au>
  *  and Chris Adams <cadams@managesoft.com.au>
  *
- * $Id$
+ * $Id: packet-ldss.c 48400 2013-03-18 21:16:23Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

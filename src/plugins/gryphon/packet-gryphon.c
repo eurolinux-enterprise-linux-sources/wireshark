@@ -3,7 +3,7 @@
  * By Steve Limkemann <stevelim@dgtech.com>
  * Copyright 1998 Steve Limkemann
  *
- * $Id$
+ * $Id: packet-gryphon.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -311,7 +311,7 @@ static const value_string action_vals[] = {
     { FR_RESP_AFTER_PERIOD,
         "Send response(s) after the specified period expires following a conforming message" },
     { FR_IGNORE_DURING_PER,
-        "Send response(s) for a conforming message and ignore further messages until the specified period expires" },
+        "Send response(s) for a conforming message and ignore\nfurther messages until the specified period expires" },
     { 0,
         NULL }
 };
@@ -810,7 +810,7 @@ dissect_gryphon_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
         /*
          * Indicate what kind of message this is.
          */
-        col_set_str(pinfo->cinfo, COL_INFO, val_to_str_const(frmtyp, frame_type, "- Invalid -"));
+        col_set_str(pinfo->cinfo, COL_INFO, val_to_str(frmtyp, frame_type, "- Invalid -"));
     }
 
     if (tree == NULL)

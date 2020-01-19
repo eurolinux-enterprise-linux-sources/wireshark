@@ -1,6 +1,6 @@
 /* i4btrace.h
  *
- * $Id$
+ * $Id: i4btrace.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wiretap Library
  * Copyright (c) 1999 by Bert Driehuis <driehuis@playbeing.org>

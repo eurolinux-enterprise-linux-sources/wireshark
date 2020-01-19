@@ -2,7 +2,7 @@
  * Routines handling protocols with a request/response line, headers,
  * a blank line, and an optional body.
  *
- * $Id$
+ * $Id: req_resp_hdrs.c 51875 2013-09-09 18:52:33Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

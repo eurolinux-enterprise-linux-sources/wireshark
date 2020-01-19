@@ -5,7 +5,7 @@
  *	3GPP TS 31.111 v9.7.0 (Release 9 / 2012-03)
  * Copyright 2010-2011 by Harald Welte <laforge@gnumonks.org>
  *
- * $Id$
+ * $Id: packet-etsi_card_app_toolkit.c 49307 2013-05-14 21:33:25Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

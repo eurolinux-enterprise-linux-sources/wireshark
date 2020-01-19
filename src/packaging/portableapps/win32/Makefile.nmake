@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: Makefile.nmake 47825 2013-02-22 16:51:43Z alagoutte $
 #
 
 include ../../../config.nmake

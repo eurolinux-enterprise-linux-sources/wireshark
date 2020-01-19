@@ -5,7 +5,7 @@
  * Copyright : 2005 Viorel Suman <vsuman[AT]avmob.ro>, Lucian Piros <lpiros[AT]avmob.ro>
  *             In association with Avalanche Mobile BV, http://www.avmob.com
  *
- * $Id$
+ * $Id: packet-cimd.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.

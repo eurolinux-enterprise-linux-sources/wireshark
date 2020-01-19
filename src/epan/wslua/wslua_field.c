@@ -5,7 +5,7 @@
  *
  * (c) 2006, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: wslua_field.c 51912 2013-09-10 00:14:09Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -144,33 +144,21 @@ WSLUA_METAMETHOD FieldInfo__call(lua_State* L) {
                 return 1;
             }
         case FT_NONE:
-                if (fi->length > 0 && fi->rep) {
-                    /* it has a length, but calling fvalue_get() on an FT_NONE asserts,
-                       so get the label instead (it's a FT_NONE, so a label is what it basically is) */
-                    lua_pushstring(L, fi->rep->representation);
-                    return 1;
+                if (fi->length == 0) {
+                        lua_pushnil(L);
+                        return 1;
                 }
-                return 0;
+                /* FALLTHROUGH */
         case FT_BYTES:
         case FT_UINT_BYTES:
-        case FT_OID:
-            {
+        case FT_GUID:
+        case FT_PROTOCOL:
+        case FT_OID: {
                 ByteArray ba = g_byte_array_new();
                 g_byte_array_append(ba, (const guint8 *)ep_tvb_memdup(fi->ds_tvb,fi->start,fi->length),fi->length);
                 pushByteArray(L,ba);
                 return 1;
             }
-        case FT_PROTOCOL:
-            {
-                ByteArray ba = g_byte_array_new();
-                tvbuff_t* tvb = (tvbuff_t *) fvalue_get(&(fi->value));
-                g_byte_array_append(ba, (const guint8 *)ep_tvb_memdup(tvb, 0,
-                                            tvb_length(tvb)), tvb_length(tvb));
-                pushByteArray(L,ba);
-                return 1;
-            }
-
-        case FT_GUID:
         default:
                 luaL_error(L,"FT_ not yet supported");
                 return 1;
@@ -181,20 +169,14 @@ WSLUA_METAMETHOD FieldInfo__tostring(lua_State* L) {
     /* The string representation of the field */
     FieldInfo fi = checkFieldInfo(L,1);
 
+    if (!fi) {
+        return luaL_error(L,"Missing FieldInfo object");
+    }
+
     if (fi->value.ftype->val_to_string_repr) {
-        gchar* repr = NULL;
-
-        if (fi->hfinfo->type == FT_PROTOCOL || fi->hfinfo->type == FT_PCRE) {
-            repr = fvalue_to_string_repr(&fi->value,FTREPR_DFILTER,NULL);
-        }
-        else {
-            repr = fvalue_to_string_repr(&fi->value,FTREPR_DISPLAY,NULL);
-        }
-
+        gchar* repr = fvalue_to_string_repr(&fi->value,FTREPR_DISPLAY,NULL);
         if (repr) {
             lua_pushstring(L,repr);
-            /* fvalue_to_string_repr() g_malloc's the string's buffer */
-            g_free(repr);
         }
         else {
             lua_pushstring(L,"(unknown)");
@@ -242,11 +224,17 @@ static int FieldInfo_display(lua_State* L) {
 static int FieldInfo_get_range(lua_State* L) {
     /* The TvbRange covering this field */
     FieldInfo fi = checkFieldInfo(L,1);
-    if (push_TvbRange (L, fi->ds_tvb, fi->start, fi->length)) {
-        return 1;
-    }
+    TvbRange r = ep_new(struct _wslua_tvbrange);
+    r->tvb = ep_new(struct _wslua_tvb);
 
-    return 0;
+    r->tvb->ws_tvb = fi->ds_tvb;
+    r->tvb->expired = FALSE;
+    r->tvb->need_free = FALSE;
+    r->offset = fi->start;
+    r->len = fi->length;
+
+    pushTvbRange(L,r);
+    return 1;
 }
 
 static int FieldInfo_get_generated(lua_State* L) {
@@ -307,15 +295,15 @@ WSLUA_METAMETHOD FieldInfo__eq(lua_State* L) {
     FieldInfo l = checkFieldInfo(L,1);
     FieldInfo r = checkFieldInfo(L,2);
 
-    /* it is not an error if their ds_tvb are different... they're just not equal */
-    if (l->ds_tvb == r->ds_tvb &&
-        l->start == r->start &&
-        r->length == l->length) {
+    if (l->ds_tvb != r->ds_tvb)
+        WSLUA_ERROR(FieldInfo__eq,"Data source must be the same for both fields");
+
+    if (l->start <= r->start && r->start + r->length <= l->start + r->length) {
         lua_pushboolean(L,1);
+        return 1;
     } else {
-        lua_pushboolean(L,0);
+        return 0;
     }
-    return 1;
 }
 
 WSLUA_METAMETHOD FieldInfo__le(lua_State* L) {
@@ -328,10 +316,10 @@ WSLUA_METAMETHOD FieldInfo__le(lua_State* L) {
 
     if (r->start + r->length <= l->start + r->length) {
         lua_pushboolean(L,1);
+        return 1;
     } else {
-        lua_pushboolean(L,0);
+        return 0;
     }
-    return 1;
 }
 
 WSLUA_METAMETHOD FieldInfo__lt(lua_State* L) {
@@ -344,10 +332,10 @@ WSLUA_METAMETHOD FieldInfo__lt(lua_State* L) {
 
     if ( r->start + r->length < l->start ) {
         lua_pushboolean(L,1);
+        return 1;
     } else {
-        lua_pushboolean(L,0);
+        return 0;
     }
-    return 1;
 }
 
 static int FieldInfo__gc(lua_State* L _U_) {

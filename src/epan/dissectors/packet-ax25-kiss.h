@@ -3,7 +3,7 @@
  * Routines for AX.25 KISS protocol dissection
  * Copyright 2010,2012 R.W. Stearn <richard@rns-stearn.demon.co.uk>
  *
- * $Id$
+ * $Id: packet-ax25-kiss.h 48848 2013-04-14 18:55:28Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

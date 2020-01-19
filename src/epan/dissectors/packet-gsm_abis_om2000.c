@@ -2,7 +2,7 @@
  * Routines for packet dissection of Ericsson A-bis OML (OM 2000)
  * Copyright 2010-2012 by Harald Welte <laforge@gnumonks.org>
  *
- * $Id$
+ * $Id: packet-gsm_abis_om2000.c 48595 2013-03-27 20:21:19Z cmaynard $
  *
  * This dissector is not 100% complete, i.e. there are a number of FIXMEs
  * indicating where portions of the protocol are not dissected completely.

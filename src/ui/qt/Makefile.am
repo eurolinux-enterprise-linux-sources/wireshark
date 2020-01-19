@@ -1,7 +1,7 @@
 # Makefile.am
 # Automake file for the Qt interface routines for Wireshark
 #
-# $Id$
+# $Id: Makefile.am 47659 2013-02-14 19:56:21Z guy $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

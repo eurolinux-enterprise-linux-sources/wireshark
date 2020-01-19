@@ -1,6 +1,6 @@
 /* paket-ethercat-frame.h
  *
- * $Id$
+ * $Id: packet-ethercat-frame.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

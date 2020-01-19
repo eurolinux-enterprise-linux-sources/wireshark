@@ -2,7 +2,7 @@
  * Routines for DVB (ETSI EN 300 468) Servide Description Table (SDT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-sdt.c 48891 2013-04-17 01:40:25Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

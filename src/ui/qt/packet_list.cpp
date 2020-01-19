@@ -1,6 +1,6 @@
 /* packet_list.cpp
  *
- * $Id$
+ * $Id: packet_list.cpp 47240 2013-01-24 01:10:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

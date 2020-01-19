@@ -6,7 +6,7 @@
  * Extended by Jan Kiszka <jan.kiszka@web.de>
  * Copyright 2003 Jan Kiszka
  *
- * $Id$
+ * $Id: packet-irda.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -743,9 +743,6 @@ static void dissect_iap_result(tvbuff_t* tvb, packet_info* pinfo, proto_tree* ro
                         n = tvb_get_guint8(tvb, offset + 8);
                         string = tvb_get_ephemeral_string(tvb, offset + 9, n);
                         g_snprintf(buf, 300, ", \"%s\"", string);
-                        break;
-                    default:
-                        buf[0] = '\0';
                         break;
                 }
                 col_append_str(pinfo->cinfo, COL_INFO, buf);
@@ -1657,9 +1654,9 @@ static void dissect_log(tvbuff_t* tvb, packet_info* pinfo, proto_tree* root)
             length = sizeof(buf)-1;
         tvb_memcpy(tvb, buf, 0, length);
         buf[length] = 0;
-        if (length > 0 && buf[length-1] == '\n')
+        if (buf[length-1] == '\n')
             buf[length-1] = 0;
-        else if (length > 1 && buf[length-2] == '\n')
+        else if (buf[length-2] == '\n')
             buf[length-2] = 0;
 
         col_add_str(pinfo->cinfo, COL_INFO, buf);

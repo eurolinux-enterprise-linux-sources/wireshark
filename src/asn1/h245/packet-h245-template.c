@@ -2,7 +2,7 @@
  * Routines for h245 packet dissection
  * Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-h245-template.c 48356 2013-03-17 17:52:26Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

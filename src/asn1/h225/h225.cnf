@@ -1,7 +1,7 @@
 # h225.cnf
 # H.225 conformation file
 # Copyright 2004 Anders Broman
-# $Id$
+# $Id: h225.cnf 52973 2013-10-29 22:19:18Z gerald $
 
 #.IMPORT ../h235/h235-exp.cnf
 

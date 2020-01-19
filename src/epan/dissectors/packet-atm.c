@@ -1,7 +1,7 @@
 /* packet-atm.c
  * Routines for ATM packet disassembly
  *
- * $Id$
+ * $Id: packet-atm.c 50059 2013-06-19 21:09:23Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1143,17 +1143,16 @@ dissect_reassembled_pdu(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
             guint8 octet[8];
             tvb_memcpy(next_tvb, octet, 0, sizeof(octet));
 
+            decoded = TRUE;
             if (octet[0] == 0xaa
              && octet[1] == 0xaa
              && octet[2] == 0x03) /* LLC SNAP as per RFC2684 */
             {
                 call_dissector(llc_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
             else if ((pntohs(octet) & 0xff) == PPP_IP)
             {
                 call_dissector(ppp_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
             else if (pntohs(octet) == 0x00)
             {
@@ -1161,7 +1160,6 @@ dissect_reassembled_pdu(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
                 proto_tree_add_text(tree, tvb, 0, 2, "Pad: 0x0000");
                 next_tvb = tvb_new_subset_remaining(tvb, 2);
                 call_dissector(eth_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
             else if (octet[2] == 0x03    && /* NLPID */
                     ((octet[3] == 0xcc   || /* IPv4  */
@@ -1171,7 +1169,6 @@ dissect_reassembled_pdu(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
             {
                 /* assume network interworking with FR 2 byte header */
                 call_dissector(fr_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
             else if (octet[4] == 0x03    && /* NLPID */
                     ((octet[5] == 0xcc   || /* IPv4  */
@@ -1181,14 +1178,21 @@ dissect_reassembled_pdu(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
             {
                 /* assume network interworking with FR 4 byte header */
                 call_dissector(fr_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
             else if (((octet[0] & 0xf0)== 0x40) ||
                      ((octet[0] & 0xf0) == 0x60))
             {
                 call_dissector(ip_handle, next_tvb, pinfo, tree);
-                decoded = TRUE;
             }
+            else
+            {
+                decoded = FALSE;
+            }
+        }
+
+        if (tree && !decoded) {
+            /* Dump it as raw data. */
+            call_dissector(data_handle, next_tvb, pinfo, tree);
         }
       }
       break;

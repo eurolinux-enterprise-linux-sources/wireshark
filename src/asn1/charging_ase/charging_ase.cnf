@@ -1,7 +1,7 @@
 # charging ase.cnf
 # charging ase conformation file
 # Anders Broman 2009
-# $Id$
+# $Id: charging_ase.cnf 27405 2009-02-09 20:46:59Z etxrab $
 
 #.EXPORTS
 ChargingMessageType

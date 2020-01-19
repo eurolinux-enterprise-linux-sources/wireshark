@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h460.21/2006/MESSAGE-BROADCAST.asn
 --
--- $Id$
+-- $Id: MESSAGE-BROADCAST.asn 23274 2007-10-26 07:18:44Z kukosa $
 --
 
 -- Module MESSAGE-BROADCAST (H.460.21:05/2006)

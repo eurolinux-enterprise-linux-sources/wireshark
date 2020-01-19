@@ -2,7 +2,7 @@
  * camel Service Response Time statistics for Wireshark
  * Copyright 2006 Florent Drouin (based on h225_ras_srt.c from Lars Roland)
  *
- * $Id$
+ * $Id: camel_srt.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

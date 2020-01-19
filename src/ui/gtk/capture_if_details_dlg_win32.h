@@ -1,7 +1,7 @@
 /* capture_if_details_dlg.h
  * Definitions for capture interface details window (only Win32!)
  *
- * $Id$
+ * $Id: capture_if_details_dlg_win32.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

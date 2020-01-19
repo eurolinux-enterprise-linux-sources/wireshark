@@ -2,7 +2,7 @@
  * Routines for T.30 packet dissection
  * 2006  Alejandro Vaquero, add T30 reassemble and dissection
  *
- * $Id$
+ * $Id: packet-t30.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

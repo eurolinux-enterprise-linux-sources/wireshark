@@ -2,7 +2,7 @@
  * Routines for HP extended IEEE 802.2 LLC layer
  * Jochen Friedrich <jochen@scram.de>
  *
- * $Id$
+ * $Id: packet-hpext.h 19812 2006-11-05 18:26:21Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for kingfisher packet dissection
  * By Rob Casey 2007
  *
- * $Id$
+ * $Id: packet-kingfisher.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

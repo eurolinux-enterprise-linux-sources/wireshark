@@ -3,7 +3,7 @@
  * Copyright 2012 intel Corp.
  * Written by Andrei Emeltchenko at intel dot com
  *
- * $Id$
+ * $Id: packet-bt-oui.c 48414 2013-03-19 13:51:52Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

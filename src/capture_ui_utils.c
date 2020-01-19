@@ -1,7 +1,7 @@
 /* capture_ui_utils.c
  * Utilities for capture user interfaces
  *
- * $Id$
+ * $Id: capture_ui_utils.c 49754 2013-06-04 05:55:24Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -490,7 +490,7 @@ get_if_name(const char *if_text)
         * Unfortunately, another colon can be used in "rpcap://host:port/"
         * before port. Check if colon is followed by digit.
         */
-       if ((strncmp(if_name, "://", 3) != 0) && !g_ascii_isdigit(if_name[1])) {
+       if ((strncmp(if_name, "://", 3) != 0) && !isdigit(if_name[1])) {
          /*
           * OK, we've found a colon followed neither by "//" nor by digit.  
           * Skip blanks following it.
@@ -542,56 +542,6 @@ get_iface_description_for_interface(capture_options *capture_opts, guint i)
   } else {
     return (NULL);
   }
-}
-
-GString *
-get_iface_list_string(capture_options *capture_opts, guint32 style)
-{
-  GString *iface_list_string = g_string_new("");
-  guint i;
-
-  /*
-   * If we have a descriptive name for the interface, show that,
-   * rather than its raw name.  On NT 5.x (2K/XP/Server2K3), the
-   * interface name is something like "\Device\NPF_{242423..."
-   * which is pretty useless to the normal user.  On other platforms,
-   * it might be less cryptic, but if a more descriptive name is
-   * available, we should still use that.
-   */
-#ifdef _WIN32
-  if (capture_opts->ifaces->len < 2) {
-#else
-  if (capture_opts->ifaces->len < 4) {
-#endif
-    for (i = 0; i < capture_opts->ifaces->len; i++) {
-      if (i > 0) {
-        if (capture_opts->ifaces->len > 2) {
-          g_string_append_printf(iface_list_string, ",");
-        }
-        g_string_append_printf(iface_list_string, " ");
-        if (i == capture_opts->ifaces->len - 1) {
-          g_string_append_printf(iface_list_string, "and ");
-        }
-      }
-      if (style & IFLIST_QUOTE_IF_DESCRIPTION)
-        g_string_append_printf(iface_list_string, "'");
-      g_string_append_printf(iface_list_string, "%s", get_iface_description_for_interface(capture_opts, i));
-      if (style & IFLIST_QUOTE_IF_DESCRIPTION)
-        g_string_append_printf(iface_list_string, "'");
-      if (style & IFLIST_SHOW_FILTER) {
-        interface_options interface_opts;
-
-        interface_opts = g_array_index(capture_opts->ifaces, interface_options, i);
-        if (interface_opts.cfilter != NULL &&
-            strlen(interface_opts.cfilter) > 0) {
-          g_string_append_printf(iface_list_string, " (%s)", interface_opts.cfilter);
-        }
-      }
-    }
-  } else {
-    g_string_append_printf(iface_list_string, "%u interfaces", capture_opts->ifaces->len);
-  }
-  return iface_list_string;
 }
 
 #endif /* HAVE_LIBPCAP */

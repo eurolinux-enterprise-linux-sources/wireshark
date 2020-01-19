@@ -30,7 +30,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* $Id$ */
+/* $Id: airpdcap_tkip.c 38969 2011-09-12 08:23:15Z etxrab $ */
 
 /******************************************************************************/
 /*	File includes																					*/

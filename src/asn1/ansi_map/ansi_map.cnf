@@ -1,7 +1,7 @@
 # ansi_map.cnf
 # ansi_map conformation file
 # Copyright 2005-2007 Anders Broman
-# $Id$
+# $Id: ansi_map.cnf 41211 2012-02-27 16:50:27Z alagoutte $
 
 #.IMPORT ../gsm_map/gsm_map-exp.cnf
 #.EXPORTS

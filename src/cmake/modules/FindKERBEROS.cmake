@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindKERBEROS.cmake 30104 2009-09-23 19:40:25Z jmayer $
 #
 # - Find kerberos
 # Find the native KERBEROS includes and library

@@ -3,7 +3,7 @@
  * Copyright 2005, Scientific Research Corporation
  * Initial implementation by Jeremy Ouellette <jouellet@scires.com>
  *
- * $Id$
+ * $Id: packet-dis-enums.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

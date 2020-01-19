@@ -1,6 +1,6 @@
 /* about_dlg.c
  *
- * $Id$
+ * $Id: about_dlg.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Ulf Lamping <ulf.lamping@web.de>
  *
@@ -324,7 +324,7 @@ about_wireshark_page_new(void)
        "Wireshark is Open Source Software released under the GNU General Public License.\n"
        "\n"
        "Check the man page and http://www.wireshark.org for more information.",
-       wireshark_gitversion, get_copyright_info(), comp_info_str->str,
+       wireshark_svnversion, get_copyright_info(), comp_info_str->str,
        runtime_info_str->str);
 
   msg_label = gtk_label_new(message);

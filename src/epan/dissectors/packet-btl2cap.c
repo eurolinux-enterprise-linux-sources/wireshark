@@ -6,7 +6,7 @@
  * Refactored for wireshark checkin
  *   Ronnie Sahlberg 2006
  *
- * $Id$
+ * $Id: packet-btl2cap.c 48661 2013-03-30 21:47:27Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -2036,12 +2036,12 @@ proto_register_btl2cap(void)
         },
         { &hf_btl2cap_info_window,
           { "Extended Window Size", "btl2cap.info_window",
-            FT_UINT32, BASE_DEC, NULL, 0x0100,
+            FT_UINT32, BASE_DEC, NULL, 0x01,
             "Extended Window Size support", HFILL }
         },
         { &hf_btl2cap_info_unicast,
           { "Unicast Connectionless Data Reception", "btl2cap.info_unicast",
-            FT_UINT32, BASE_DEC, NULL, 0x0200,
+            FT_UINT32, BASE_DEC, NULL, 0x02,
             "Unicast Connectionless Data Reception support", HFILL }
         },
         { &hf_btl2cap_info_fixedchans,

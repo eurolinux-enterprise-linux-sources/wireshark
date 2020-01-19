@@ -3,7 +3,7 @@
 # (EPAN is a historical name; it stands for Ethereal Protocol ANalyzer
 # Library)
 #
-# $Id$
+# $Id: Makefile.am 51940 2013-09-10 19:59:42Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -56,7 +56,7 @@ ACLOCAL_AMFLAGS = `../aclocal-flags`
 noinst_LTLIBRARIES = libwireshark_generated.la libwireshark_asmopt.la
 lib_LTLIBRARIES = libwireshark.la
 # http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
-libwireshark_la_LDFLAGS = -version-info 4:14:1 @LDFLAGS_SHAREDLIB@
+libwireshark_la_LDFLAGS = -version-info 4:3:1 @LDFLAGS_SHAREDLIB@
 
 include Makefile.common
 
@@ -129,7 +129,8 @@ DISTCLEANFILES = \
 MAINTAINERCLEANFILES = \
 	$(LIBWIRESHARK_GENERATED_C_FILES) \
 	$(LIBWIRESHARK_GENERATED_HEADER_FILES) \
-	Makefile.in
+	Makefile.in		\
+	sminmpec.c
 
 #
 # Add the object files for missing routines, if any.
@@ -186,8 +187,8 @@ dtd_grammar.c : $(LEMON)/lemon$(EXEEXT) $(srcdir)/$(LEMON)/lempar.c $(srcdir)/dt
 
 tvbtest.o exntest.o: exceptions.h
 
-update-sminmpec:
-	$(PERL) $(srcdir)/../tools/make-sminmpec.pl
+sminmpec.c: enterprise-numbers ../tools/make-sminmpec.pl
+	$(PERL) $(srcdir)/../tools/make-sminmpec.pl $(srcdir)/enterprise-numbers sminmpec.c
 
 
 if HAVE_PLUGINS
@@ -222,10 +223,16 @@ plugin_src = \
 	../plugins/docsis/packet-uccreq.c \
 	../plugins/docsis/packet-uccrsp.c \
 	../plugins/docsis/packet-ucd.c \
+	../plugins/giop/packet-cosnaming.c \
+	../plugins/giop/packet-coseventcomm.c \
 	../plugins/gryphon/packet-gryphon.c \
+	../plugins/interlink/packet-interlink.c \
 	../plugins/irda/packet-irda.c \
 	../plugins/m2m/packet-m2m.c \
 	../plugins/m2m/wimax_tlv.c \
+	../plugins/mgcp/packet-mgcp.c \
+	../plugins/rdm/packet-rdm.c \
+	../plugins/sercosiii/packet-sercosiii.c \
         ../plugins/wimax/crc.c \
         ../plugins/wimax/crc_data.c \
         ../plugins/wimax/mac_hd_generic_decoder.c \

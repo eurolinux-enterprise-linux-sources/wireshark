@@ -1,7 +1,7 @@
 /* idl2wrs.c
  * IDL to Wireshark dissector compiler
  *
- * $Id$
+ * $Id: idl2wrs.c 48875 2013-04-16 12:48:27Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

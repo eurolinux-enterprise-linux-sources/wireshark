@@ -2,7 +2,7 @@
  *
  * Copyright 2011, Mariusz Okroj <okrojmariusz[]gmail.com>
  *
- * $Id$
+ * $Id: packet-xmpp-core.h 44088 2012-07-28 03:09:46Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

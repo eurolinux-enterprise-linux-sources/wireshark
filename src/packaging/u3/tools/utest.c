@@ -1,7 +1,7 @@
 /* utest.c
  * UUID generation test harness and Wireshark Namespace UUID generation
  *
- * $Id$
+ * $Id: utest.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

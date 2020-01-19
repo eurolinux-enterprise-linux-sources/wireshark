@@ -3,7 +3,7 @@
  * Copyright 2008-2009, Stephen Fisher (see AUTHORS file)
  * Co-authors Anders Broman, Kovarththanan Rajaratnam and Stig Bjorlykke.
  *
- * $Id$
+ * $Id: packet_list.c 48451 2013-03-21 15:27:38Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

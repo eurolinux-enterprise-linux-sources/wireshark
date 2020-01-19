@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: Makefile.nmake 48021 2013-03-02 22:19:33Z pascal $
 #
 
 include ..\config.nmake

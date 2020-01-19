@@ -1,7 +1,7 @@
 /* packet-gsm_sms_ud.c
  * Routines for GSM SMS TP-UD (GSM 03.40) dissection
  *
- * $Id$
+ * $Id: packet-gsm_sms_ud.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.

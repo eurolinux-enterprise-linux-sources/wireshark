@@ -1,6 +1,6 @@
 /* packet-ap1394.h
  *
- * $Id$
+ * $Id: packet-ap1394.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

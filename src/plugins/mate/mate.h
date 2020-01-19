@@ -3,7 +3,7 @@
 *
 * Copyright 2004, Luis E. Garcia Ontanon <luis@ontanon.org>
 *
-* $Id$
+* $Id: mate.h 45015 2012-09-20 01:29:52Z morriss $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

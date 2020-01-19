@@ -2,7 +2,7 @@
 ## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake
 ##  (See 'Logic' below for additional details)
 #
-# $Id$
+# $Id: Makefile.nmake 47707 2013-02-17 18:32:35Z etxrab $
 #
 #
 # Wireshark - Network traffic analyzer
@@ -47,7 +47,6 @@ BER_LIST= \
 	acse			\
 	ansi_map		\
 	ansi_tcap		\
-	c1222			\
 	camel			\
 	cdt			\
 	charging_ase		\

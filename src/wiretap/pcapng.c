@@ -1,6 +1,6 @@
 /* pcapng.c
  *
- * $Id$
+ * $Id: pcapng.c 52254 2013-09-28 21:07:52Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -1037,6 +1037,12 @@ pcapng_read_packet_block(FILE_T fh, pcapng_block_header_t *bh, pcapng_t *pn, wta
                 }
         }
 
+        if (wblock->data.packet.cap_len > wblock->data.packet.packet_len) {
+                *err = WTAP_ERR_BAD_FILE;
+                *err_info = g_strdup_printf("pcapng_read_packet_block: cap_len %u is larger than packet_len %u.",
+                    wblock->data.packet.cap_len, wblock->data.packet.packet_len);
+                return 0;
+        }
         if (wblock->data.packet.cap_len > WTAP_MAX_PACKET_SIZE) {
                 *err = WTAP_ERR_BAD_FILE;
                 *err_info = g_strdup_printf("pcapng_read_packet_block: cap_len %u is larger than WTAP_MAX_PACKET_SIZE %u.",
@@ -1216,7 +1222,7 @@ pcapng_read_packet_block(FILE_T fh, pcapng_block_header_t *bh, pcapng_t *pn, wta
         pcap_read_post_process(WTAP_FILE_PCAPNG, int_data.wtap_encap,
             (union wtap_pseudo_header *)wblock->pseudo_header,
             (guint8 *) (wblock->frame_buffer),
-            (int) (wblock->packet_header->caplen),
+            (int) (wblock->data.packet.cap_len - pseudo_header_len),
             pn->byte_swapped, fcslen);
         return block_read;
 }
@@ -1385,7 +1391,7 @@ pcapng_read_simple_packet_block(FILE_T fh, pcapng_block_header_t *bh, pcapng_t *
         pcap_read_post_process(WTAP_FILE_PCAPNG, int_data.wtap_encap,
             (union wtap_pseudo_header *)wblock->pseudo_header,
             (guint8 *) (wblock->frame_buffer),
-            (int) (wblock->packet_header->caplen),
+            (int) wblock->data.simple_packet.cap_len,
             pn->byte_swapped, pn->if_fcslen);
         return block_read;
 }
@@ -2065,8 +2071,9 @@ pcapng_open(wtap *wth, int *err, gchar **err_info)
         pn.if_fcslen = -1;
         pn.version_major = -1;
         pn.version_minor = -1;
-        pn.interface_data = NULL;
+        pn.interface_data = g_array_new(FALSE, FALSE, sizeof(interface_data_t));
         pn.number_of_interfaces = 0;
+
 
         /* we don't expect any packet blocks yet */
         wblock.frame_buffer = NULL;
@@ -2114,7 +2121,6 @@ pcapng_open(wtap *wth, int *err, gchar **err_info)
         pcapng = (pcapng_t *)g_malloc(sizeof(pcapng_t));
         wth->priv = (void *)pcapng;
         *pcapng = pn;
-        pcapng->interface_data = g_array_new(FALSE, FALSE, sizeof(interface_data_t));
 
         wth->subtype_read = pcapng_read;
         wth->subtype_seek_read = pcapng_seek_read;
@@ -2262,7 +2268,7 @@ pcapng_read(wtap *wth, int *err, gchar **err_info, gint64 *data_offset)
                         pcapng_debug0("pcapng_read: block type BLOCK_TYPE_ISB");
                         *data_offset += bytes_read;
                         pcapng_debug1("pcapng_read: *data_offset is updated to %" G_GINT64_MODIFIER "d", *data_offset);
-                        if (wth->number_of_interfaces <= wblock.data.if_stats.interface_id) {
+                        if (wth->number_of_interfaces < wblock.data.if_stats.interface_id) {
                                 pcapng_debug1("pcapng_read: BLOCK_TYPE_ISB wblock.if_stats.interface_id %u > number_of_interfaces", wblock.data.if_stats.interface_id);
                         } else {
                                 /* Get the interface description */
@@ -3371,11 +3377,11 @@ pcapng_write_name_resolution_block(wtap_dumper *wdh, pcapng_dump_t *pcapng, int 
                         nrb.record_type = NRES_IP4RECORD;
                         nrb.record_len = 4 + namelen;
                         tot_rec_len = 4 + nrb.record_len + PADDING4(nrb.record_len);
+                        bh.block_total_length += tot_rec_len;
 
                         if (rec_off + tot_rec_len > NRES_REC_MAX_SIZE)
                                 break;
 
-                        bh.block_total_length += tot_rec_len;
                         /*
                          * The joys of BSD sockaddrs.  In practice, this
                          * cast is alignment-safe.
@@ -3397,11 +3403,11 @@ pcapng_write_name_resolution_block(wtap_dumper *wdh, pcapng_dump_t *pcapng, int 
                         nrb.record_type = NRES_IP6RECORD;
                         nrb.record_len = 16 + namelen;
                         tot_rec_len = 4 + nrb.record_len + PADDING4(nrb.record_len);
+                        bh.block_total_length += tot_rec_len;
 
                         if (rec_off + tot_rec_len > NRES_REC_MAX_SIZE)
                                 break;
 
-                        bh.block_total_length += tot_rec_len;
                         /*
                          * The joys of BSD sockaddrs.  In practice, this
                          * cast is alignment-safe.

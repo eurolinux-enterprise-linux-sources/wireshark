@@ -20,8 +20,8 @@
 
 Summary:	Network traffic analyzer
 Name:		wireshark
-Version:	1.10.14
-Release:	14%{?dist}
+Version:	1.10.3
+Release:	12%{?dist}
 License:	GPL+
 Group:		Applications/Internet
 Source0:	http://wireshark.org/download/src/%{name}-%{version}.tar.bz2
@@ -43,33 +43,22 @@ Patch5:		wireshark-1.8.x-dcom-string-overrun.patch
 Patch6:		wireshark-1.10.0-CVE-2013-3557.patch
 Patch7:		wireshark-1.10.x-disable-warning-dialog.patch
 Patch8:		wireshark-1.10.x-resolv-error-string.patch
-Patch9:		wireshark-1.10.x-remove-last-data-source.patch
-Patch10:		wireshark-1.10.x-ftbfs-glib2.patch
-Patch11:		wireshark-1.10.10-CVE-2014-6425.patch
-Patch12:		wireshark-1.10.10-CVE-2014-6426.patch
-Patch13:		wireshark-1.10.3-nanosecond-timestamps.patch
-Patch14:		wireshark-1.10.3-dtls-elliptic-curves.patch
-Patch15:		wireshark-1.10.3-tls-hash-algs.patch
-Patch16:		wireshark-1.10.3-tls-key-exchange-msgs.patch
-Patch17:		wireshark-1.10.3-tls-ext-master-secret.patch
-Patch18:		wireshark-1.10.3-tls-ext-encrypt-then-mac.patch
-Patch19:		wireshark-1.10.14-tls-cert-verify-msgs.patch
-Patch20:		wireshark-1.10.14-CVE-2015-3810.patch
-Patch21:		wireshark-1.10.14-CVE-2015-3813.patch
-Patch22:		wireshark-1.10.14-CVE-2015-6243.patch
-Patch23:		wireshark-1.10.14-tvbuff.patch
-# Depends on Patch23
-Patch24:		wireshark-1.10.14-CVE-2015-6244.patch
-Patch25:		wireshark-1.10.14-CVE-2015-6245.patch
-Patch26:		wireshark-1.10.14-CVE-2015-6246.patch
-Patch27:		wireshark-1.10.14-CVE-2015-6248.patch
-Patch28:		wireshark-1.10.14-gdk-pixbuf-deprecated-segfault.patch
-Patch29:		wireshark-1.10.14-CVE-2015-3182.patch
-Patch30:                wireshark-1.10.14-display-data-len.patch
-Patch31:                wireshark-1.10.14-read-from-stdin.patch
-Patch32:                wireshark-1.8.10-segfault-cve-2013-4075.patch
-Patch33:                wireshark-1.10.14-default-snaplen.patch
-Patch34:                wireshark-1.10.14-buffer-size.patch
+Patch9:		wireshark-1.10.0-CVE-2013-7112.patch
+Patch10:		wireshark-1.10.0-CVE-2013-7113.patch
+Patch11:		wireshark-1.10.0-CVE-2013-7114.patch
+Patch12:		wireshark-1.10.x-remove-last-data-source.patch
+Patch13:		wireshark-1.10.6-CVE-2014-2281.patch
+Patch14:		wireshark-1.10.6-CVE-2014-2282.patch
+Patch15:		wireshark-1.10.6-CVE-2014-2283.patch
+Patch16:		wireshark-1.10.6-CVE-2014-2299.patch
+Patch17:		wireshark-1.10.10-CVE-2014-6421.patch
+Patch18:		wireshark-1.10.10-CVE-2014-6423.patch
+Patch19:		wireshark-1.10.10-CVE-2014-6424.patch
+Patch20:		wireshark-1.10.10-CVE-2014-6425.patch
+Patch21:		wireshark-1.10.10-CVE-2014-6426.patch
+Patch22:		wireshark-1.10.10-CVE-2014-6427.patch
+Patch23:		wireshark-1.10.10-CVE-2014-6428.patch
+Patch24:		wireshark-1.10.10-CVE-2014-6429.patch
 
 Url:		http://www.wireshark.org/
 BuildRequires:	libpcap-devel >= 0.9
@@ -136,7 +125,7 @@ Requires:	GeoIP
 %package devel
 Summary:	Development headers and libraries for wireshark
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release} glibc-devel glib2-devel
+Requires:	%{name} = %{version} glibc-devel glib2-devel
 
 
 %description
@@ -170,32 +159,22 @@ and plugins.
 %patch6 -p1 -b .cve-2013-3557
 %patch7 -p1 -b .disable-warning-dialog
 %patch8 -p1 -b .resolv-error-string
-%patch9 -p1 -b .remove-last-data-source
-%patch10 -p1 -b .ftbfs-glib2
-%patch11 -p1 -b .cve.2014-6425
-%patch12 -p1 -b .cve.2014-6426
-%patch13 -p1 -b .nanosecond-timestamps
-%patch14 -p1 -b .dtls-elliptic-curves
-%patch15 -p1 -b .tls-hash-algs
-%patch16 -p1 -b .tls-key-exchange-msgs
-%patch17 -p1 -b .tls-master-secret
-%patch18 -p1 -b .tls-encrypt-then-mac
-%patch19 -p1 -b .tls-cert-verify-msgs
-%patch20 -p1 -b .cve-2015-3810
-%patch21 -p1 -b .cve-2015-3813
-%patch22 -p1 -b .cve-2015-6243
-%patch23 -p1 -b .tvbuff
-%patch24 -p1 -b .cve-2015-6244
-%patch25 -p1 -b .cve-2015-6245
-%patch26 -p1 -b .cve-2015-6246
-%patch27 -p1 -b .cve-2015-6248
-%patch28 -p1 -b .gdk-deprecated
-%patch29 -p1 -b .cve-2015-3182
-%patch30 -p1 -b .display-data-len
-%patch31 -p1 -b .read-from-stdin
-%patch32 -p1 -b .segfault-cve-2013-4075
-%patch33 -p1 -b .default-snaplen
-%patch34 -p1 -b .buffer-size
+%patch9 -p1 -b .cve-2013-7112
+%patch10 -p1 -b .cve-2013-7113
+%patch11 -p1 -b .cve-2013-7114
+%patch12 -p1 -b .remove-last-data-source
+%patch13 -p1 -b .cve-2014-2281
+%patch14 -p1 -b .cve-2014-2282
+%patch15 -p1 -b .cve-2014-2283
+%patch16 -p1 -b .cve-2014-2299
+%patch17 -p1 -b .cve-2014-6421
+%patch18 -p1 -b .cve.2014-6423
+%patch19 -p1 -b .cve.2014-6424
+%patch20 -p1 -b .cve.2014-6425
+%patch21 -p1 -b .cve.2014-6426
+%patch22 -p1 -b .cve.2014-6427
+%patch23 -p1 -b .cve.2014-6428
+%patch24 -p1 -b .cve.2014-6429
 
 %build
 %ifarch s390 s390x sparcv9 sparc64
@@ -204,11 +183,9 @@ export PIECFLAGS="-fPIE"
 export PIECFLAGS="-fpie"
 %endif
 
-export RELRO="-Wl,-z,relro,-z,now"
-
 # -fstack-protector-strong replaced -fstack-protector-all
-export CFLAGS="$RPM_OPT_FLAGS $CPPFLAGS $PIECFLAGS $RELRO -D_LARGEFILE64_SOURCE"
-export CXXFLAGS="$RPM_OPT_FLAGS $CPPFLAGS $PIECFLAGS $RELRO -D_LARGEFILE64_SOURCE"
+export CFLAGS="$RPM_OPT_FLAGS $CPPFLAGS $PIECFLAGS -D_LARGEFILE64_SOURCE"
+export CXXFLAGS="$RPM_OPT_FLAGS $CPPFLAGS $PIECFLAGS -D_LARGEFILE64_SOURCE"
 export LDFLAGS="$LDFLAGS -pie"
 
 # Temporary hack - wireshark-1.8.0 is not compilable with upstream
@@ -437,98 +414,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/aclocal/*
 
 %changelog
-* Thu May 04 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-14
-- Change buffer size in man pages
-- Related: #1359974
-
-* Fri Apr 21 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-13
-- Require exact version of Wireshark as a dependency for devel subpackage
-
-* Mon Apr 03 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-12
-- Fix wrong snaplen in man pages and help
-- Make the capture buffer bigger to prevent dropping packages
-
-* Mon Mar 13 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-11
-- Backport upstream changes for CVE-2013-4075
-
-* Thu Aug 18 2016 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-10
-- Rebuild package
-- Related to: #1233966
-
-* Wed Jul 27 2016 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-9
-- Resolves: #1233966 support for reading from stdin/pipes
-
-* Tue Jul 26 2016 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-8
-- Resolves: #1337695 tshark failing to display data.len
-
-* Tue Oct  6 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-7
-- Rebase some tvbuff API from upstream to 1.10.14
-- Fixes crash when tvb_length_remaining() is used
-- Related: CVE-2015-6244
-
-* Mon Oct  5 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-6
-- Security patch
-- Resolves: CVE-2015-3182
-
-* Thu Oct  1 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-5
-- Fix crash caused by -DGDK_PIXBUF_DEPRECATED on startup
-- Resolves: rhbz#1267959
-
-* Tue Sep 22 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-4
-- Security patches
-- Resolves: CVE-2015-6243
-            CVE-2015-6244
-            CVE-2015-6245
-            CVE-2015-6246
-            CVE-2015-6248
-
-* Fri Aug  7 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-3
-- Security patches
-- Resolves: CVE-2015-3810
-            CVE-2015-3813
-
-* Mon Jul  6 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-2
-- Add certificate verify message decoding in TLS extension
-- Resolves: #1239150
-
-* Thu Jul  2 2015 Peter Hatina <phatina@redhat.com> - 1.10.14-1
-- Upgrade to 1.10.14
-- Resolves: #1238676
-
-* Tue Jun  2 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-20
-- add master secret extension decoding in TLS extension
-- add encrypt-then-mac extension decoding in TLS extension
-- Resolves: #1222901
-
-* Tue Jun  2 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-19
-- create pcap file if -F pcap specified
-- Resolves: #1227199
-
-* Wed May 20 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-18
-- add key exchange algorithms decoding in TLS extension
-- Resolves: #1222600
-
-* Mon May 18 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-17
-- add signature algorithms decoding in TLS extension
-- Resolves: #1221701
-
-* Wed May  6 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-16
-- add relro check
-- Resolves: #1092532
-
-* Tue Apr 21 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-15
-- add elliptic curves decoding in DTLS HELLO
-- Resolves: #1131202
-
-* Tue Apr 21 2015 Peter Hatina <phatina@redhat.com> - 1.10.3-14
-- introduced nanosecond time precision
-- Resolves: #1213339
-
-* Mon Oct 13 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-13
+* Mon Oct 13 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-12
 - security patches
-- Resolves: #1148267
+- Related: #1148266
 
-* Fri Oct  3 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-12
+* Fri Oct  3 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-11
 - security patches
 - Resolves: CVE-2014-6421
             CVE-2014-6423
@@ -538,10 +428,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
             CVE-2014-6427
             CVE-2014-6428
             CVE-2014-6429
-
-* Thu Aug 28 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-11
-- fix FTBFS due to glib2-2.40
-- Resolves: #1132673
 
 * Mon Mar 10 2014 Peter Hatina <phatina@redhat.com> - 1.10.3-10
 - fix missing tshark's name resolving flag in help message

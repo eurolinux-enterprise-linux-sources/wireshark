@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindSED.cmake 31379 2009-12-29 12:12:26Z jmayer $
 #
 # - Find unix commands from cygwin
 # This module looks for some usual Unix commands.

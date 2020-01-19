@@ -1,7 +1,7 @@
 /* packet-ipv6.c
  * Routines for IPv6 packet disassembly
  *
- * $Id$
+ * $Id: packet-ipv6.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -403,6 +403,7 @@ again:
      offset += advance;
      goto again;
    case IP_PROTO_SHIM6:
+   case IP_PROTO_SHIM6_OLD:
      if (!BYTES_ARE_IN_FRAME(offset, len, 2)) {
        ld->other++;
        return;
@@ -1673,16 +1674,16 @@ dissect_ipv6(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
   const char *sep = "IPv6 ";
   guint8 *mac_addr;
 
-  struct ip6_hdr *ipv6;
+  struct ip6_hdr ipv6;
 
   col_set_str(pinfo->cinfo, COL_PROTOCOL, "IPv6");
   col_clear(pinfo->cinfo, COL_INFO);
 
   offset = 0;
-  ipv6 = (struct ip6_hdr*)ep_tvb_memdup(tvb, offset, sizeof(struct ip6_hdr));
+  tvb_memcpy(tvb, (guint8 *)&ipv6, offset, sizeof(ipv6));
 
   /* Get extension header and payload length */
-  plen = g_ntohs(ipv6->ip6_plen);
+  plen = g_ntohs(ipv6.ip6_plen);
 
   /* Adjust the length of this tvbuff to include only the IPv6 datagram. */
   set_actual_length(tvb, plen + (guint)sizeof (struct ip6_hdr));
@@ -1731,9 +1732,9 @@ dissect_ipv6(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
     proto_tree_add_uint_format(ipv6_tree, hf_ipv6_nxt, tvb,
                 offset + (int)offsetof(struct ip6_hdr, ip6_nxt), 1,
-                ipv6->ip6_nxt,
+                ipv6.ip6_nxt,
                 "Next header: %s (%u)",
-                ipprotostr(ipv6->ip6_nxt), ipv6->ip6_nxt);
+                ipprotostr(ipv6.ip6_nxt), ipv6.ip6_nxt);
 
     proto_tree_add_item(ipv6_tree, hf_ipv6_hlim, tvb,
                         offset + (int)offsetof(struct ip6_hdr, ip6_hlim), 1, ENC_BIG_ENDIAN);
@@ -1745,11 +1746,11 @@ dissect_ipv6(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
                         offset + (int)offsetof(struct ip6_hdr, ip6_src), 16, ENC_NA);
     ti = proto_tree_add_ipv6(ipv6_tree, hf_ipv6_addr, tvb,
                               offset + (int)offsetof(struct ip6_hdr, ip6_src),
-                              16, (guint8 *)&ipv6->ip6_src);
+                              16, (guint8 *)&ipv6.ip6_src);
     PROTO_ITEM_SET_HIDDEN(ti);
     name = get_addr_name(&pinfo->src);
     if (ipv6_summary_in_tree) {
-      proto_item_append_text(ipv6_item, ", Src: %s (%s)", name, ip6_to_str(&ipv6->ip6_src));
+      proto_item_append_text(ipv6_item, ", Src: %s (%s)", name, ip6_to_str(&ipv6.ip6_src));
     }
     ti = proto_tree_add_string(ipv6_tree, hf_ipv6_src_host, tvb,
                               offset + (int)offsetof(struct ip6_hdr, ip6_src),
@@ -1832,11 +1833,11 @@ dissect_ipv6(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
                         offset + (int)offsetof(struct ip6_hdr, ip6_dst), 16, ENC_NA);
     ti = proto_tree_add_ipv6(ipv6_tree, hf_ipv6_addr, tvb,
                               offset + (int)offsetof(struct ip6_hdr, ip6_dst),
-                              16, (guint8 *)&ipv6->ip6_dst);
+                              16, (guint8 *)&ipv6.ip6_dst);
     PROTO_ITEM_SET_HIDDEN(ti);
     name = get_addr_name(&pinfo->dst);
     if (ipv6_summary_in_tree) {
-      proto_item_append_text(ipv6_item, ", Dst: %s (%s)", name, ip6_to_str(&ipv6->ip6_dst));
+      proto_item_append_text(ipv6_item, ", Dst: %s (%s)", name, ip6_to_str(&ipv6.ip6_dst));
     }
     ti = proto_tree_add_string(ipv6_tree, hf_ipv6_dst_host, tvb,
                               offset + (int)offsetof(struct ip6_hdr, ip6_dst),
@@ -1917,7 +1918,7 @@ dissect_ipv6(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
 #ifdef HAVE_GEOIP_V6
   if (tree && ipv6_use_geoip) {
-    add_geoip_info(ipv6_tree, tvb, offset, &ipv6->ip6_src, &ipv6->ip6_dst);
+    add_geoip_info(ipv6_tree, tvb, offset, &ipv6.ip6_src, &ipv6.ip6_dst);
   }
 #endif
 
@@ -1991,6 +1992,7 @@ again:
       goto again;
 
     case IP_PROTO_SHIM6:
+    case IP_PROTO_SHIM6_OLD:
       shim6 = TRUE;
       advance = dissect_shim6(tvb, offset, ipv6_tree, pinfo);
       nxt = tvb_get_guint8(tvb, offset);
@@ -2030,7 +2032,7 @@ again:
   pinfo->ipproto = nxt;
   pinfo->iplen = (int)sizeof(ipv6) + plen + offset;
   pinfo->iphdrlen = offset;
-  tap_queue_packet(ipv6_tap, pinfo, ipv6);
+  tap_queue_packet(ipv6_tap, pinfo, &ipv6);
 
   if (offlg & IP6F_OFF_MASK || (ipv6_reassemble && offlg & IP6F_MORE_FRAG)) {
     /* Not the first fragment, or the first when we are reassembling and there are more. */

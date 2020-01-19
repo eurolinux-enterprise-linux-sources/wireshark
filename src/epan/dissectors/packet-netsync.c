@@ -1,7 +1,7 @@
 /* packet-netsync.c
  * Routines for Monotone Netsync packet disassembly
  *
- * $Id$
+ * $Id: packet-netsync.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright (c) 2005 by Erwin Rol <erwin@erwinrol.com>
  *

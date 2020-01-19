@@ -1,4 +1,4 @@
-# $Id$
+# $Id: Makefile.am 47709 2013-02-17 19:07:27Z guy $
 #
 #
 # Wireshark - Network traffic analyzer

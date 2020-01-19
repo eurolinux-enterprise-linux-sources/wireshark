@@ -2,7 +2,7 @@
  * Header file for parameter dialog used by gui taps
  * Copyright 2003 Lars Roland
  *
- * $Id$
+ * $Id: tap_param_dlg.h 46297 2012-11-29 22:21:23Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

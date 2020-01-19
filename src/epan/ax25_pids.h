@@ -3,7 +3,7 @@
  * Protocol IDs for Amateur Packet Radio protocol dissection
  * Copyright 2005,2006,2007,2008,2009,2010,2012 R.W. Stearn <richard@rns-stearn.demon.co.uk>
  *
- * $Id$
+ * $Id: ax25_pids.h 46365 2012-12-04 14:23:53Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

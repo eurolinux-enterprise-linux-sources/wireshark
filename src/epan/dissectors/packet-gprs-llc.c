@@ -2,7 +2,7 @@
  * Routines for Logical Link Control GPRS dissection ETSI 4.64(TS 101 351 V8.7.0)
  * Copyright 2000, Josef Korelus <jkor@quick.cz>
  *
- * $Id$
+ * $Id: packet-gprs-llc.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

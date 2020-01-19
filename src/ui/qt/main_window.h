@@ -1,6 +1,6 @@
 /* main_window.h
  *
- * $Id$
+ * $Id: main_window.h 49760 2013-06-04 07:38:48Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -179,7 +179,6 @@ private slots:
     void interfaceSelectionChanged();
     void redissectPackets();
     void recreatePacketList();
-    void fieldsChanged();
 
     void addDisplayFilterButton(QString df_text);
     void displayFilterButtonClicked();

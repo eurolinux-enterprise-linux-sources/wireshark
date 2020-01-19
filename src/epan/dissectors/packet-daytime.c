@@ -2,7 +2,7 @@
  * Routines for Daytime Protocol (RFC 867) packet dissection
  * Copyright 2006, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: packet-daytime.c 48338 2013-03-16 08:52:09Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

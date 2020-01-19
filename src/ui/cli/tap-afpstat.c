@@ -2,7 +2,7 @@
  * Based on
  * smbstat   2003 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: tap-afpstat.c 48179 2013-03-07 19:52:33Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

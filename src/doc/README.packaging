@@ -23,7 +23,7 @@ this location. Don't use http://www.wireshark.org/download/src.
 Logo and icon artwork can be found in the "image" directory in the
 distribution. This is available online at
 
-    https://code.wireshark.org/review/gitweb?p=wireshark.git;a=tree;f=image;hb=HEAD
+    http://anonsvn.wireshark.org/wireshark/trunk/image/
 
 2. Licensing.
 
@@ -93,7 +93,7 @@ you use this to differentiate it from official Wireshark releases.
 
 4.1. Source-level version detection.
 
-The Git version corresponding to each release is in version.h. It's
+The SVN version corresponding to each release is in svnversion.h. It's
 defined as a string. If you need a numeric definition, let us know.
 
 5. Trademarks.
@@ -110,4 +110,4 @@ case. E.g., "WireShark" is incorrect.
 If you have a question not addressed here, send it to
 wireshark-dev@wireshark.org.
 
-$Id$
+$Id: README.packaging 34311 2010-10-01 15:25:38Z gerald $

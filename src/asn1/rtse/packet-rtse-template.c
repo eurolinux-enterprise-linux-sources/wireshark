@@ -2,7 +2,7 @@
  * Routines for RTSE packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-rtse-template.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

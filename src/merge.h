@@ -1,7 +1,7 @@
 /* merge.h
  * Definitions for routines for merging files.
  *
- * $Id$
+ * $Id: merge.h 44338 2012-08-08 14:06:29Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

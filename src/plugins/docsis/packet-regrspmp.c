@@ -4,7 +4,7 @@
  *
  * Based on packet-regrsp.c (by Anand V. Narwani <anand[AT]narwani.org>)
  *
- * $Id$
+ * $Id: packet-regrspmp.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

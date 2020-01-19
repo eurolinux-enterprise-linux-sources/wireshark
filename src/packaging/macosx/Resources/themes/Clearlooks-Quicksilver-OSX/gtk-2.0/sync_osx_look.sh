@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id$
+# $Id: sync_osx_look.sh 24640 2008-03-15 18:31:52Z gerald $
 #
 #	Reads defaults from Apple preferences and modifies GTK accordingly
 #

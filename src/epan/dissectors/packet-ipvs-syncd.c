@@ -1,7 +1,7 @@
 /* packet-ipvs-syncd.c   2001 Ronnie Sahlberg <See AUTHORS for email>
  * Routines for IGMP packet disassembly
  *
- * $Id$
+ * $Id: packet-ipvs-syncd.c 45588 2012-10-16 17:36:22Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

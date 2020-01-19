@@ -7,7 +7,7 @@
  *
  * Copyright 2011, Christophe Paletou <c.paletou@free.fr>
  *
- * $Id$
+ * $Id: packet-fmtp.c 47918 2013-02-27 16:18:16Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

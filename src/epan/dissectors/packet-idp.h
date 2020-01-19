@@ -1,7 +1,7 @@
 /* packet-idp.h
  * Declarations for XNS IDP
  *
- * $Id$
+ * $Id: packet-idp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

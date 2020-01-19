@@ -1,7 +1,7 @@
 /* packet-icmp.c
  * Routines for ICMP - Internet Control Message Protocol
  *
- * $Id$
+ * $Id: packet-icmp.c 48563 2013-03-26 18:08:05Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1297,7 +1297,6 @@ dissect_icmp(tvbuff_t * tvb, packet_info * pinfo, proto_tree * tree)
 		code_str =
 		    val_to_str(icmp_code, alt_host_code_str,
 			       "Unknown code: %u");
-		icmp_original_dgram_length = 0;
 		break;
 	case ICMP_RTRADVERT:
 		switch (icmp_code) {
@@ -1505,18 +1504,13 @@ dissect_icmp(tvbuff_t * tvb, packet_info * pinfo, proto_tree * tree)
 		 * icmp_original_dgram_length*4 bytes of original IP packet that needs
 		 * to be decoded, followed by extension objects.
 		 */
-
-		if (icmp_type == ICMP_REDIRECT) {
-			/* No icmp_original_dgram_length is available for redirect message,
-			 * we expect a max of Internet Header + 64 bits of Original Data Datagram */
-			set_actual_length(next_tvb, ((tvb_get_guint8(tvb, 8) & 0x0f) * 4) + 8);
-		} else if (icmp_original_dgram_length
+		if (icmp_original_dgram_length
 		    && (tvb_reported_length(tvb) >
 			(guint) (8 + icmp_original_dgram_length * 4))
 		    && (tvb_get_ntohs(tvb, 8 + 2) >
 			(guint) icmp_original_dgram_length * 4)) {
 			set_actual_length(next_tvb,
-					  ((tvb_get_guint8(tvb, 8) & 0x0f) + icmp_original_dgram_length) * 4);
+					  icmp_original_dgram_length * 4);
 		} else {
 			/* There is a collision between RFC 1812 and draft-ietf-mpls-icmp-02.
 			   We don't know how to decode the 128th and following bytes of the ICMP payload.

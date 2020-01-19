@@ -2,7 +2,7 @@
  * another CRC 16
  * Copyright 2006, British Broadcasting Corporation 
  *
- * $Id$
+ * $Id: crcdrm.c 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

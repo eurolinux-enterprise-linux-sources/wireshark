@@ -1,7 +1,7 @@
 /* color_filters.c
  * Routines for color filters
  *
- * $Id$
+ * $Id: color_filters.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -30,6 +30,7 @@
 #include <glib.h>
 
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
 #include <epan/filesystem.h>
@@ -469,7 +470,7 @@ read_filters_file(FILE *f, gpointer user_data)
     guint32   name_len         = INIT_BUF_SIZE;
     guint32   filter_exp_len   = INIT_BUF_SIZE;
     guint32   i                = 0;
-    int       c;
+    gint32    c;
     guint16   fg_r, fg_g, fg_b, bg_r, bg_g, bg_b;
     gboolean  disabled         = FALSE;
     gboolean  skip_end_of_line = FALSE;
@@ -489,7 +490,7 @@ read_filters_file(FILE *f, gpointer user_data)
             skip_end_of_line = FALSE;
         }
 
-        while ((c = getc(f)) != EOF && g_ascii_isspace(c)) {
+        while ((c = getc(f)) != EOF && isspace(c)) {
             if (c == '\n') {
                 continue;
             }

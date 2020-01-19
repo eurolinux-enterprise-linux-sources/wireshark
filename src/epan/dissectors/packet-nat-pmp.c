@@ -13,7 +13,7 @@
  * Copyright 2012, Michael Mann
  *
  *
- * $Id$
+ * $Id: packet-nat-pmp.c 49452 2013-05-20 18:55:04Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

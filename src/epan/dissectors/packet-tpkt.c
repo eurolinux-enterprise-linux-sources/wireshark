@@ -7,7 +7,7 @@
  * Routine to dissect RFC 1006 TPKT packet containing OSI TP PDU
  * Copyright 2001, Martin Thomas <Martin_A_Thomas@yahoo.com>
  *
- * $Id$
+ * $Id: packet-tpkt.c 47924 2013-02-27 22:43:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -29,6 +29,8 @@
  */
 
 #include "config.h"
+
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -119,11 +121,11 @@ is_asciitpkt(tvbuff_t *tvb)
         return -1;      /* there aren't */
 
         /*
-         * The first four  octets should be alphanumeric ASCII
+         * The first four  octets should be ASCII
          */
     for (count = 0; count <=7 ; count ++)
         {
-        if(!g_ascii_isalnum(tvb_get_guint8(tvb,count)))
+        if(!isalnum(tvb_get_guint8(tvb,count)))
           {
           return 0;
           }

@@ -1,6 +1,6 @@
 <? wireshark:protocol proto_name="dc" description="Dublin Core Metadata (DC)" ?>
 <!--
-$Id:$
+$Id: dc.dtd 19612 2006-10-19 18:35:10Z lego $
 -->
 <!--
     elements definitions for the Dublin Core Metadata DC schema

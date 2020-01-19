@@ -2,7 +2,7 @@
  * Routines for Q.931 frame disassembly
  * Guy Harris <guy@alum.mit.edu>
  *
- * $Id$
+ * $Id: packet-q931.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Modified by Andreas Sikkema for possible use with H.323
  *

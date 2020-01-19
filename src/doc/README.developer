@@ -1,6 +1,6 @@
-$Revision$
-$Date$
-$Author$
+$Revision: 48861 $
+$Date: 2013-04-15 14:43:40 -0700 (Mon, 15 Apr 2013) $
+$Author: eapache $
 Tabsize: 4
 
 This file is a HOWTO for Wireshark developers. It describes how to start coding

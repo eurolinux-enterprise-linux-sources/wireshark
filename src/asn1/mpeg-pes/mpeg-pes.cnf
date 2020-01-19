@@ -1,7 +1,7 @@
 # mpeg-pes.cnf
 # mpeg-pes conformation file
 #
-# $Id$
+# $Id: mpeg-pes.cnf 23113 2007-10-09 17:58:29Z jmayer $
 
 #.TYPE_ATTR
 PES/stream TYPE=FT_UINT8 DISPLAY=BASE_HEX

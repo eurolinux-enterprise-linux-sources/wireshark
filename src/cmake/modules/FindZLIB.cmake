@@ -1,6 +1,6 @@
 # - Find zlib
 #
-# $Id$
+# $Id: FindZLIB.cmake 37626 2011-06-08 21:33:38Z jmayer $
 #
 # Find the native ZLIB includes and library.
 # Once done this will define

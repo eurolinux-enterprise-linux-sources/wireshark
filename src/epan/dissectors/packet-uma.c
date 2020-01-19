@@ -2,7 +2,7 @@
  * Routines for Unlicensed Mobile Access(UMA) dissection
  * Copyright 2005-2006,2009, Anders Broman <anders.broman[at]ericsson.com>
  *
- * $Id$
+ * $Id: packet-uma.c 46602 2012-12-18 23:28:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

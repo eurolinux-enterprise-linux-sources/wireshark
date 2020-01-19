@@ -1,6 +1,6 @@
 # Makefile.am
 #
-# $Id$
+# $Id: Makefile.am 49735 2013-06-03 23:31:09Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -126,16 +126,3 @@ checkapi:
 	$(PERL) ../tools/checkAPIs.pl -g termoutput -build \
 	$(LIBWSUTIL_SRC)
 #	file_util.c unicode-utils.c
-
-#
-# Editor modelines  -  https://www.wireshark.org/tools/modelines.html
-#
-# Local variables:
-# c-basic-offset: 8
-# tab-width: 8
-# indent-tabs-mode: t
-# End:
-#
-# vi: set shiftwidth=8 tabstop=8 noexpandtab:
-# :indentSize=8:tabSize=8:noTabs=false:
-#

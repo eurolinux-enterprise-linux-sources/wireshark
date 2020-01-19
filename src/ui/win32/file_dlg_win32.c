@@ -1,7 +1,7 @@
 /* win32-file-dlg.c
  * Native Windows file dialog routines
  *
- * $Id$
+ * $Id: file_dlg_win32.c 51482 2013-08-23 00:26:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -244,7 +244,7 @@ win32_check_save_as_with_comments(HWND parent, capture_file *cf, int file_type)
     comment_types = cf_comment_types(cf);
 
     /* Does the file's format support all the comments we have? */
-    if (wtap_dump_supports_comment_types(file_type, comment_types)) {
+    if (wtap_dump_supports_comment_types(cf->cd_t, comment_types)) {
         /* Yes.  Let the save happen; we can save all the comments, so
            there's no need to delete them. */
         return SAVE;

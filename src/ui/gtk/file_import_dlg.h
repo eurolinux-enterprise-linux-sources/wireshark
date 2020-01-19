@@ -2,7 +2,7 @@
  * Definitions for file import dialog box
  * November 2010, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: file_import_dlg.h 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

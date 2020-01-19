@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindGLIB2.cmake 38361 2011-08-05 12:25:54Z jmayer $
 #
 # - Try to find GLib2
 # Once done this will define

@@ -1,7 +1,7 @@
 ; asm_utils_win32_x86.asm
 ; Functions optionally implemented in assembler
 ;
-; $Id$
+; $Id: asm_utils_win32_x86.asm 43536 2012-06-28 22:56:06Z darkjames $
 ;
 ; Wireshark - Network traffic analyzer
 ; By Gerald Combs <gerald@wireshark.org>

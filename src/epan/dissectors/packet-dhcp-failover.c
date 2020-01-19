@@ -2,7 +2,7 @@
  * Routines for ISC DHCP Server failover protocol dissection
  * Copyright 2004, M. Ortega y Strupp <moys@loplof.de>
  *
- * $Id$
+ * $Id: packet-dhcp-failover.c 48341 2013-03-16 16:25:41Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

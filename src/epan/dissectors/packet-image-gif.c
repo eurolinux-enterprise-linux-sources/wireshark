@@ -3,7 +3,7 @@
  * Routines for image/gif media dissection
  * Copyright 2003, 2004, Olivier Biot.
  *
- * $Id$
+ * $Id: packet-image-gif.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.

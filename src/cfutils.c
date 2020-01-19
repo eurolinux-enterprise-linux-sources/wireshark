@@ -3,7 +3,7 @@
  * lack of a routine to convert a CFString to a C string of arbitrary
  * size.
  *
- * $Id$
+ * $Id: cfutils.c 48534 2013-03-24 18:22:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

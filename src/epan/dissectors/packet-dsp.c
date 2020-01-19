@@ -10,7 +10,7 @@
  * Routines for X.518 (X.500 Distributed Operations)  packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-dsp.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

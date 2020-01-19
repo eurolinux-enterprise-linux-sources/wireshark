@@ -3,7 +3,7 @@
  * Daniel Willmann <daniel@totalueberwachung.de>
  * (c) 2011 Daniel Willmann
  *
- * $Id$
+ * $Id: packet-cnip.c 48334 2013-03-15 22:40:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

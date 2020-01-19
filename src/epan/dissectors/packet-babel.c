@@ -2,7 +2,7 @@
  * Routines for Babel dissection (RFC 6126)
  * Copyright 2011 by Juliusz Chroboczek <jch@pps.jussieu.fr>
  *
- * $Id$
+ * $Id: packet-babel.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

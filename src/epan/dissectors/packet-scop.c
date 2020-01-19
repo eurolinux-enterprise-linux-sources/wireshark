@@ -1,7 +1,7 @@
 /* packet-scop.c
  * Owen Kirby <osk@exegin.com>
  *
- * $Id$
+ * $Id: packet-scop.c 48740 2013-04-04 20:40:32Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

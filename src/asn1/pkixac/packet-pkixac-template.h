@@ -4,7 +4,7 @@
  * 
  * Copyright 2010, Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: packet-pkixac-template.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

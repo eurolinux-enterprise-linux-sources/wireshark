@@ -3,7 +3,7 @@
  *
  * Copyright 2012, Michal Labedzki for Tieto Corporation
  *
- * $Id$
+ * $Id: packet-hci_usb.c 48605 2013-03-28 03:06:30Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

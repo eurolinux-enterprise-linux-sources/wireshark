@@ -1,5 +1,5 @@
 -- Extracted from RFC5652
--- $Id$
+-- $Id: AttributeCertificateVersion1.asn 31501 2010-01-12 14:29:53Z stig $
 AttributeCertificateVersion1
     { iso(1) member-body(2) us(840) rsadsi(113549)
       pkcs(1) pkcs-9(9) smime(16) modules(0) v1AttrCert(15) }

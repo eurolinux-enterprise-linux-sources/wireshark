@@ -1,6 +1,6 @@
 /* packet-x11.h
  *
- * $Id$
+ * $Id: packet-x11.h 43558 2012-07-03 18:49:12Z wmeier $
  *
  * Put here so as to make packet-x11.c lighter. See packet-x11.c
  * This .h file should be included *only* in packet-x11.c

@@ -1,7 +1,7 @@
 /* main_titlebar.h
  * Declarations of GTK+-specific UI utility routines
  *
- * $Id$
+ * $Id: main_titlebar.h 48683 2013-04-01 00:21:44Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* in_cksum.h
  * Declaration of  Internet checksum routine.
  *
- * $Id$
+ * $Id: in_cksum.h 47992 2013-03-01 23:53:11Z rbalint $
  */
 
 #ifndef __IN_CKSUM_H__

@@ -2,7 +2,7 @@
  * Allow users to specify the dissectors for DLTs
  * Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: packet-user_encap.c 49465 2013-05-20 22:07:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

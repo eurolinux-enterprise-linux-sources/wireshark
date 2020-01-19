@@ -2,7 +2,7 @@
  * Routines for H.324/SRP dissection
  * 2004 Richard van der Hoff <richardv@mxtelecom.com>
  *
- * $Id$
+ * $Id: packet-srp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

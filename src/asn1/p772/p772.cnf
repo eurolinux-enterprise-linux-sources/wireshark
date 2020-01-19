@@ -1,7 +1,7 @@
 # p772.cnf
 # p772 conformation file
 
-# $Id$
+# $Id: p772.cnf 36013 2011-02-20 17:03:29Z stig $
 
 #.IMPORT ../p1/p1-exp.cnf
 #.IMPORT ../p22/p22-exp.cnf

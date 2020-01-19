@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.5/1999/Call-Park-Pickup-Operations.asn
 --
--- $Id$
+-- $Id: Call-Park-Pickup-Operations.asn 22417 2007-07-30 08:01:59Z kukosa $
 --
 
 -- Module Call-Park-Pickup-Operations (H.450.5:05/1999)

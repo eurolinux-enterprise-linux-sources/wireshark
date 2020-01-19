@@ -1,7 +1,7 @@
 /* packet-dcom-cba-acco.h
  * Routines for DCOM CBA
  *
- * $Id$
+ * $Id: packet-dcom-cba-acco.h 48039 2013-03-03 18:45:23Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

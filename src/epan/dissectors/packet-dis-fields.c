@@ -3,7 +3,7 @@
  * Copyright 2005, Scientific Research Corporation
  * Initial implementation by Jeremy Ouellette <jouellet[AT]scires.com>
  *
- * $Id$
+ * $Id: packet-dis-fields.c 48343 2013-03-16 20:00:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

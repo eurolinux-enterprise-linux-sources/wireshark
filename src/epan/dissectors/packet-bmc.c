@@ -2,7 +2,7 @@
  * Routines for Broadcast/Multicast Control dissection
  * Copyright 2011, Neil Piercy <Neil.Piercy@ipaccess.com>
  *
- * $Id$
+ * $Id: packet-bmc.c 51425 2013-08-19 11:25:35Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

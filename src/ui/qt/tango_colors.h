@@ -1,7 +1,7 @@
 /* qt_gui_utils.h
  * Tango theme colors
  *
- * $Id$
+ * $Id: tango_colors.h 46834 2012-12-29 01:39:02Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

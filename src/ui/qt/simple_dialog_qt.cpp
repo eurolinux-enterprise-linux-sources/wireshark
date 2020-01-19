@@ -1,6 +1,6 @@
 /* simple_dialog_qt.cpp
  *
- * $Id$
+ * $Id: simple_dialog_qt.cpp 46767 2012-12-26 10:33:02Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

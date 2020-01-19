@@ -4,7 +4,7 @@
  * Copyright 2006, Sebastien Tandel <sebastien[AT]tandel.be>
  * Copyright 2009, Luca Ceresoli <luca[AT]lucaceresoli.net>
  *
- * $Id$
+ * $Id: packet-homeplug.c 48685 2013-04-01 15:29:49Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1313,7 +1313,7 @@ dissect_homeplug(tvbuff_t * tvb, packet_info * pinfo, proto_tree * tree)
 {
   proto_item * it= NULL;
   proto_tree * homeplug_tree= NULL;
-  ptvcursor_t * cursor;
+  ptvcursor_t * cursor= NULL;
 
   col_set_str(pinfo->cinfo, COL_PROTOCOL, "HomePlug");
   /* Clear out stuff in the info column */
@@ -1324,9 +1324,8 @@ dissect_homeplug(tvbuff_t * tvb, packet_info * pinfo, proto_tree * tree)
   if (tree) {
     it = proto_tree_add_item(tree, proto_homeplug, tvb, homeplug_offset, -1, ENC_NA);
     homeplug_tree = proto_item_add_subtree(it, ett_homeplug);
+    cursor = ptvcursor_new(homeplug_tree, tvb, 0);
   }
-
-  cursor = ptvcursor_new(homeplug_tree, tvb, 0);
 
   /*  We do not have enough data to read mctrl field stop the dissection */
   if (check_tvb_length(cursor, HOMEPLUG_MCTRL_LEN) != TVB_LEN_SHORTEST) {

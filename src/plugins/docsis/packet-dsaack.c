@@ -2,7 +2,7 @@
  * Routines for Dynamic Service Addition Acknowledge dissection
  * Copyright 2002, Anand V. Narwani <anand[AT]narwani.org>
  *
- * $Id$
+ * $Id: packet-dsaack.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

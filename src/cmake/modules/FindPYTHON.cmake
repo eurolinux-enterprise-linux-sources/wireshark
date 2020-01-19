@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindPYTHON.cmake 30104 2009-09-23 19:40:25Z jmayer $
 #
 # - Find python libraries
 # This module finds if Python is installed and determines where the

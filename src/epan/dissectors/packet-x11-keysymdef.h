@@ -3,7 +3,7 @@
  * Copyright holders: Digital, The Open Group
  * (see below for their copyright statement)
  *
- * $Id$
+ * $Id: packet-x11-keysymdef.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

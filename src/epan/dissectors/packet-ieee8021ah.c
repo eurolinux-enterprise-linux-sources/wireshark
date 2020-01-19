@@ -1,7 +1,7 @@
 /* packet-ieee8021ah.c
  * Routines for 802.1ah ethernet header disassembly
  *
- * $Id$
+ * $Id: packet-ieee8021ah.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -5,7 +5,7 @@
  *
  *  Copyright (c) 2005, Luis E. Garia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: k12.c 48348 2013-03-17 09:20:13Z etxrab $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -795,20 +795,12 @@ int k12_open(wtap *wth, int *err, gchar **err_info) {
                     rec->input_type = K12_PORT_ATMPVC;
             }
 
-            if (read_buffer[K12_SRCDESC_EXTRATYPE + extra_len + name_len - 1] != '\0') {
-                *err = WTAP_ERR_BAD_FILE;
-                *err_info = g_strdup("k12_open: source descriptor record contains non-null-terminated link-layer name");
-                destroy_k12_file_data(file_data);
-                g_free(rec);
-                return -1;
-            }
-            if (read_buffer[K12_SRCDESC_EXTRATYPE + extra_len + name_len + stack_len - 1] != '\0') {
-                *err = WTAP_ERR_BAD_FILE;
-                *err_info = g_strdup("k12_open: source descriptor record contains non-null-terminated stack path");
-                destroy_k12_file_data(file_data);
-                g_free(rec);
-                return -1;
-            }
+            /* XXX - this is assumed, in a number of places (not just in the
+               ascii_strdown_inplace() call below) to be null-terminated;
+               is that guaranteed (even with a corrupt file)?
+	       Obviously not, as a corrupt file could contain anything
+	       here; the Tektronix document says the strings "must end
+	       with \0", but a bad file could fail to add the \0. */
             rec->input_name = (gchar *)g_memdup(read_buffer + K12_SRCDESC_EXTRATYPE + extra_len, name_len);
             rec->stack_file = (gchar *)g_memdup(read_buffer + K12_SRCDESC_EXTRATYPE + extra_len + name_len, stack_len);
 

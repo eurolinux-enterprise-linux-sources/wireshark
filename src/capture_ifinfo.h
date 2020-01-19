@@ -1,7 +1,7 @@
 /* capture_ifinfo.h
  * Definitions for routines to get information about capture interfaces
  *
- * $Id$
+ * $Id: capture_ifinfo.h 49753 2013-06-04 05:27:06Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

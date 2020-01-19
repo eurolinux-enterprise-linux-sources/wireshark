@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.10/2001/Call-Offer-Operations.asn
 --
--- $Id$
+-- $Id: Call-Offer-Operations.asn 22417 2007-07-30 08:01:59Z kukosa $
 --
 
 -- Module Call-Offer-Operations (H.450.10:03/2001)

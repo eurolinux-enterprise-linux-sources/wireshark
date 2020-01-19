@@ -1,6 +1,6 @@
 # To be included into the asn1 Makefiles
 #
-# $Id$
+# $Id: Makefile.preinc 43536 2012-06-28 22:56:06Z darkjames $
 #
 #
 # Wireshark - Network traffic analyzer

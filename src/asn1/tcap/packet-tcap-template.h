@@ -1,6 +1,6 @@
 /* packet-tcap.h
  *
- * $Id$
+ * $Id: packet-tcap-template.h 48558 2013-03-26 05:20:55Z etxrab $
  *
  * Copyright 2004, Tim Endean <endeant@hotmail.com>
  *

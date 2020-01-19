@@ -4,7 +4,7 @@
  * CIGI - http://cigi.sourceforge.net/
  * Copyright (c) 2005 The Boeing Company
  *
- * $Id$
+ * $Id: packet-cigi.c 48334 2013-03-15 22:40:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

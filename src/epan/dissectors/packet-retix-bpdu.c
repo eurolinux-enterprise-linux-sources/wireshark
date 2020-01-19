@@ -1,7 +1,7 @@
 /* packet-retix-bpdu.c
  * Routines for BPDU (Retix Spanning Tree Protocol) disassembly
  *
- * $Id$
+ * $Id: packet-retix-bpdu.c 47891 2013-02-26 01:06:19Z wmeier $
  *
  * Copyright 2005 Giles Scott (gscott <AT> arubanetworks dot com>
  *

@@ -2,7 +2,7 @@
  * Routines for GENERIC NETWORK INFORMATION MODEL Data dissection
  *
  * Copyright 2005 , Anders Broman <anders.broman [AT] ericsson.com>
- * $Id$
+ * $Id: packet-gnm-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

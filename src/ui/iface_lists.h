@@ -2,7 +2,7 @@
  * Declarations of routines to manage the global list of interfaces and to
  * update widgets/windows displaying items from those lists
  *
- * $Id$
+ * $Id: iface_lists.h 45767 2012-10-24 15:52:45Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

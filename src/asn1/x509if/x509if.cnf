@@ -1,7 +1,7 @@
 # x509if.cnf
 # X509IF conformation file
 
-# $Id$
+# $Id: x509if.cnf 48008 2013-03-02 14:51:04Z etxrab $
 
 #.IMPORT ../x509sat/x509sat-exp.cnf
 

@@ -2,7 +2,7 @@
  * Routines for H.264 dissection
  * Copyright 2007, Anders Broman <anders.broman[at]ericsson.com>
  *
- * $Id$
+ * $Id: packet-h264.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

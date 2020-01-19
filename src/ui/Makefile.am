@@ -2,7 +2,7 @@
 # Automake file for the common-to-all-toolkits user interface routines
 # for Wireshark
 #
-# $Id$
+# $Id: Makefile.am 44907 2012-09-14 21:06:26Z gerald $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

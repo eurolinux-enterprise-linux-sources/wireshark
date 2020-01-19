@@ -6,7 +6,7 @@
  *
  * Copyright 2011, Andy Lucas <andy@xmos.com>
  *
- * $Id$
+ * $Id: packet-ieee17221.c 47645 2013-02-12 21:26:47Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

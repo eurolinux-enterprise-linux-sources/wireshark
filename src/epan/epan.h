@@ -1,6 +1,6 @@
 /* epan.h
  *
- * $Id$
+ * $Id: epan.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark Protocol Analyzer Library
  *

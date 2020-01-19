@@ -6,7 +6,7 @@
  *
  * See: http://project.honeynet.org/tools/sebek/ for more details
  *
- * $Id$
+ * $Id: packet-sebek.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 <!-- WSUG Chapter BuildInstall -->
-<!-- $Id$ -->
+<!-- $Id: WSUG_chapter_build_install.xml 47148 2013-01-18 15:51:54Z alagoutte $ -->
 
 <chapter id="ChapterBuildInstall">
   <title>Building and Installing Wireshark</title>

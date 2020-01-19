@@ -2,7 +2,7 @@
  * Routines for the "Capture Options" dialog and dialog windows popped
  * up from it
  *
- * $Id$
+ * $Id: capture_dlg.c 52973 2013-10-29 22:19:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -245,9 +245,6 @@ static remote_options global_remote_opts;
 static guint num_selected = 0;
 #endif
 
-static gulong capture_all_handler_id;
-static gulong promisc_all_handler_id;
-
 static void
 capture_prep_file_cb(GtkWidget *file_bt, GtkWidget *file_te);
 
@@ -338,7 +335,7 @@ gint col_title_to_index(gchar *name)
   if (strcmp(name, "Prom. Mode") == 0) return PMODE;
   if (strcmp(name, "Snaplen [B]") == 0) return SNAPLEN;
 #if defined(_WIN32) || defined(HAVE_PCAP_CREATE)
-  if (strcmp(name, "Buffer [MiB]") == 0) return BUFFER;
+  if (strcmp(name, "Buffer [MB]") == 0) return BUFFER;
 #endif
 #if defined (HAVE_PCAP_CREATE)
   if (strcmp(name, "Mon. Mode") == 0) return MONITOR;
@@ -955,9 +952,9 @@ guint32 value)
 #define SIZE_UNIT_GIGABYTES 2
 #define MAX_SIZE_UNITS 3
 static const char *size_unit_name[MAX_SIZE_UNITS] = {
-  "kilobyte(s)",
-  "megabyte(s)",
-  "gigabyte(s)"
+  "kibibyte(s)",
+  "mebibyte(s)",
+  "gibibyte(s)"
 };
 
 /* create one of the size options */
@@ -973,11 +970,11 @@ static GtkWidget *size_unit_combo_box_new(guint32 value) {
   /* the selected combo_box item can't be changed, once the combo_box
      is created, so set the matching combo_box item now */
   /* gigabytes */
-  if (value >= 1000 * 1000) {
+  if (value >= 1024 * 1024) {
     gtk_combo_box_set_active(GTK_COMBO_BOX(unit_combo_box), SIZE_UNIT_GIGABYTES);
   } else {
     /* megabytes */
-    if (value >= 1000) {
+    if (value >= 1024) {
       gtk_combo_box_set_active(GTK_COMBO_BOX(unit_combo_box), SIZE_UNIT_MEGABYTES);
     } else {
       /* kilobytes */
@@ -987,18 +984,18 @@ static GtkWidget *size_unit_combo_box_new(guint32 value) {
   return unit_combo_box;
 }
 
-/* convert size value from raw to displayed (e.g. 1000 Bytes -> 1 kB) */
+/* convert size value from raw to displayed (e.g. 1024 Bytes -> 1 KB) */
 static guint32 size_unit_combo_box_set_value(
 guint32 value)
 {
   /* gigabytes */
-  if (value >= 1000 * 1000) {
-    return value / (1000 * 1000);
+  if (value >= 1024 * 1024) {
+    return value / (1024 * 1024);
   }
 
   /* megabytes */
-  if (value >= 1000) {
-    return value / (1000);
+  if (value >= 1024) {
+    return value / (1024);
   }
 
   /* kilobytes */
@@ -1016,22 +1013,22 @@ guint32 value)
 
   switch(unit) {
   case(SIZE_UNIT_KILOBYTES):
-    if (value > (((guint32)G_MAXINT + 1) / 1000)) {
+    if (value > (((guint32)G_MAXINT + 1) / 1024)) {
         return 0;
     } else {
-        return value;
+    return value;
     }
   case(SIZE_UNIT_MEGABYTES):
-    if (value > (((guint32)G_MAXINT + 1) / (1000 * 1000))) {
+    if (value > (((guint32)G_MAXINT + 1) / (1024 * 1024))) {
       return 0;
     } else {
-      return value * 1000;
+      return value * 1024;
     }
   case(SIZE_UNIT_GIGABYTES):
-    if (value > (((guint32)G_MAXINT + 1) / (1000 * 1000 * 1000))) {
+    if (value > (((guint32)G_MAXINT + 1) / (1024 * 1024 * 1024))) {
       return 0;
     } else {
-      return value * 1000 * 1000;
+      return value * 1024 * 1024;
     }
   default:
     g_assert_not_reached();
@@ -1391,35 +1388,45 @@ insert_new_rows(GList *list)
 #endif
 
 #ifdef HAVE_PCAP_REMOTE
-/* Retrieve the list of remote interfaces according to selected
+/* Retrieve the list of local or remote interfaces according to selected
  * options and re-fill interface name combobox */
 static void
-update_remote_interface_list(void)
+update_interface_list(void)
 {
   GtkWidget *iftype_cbx;
-  GList     *if_list;
-  int        err;
+  GList     *if_list, *if_r_list;
+  int        iftype_id, err;
   gchar     *err_str;
 
   if (cap_open_w == NULL)
     return;
   iftype_cbx = (GtkWidget *)g_object_get_data(G_OBJECT(g_object_get_data(G_OBJECT(interface_management_w), E_CAP_REMOTE_DIALOG_PTR_KEY)), E_REMOTE_HOST_TE_KEY);
-  if_list = get_remote_interface_list(global_remote_opts.remote_host_opts.remote_host,
-                                      global_remote_opts.remote_host_opts.remote_port,
-                                      global_remote_opts.remote_host_opts.auth_type,
-                                      global_remote_opts.remote_host_opts.auth_username,
-                                      global_remote_opts.remote_host_opts.auth_password,
-                                      &err, &err_str);
+  iftype_id = CAPTURE_IFREMOTE;
+  if (iftype_id >= CAPTURE_IFREMOTE) {
+    if_r_list = get_remote_interface_list(global_remote_opts.remote_host_opts.remote_host,
+                                        global_remote_opts.remote_host_opts.remote_port,
+                                        global_remote_opts.remote_host_opts.auth_type,
+                                        global_remote_opts.remote_host_opts.auth_username,
+                                        global_remote_opts.remote_host_opts.auth_password,
+                                        &err, &err_str);
+
+    if_list = if_r_list;
+  } else {
+    if_list = capture_interface_list(&err, &err_str);   /* Warning: see capture_prep_cb() */
+    g_object_set_data(G_OBJECT(cap_open_w), E_CAP_IF_LIST_KEY, NULL);
+  }
 
   if (if_list == NULL &&
       (err == CANT_GET_INTERFACE_LIST || err == DONT_HAVE_PCAP)) {
     gpointer dialog = simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "%s", err_str);
     g_free(err_str);
 
-    /* Fall back to previous interface list */
-    simple_dialog_set_cb(dialog, error_list_remote_interface_cb, iftype_cbx);
-    return;
-  } else {
+    if (iftype_id >= CAPTURE_IFREMOTE) {
+      /* Fall back to previous interface list */
+      simple_dialog_set_cb(dialog, error_list_remote_interface_cb, iftype_cbx);
+      return;
+    }
+  } else if (iftype_id == CAPTURE_IFREMOTE) {
     /* New remote interface */
     insert_new_rows(if_list);
     refresh_non_local_interface_lists();
@@ -1493,7 +1500,7 @@ capture_remote_ok_cb(GtkWidget *win _U_, GtkWidget *remote_w)
     g_strdup(gtk_entry_get_text(GTK_ENTRY(passwd_te)));
 
   window_destroy(GTK_WIDGET(remote_w));
-  update_remote_interface_list();
+  update_interface_list();
   fill_remote_list();
 }
 
@@ -2959,7 +2966,7 @@ void options_interface_cb(GtkTreeView *view, GtkTreePath *path, GtkTreeViewColum
    "The memory buffer size used while capturing. If you notice packet drops, you can try to increase this size.");
   gtk_box_pack_start (GTK_BOX(buffer_size_hb), buffer_size_sb, FALSE, FALSE, 0);
   g_object_set_data(G_OBJECT(opt_edit_w), E_CAP_BUFFER_SIZE_SB_KEY, buffer_size_sb);
-  buffer_size_lb = gtk_label_new("mebibyte(s)");
+  buffer_size_lb = gtk_label_new("megabyte(s)");
   gtk_box_pack_start (GTK_BOX(buffer_size_hb), buffer_size_lb, FALSE, FALSE, 3);
   gtk_misc_set_alignment(GTK_MISC(buffer_size_lb), 1, 0);
 #ifdef HAVE_PCAP_REMOTE
@@ -3247,11 +3254,13 @@ static void promisc_mode_callback(GtkToggleButton *button, gpointer d _U_)
   GtkTreeIter        iter;
   GtkTreeView       *if_cb;
   GtkTreeModel      *model;
-  gboolean           enabled = FALSE;
+  gboolean           enabled = FALSE, set;
   interface_t        device;
   interface_options  interface_opts;
   guint              i;
 
+  set = gtk_toggle_button_get_active(button);
+  gtk_toggle_button_set_active(button, (set?FALSE:TRUE));
   if (gtk_toggle_button_get_active(button))
     enabled = TRUE;
 
@@ -4469,17 +4478,15 @@ update_properties_all(void)
 
   /* If all interfaces are selected, check the "capture on all interfaces"
      checkbox, otherwise un-check it. */
-  capture_b = (GtkWidget *)g_object_get_data(G_OBJECT(cap_open_w), E_CAP_KEY_ALL);
-  g_signal_handler_block(capture_b, capture_all_handler_id);
-  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(capture_b), capture_all);
-  g_signal_handler_unblock(capture_b, capture_all_handler_id);
+  if (capture_all) {
+    capture_b = (GtkWidget *)g_object_get_data(G_OBJECT(cap_open_w), E_CAP_KEY_ALL);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(capture_b), TRUE);
+  }
 
   /* If all selected interfaces are in promiscuous mode, check the global
      "promiscuous mode" checkbox, otherwise un-check it. */
   promisc_b = (GtkWidget *)g_object_get_data(G_OBJECT(cap_open_w), E_CAP_PROMISC_KEY_ALL);
-  g_signal_handler_block(promisc_b, promisc_all_handler_id);
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(promisc_b), promisc_all);
-  g_signal_handler_unblock(promisc_b, promisc_all_handler_id);
 
   /* If all selected interfaces have the same filter string, set the
      global filter string to it. */
@@ -4591,7 +4598,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
   airpcap_if_list = get_airpcap_interface_list(&err, &err_str);
 
   /* If we don't get a list don't do any thing.
-   * If the error is AIRPCAP_NOT_LOADED it avoids an unnecessary rescan of the packet list
+   * If the error is AIRPCAP_NOT_LOADED it avoids a unneccessay rescan of the packet list
    * ( see airpcap_loader.h for error codes).
    */
   if (airpcap_if_list == NULL) {
@@ -4601,7 +4608,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
     }
   }else{
     decryption_cb = (GtkWidget *)g_object_get_data(G_OBJECT(wireless_tb),AIRPCAP_TOOLBAR_DECRYPTION_KEY);
-    /* XXXX update_decryption_mode_list() triggers a rescan, should only be done if the mode is changed */
+    /* XXXX update_decryption_mode_list() trigers a rescan, should only be done if the mode is changed */
     update_decryption_mode_list(decryption_cb);
     /* select the first as default (THIS SHOULD BE CHANGED) */
     airpcap_if_active = airpcap_get_default_if(airpcap_if_list);
@@ -4708,7 +4715,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
 
 #if defined(_WIN32) || defined(HAVE_PCAP_CREATE)
   renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes("Buffer [MiB]", renderer, "text", BUFFER, NULL);
+  column = gtk_tree_view_column_new_with_attributes("Buffer [MB]", renderer, "text", BUFFER, NULL);
   gtk_tree_view_append_column(GTK_TREE_VIEW(view), column);
   gtk_tree_view_column_set_reorderable(column, TRUE);
   g_object_set_data(G_OBJECT(column), E_MCAPTURE_COLUMNS_COL_KEY, GINT_TO_POINTER(BUFFER));
@@ -4781,7 +4788,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
 
   all_cb = gtk_check_button_new_with_mnemonic( "Capture on all interfaces");
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(all_cb), FALSE);
-  capture_all_handler_id = g_signal_connect(all_cb, "toggled", G_CALLBACK(capture_all_cb), NULL);
+  g_signal_connect(all_cb, "toggled", G_CALLBACK(capture_all_cb), NULL);
   gtk_widget_set_tooltip_text(all_cb, "Activate the box to capture on all interfaces. "
     "Deactivate it to capture on none and set the interfaces individually.");
   gtk_box_pack_start(GTK_BOX(left_vb), all_cb, TRUE, TRUE, 0);
@@ -4794,7 +4801,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
   } else {
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(promisc_cb), get_all_prom_mode());
   }
-  promisc_all_handler_id = g_signal_connect(promisc_cb, "toggled", G_CALLBACK(promisc_mode_callback), NULL);
+  g_signal_connect(promisc_cb, "button-press-event", G_CALLBACK(promisc_mode_callback), NULL);
 
   gtk_widget_set_tooltip_text(promisc_cb,
     "Usually a network adapter will only capture the traffic sent to its own network address. "
@@ -4856,6 +4863,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
     }
   }
   if (global_capture_opts.default_options.cfilter && (strlen(global_capture_opts.default_options.cfilter) > 0)) {
+fprintf(stderr, "Adding the default filter \"%s\"???\n", global_capture_opts.default_options.cfilter);
     gtk_combo_box_text_prepend_text(GTK_COMBO_BOX_TEXT(all_filter_cm), global_capture_opts.default_options.cfilter);
     gtk_combo_box_set_active(GTK_COMBO_BOX(all_filter_cm), 0);
   }
@@ -5304,7 +5312,7 @@ capture_prep_cb(GtkWidget *w _U_, gpointer d _U_)
 
   window_get_geometry(top_level, &tl_geom);
   gtk_window_set_default_size(GTK_WINDOW(cap_open_w), tl_geom.width * 8 / 10, -1);
-
+  
   gtk_widget_show_all(cap_open_w);
   window_present(cap_open_w);
 
@@ -5345,7 +5353,7 @@ capture_start_cb(GtkWidget *w _U_, gpointer d _U_)
     }
     success = capture_dlg_prep(cap_open_w);
     if (success)
-      window_destroy(GTK_WIDGET(cap_open_w));
+    window_destroy(GTK_WIDGET(cap_open_w));
     if (!success)
       return;   /* error in options dialog */
   }
@@ -5651,7 +5659,6 @@ create_and_fill_model(GtkTreeView *view)
   guint         i;
   link_row     *linkr = NULL;
   interface_t   device;
-  gboolean      found_active_dlt;
 #if defined(_WIN32) || defined(HAVE_PCAP_CREATE)
   gint          buffer;
 #endif
@@ -5677,33 +5684,6 @@ create_and_fill_model(GtkTreeView *view)
       linkname = NULL;
       if(capture_dev_user_linktype_find(device.name) != -1) {
         device.active_dlt = capture_dev_user_linktype_find(device.name);
-
-        /*
-         * Is that one of the supported link-layer header types?
-         * If not, set it to -1, so we'll fall back on the first supported
-         * link-layer header type.
-         */
-        found_active_dlt = FALSE;
-        for (list = device.links; list != NULL; list = g_list_next(list)) {
-          linkr = (link_row *)(list->data);
-          if (linkr->dlt != -1 && linkr->dlt == device.active_dlt) {
-            found_active_dlt = TRUE;
-            break;
-          }
-        }
-        if (!found_active_dlt) {
-          device.active_dlt = -1;
-        }
-        if (device.active_dlt == -1) {
-          /* Fall back on the first supported DLT, if we have one. */
-          for (list = device.links; list != NULL; list = g_list_next(list)) {
-            linkr = (link_row *)(list->data);
-            if (linkr->dlt != -1) {
-              device.active_dlt = linkr->dlt;
-              break;
-            }
-          }
-        }
       }
       for (list = device.links; list != NULL; list = g_list_next(list)) {
         linkr = (link_row*)(list->data);
@@ -5721,7 +5701,7 @@ create_and_fill_model(GtkTreeView *view)
       hassnap = capture_dev_user_hassnap_find(device.name);
       snaplen = capture_dev_user_snaplen_find(device.name);
       if(snaplen != -1 && hassnap != -1) {
-        /* Default snap length set in preferences */
+        /* Default snap lenght set in preferences */
         device.snaplen = snaplen;
         device.has_snaplen = hassnap;
       } else {
@@ -5729,7 +5709,7 @@ create_and_fill_model(GtkTreeView *view)
         device.snaplen = WTAP_MAX_PACKET_SIZE;
         device.has_snaplen = FALSE;
       }
-
+      
       if (device.has_snaplen) {
         snaplen_string = g_strdup_printf("%d", device.snaplen);
       } else {
@@ -5742,7 +5722,7 @@ create_and_fill_model(GtkTreeView *view)
         device.buffer = buffer;
       } else {
         device.buffer = DEFAULT_CAPTURE_BUFFER_SIZE;
-      }
+      } 
 #endif
       global_capture_opts.all_ifaces = g_array_remove_index(global_capture_opts.all_ifaces, i);
       g_array_insert_val(global_capture_opts.all_ifaces, i, device);

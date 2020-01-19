@@ -1,7 +1,7 @@
 # camel.cnf
 # camel conformation file
 # Anders Broman 2007
-# $Id$
+# $Id: camel.cnf 45194 2012-09-28 16:31:08Z pascal $
 
 #.IMPORT ../gsm_map/gsm_map-exp.cnf
 #.IMPORT ../inap/inap-exp.cnf

@@ -6,7 +6,7 @@
 #
 # (c) 2006, Luis E. Garcia Onatnon <luis@ontanon.org>
 #
-# $Id$
+# $Id: make-init-lua.pl 49730 2013-06-03 22:03:32Z etxrab $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

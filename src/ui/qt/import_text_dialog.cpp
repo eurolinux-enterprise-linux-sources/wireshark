@@ -1,6 +1,6 @@
 /* import_text_dialog.cpp
  *
- * $Id$
+ * $Id: import_text_dialog.cpp 48787 2013-04-08 07:15:50Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

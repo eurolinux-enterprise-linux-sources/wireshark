@@ -1,4 +1,4 @@
-# $Id$
+# $Id: Makefile.inc 32809 2010-05-14 17:05:50Z morriss $
 
 IDL2WRS=../idl2wrs
 

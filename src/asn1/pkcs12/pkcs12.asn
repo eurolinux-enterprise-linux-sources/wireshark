@@ -1,7 +1,7 @@
 PKCS-12 {iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
                  pkcs-12(12) modules(0)  pkcs-12(1)}
 
--- $Id$
+-- $Id: pkcs12.asn 25803 2008-07-23 12:45:24Z etxrab $
 
 DEFINITIONS IMPLICIT TAGS ::=
 

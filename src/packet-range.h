@@ -1,7 +1,7 @@
 /* packet-range.h
  * Packet range routines (save, print, ...)
  *
- * $Id$
+ * $Id: packet-range.h 45333 2012-10-05 18:52:42Z gerald $
  *
  * Dick Gooris <gooris@lucent.com>
  * Ulf Lamping <ulf.lamping@web.de>

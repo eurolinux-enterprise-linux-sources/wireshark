@@ -3,7 +3,7 @@
 *
 *  (c) 2005, Luis E. G. Ontanon <luis@ontanon.org>
 *
-* $Id$
+* $Id: pinfo_stats_tree.c 52974 2013-10-29 22:55:21Z gerald $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

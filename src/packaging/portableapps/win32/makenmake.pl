@@ -1,6 +1,6 @@
 #
 # makenmake.pl - create a nmake file from a generic manifest file that will create the appropriate PortableApp structure
-# $Id$
+# $Id: makenmake.pl 47833 2013-02-23 09:58:46Z alagoutte $
 #
 
 print q{

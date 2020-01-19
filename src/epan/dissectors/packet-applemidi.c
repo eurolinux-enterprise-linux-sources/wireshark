@@ -2,7 +2,7 @@
  * Routines for dissection of Apple network-midi session establishment.
  * Copyright 2006-2012, Tobias Erichsen <t.erichsen@gmx.de>
  *
- * $Id$
+ * $Id: packet-applemidi.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

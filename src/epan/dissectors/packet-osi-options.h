@@ -1,7 +1,7 @@
 /* packet-osi-options.h
  * Defines for OSI options part decode
  *
- * $Id$
+ * $Id: packet-osi-options.h 43536 2012-06-28 22:56:06Z darkjames $
  * Ralf Schneider <Ralf.Schneider@t-online.de>
  *
  * Wireshark - Network traffic analyzer

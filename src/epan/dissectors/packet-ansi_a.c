@@ -14,7 +14,7 @@
  *   2000 Access Network Interfaces
  *                      3GPP2 A.S0001-1         TIA/EIA-2001
  *
- * $Id$
+ * $Id: packet-ansi_a.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -951,7 +951,7 @@ ansi_a_so_int_to_str(
     }
 
 #define NO_MORE_DATA_CHECK(nmdc_len) \
-    if ((nmdc_len) <= (curr_offset - offset)) return(nmdc_len);
+    if ((nmdc_len) == (curr_offset - offset)) return(nmdc_len);
 
 
 /*

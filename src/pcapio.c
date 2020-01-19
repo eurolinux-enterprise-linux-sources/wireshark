@@ -16,7 +16,7 @@
  *
  * Libpcap's pcap_dump() also doesn't return any error indications.
  *
- * $Id$
+ * $Id: pcapio.c 46898 2013-01-02 16:25:33Z tuexen $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

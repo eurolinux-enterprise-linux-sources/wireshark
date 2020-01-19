@@ -3,7 +3,7 @@
 #     a) common to both files and
 #     b) portable between both files
 #
-# $Id$
+# $Id: Makefile.common 49758 2013-06-04 07:33:53Z etxrab $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -25,7 +25,7 @@
 
 # "BUILT_SOURCES" are built before any "make all" or "make check" targets.
 BUILT_HEADER_FILES =	\
-	version.h
+	svnversion.h
 
 BUILT_C_FILES =		\
 	ps.c
@@ -63,7 +63,7 @@ WIRESHARK_COMMON_SRC =	\
 
 # corresponding headers
 WIRESHARK_COMMON_INCLUDES =	\
-	version.h		\
+	svnversion.h		\
 	capture-pcap-util.h	\
 	capture-pcap-util-int.h	\
 	cfile.h			\
@@ -170,7 +170,7 @@ text2pcap_INCLUDES = \
 mergecap_SOURCES = \
 	mergecap.c \
 	merge.c \
-	version.h
+	svnversion.h
 
 # editcap specifics
 editcap_SOURCES = \
@@ -182,7 +182,7 @@ editcap_SOURCES = \
 # reordercap specifics
 reordercap_SOURCES = \
 	reordercap.c \
-	version.h
+	svnversion.h
 
 # capinfos specifics
 capinfos_SOURCES = \

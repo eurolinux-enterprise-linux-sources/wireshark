@@ -2,7 +2,7 @@
  * Routines for "Time Shift" window
  * Submitted by Edwin Groothuis <wireshark@mavetju.org>
  *
- * $Id$
+ * $Id: time_shift.c 46680 2012-12-21 17:37:57Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <math.h>
 
 #include <glib.h>
@@ -175,7 +176,7 @@ time_string_parse(const gchar *time_text, int *year, int *month, int *day, gbool
     pts = (gchar *)time_text;
 
     /* strip whitespace */
-    while (g_ascii_isspace(pts[0]))
+    while (isspace(pts[0]))
         ++pts;
 
     if (year && month && day) {

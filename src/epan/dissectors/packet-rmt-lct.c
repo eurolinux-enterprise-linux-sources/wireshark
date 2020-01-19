@@ -17,7 +17,7 @@
  * References:
  *     RFC 3451, Layered Coding Transport (LCT) Building Block
  *
- * $Id$
+ * $Id: packet-rmt-lct.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

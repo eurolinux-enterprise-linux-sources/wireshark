@@ -2,7 +2,7 @@
  * Copyright 2004, Irene Ruengeler <i.ruengeler [AT] fh-muenster.de>
  * Copyright 2009, Varun Notibala <nbvarun [AT] gmail.com>
  *
- * $Id$
+ * $Id: sctp_graph_dlg.c 48925 2013-04-19 11:34:46Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

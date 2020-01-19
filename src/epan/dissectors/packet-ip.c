@@ -1,7 +1,7 @@
 /* packet-ip.c
  * Routines for IP and miscellaneous IP protocol packet disassembly
  *
- * $Id$
+ * $Id: packet-ip.c 50710 2013-07-17 22:20:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -72,7 +72,7 @@ static gboolean ip_defragment = TRUE;
 static gboolean ip_summary_in_tree = TRUE;
 
 /* Perform IP checksum */
-static gboolean ip_check_checksum = FALSE;
+static gboolean ip_check_checksum = TRUE;
 
 /* Assume TSO and correct zero-length IP packets */
 static gboolean ip_tso_supported = TRUE;

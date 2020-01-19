@@ -2,7 +2,7 @@
  * Definitions of OSI NLPIDs (Network Layer Protocol IDs)
  * Laurent Deniel <laurent.deniel@free.fr>
  *
- * $Id$
+ * $Id: nlpid.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -47,7 +47,6 @@
 #define NLPID_ISO11577		0x8d	/* X.273 */
 #define NLPID_IP6		0x8e
 #define NLPID_COMPRESSED	0xb0	/* "Data compression protocol" */
-#define NLPID_TRILL		0xc0
 #define NLPID_SNDCF		0xc1	/* "SubNetwork Dependent Convergence Function */
 #define NLPID_IEEE_8021AQ	0xc1	/* IEEE 802.1aq (draft-ietf-isis-ieee-aq-05.txt); defined in context of ISIS "supported protocols" TLV */
 #define NLPID_IP		0xcc

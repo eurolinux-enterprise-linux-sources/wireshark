@@ -2,7 +2,7 @@
 # H.460.x conformation file
 # 2007  Tomas Kukosa
 
-# $Id$
+# $Id: h460.cnf 25839 2008-07-26 15:28:04Z kukosa $
 
 #.INCLUDE ../h225/h225-exp.cnf
 #.INCLUDE ../h235/h235-exp.cnf

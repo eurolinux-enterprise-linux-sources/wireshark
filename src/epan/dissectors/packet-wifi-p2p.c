@@ -4,7 +4,7 @@
  *
  * Copyright 2009-2010 Atheros Communications
  *
- * $Id$
+ * $Id: packet-wifi-p2p.c 47390 2013-01-31 18:31:28Z wmeier $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

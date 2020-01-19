@@ -1,6 +1,6 @@
 /* packet-inap.h
  *
- * $Id$
+ * $Id: packet-inap-template.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Copyright 2004, Tim Endean <endeant@hotmail.com>
  *

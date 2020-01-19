@@ -1,6 +1,6 @@
 /* main_welcome.h
  *
- * $Id$
+ * $Id: main_welcome.h 46350 2012-12-03 19:58:55Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

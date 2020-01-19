@@ -1,7 +1,7 @@
 /* packet-s5066.c
  * Routines for STANAG 5066 SIS layer packet disassembly
  *
- * $Id$
+ * $Id: packet-s5066.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Copyright (c) 2005 by Menno Andriesse <s5066 [AT] nc3a.nato.int>
  *

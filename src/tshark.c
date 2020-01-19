@@ -3,7 +3,7 @@
  * Text-mode variant of Wireshark, along the lines of tcpdump and snoop,
  * by Gilbert Ramirez <gram@alumni.rice.edu> and Guy Harris <guy@alum.mit.edu>.
  *
- * $Id$
+ * $Id: tshark.c 52974 2013-10-29 22:55:21Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -144,7 +144,7 @@ static const char *separator = "";
 /*
  * TRUE if we're to print packet counts to keep track of captured packets.
  */
-static gboolean print_packet_counts;
+static gboolean print_packet_counts = TRUE;
 
 static capture_options global_capture_opts;
 static capture_session global_capture_session;
@@ -164,11 +164,6 @@ static void capture_cleanup(int);
 static void report_counts_siginfo(int);
 #endif /* SIGINFO */
 #endif /* _WIN32 */
-
-#else /* HAVE_LIBPCAP */
-
-static char *output_file_name;
-
 #endif /* HAVE_LIBPCAP */
 
 static int load_cap_file(capture_file *, char *, int, gboolean, int, gint64);
@@ -245,7 +240,7 @@ print_usage(gboolean print_ver)
         "See http://www.wireshark.org for more information.\n"
         "\n"
         "%s",
-         wireshark_gitversion, get_copyright_info());
+         wireshark_svnversion, get_copyright_info());
   } else {
     output = stderr;
   }
@@ -354,7 +349,7 @@ glossary_option_help(void)
 
   output = stdout;
 
-  fprintf(output, "TShark " VERSION "%s\n", wireshark_gitversion);
+  fprintf(output, "TShark " VERSION "%s\n", wireshark_svnversion);
 
   fprintf(output, "\n");
   fprintf(output, "Usage: tshark -G [report]\n");
@@ -858,7 +853,7 @@ show_version(GString *comp_info_str, GString *runtime_info_str)
          "%s"
          "\n"
          "%s",
-         wireshark_gitversion, get_copyright_info(), comp_info_str->str,
+         wireshark_svnversion, get_copyright_info(), comp_info_str->str,
          runtime_info_str->str);
 }
 
@@ -952,7 +947,7 @@ main(int argc, char *argv[])
          "%s"
          "\n"
          "%s",
-      wireshark_gitversion, comp_info_str->str, runtime_info_str->str);
+      wireshark_svnversion, comp_info_str->str, runtime_info_str->str);
 
 #ifdef _WIN32
   arg_list_utf_16to8(argc, argv);
@@ -1232,16 +1227,8 @@ main(int argc, char *argv[])
         return status;
       }
 #else
-      if (opt == 'w') {
-        /*
-         * Output file name, if we're reading a file and writing to another
-         * file.
-         */
-        output_file_name = optarg;
-      } else {
-        capture_option_specified = TRUE;
-        arg_error = TRUE;
-      }
+      capture_option_specified = TRUE;
+      arg_error = TRUE;
 #endif
       break;
     case 'C':
@@ -1425,7 +1412,6 @@ main(int argc, char *argv[])
       }
       break;
     case 'T':        /* printing Type */
-      print_packet_info = TRUE;
       if (strcmp(optarg, "text") == 0) {
         output_action = WRITE_TEXT;
         print_format = PR_FMT_TEXT;
@@ -1705,7 +1691,7 @@ main(int argc, char *argv[])
 
         /* When capturing, we only support writing pcap or pcap-ng format. */
         if (out_file_type != WTAP_FILE_PCAP && out_file_type != WTAP_FILE_PCAPNG) {
-          cmdarg_err("Live captures can only be saved in pcap or pcapng format.");
+          cmdarg_err("Live captures can only be saved in libpcap format.");
           return 1;
         }
         if (global_capture_opts.multi_files_on) {
@@ -1740,7 +1726,6 @@ main(int argc, char *argv[])
           cmdarg_err("Display filters aren't supported when capturing and saving the captured packets.");
           return 1;
         }
-        global_capture_opts.use_pcapng = (out_file_type == WTAP_FILE_PCAPNG) ? TRUE : FALSE;
       } else {
         /* They didn't specify a "-w" flag, so we won't be saving to a
            capture file.  Check for options that only make sense if
@@ -1935,7 +1920,7 @@ main(int argc, char *argv[])
           global_capture_opts.has_autostop_packets ? global_capture_opts.autostop_packets : 0,
           global_capture_opts.has_autostop_filesize ? global_capture_opts.autostop_filesize : 0);
 #else
-      err = load_cap_file(&cfile, output_file_name, out_file_type, out_file_name_res, 0, 0);
+      err = load_cap_file(&cfile, NULL, out_file_type, out_file_name_res, 0, 0);
 #endif
     }
     CATCH(OutOfMemoryError) {
@@ -1991,43 +1976,23 @@ main(int argc, char *argv[])
         return 0;
     }
 
-    /*
-     * If the standard error isn't a terminal, don't print packet counts,
-     * as they won't show up on the user's terminal and they'll get in
-     * the way of error messages in the file (to which we assume the
-     * standard error was redirected; if it's redirected to the null
-     * device, there's no point in printing packet counts anyway).
-     *
-     * Otherwise, if we're printing packet information and the standard
-     * output is a terminal (which we assume means the standard output and
-     * error are going to the same terminal), don't print packet counts,
-     * as they'll get in the way of the packet information.
-     *
-     * Otherwise, if the user specified -q, don't print packet counts.
-     *
-     * Otherwise, print packet counts.
-     *
-     * XXX - what if the user wants to do a live capture, doesn't want
-     * to save it to a file, doesn't want information printed for each
-     * packet, does want some "-z" statistic, and wants packet counts
-     * so they know whether they're seeing any packets?  -q will
-     * suppress the information printed for each packet, but it'll
-     * also suppress the packet counts.
-     */
-    if (!isatty(fileno(stderr)))
-      print_packet_counts = FALSE;
-    else if (print_packet_info && isatty(fileno(stdout)))
-      print_packet_counts = FALSE;
-    else if (quiet)
-      print_packet_counts = FALSE;
-    else
-      print_packet_counts = TRUE;
-
     if (print_packet_info) {
       if (!write_preamble(NULL)) {
         show_print_file_io_error(errno);
         return 2;
       }
+    } else if (!quiet) {
+      /*
+       * We're not printing information for each packet, and the user
+       * didn't ask us not to print a count of packets as they arrive,
+       * so print that count so the user knows that packets are arriving.
+       *
+       * XXX - what if the user wants to do a live capture, doesn't want
+       * to save it to a file, doesn't want information printed for each
+       * packet, does want some "-z" statistic, and wants packet counts
+       * so they know whether they're seeing any packets?
+       */
+      print_packet_counts = TRUE;
     }
 
     /* For now, assume libpcap gives microsecond precision. */
@@ -2198,7 +2163,7 @@ capture(void)
 {
   gboolean          ret;
   guint             i;
-  GString          *str;
+  GString          *str = g_string_new("");
 #ifdef USE_TSHARK_SELECT
   fd_set            readfds;
 #endif
@@ -2282,7 +2247,29 @@ capture(void)
     global_capture_opts.ifaces = g_array_remove_index(global_capture_opts.ifaces, i);
     g_array_insert_val(global_capture_opts.ifaces, i, interface_opts);
   }
-  str = get_iface_list_string(&global_capture_opts, IFLIST_QUOTE_IF_DESCRIPTION);
+#ifdef _WIN32
+  if (global_capture_opts.ifaces->len < 2) {
+#else
+  if (global_capture_opts.ifaces->len < 4) {
+#endif
+    for (i = 0; i < global_capture_opts.ifaces->len; i++) {
+      interface_options interface_opts;
+
+      interface_opts = g_array_index(global_capture_opts.ifaces, interface_options, i);
+      if (i > 0) {
+          if (global_capture_opts.ifaces->len > 2) {
+              g_string_append_printf(str, ",");
+          }
+          g_string_append_printf(str, " ");
+          if (i == global_capture_opts.ifaces->len - 1) {
+              g_string_append_printf(str, "and ");
+          }
+      }
+      g_string_append_printf(str, "'%s'", interface_opts.descr);
+    }
+  } else {
+    g_string_append_printf(str, "%u interfaces", global_capture_opts.ifaces->len);
+  }
   if (really_quiet == FALSE)
     fprintf(stderr, "Capturing on %s\n", str->str);
   fflush(stderr);
@@ -2904,7 +2891,7 @@ load_cap_file(capture_file *cf, char *save_file, int out_file_type,
     }
     /* If we don't have an application name add Tshark */
     if (shb_hdr->shb_user_appl == NULL) {
-        g_snprintf(appname, sizeof(appname), "TShark " VERSION "%s", wireshark_gitversion);
+        g_snprintf(appname, sizeof(appname), "TShark " VERSION "%s", wireshark_svnversion);
         shb_hdr->shb_user_appl = appname;
     }
 
@@ -3164,7 +3151,6 @@ load_cap_file(capture_file *cf, char *save_file, int out_file_type,
     case WTAP_ERR_DECOMPRESS:
       cmdarg_err("The compressed file \"%s\" appears to be damaged or corrupt.\n"
                  "(%s)", cf->filename, err_info);
-      g_free(err_info);
       break;
 
     default:
@@ -3858,8 +3844,8 @@ cf_open_error_message(int err, gchar *err_info, gboolean for_writing,
     case WTAP_ERR_UNSUPPORTED:
       /* Seen only when opening a capture file for reading. */
       g_snprintf(errmsg_errno, sizeof(errmsg_errno),
-                 "The file \"%%s\" contains record data that TShark doesn't support.\n"
-                 "(%s)", err_info);
+               "The file \"%%s\" isn't a capture file in a format TShark understands.\n"
+               "(%s)", err_info);
       g_free(err_info);
       errmsg = errmsg_errno;
       break;

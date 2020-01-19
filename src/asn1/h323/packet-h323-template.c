@@ -2,7 +2,7 @@
  * Routines for H.323 packet dissection
  * 2007  Tomas Kukosa
  *
- * $Id$
+ * $Id: packet-h323-template.c 48429 2013-03-19 21:22:31Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* file_dlg.h
  * Declarations of utilities to use when constructing file selection dialogs
  *
- * $Id$
+ * $Id: file_dlg.h 49781 2013-06-05 04:51:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

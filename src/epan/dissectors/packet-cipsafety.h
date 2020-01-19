@@ -5,7 +5,7 @@
  * Copyright 2011
  * Michael Mann <mmann@pyramidsolutions.com>
  *
- * $Id$
+ * $Id: packet-cipsafety.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

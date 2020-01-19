@@ -2,7 +2,7 @@
  * Routines for packet dissection of Ericsson HDLC as used in A-bis over IP
  * Copyright 2010-2012 by Harald Welte <laforge@gnumonks.org>
  *
- * $Id$
+ * $Id: packet-ehdlc.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * This code is based on pure educational guesses while looking at protocol
  * traces, as there is no publicly available protocol description by Ericsson.

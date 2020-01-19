@@ -5,7 +5,7 @@
  * compiler warnings about deprecated definitions.
  * Try to work around these warnings to ensure a clean build with -Werror.
  *
- * $Id$
+ * $Id: wsgcrypt.h 48295 2013-03-14 08:42:51Z stig $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

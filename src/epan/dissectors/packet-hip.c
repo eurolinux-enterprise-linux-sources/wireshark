@@ -2,7 +2,7 @@
  * Definitions and routines for HIP control packet disassembly
  * Samu Varjonen <samu.varjonen@hiit.fi>
  *
- * $Id$
+ * $Id: packet-hip.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Based on dissector originally created by
  *   Jeff Ahrenholz <jeffrey.m.ahrenholz@boeing.com>

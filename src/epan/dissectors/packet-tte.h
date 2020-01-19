@@ -8,7 +8,7 @@
  * http://www.tttech.com/solutions/ttethernet/
  *
  *
- * $Id$
+ * $Id: packet-tte.h 30989 2009-11-17 15:53:38Z krj $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

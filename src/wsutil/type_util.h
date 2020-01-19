@@ -1,7 +1,7 @@
 /* type_util.h
  * Types utility definitions
  *
- * $Id$
+ * $Id: type_util.h 47938 2013-02-28 14:09:46Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

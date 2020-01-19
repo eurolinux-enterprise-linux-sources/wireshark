@@ -31,7 +31,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id$
+ * $Id: erf.c 46984 2013-01-06 20:44:49Z guy $
  */
 
 /*
@@ -471,7 +471,7 @@ static int erf_read_header(FILE_T fh,
     case ERF_TYPE_TCP_FLOW_COUNTER:
       /* unsupported, continue with default: */
     default:
-      *err = WTAP_ERR_UNSUPPORTED;
+      *err = WTAP_ERR_UNSUPPORTED_ENCAP;
       *err_info = g_strdup_printf("erf: unknown record encapsulation %u",
                                   erf_header->type);
       return FALSE;

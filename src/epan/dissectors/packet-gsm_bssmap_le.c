@@ -5,7 +5,7 @@
  *
  * 3GPP TS 49.031 version v7.4.0 (2009-09)
  *
- * $Id$
+ * $Id: packet-gsm_bssmap_le.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -222,6 +222,7 @@ static gint ett_bssmap_le_msg = -1;
 
 static dissector_handle_t gsm_bsslap_handle = NULL;
 
+static packet_info *g_pinfo;
 static proto_tree *g_tree;
 
 #define	NUM_GSM_BSSMAP_LE_ELEM (sizeof(gsm_bssmap_le_elem_strings)/sizeof(value_string))
@@ -232,7 +233,7 @@ gint ett_gsm_bssmap_le_elem[NUM_GSM_BSSMAP_LE_ELEM];
  */
 
 static guint16
-de_bmaple_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
+de_bmaple_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
 {
 	guint32	curr_offset;
 	guint8	apdu_protocol_id;
@@ -261,7 +262,7 @@ de_bmaple_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offs
 		 */
 		APDU_tvb = tvb_new_subset(tvb, curr_offset+2, len-1, len-1);
 		if(gsm_bsslap_handle)
-			call_dissector(gsm_bsslap_handle, APDU_tvb, pinfo, g_tree);
+			call_dissector(gsm_bsslap_handle, APDU_tvb, g_pinfo, g_tree);
 		break;
 	case 2:
 		/* LLP
@@ -558,7 +559,7 @@ de_bmaple_lcs_qos(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint
  * 10.20 Positioning Data
  */
 static guint16
-de_bmaple_pos_dta(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
+de_bmaple_pos_dta(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
 {
 	tvbuff_t *data_tvb;
 	guint32	curr_offset;
@@ -566,7 +567,7 @@ de_bmaple_pos_dta(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 o
 	curr_offset = offset;
 
 	data_tvb = tvb_new_subset(tvb, curr_offset, len, len);
-	dissect_geographical_description(data_tvb, pinfo, tree);
+	dissect_geographical_description(data_tvb, g_pinfo, tree);
 
 	return(len);
 }
@@ -936,6 +937,7 @@ dissect_bssmap_le(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 	offset = 0;
 	saved_offset = offset;
 
+	g_pinfo = pinfo;
 	g_tree = tree;
 
 	len = tvb_length(tvb);

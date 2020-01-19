@@ -2,7 +2,7 @@
  * gtp_stat   2008 Kari Tiirikainen
  * Largely based on ldap_stat by Ronnie Sahlberg, all mistakes added by KTi
  *
- * $Id$
+ * $Id: gtp_stat.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

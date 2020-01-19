@@ -3,7 +3,7 @@
  *
  * (C) 2013 by Klyuchnikov Ivan <kluchnikovi@gmail.com>, Dario Lombardo <lomato@gmail.com>
  *
- * $Id$
+ * $Id: packet-uhd.c 48848 2013-04-14 18:55:28Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

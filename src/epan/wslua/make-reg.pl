@@ -5,7 +5,7 @@
 #
 # (c) 2006, Luis E. Garcia Onatnon <luis.ontanon@gmail.com>
 #
-# $Id$
+# $Id: make-reg.pl 45016 2012-09-20 01:48:30Z morriss $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

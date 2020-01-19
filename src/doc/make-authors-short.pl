@@ -1,4 +1,4 @@
-# $Id$
+# $Id: make-authors-short.pl 48991 2013-04-22 21:32:55Z gerald $
 
 # Remove tasks from individual author entries from AUTHORS file
 # for use in the about dialog.

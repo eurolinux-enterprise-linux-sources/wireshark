@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindCARES.cmake 30104 2009-09-23 19:40:25Z jmayer $
 #
 # - Find cares
 # Find the native CARES includes and library

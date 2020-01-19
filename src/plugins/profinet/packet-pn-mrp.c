@@ -2,7 +2,7 @@
  * Routines for PN-MRP (PROFINET Media Redundancy Protocol)
  * packet dissection.
  *
- * $Id$
+ * $Id: packet-pn-mrp.c 51870 2013-09-09 17:34:35Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

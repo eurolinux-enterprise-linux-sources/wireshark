@@ -6,7 +6,7 @@
  * Adds support for the data packet protocol for the SliMP3
  * See www.slimdevices.com for details.
  *
- * $Id$
+ * $Id: packet-slimp3.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -350,7 +350,7 @@ dissect_slimp3(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _
 					break;
 				case 3:
 					lcd_char = tvb_get_guint8(tvb, offset + i1 + 1);
-					if (!g_ascii_isprint(lcd_char))
+					if (!isprint(lcd_char))
 						lcd_char = '.';
 					if (ti && in_str) {
 						lcd_strlen += 2;
@@ -417,7 +417,7 @@ dissect_slimp3(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _
 						(lcd_str[lcd_strlen-1] != ' ') ||
 						(tvb_get_guint8(tvb, offset + i1 + 1) != ' ')) {
 							lcd_char = tvb_get_guint8(tvb, offset + i1 + 1);
-							lcd_str[lcd_strlen++] = g_ascii_isprint(lcd_char) ? lcd_char : '.';
+							lcd_str[lcd_strlen++] = isprint(lcd_char) ? lcd_char : '.';
 					}
 				}
 			}

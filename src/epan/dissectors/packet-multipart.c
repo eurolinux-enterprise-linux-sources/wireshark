@@ -3,7 +3,7 @@
  * Copyright 2004, Anders Broman.
  * Copyright 2004, Olivier Biot.
  *
- * $Id$
+ * $Id: packet-multipart.c 48399 2013-03-18 20:44:36Z etxrab $
  *
  * Refer to the AUTHORS file or the AUTHORS section in the man page
  * for contacting the author(s) of this file.
@@ -59,6 +59,7 @@
 #include "config.h"
 
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -324,7 +325,7 @@ static char *find_parameter(char *parameters, const char *key, int *retlen)
 
     while (*p) {
 
-        while ((*p) && g_ascii_isspace(*p))
+        while ((*p) && isspace((guchar)*p))
             p++; /* Skip white space */
 
         if (g_ascii_strncasecmp(p, key, keylen) == 0)
@@ -364,7 +365,7 @@ static char *find_parameter(char *parameters, const char *key, int *retlen)
          */
         p = start;
         while (*p) {
-            if (*p == ';' || g_ascii_isspace(*p))
+            if (*p == ';' || isspace((guchar)*p))
                 break;
             p++;
             len++;

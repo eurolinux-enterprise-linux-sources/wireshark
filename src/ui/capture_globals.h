@@ -1,7 +1,7 @@
 /* capture_globals.h
  * Capture-related globals.
  *
- * $Id$
+ * $Id: capture_globals.h 49759 2013-06-04 07:37:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

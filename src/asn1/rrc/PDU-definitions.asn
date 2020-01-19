@@ -1,5 +1,5 @@
 -- 3GPP TS 25.331 V11.5.0 (2013-03)
--- $Id$
+-- $Id: PDU-definitions.asn 48444 2013-03-20 21:15:19Z pascal $
 --
 PDU-definitions DEFINITIONS AUTOMATIC TAGS ::=
 

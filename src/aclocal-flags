@@ -36,7 +36,7 @@
 # and Glib are installed with the same prefix, we should only supply one
 # "-I" flag for both of them.
 #
-# $Id$
+# $Id: aclocal-flags 44922 2012-09-16 01:49:59Z guy $
 #
 
 #

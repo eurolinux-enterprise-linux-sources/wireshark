@@ -880,7 +880,7 @@ char *K12Text_text;
 #line 44 "k12text.l"
 /* k12text.l
  *
- * $Id$
+ * $Id: k12text.l 47613 2013-02-10 19:13:07Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

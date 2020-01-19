@@ -4,7 +4,7 @@
  * Copyright 2008 Ericsson AB
  * By Balint Reczey <balint.reczey@ericsson.com>
  *
- * $Id$
+ * $Id: tap-megaco-common.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

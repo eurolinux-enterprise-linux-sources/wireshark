@@ -5,7 +5,7 @@
  *
  * Copyright 2013, Scott Renfro <scott[AT]renfro.org>
  *
- * $Id$
+ * $Id: merge.c 47088 2013-01-15 02:17:16Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

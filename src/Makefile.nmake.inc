@@ -1,7 +1,7 @@
 # Makefile.nmake.inc
 # Include file for Makefile.am files to get additional rules
 #
-# $Id$
+# $Id: Makefile.nmake.inc 43536 2012-06-28 22:56:06Z darkjames $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

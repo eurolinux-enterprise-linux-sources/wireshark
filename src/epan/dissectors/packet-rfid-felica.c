@@ -11,7 +11,7 @@
  *
  * Copyright 2012, Tyson Key <tyson.key@gmail.com>
  *
- * $Id$
+ * $Id: packet-rfid-felica.c 47254 2013-01-24 10:14:37Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

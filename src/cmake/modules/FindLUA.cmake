@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: FindLUA.cmake 44669 2012-08-25 19:12:03Z eapache $
 #
 # Locate Lua library
 # This module defines

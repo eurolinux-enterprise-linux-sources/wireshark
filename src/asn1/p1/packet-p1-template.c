@@ -2,7 +2,7 @@
  * Routines for X.411 (X.400 Message Transfer)  packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-p1-template.c 50253 2013-06-30 13:46:31Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
 *
 * Routine to dissect ITU-T Rec. X.225 (1995 E)/ISO 8327-1 OSI Session Protocol packets
 *
-* $Id$
+* $Id: packet-ses.c 49721 2013-06-03 17:44:22Z gerald $
 *
 * Yuriy Sidelnikov <YSidelnikov@hotmail.com>
 *
@@ -1043,7 +1043,6 @@ dissect_spdu(tvbuff_t *tvb, int offset, packet_info *pinfo, proto_tree *tree,
 	type = tvb_get_guint8(tvb, offset);
 	session.spdu_type = type;
 	session.abort_type = SESSION_NO_ABORT;
-	session.pres_ctx_id = 0;
 	session.ros_op = 0;
 	session.rtse_reassemble = FALSE;
 

@@ -1,7 +1,7 @@
 /* time_shift_dlg.h
  * Submitted by Edwin Groothuis <wireshark@mavetju.org>
  *
- * $Id$
+ * $Id: time_shift_dlg.h 46680 2012-12-21 17:37:57Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

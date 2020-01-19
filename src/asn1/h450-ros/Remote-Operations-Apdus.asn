@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/asn1/database/itu-t/h/h450.1/1998/Remote-Operations-Apdus.asn
 --
--- $Id$
+-- $Id: Remote-Operations-Apdus.asn 23102 2007-10-08 23:52:21Z jmayer $
 --
 
 -- Module Remote-Operations-Apdus (H.450.1:02/1998)

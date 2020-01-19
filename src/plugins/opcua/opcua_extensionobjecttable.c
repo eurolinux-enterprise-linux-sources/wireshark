@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_extensionobjecttable.c 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -50,6 +50,7 @@ ExtensionObjectParserEntry g_arExtensionObjectParserTable[] = {
     { OpcUaId_ApplicationDescription_Encoding_DefaultBinary, parseApplicationDescription, "ApplicationDescription" },
     { OpcUaId_RequestHeader_Encoding_DefaultBinary, parseRequestHeader, "RequestHeader" },
     { OpcUaId_ResponseHeader_Encoding_DefaultBinary, parseResponseHeader, "ResponseHeader" },
+    { OpcUaId_ServiceFault_Encoding_DefaultBinary, parseServiceFault, "ServiceFault" },
     { OpcUaId_UserTokenPolicy_Encoding_DefaultBinary, parseUserTokenPolicy, "UserTokenPolicy" },
     { OpcUaId_EndpointDescription_Encoding_DefaultBinary, parseEndpointDescription, "EndpointDescription" },
     { OpcUaId_RegisteredServer_Encoding_DefaultBinary, parseRegisteredServer, "RegisteredServer" },

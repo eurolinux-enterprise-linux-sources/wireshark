@@ -3,7 +3,7 @@
  *
  * Copyright 2012, Michal Labedzki for Tieto Corporation
  *
- * $Id$
+ * $Id: packet-btavdtp.h 45921 2012-11-05 11:42:10Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* params.h
  * Definitions for parameter handling routines
  *
- * $Id$
+ * $Id: params.h 47397 2013-01-31 21:02:23Z martink $
  *
  * Ethereal - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

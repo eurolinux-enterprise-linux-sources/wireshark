@@ -1,7 +1,7 @@
 /* tempfile.c
  * Routines to create temporary files
  *
- * $Id$
+ * $Id: tempfile.c 47300 2013-01-26 15:51:01Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

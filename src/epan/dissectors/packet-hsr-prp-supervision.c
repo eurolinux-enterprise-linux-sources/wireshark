@@ -3,7 +3,7 @@
  * Copyright 2009, Florian Reichert <refl[AT]zhaw.ch>
  * Copyright 2011, Martin Renold <reld[AT]zhaw.ch>
  *
- * $Id$
+ * $Id: packet-hsr-prp-supervision.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

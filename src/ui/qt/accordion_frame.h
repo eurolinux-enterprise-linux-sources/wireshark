@@ -1,6 +1,6 @@
 /* accordion_frame.cpp
  *
- * $Id$
+ * $Id: accordion_frame.h 46609 2012-12-19 02:56:01Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

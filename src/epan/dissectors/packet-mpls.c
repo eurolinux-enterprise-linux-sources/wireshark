@@ -29,7 +29,7 @@
  * (c) Copyright 2012, Aditya Ambadkar and Diana Chris <arambadk,dvchris@ncsu.edu>
  *   -  Added preference to select BOS label as flowlabel as per RFC 6391
  *
- * $Id$
+ * $Id: packet-mpls.c 49189 2013-05-06 23:18:02Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -802,8 +802,6 @@ proto_reg_handoff_mpls(void)
     mpls_handle = find_dissector("mpls");
     dissector_add_uint("ethertype", ETHERTYPE_MPLS, mpls_handle);
     dissector_add_uint("ethertype", ETHERTYPE_MPLS_MULTI, mpls_handle);
-    dissector_add_uint("ppp.protocol", PPP_MPLS_UNI, mpls_handle);
-    dissector_add_uint("ppp.protocol", PPP_MPLS_MULTI, mpls_handle);
     dissector_add_uint("chdlctype", ETHERTYPE_MPLS, mpls_handle);
     dissector_add_uint("chdlctype", ETHERTYPE_MPLS_MULTI, mpls_handle);
     dissector_add_uint("gre.proto", ETHERTYPE_MPLS, mpls_handle);
@@ -829,7 +827,6 @@ proto_reg_handoff_mpls(void)
     dissector_pw_eth_heuristic      = find_dissector("pw_eth_heuristic");
     dissector_pw_fr                 = find_dissector("pw_fr");
     dissector_pw_hdlc_nocw_fr       = find_dissector("pw_hdlc_nocw_fr");
-    dissector_pw_hdlc_nocw_hdlc_ppp = find_dissector("pw_hdlc_nocw_hdlc_ppp");
     dissector_pw_eth_cw             = find_dissector("pw_eth_cw");
     dissector_pw_eth_nocw           = find_dissector("pw_eth_nocw");
     dissector_pw_satop              = find_dissector("pw_satop_mpls");

@@ -1,7 +1,7 @@
 /* capture_prefs.h
  * Definitions for capture preferences window
  *
- * $Id$
+ * $Id: prefs_capture.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

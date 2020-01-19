@@ -4,7 +4,7 @@
  * for calculation of delays in camel calls
  * Copyright 2006 Florent Drouin
  *
- * $Id$
+ * $Id: camel-persistentdata.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

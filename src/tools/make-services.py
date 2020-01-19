@@ -149,7 +149,7 @@ def main(argv):
     out.write('''\
 # This is a local copy of the IANA port-numbers file.
 #
-# $Id$
+# $Id: make-services.py 51190 2013-08-07 16:43:53Z gerald $
 #
 # Wireshark uses it to resolve port numbers into human readable
 # service names, e.g. TCP port 80 -> http.

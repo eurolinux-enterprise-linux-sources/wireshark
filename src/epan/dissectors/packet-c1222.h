@@ -10,7 +10,7 @@
  * Routines for ANSI C12.22 packet dissection
  * Copyright 2010, Edward J. Beroset, edward.j.beroset@us.elster.com
  *
- * $Id$
+ * $Id: packet-c1222.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

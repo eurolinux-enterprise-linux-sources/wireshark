@@ -2,7 +2,7 @@
  * Routines for ETSI Distribution & Communication Protocol
  * Copyright 2006, British Broadcasting Corporation
  *
- * $Id$
+ * $Id: packet-dcp-etsi.c 49819 2013-06-06 20:04:34Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

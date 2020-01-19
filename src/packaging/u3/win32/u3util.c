@@ -1,7 +1,7 @@
 /* u3util.c
  * Utility routines for U3 device support
  *
- * $Id$
+ * $Id: u3util.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

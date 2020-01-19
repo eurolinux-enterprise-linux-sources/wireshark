@@ -1,7 +1,7 @@
 /* dfilter_expr_dlg.h
  * Definitions for dialog boxes for display filter expression construction
  *
- * $Id$
+ * $Id: dfilter_expr_dlg.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

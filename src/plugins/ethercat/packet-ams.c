@@ -1,7 +1,7 @@
 /* packet-ams.c
  * Routines for ethercat packet disassembly
  *
- * $Id$
+ * $Id: packet-ams.c 51870 2013-09-09 17:34:35Z gerald $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

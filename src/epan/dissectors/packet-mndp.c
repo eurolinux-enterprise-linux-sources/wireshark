@@ -1,7 +1,7 @@
 /* packet-mndp.c
  * Routines for the disassembly of the Mikrotik Neighbor Discovery Protocol
  *
- * $Id$
+ * $Id: packet-mndp.c 48425 2013-03-19 19:28:57Z etxrab $
  *
  * Copyright 2011 Joerg Mayer (see AUTHORS file)
  *

@@ -2,7 +2,7 @@
  * Routines for sasp packet dissection
  * Copyright 2010, Venkateshwaran Dorai<venkateshwaran.d@gmail.com>
  *
- * $Id$
+ * $Id: packet-sasp.c 48619 2013-03-28 15:07:32Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

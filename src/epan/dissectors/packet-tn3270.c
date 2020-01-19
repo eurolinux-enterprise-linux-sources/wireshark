@@ -24,7 +24,7 @@
  *
  * Copyright 2009, Robert Hogan <robert@roberthogan.net>
  *
- * $Id$
+ * $Id: packet-tn3270.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

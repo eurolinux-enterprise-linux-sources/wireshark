@@ -4,7 +4,7 @@
  *
  *  (c) 2006, Luis E. Garcia Ontanon <luis@ontanon.org>
  *
- * $Id$
+ * $Id: packet-h248_annex_e.c 47524 2013-02-06 19:04:24Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

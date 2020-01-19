@@ -1,7 +1,7 @@
 /* drange.h
  * Routines for providing general range support to the dfilter library
  *
- * $Id$
+ * $Id: drange.h 48083 2013-03-05 06:16:45Z etxrab $
  *
  * Copyright (c) 2000 by Ed Warnicke <hagbard@physics.rutgers.edu>
  *

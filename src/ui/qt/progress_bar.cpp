@@ -1,6 +1,6 @@
 /* progress_bar.cpp
  *
- * $Id$
+ * $Id: progress_bar.cpp 45801 2012-10-26 18:31:00Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

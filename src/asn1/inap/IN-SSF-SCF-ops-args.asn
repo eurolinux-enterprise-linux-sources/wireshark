@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: IN-SSF-SCF-ops-args.asn 24380 2008-02-18 21:01:11Z wmeier $
 -- Small modifications made to the original due to as2wrs shortfalls, to be corrected.
 -- Module IN-SSF-SCF-ops-args (Q.1248.2:07/2001)
 IN-SSF-SCF-ops-args {itu-t recommendation q 1248 modules(1)

@@ -6,7 +6,7 @@
  *
  * Modified from gsm_map_summary.c
  *
- * $Id$
+ * $Id: mtp3_summary.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

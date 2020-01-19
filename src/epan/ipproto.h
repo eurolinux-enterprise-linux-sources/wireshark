@@ -2,7 +2,7 @@
  * Declarations of IP protocol numbers, and of routines for converting
  * IP protocol numbers into strings.
  *
- * $Id$
+ * $Id: ipproto.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -98,6 +98,8 @@
 #define IP_PROTO_NONE           59      /* IP6 no next header - RFC1883 */
 #define IP_PROTO_DSTOPTS        60      /* IP6 destination options - RFC1883 */
 /* 61 is reserved by IANA for any host internal protocol */
+/* 61 is used by UCL's SHIM6 implementation as Next Header for SHIM6 */
+#define IP_PROTO_SHIM6_OLD      61      /* SHIM6 */
 
 /*
  * The current Protocol Numbers list says that the IP protocol number for

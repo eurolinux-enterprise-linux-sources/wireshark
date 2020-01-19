@@ -10,7 +10,7 @@
  * Routines for CredSSP (Credential Security Support Provider) packet dissection
  * Graeme Lunt 2011
  *
- * $Id$
+ * $Id: packet-credssp.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

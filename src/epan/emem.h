@@ -2,7 +2,7 @@
  * Definitions for Wireshark memory management and garbage collection
  * Ronnie Sahlberg 2005
  *
- * $Id$
+ * $Id: emem.h 48630 2013-03-28 21:19:58Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

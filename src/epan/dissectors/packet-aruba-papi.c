@@ -3,7 +3,7 @@
  * Copyright 2010, Alexis La Goutte <alexis.lagoutte at gmail dot com>
  *
  * Real name of PAPI : Protocol Application Program Interface
- * $Id$
+ * $Id: packet-aruba-papi.c 48282 2013-03-13 21:14:20Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

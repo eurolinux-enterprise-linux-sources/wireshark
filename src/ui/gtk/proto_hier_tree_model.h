@@ -1,6 +1,6 @@
 /* proto_hier_tree_model.h
  *
- * $Id$
+ * $Id: proto_hier_tree_model.h 42411 2012-05-04 04:44:23Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

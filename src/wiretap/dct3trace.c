@@ -6,7 +6,7 @@
  *
  * Duncan Salerno <duncan.salerno@googlemail.com>
  *
- * $Id$
+ * $Id: dct3trace.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -35,6 +35,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 
 /*
@@ -85,7 +86,7 @@ static gboolean dct3trace_seek_read(wtap *wth, gint64 seek_off,
 static int
 hc2b(unsigned char hex)
 {
-	hex = g_ascii_tolower(hex);
+	hex = tolower(hex);
 	if ((hex >= '0') && (hex <= '9'))
 		return hex - '0';
 	if ((hex >= 'a') && (hex <= 'f'))

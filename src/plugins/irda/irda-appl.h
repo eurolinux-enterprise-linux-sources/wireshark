@@ -3,7 +3,7 @@
  * By Jan Kiszka <jan.kiszka@web.de>
  * Copyright 2003 Jan Kiszka
  *
- * $Id$
+ * $Id: irda-appl.h 46928 2013-01-04 05:22:43Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@unicom.net>

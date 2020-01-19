@@ -1,7 +1,7 @@
 /* packet_history.c
  * packet history related functions   2004 Ulf Lamping
  *
- * $Id$
+ * $Id: packet_history.c 45016 2012-09-20 01:48:30Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

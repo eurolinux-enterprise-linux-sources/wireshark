@@ -29,7 +29,7 @@
 	*
 	* Copyright 2004, Luis E. Garcia Ontanon <luis@ontanon.org>
 	*
-	* $Id$
+	* $Id: dtd_parse.l 48338 2013-03-16 08:52:09Z etxrab $
 	*
 	* Wireshark - Network traffic analyzer
 	* By Gerald Combs <gerald@wireshark.org>

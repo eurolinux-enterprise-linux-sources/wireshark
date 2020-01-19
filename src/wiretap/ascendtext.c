@@ -1,6 +1,6 @@
 /* ascendtext.c
  *
- * $Id$
+ * $Id: ascendtext.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

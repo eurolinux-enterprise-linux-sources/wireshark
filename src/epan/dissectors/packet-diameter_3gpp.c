@@ -2,7 +2,7 @@
  * Routines for dissecting 3GPP OctetSting AVP:s
  * Copyright 2008, Anders Broman <anders.broman[at]ericsson.com>
  *
- * $Id$
+ * $Id: packet-diameter_3gpp.c 50704 2013-07-17 19:24:28Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

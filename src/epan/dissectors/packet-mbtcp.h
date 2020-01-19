@@ -7,7 +7,7 @@
  *
  * See http://www.modbus.org/ for information on Modbus/TCP.
  *
- * $Id$
+ * $Id: packet-mbtcp.h 45793 2012-10-26 02:15:20Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

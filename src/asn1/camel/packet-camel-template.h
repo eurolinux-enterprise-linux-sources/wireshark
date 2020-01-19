@@ -4,7 +4,7 @@
  * Copyright 2005, Olivier Jacques <olivier.jacques@hp.com>
  * Built from the gsm-map dissector Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-camel-template.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

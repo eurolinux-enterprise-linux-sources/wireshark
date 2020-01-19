@@ -2,7 +2,7 @@
  * Routines for MPEG2 (ISO/ISO 13818-1) Program Associate Table (PAT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-mpeg-pat.c 48297 2013-03-14 14:42:12Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

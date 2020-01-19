@@ -2,7 +2,7 @@
  * Routines for ROS packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-ros-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

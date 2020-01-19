@@ -2,7 +2,7 @@
  * Routines for Multiprotocol Label Switching Echo dissection
  * Copyright 2004, Carlos Pignataro <cpignata@cisco.com>
  *
- * $Id$
+ * $Id: packet-mpls-echo.c 50710 2013-07-17 22:20:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_enumparser.h 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

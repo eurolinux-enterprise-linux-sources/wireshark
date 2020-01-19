@@ -1,7 +1,7 @@
 /* addr_resolv.h
  * Definitions for network object lookup
  *
- * $Id$
+ * $Id: addr_resolv.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *

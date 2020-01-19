@@ -1,7 +1,7 @@
 ;
 ; uninstall.nsi
 ;
-; $Id$
+; $Id: uninstall.nsi 50687 2013-07-17 01:18:54Z gerald $
 
 ; Create an installer that only writes an uninstaller.
 ; http://nsis.sourceforge.net/Signing_an_Uninstaller

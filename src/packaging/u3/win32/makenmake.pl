@@ -1,6 +1,6 @@
 #
 # makenmake.pl - create a nmake file from a generic manifest file that will create the appropriate U3 structure
-# $Id$
+# $Id: makenmake.pl 45659 2012-10-19 17:47:34Z gerald $
 #
 
 print q{

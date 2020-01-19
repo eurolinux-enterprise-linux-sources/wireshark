@@ -2,7 +2,7 @@
  * Routines for SMB \PIPE\msgsvc packet disassembly
  * Copyright 2003 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: packet-dcerpc-messenger.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

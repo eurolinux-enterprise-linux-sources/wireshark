@@ -2,7 +2,7 @@
  * Routines for the disassembly of Foundry LLC messages (currently
  * Foundry Discovery Protocol - FDP only)
  *
- * $Id$
+ * $Id: packet-foundry.c 45632 2012-10-18 15:55:52Z cmaynard $
  *
  * Copyright 2012 Joerg Mayer (see AUTHORS file)
  *

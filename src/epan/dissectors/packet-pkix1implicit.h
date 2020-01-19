@@ -9,7 +9,7 @@
 /* packet-pkix1implicit.h
  * Routines for PKIX1Implicit packet dissection
  *
- * $Id$
+ * $Id: packet-pkix1implicit.h 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

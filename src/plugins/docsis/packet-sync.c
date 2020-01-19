@@ -1,5 +1,5 @@
 /* packet-sync.c
- * $Id$
+ * $Id: packet-sync.c 45015 2012-09-20 01:29:52Z morriss $
  * Routines for Sync Message dissection
  * Copyright 2007, Bruno Verstuyft  <bruno.verstuyft@excentis.com>
  *

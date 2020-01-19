@@ -1,6 +1,6 @@
 # gnm.cnf
 # gnm conformation file
-# $Id$
+# $Id: gnm.cnf 25848 2008-07-28 11:03:35Z etxrab $
 
 #.IMPORT ../cmip/cmip-exp.cnf
 #.EXPORTS

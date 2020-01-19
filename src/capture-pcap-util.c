@@ -1,7 +1,7 @@
 /* capture-pcap-util.c
  * Utility routines for packet capture
  *
- * $Id$
+ * $Id: capture-pcap-util.c 49755 2013-06-04 06:00:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -425,13 +425,9 @@ get_interface_list_findalldevs_ex(const char *source,
 	GList  *il = NULL;
 	pcap_if_t *alldevs, *dev;
 	if_info_t *if_info;
-	/*
-	 * WinPcap can overflow PCAP_ERRBUF_SIZE if the host is unreachable.
-	 * Fudge a larger size.
-	 */
-	char errbuf[PCAP_ERRBUF_SIZE*4];
+	char errbuf[PCAP_ERRBUF_SIZE];
 
-	if (pcap_findalldevs_ex((char *)source, auth, &alldevs, errbuf) == -1) {
+        if (pcap_findalldevs_ex((char *)source, auth, &alldevs, errbuf) == -1) {
 		*err = CANT_GET_INTERFACE_LIST;
 		if (err_str != NULL)
 			*err_str = cant_get_if_list_error_message(errbuf);

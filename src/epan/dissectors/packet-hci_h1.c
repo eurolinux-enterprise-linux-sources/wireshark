@@ -1,7 +1,7 @@
 /* packet-hci_h1.c
  * Routines for the Bluetooth HCI h1 dissection
  *
- * $Id$
+ * $Id: packet-hci_h1.c 48414 2013-03-19 13:51:52Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

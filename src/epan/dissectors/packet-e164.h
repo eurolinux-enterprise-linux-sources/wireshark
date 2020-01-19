@@ -2,7 +2,7 @@
  * E164 tables
  * Copyright 2004, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-e164.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Routines for ACP133 specific syntaxes in X.500 packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-acp133-template.c 48440 2013-03-20 06:50:56Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

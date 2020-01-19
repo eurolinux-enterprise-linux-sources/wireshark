@@ -2,7 +2,7 @@
  * Routines for HP Switch Config protocol
  * Charlie Lenahan <clenahan@fortresstech.com>
  *
- * $Id$
+ * $Id: packet-hpsw.c 48512 2013-03-23 17:16:02Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

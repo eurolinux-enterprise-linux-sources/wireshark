@@ -3,7 +3,7 @@
  * Described in Microsoft document MS-GPEF.pdf
  * Copyright 2008, Ronnie Sahlberg
  *
- * $Id$
+ * $Id: packet-gpef.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

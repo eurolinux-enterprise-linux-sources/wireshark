@@ -6,7 +6,7 @@
  * Enhanced by Felix Kraemer, 2010, <sauter-cumulus[AT]de.sauter-bc.com>,
  *  Sauter-Cumulus GmbH, Freiburg
  *
- * $Id$
+ * $Id: packet-bacapp.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

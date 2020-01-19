@@ -1,7 +1,7 @@
 /* fileset_dlg.h
  * Definitions for the fileset dialog box
  *
- * $Id$
+ * $Id: fileset_dlg.h 45163 2012-09-26 23:40:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

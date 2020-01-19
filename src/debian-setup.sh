@@ -1,7 +1,7 @@
 #!/bin/sh
 # Setup development environment on Debian and derivatives such as Ubuntu
 #
-# $Id$
+# $Id: debian-setup.sh 47460 2013-02-04 00:29:27Z guy $
 #
 
 #

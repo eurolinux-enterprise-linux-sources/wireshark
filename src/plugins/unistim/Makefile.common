@@ -4,7 +4,7 @@
 #     b) portable between both files
 # Copyright 2007 Don Newton <dnewton@cypresscom.net>
 #  
-# $Id$
+# $Id: Makefile.common 47579 2013-02-09 05:31:15Z guy $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

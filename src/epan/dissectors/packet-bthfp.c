@@ -6,7 +6,7 @@
  * Refactored for wireshark checkin
  *   Ronnie Sahlberg 2006
  *
- * $Id$
+ * $Id: packet-bthfp.c 45422 2012-10-09 10:36:04Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-ieee80211-wlancap.c
  * Routines for AVS linux-wlan monitoring mode header dissection
  *
- * $Id$
+ * $Id: packet-ieee80211-wlancap.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

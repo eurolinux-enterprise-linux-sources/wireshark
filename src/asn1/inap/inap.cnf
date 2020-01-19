@@ -1,6 +1,6 @@
 # inap.cnf
 # inap conformation file
-# $Id$
+# $Id: inap.cnf 44860 2012-09-10 21:40:21Z darkjames $
 
 #.IMPORT ../dap/dap-exp.cnf
 #.IMPORT ../dsp/dsp-exp.cnf

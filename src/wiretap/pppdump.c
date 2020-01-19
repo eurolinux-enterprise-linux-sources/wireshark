@@ -1,6 +1,6 @@
 /* pppdump.c
  *
- * $Id$
+ * $Id: pppdump.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Copyright (c) 2000 by Gilbert Ramirez <gram@alumni.rice.edu>
  *

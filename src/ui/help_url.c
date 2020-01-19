@@ -1,6 +1,6 @@
 /* help_url.c
  *
- * $Id$
+ * $Id: help_url.c 46912 2013-01-03 10:49:32Z etxrab $
  *
  * Some content from gtk/help_dlg.c by Laurent Deniel <laurent.deniel@free.fr>
  *

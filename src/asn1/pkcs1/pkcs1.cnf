@@ -1,7 +1,7 @@
 # pkcs1.cnf
 # PKCS#1 conformation file
 
-# $Id$
+# $Id: pkcs1.cnf 39785 2011-11-10 20:52:44Z etxrab $
 
 #.IMPORT ../x509af/x509af-exp.cnf
 

@@ -11,7 +11,7 @@
  *
  * See RFC 1777 (LDAP v2), RFC 4511 (LDAP v3), and RFC 2222 (SASL).
  *
- * $Id$
+ * $Id: packet-ldap.c 51623 2013-09-01 12:36:18Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -703,10 +703,14 @@ attribute_types_initialize_cb(void)
     /* Unregister all fields */
     for (i = 0; i < hf_size; i++) {
       proto_unregister_field (proto_ldap, *(hf[i].p_id));
+
       g_free (hf[i].p_id);
+      g_free ((char *) hf[i].hfinfo.name);
+      g_free ((char *) hf[i].hfinfo.abbrev);
+      g_free ((char *) hf[i].hfinfo.blurb);
     }
     g_hash_table_destroy (attribute_types_hash);
-    proto_add_deregistered_data (hf);
+    g_free (hf);
     attribute_types_hash = NULL;
   }
 
@@ -6003,7 +6007,7 @@ proto_reg_handoff_ldap(void)
 
 
 /*--- End of included file: packet-ldap-dis-tab.c ---*/
-#line 2396 "../../asn1/ldap/packet-ldap-template.c"
+#line 2388 "../../asn1/ldap/packet-ldap-template.c"
 
 
 }

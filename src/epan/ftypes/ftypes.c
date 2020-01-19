@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftypes.c 48227 2013-03-10 14:52:14Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

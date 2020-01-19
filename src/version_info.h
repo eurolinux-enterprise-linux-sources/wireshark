@@ -2,7 +2,7 @@
  * Declarations of outines to report version information for stuff used
  * by Wireshark
  *
- * $Id$
+ * $Id: version_info.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -31,9 +31,9 @@ extern "C" {
 #endif /* __cplusplus */
 
 /*
- * The Git version string or ""
+ * The svn version string or ""
  */
-extern const gchar *wireshark_gitversion;
+extern const gchar *wireshark_svnversion;
 
 /*
  * Get various library compile-time versions and append them to

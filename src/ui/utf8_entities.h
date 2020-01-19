@@ -1,7 +1,7 @@
 /* utf8_entities.h
  * Byte sequences for various UTF-8 entities
  *
- * $Id$
+ * $Id: utf8_entities.h 44194 2012-08-01 19:18:49Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

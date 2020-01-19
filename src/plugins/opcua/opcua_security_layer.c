@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_security_layer.c 45015 2012-09-20 01:29:52Z morriss $
 **
 ** Copyright (C) 2006-2007 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-guid.c 45948 2012-11-06 13:28:59Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -23,6 +23,7 @@
 #include "config.h"
 
 #include <string.h>
+#include <ctype.h>
 
 #include <ftypes-int.h>
 #include <epan/guid-utils.h>
@@ -52,7 +53,7 @@ get_guid(char *s, e_guid_t *guid)
         return FALSE;
     for (i=0; i<n; i++) {
         if (fmt[i] == 'X') {
-            if (!g_ascii_isxdigit(s[i]))
+            if (!isxdigit((guchar)s[i]))
                 return FALSE;
         } else {
             if (s[i] != fmt[i])

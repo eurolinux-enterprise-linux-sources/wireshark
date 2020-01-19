@@ -1,7 +1,7 @@
 /* str_util.c
  * String utility routines
  *
- * $Id$
+ * $Id: str_util.c 48042 2013-03-03 19:34:58Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -26,6 +26,8 @@
 
 #include <glib.h>
 #include "str_util.h"
+
+#include <ctype.h>
 
 /* Convert all ASCII letters to lower case, in place. */
 gchar *
@@ -59,7 +61,7 @@ isprint_string(const gchar *str)
 
 	/* Loop until we reach the end of the string (a null) */
 	for(pos = 0; str[pos] != '\0'; pos++){
-		if(!g_ascii_isprint(str[pos])){
+		if(!isprint(str[pos])){
 			/* The string contains a non-printable character */
 			return FALSE;
 		}
@@ -77,7 +79,7 @@ isdigit_string(guchar *str)
 
 	/* Loop until we reach the end of the string (a null) */
 	for(pos = 0; str[pos] != '\0'; pos++){
-		if(!g_ascii_isdigit(str[pos])){
+		if(!isdigit(str[pos])){
 			/* The string contains a non-digit character */
 			return FALSE;
 		}

@@ -1,6 +1,6 @@
 /* packet-gsm_a_common.h
  *
- * $Id$
+ * $Id: packet-gsm_a_common.h 48862 2013-04-15 21:52:59Z pascal $
  *
  *   Reference [3]
  *   Mobile radio interface Layer 3 specification;
@@ -259,7 +259,7 @@ extern const char* get_gsm_a_msg_string(int pdu_type, int idx);
     }
 
 #define NO_MORE_DATA_CHECK(nmdc_len) \
-    if ((nmdc_len) <= (curr_offset - offset)) return(nmdc_len);
+    if ((nmdc_len) == (curr_offset - offset)) return(nmdc_len);
 
 #define SET_ELEM_VARS(SEV_pdu_type, SEV_elem_names_ext, SEV_elem_ett, SEV_elem_funcs) \
     switch (SEV_pdu_type) \

@@ -1,6 +1,6 @@
 # conformance file for SRVSVC
 #
-# $Id$
+# $Id: srvsvc.cnf 30630 2009-10-20 08:27:25Z stig $
 #
 
 MANUAL srvsvc_dissect_element_NetShareInfo_info1501_

@@ -6,7 +6,7 @@
  *   Jan Bartels, Siempelkamp Maschinen- und Anlagenbau GmbH & Co. KG
  *   Copyright 2007
  *
- * $Id$
+ * $Id: packet-enip.h 48729 2013-04-04 14:34:26Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

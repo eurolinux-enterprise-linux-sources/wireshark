@@ -1,6 +1,6 @@
 /* packet-ecatmb.h
  *
- * $Id$
+ * $Id: packet-ecatmb.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

@@ -2,7 +2,7 @@
  *
  * Ronnie Sahlberg 2005
  *
- * $Id$
+ * $Id: packet-mms-template.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

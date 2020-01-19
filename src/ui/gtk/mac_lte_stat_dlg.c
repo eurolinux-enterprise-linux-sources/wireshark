@@ -2,7 +2,7 @@
  * Copyright 2009 Martin Mathieson
  * (originally based upon wlan_stat_dlg.c)
  *
- * $Id$
+ * $Id: mac_lte_stat_dlg.c 48855 2013-04-15 18:25:04Z martinm $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

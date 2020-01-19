@@ -11,7 +11,7 @@
  * The "MIME file" dissector does the reassembly, and hands the result
  * off to heuristic dissectors to try to identify the file's contents.
  *
- * $Id$
+ * $Id: mime_file.c 47378 2013-01-30 22:55:32Z guy $
  *
  * Wiretap Library
  * This program is free software; you can redistribute it and/or

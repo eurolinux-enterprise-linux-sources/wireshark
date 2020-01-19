@@ -1,6 +1,6 @@
 /* epan.c
  *
- * $Id$
+ * $Id: epan.c 48526 2013-03-24 14:39:19Z etxrab $
  *
  * Wireshark Protocol Analyzer Library
  *

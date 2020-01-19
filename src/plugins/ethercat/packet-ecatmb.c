@@ -1,7 +1,7 @@
 /* packet-ecatmb.c
  * Routines for EtherCAT packet disassembly
  *
- * $Id$
+ * $Id: packet-ecatmb.c 47617 2013-02-10 20:52:21Z wmeier $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

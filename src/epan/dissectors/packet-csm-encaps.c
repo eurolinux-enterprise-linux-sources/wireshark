@@ -1,7 +1,7 @@
 /* packet-csm-encaps.c
  * Routines for CSM_ENCAPS dissection
  * Copyright 2005, Angelo Bannack <angelo.bannack@siemens.com>
- * $Id$
+ * $Id: packet-csm-encaps.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

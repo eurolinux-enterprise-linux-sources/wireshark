@@ -6,7 +6,7 @@
  *
  * Francesco Fondelli <francesco dot fondelli, gmail dot com>
  *
- * $Id$
+ * $Id: packet-dccp.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * template taken from packet-udp.c
  *

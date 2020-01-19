@@ -1,6 +1,6 @@
 /* main_welcome.cpp
  *
- * $Id$
+ * $Id: main_welcome.cpp 46363 2012-12-04 00:24:25Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

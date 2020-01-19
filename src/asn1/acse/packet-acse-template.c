@@ -13,7 +13,7 @@
  *   Yuriy Sidelnikov <YSidelnikov@hotmail.com>
  *
  *
- * $Id$
+ * $Id: packet-acse-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -76,6 +76,7 @@ static gint ett_acse = -1;
 
 static struct SESSION_DATA_STRUCTURE* session = NULL;
 
+static const char *object_identifier_id;
 /* indirect_reference, used to pick up the signalling so we know what
    kind of data is transferred in SES_DATA_TRANSFER_PDUs */
 static guint32 indir_ref=0;

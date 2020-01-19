@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: MMSPerRecipientSpecifierExtensions.asn 31474 2010-01-09 20:52:47Z stig $
 MMSPerRecipientSpecifierExtensions {iso(1) identified-organization(3) 
   nato(26) stanags(0) mmhs(4406) object-identifiers(0) module(0)
   per-recipient-specifier-extensions(11)} DEFINITIONS IMPLICIT TAGS ::=

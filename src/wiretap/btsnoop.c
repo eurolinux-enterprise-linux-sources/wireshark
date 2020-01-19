@@ -1,6 +1,6 @@
 /* btsnoop.c
  *
- * $Id$
+ * $Id: btsnoop.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -359,7 +359,7 @@ static gboolean btsnoop_dump_partial_rec_hdr(wtap_dumper *wdh _U_,
     guint8 flags = 0;
 
     if (!btsnoop_lookup_flags(*pd, pseudo_header->p2p.sent, &flags)) {
-        *err = WTAP_ERR_UNSUPPORTED_ENCAP;
+        *err = WTAP_ERR_UNSUPPORTED;
         return FALSE;
     }
 

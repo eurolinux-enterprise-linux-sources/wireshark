@@ -2,7 +2,7 @@
  * Routines for Real Time Messaging Protocol packet dissection
  * metatech <metatech@flashmail.com>
  *
- * $Id$
+ * $Id: packet-rtmpt.c 49323 2013-05-16 01:57:03Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

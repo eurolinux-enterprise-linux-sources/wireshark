@@ -2,7 +2,7 @@
  * Routines for wimaxmacphy (WiMAX MAX PHY over Ethernet) packet dissection
  * Copyright 2008, Mobile Metrics - http://mobilemetrics.net/
  *
- * $Id$
+ * $Id: packet-wimaxmacphy.c 46287 2012-11-29 16:22:54Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Declarations of routines for IGMP/IGAP packet disassembly
  * 2003, Endoh Akira <See AUTHORS for email>
  *
- * $Id$
+ * $Id: packet-igap.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

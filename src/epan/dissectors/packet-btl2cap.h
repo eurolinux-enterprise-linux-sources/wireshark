@@ -1,6 +1,6 @@
 /* packet-btl2cap.h
  *
- * $Id$
+ * $Id: packet-btl2cap.h 48660 2013-03-30 21:43:18Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -15,7 +15,7 @@
  * Dinesh G Dutt (ddutt@cisco.com)
  * Ronnie sahlberg 2006
  *
- * $Id$
+ * $Id: packet-scsi-sbc.c 47782 2013-02-20 22:56:29Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

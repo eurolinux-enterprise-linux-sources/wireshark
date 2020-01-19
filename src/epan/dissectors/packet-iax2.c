@@ -9,7 +9,7 @@
  * http://www.asterisk.org for more information; see RFC 5456 for the
  * protocol.
  *
- * $Id$
+ * $Id: packet-iax2.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

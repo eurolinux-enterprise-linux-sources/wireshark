@@ -6,7 +6,7 @@
  * With several usability improvements:
  * Copyright 2008, Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: filter_autocomplete.c 48217 2013-03-09 17:33:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

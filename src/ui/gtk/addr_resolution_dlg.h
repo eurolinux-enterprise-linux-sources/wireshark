@@ -1,7 +1,7 @@
 /* addr_resolution_dlg.h
  * Show current addres resolution as a hosts file
  *
- * $Id$
+ * $Id: addr_resolution_dlg.h 46307 2012-11-30 14:57:50Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

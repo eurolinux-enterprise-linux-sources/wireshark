@@ -1,7 +1,7 @@
 /* packet-rsvp.h
  * Declarations of variables exported by "packet-rsvp.c"
  *
- * $Id$
+ * $Id: packet-rsvp.h 44665 2012-08-25 01:20:32Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

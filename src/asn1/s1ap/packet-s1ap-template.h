@@ -1,7 +1,7 @@
 /* packet-s1ap.h
  * Routines for E-UTRAN S1 Application Protocol (S1AP) packet dissection
  *
- * $Id$
+ * $Id: packet-s1ap-template.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

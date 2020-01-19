@@ -9,7 +9,7 @@
  *     - dissect profile specific attributes
  *     - fix service recognize
  *
- * $Id$
+ * $Id: packet-btsdp.c 53020 2013-11-01 16:24:42Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -4230,7 +4230,7 @@ proto_register_btsdp(void)
         },
         { &hf_did_vendor_id_usb_forum,
             { "Vendor ID",                       "btsdp.service.did.vendor_id",
-            FT_UINT16, BASE_HEX | BASE_EXT_STRING, &ext_usb_vendors_vals, 0,
+            FT_UINT16, BASE_HEX, &ext_usb_vendors_vals, 0,
             NULL, HFILL }
         },
         { &hf_did_product_id,
@@ -4700,7 +4700,7 @@ proto_register_btsdp(void)
         },
         { &hf_sdp_protocol_psm,
             { "L2CAP PSM",                       "btsdp.protocol.psm",
-            FT_UINT16, BASE_DEC_HEX|BASE_EXT_STRING, &ext_psm_vals, 0,
+            FT_UINT16, BASE_DEC_HEX, &ext_psm_vals, 0,
             NULL, HFILL }
         },
         { &hf_sdp_protocol_channel,

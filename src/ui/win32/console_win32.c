@@ -1,7 +1,7 @@
 /* console_win32.c
  * Console support for MSWindows
  *
- * $Id$
+ * $Id: console_win32.c 49088 2013-04-29 21:30:35Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -238,7 +238,7 @@ get_console_wait(void)
 void
 set_has_console(gboolean set_has_console)
 {
-  has_console = set_has_console;
+  has_console = has_console;
 }
 
 gboolean

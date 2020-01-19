@@ -24,7 +24,7 @@
  * Scanner for text import
  * November 2010, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: text_import_scanner.l 44904 2012-09-14 20:23:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

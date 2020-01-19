@@ -4,7 +4,7 @@
  * Dissector for Ixia Network Visibility Solutions trailer
  * Copyright Ixia 2012
  *
- * $Id$
+ * $Id: packet-ixiatrailer.c 49462 2013-05-20 21:46:36Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 #
-# $Id$
+# $Id: idmp.cnf 33177 2010-06-09 14:17:51Z gal $
 #
 
 #.IMPORT ../x509ce/x509ce-exp.cnf

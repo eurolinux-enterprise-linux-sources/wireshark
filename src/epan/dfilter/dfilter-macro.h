@@ -1,6 +1,6 @@
 /* dfilter-macro.h
  *
- * $Id$
+ * $Id: dfilter-macro.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

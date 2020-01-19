@@ -3,7 +3,7 @@
  * This is the base for other PROFINET protocols like IO, CBA, DCP, ...
  * (the "content subdissectors" will register themselves using a heuristic)
  *
- * $Id$
+ * $Id: packet-pn-rt.c 50801 2013-07-22 21:55:48Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

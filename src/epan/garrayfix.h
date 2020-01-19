@@ -4,7 +4,7 @@
  * ensuring that the data is aligned strictly enough for any data type,
  * we still get warnings with -Wcast-align.
  *
- * $Id$
+ * $Id: garrayfix.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

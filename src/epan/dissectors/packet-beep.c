@@ -1,7 +1,7 @@
 /* packet-beep.c
  * Routines for BEEP packet disassembly
  *
- * $Id$
+ * $Id: packet-beep.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Copyright (c) 2000 by Richard Sharpe <rsharpe@ns.aus.com>
  * Modified 2001 Darren New <dnew@invisible.net> for BEEP.
@@ -31,6 +31,7 @@
 #include "config.h"
 
 #include <stdio.h>
+#include <ctype.h>
 #include <glib.h>
 #include <epan/packet.h>
 #include <epan/addr_resolv.h>
@@ -251,7 +252,7 @@ static int num_len(tvbuff_t *tvb, int offset)
 {
   unsigned int i = 0;
 
-  while (g_ascii_isdigit(tvb_get_guint8(tvb, offset + i))) i++;
+  while (isdigit(tvb_get_guint8(tvb, offset + i))) i++;
 
   return i;
 

@@ -1,7 +1,7 @@
 /**
  * crc7.c
  *  
- * $Id$
+ * $Id: crc7.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Functions and types for CRC checks.
  *

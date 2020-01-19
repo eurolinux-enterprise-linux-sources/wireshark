@@ -6,7 +6,7 @@
  *
  * Copyright 2010, Jakub Zawadzki <darkjames-ws@darkjames.pl>
  *
- * $Id$
+ * $Id: packet-json.c 51370 2013-08-15 03:52:19Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -3,7 +3,7 @@
  * Based on the dissector by
  * Yuriy Sidelnikov <YSidelnikov@hotmail.com>
  *
- * $Id$
+ * $Id: packet-pres-template.c 48429 2013-03-19 21:22:31Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

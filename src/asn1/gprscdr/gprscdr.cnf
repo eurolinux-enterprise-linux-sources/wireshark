@@ -1,6 +1,6 @@
 # gprscdr.cnf
 # Anders Broman 2011
-# $Id$
+# $Id: gprscdr.cnf 43624 2012-07-09 14:09:59Z etxrab $
 
 #.IMPORT ../gsm_map/gsm_map-exp.cnf
 

@@ -2,7 +2,7 @@
  * Routines for Base Station Subsystem GPRS Protocol dissection
  * Copyright 2000, Susanne Edlund <susanne.edlund@ericsson.com>
  *
- * $Id$
+ * $Id: packet-bssgp.c 52968 2013-10-29 21:40:26Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -79,6 +79,7 @@ void proto_reg_handoff_bssgp(void);
 static int bssgp_decode_nri = 0;
 static guint bssgp_nri_length = 4;
 
+static packet_info *gpinfo;
 static guint8 g_pdu_type, g_rim_application_identity;
 static proto_tree *gparent_tree;
 static dissector_handle_t llc_handle;
@@ -897,7 +898,7 @@ de_bssgp_flush_action(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, g
  */
 
 static guint16
-de_bssgp_llc_pdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
+de_bssgp_llc_pdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *next_tvb=NULL;
     guint32 curr_offset;
@@ -911,10 +912,10 @@ de_bssgp_llc_pdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 of
 
     if(next_tvb){
         if (llc_handle) {
-            call_dissector(llc_handle, next_tvb, pinfo, gparent_tree);
+            call_dissector(llc_handle, next_tvb, gpinfo, gparent_tree);
         }
         else if (data_handle) {
-            call_dissector(data_handle, next_tvb, pinfo, gparent_tree);
+            call_dissector(data_handle, next_tvb, gpinfo, gparent_tree);
         }
     }
 
@@ -1099,7 +1100,7 @@ static const value_string bssgp_precedence_dl[] = {
 };
 
 static guint16
-de_bssgp_qos_profile(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_qos_profile(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     proto_item *pi, *pre_item;
     guint32 curr_offset;
@@ -1112,7 +1113,7 @@ de_bssgp_qos_profile(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint3
     /* octet 3-4 Peak bit rate provided by the network (note)
      * NOTE: The bit rate 0 (zero) shall mean "best effort" in this IE.
      */
-    link_dir = pinfo->link_dir;
+    link_dir = gpinfo->link_dir;
 
     peak_bit_rate = tvb_get_ntohs(tvb, curr_offset);
     pi = proto_tree_add_text(tree, tvb, curr_offset, 1, "Peak bit rate: ");
@@ -1514,7 +1515,7 @@ de_bssgp_serv_utran_cco(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_,
  * 11.3.48  NSEI (Network Service Entity Identifier)
  */
 static guint16
-de_bssgp_nsei(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_nsei(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     guint32 curr_offset;
     guint16 nsei;
@@ -1525,7 +1526,7 @@ de_bssgp_nsei(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offse
     proto_tree_add_item(tree, hf_bssgp_nsei, tvb, curr_offset, 2, ENC_BIG_ENDIAN);
     curr_offset+=2;
 
-    col_append_sep_fstr(pinfo->cinfo, COL_INFO, BSSGP_SEP, "NSEI %u", nsei);
+    col_append_sep_fstr(gpinfo->cinfo, COL_INFO, BSSGP_SEP, "NSEI %u", nsei);
 
 
     return(curr_offset-offset);
@@ -1534,7 +1535,7 @@ de_bssgp_nsei(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offse
  * 11.3.49  RRLP APDU
  */
 static guint16
-de_bssgp_rrlp_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_rrlp_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *next_tvb=NULL;
     guint32 curr_offset;
@@ -1554,9 +1555,9 @@ de_bssgp_rrlp_apdu(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 
 
     if(next_tvb){
         if (rrlp_handle) {
-            call_dissector(rrlp_handle, next_tvb, pinfo, gparent_tree);
+            call_dissector(rrlp_handle, next_tvb, gpinfo, gparent_tree);
         }else if (data_handle) {
-            call_dissector(data_handle, next_tvb, pinfo, gparent_tree);
+            call_dissector(data_handle, next_tvb, gpinfo, gparent_tree);
         }
     }
     return(len);
@@ -1747,7 +1748,7 @@ de_bssgp_ran_information_request_app_cont(tvbuff_t *tvb, proto_tree *tree, packe
             {
             asn1_ctx_t asn1_ctx;
 
-            asn1_ctx_init(&asn1_ctx, ASN1_ENC_PER, TRUE, pinfo);
+            asn1_ctx_init(&asn1_ctx, ASN1_ENC_PER, TRUE, gpinfo);
             /* 11.3.63.1.4  RAN-INFORMATION-REQUEST Application Container for the SON Transfer Application */
             /* Reporting Cell Identifier */
             /* convert to bit offset */
@@ -1764,7 +1765,7 @@ de_bssgp_ran_information_request_app_cont(tvbuff_t *tvb, proto_tree *tree, packe
              * 3GPP TS 25.413
              */
             new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-            curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, pinfo, tree, NULL);
+            curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, gpinfo, tree, NULL);
             break;
         default :
             proto_tree_add_text(tree, tvb, curr_offset, len, "Unknown RIM Application Identity");
@@ -1846,7 +1847,7 @@ de_bssgp_ran_information_app_cont_unit(tvbuff_t *tvb, proto_tree *tree, packet_i
                     if (msg_fcn_p == NULL){
                         proto_tree_add_text(si_tree, tvb, curr_offset, 21, "Unknown SI message");
                     }else{
-                        (*msg_fcn_p)(tvb, si_tree, pinfo, curr_offset+1, 20);
+                        (*msg_fcn_p)(tvb, si_tree, gpinfo, curr_offset+1, 20);
                     }
                     curr_offset+=21;
                 }
@@ -1894,14 +1895,14 @@ de_bssgp_ran_information_app_cont_unit(tvbuff_t *tvb, proto_tree *tree, packet_i
                      * Source Cell ID) as defined in 3GPP TS 25.413
                      */
                     new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-                    curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, pinfo, tree, NULL);
+                    curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, gpinfo, tree, NULL);
                     break;
                 case 2:
                     /* If the RAT discriminator field indicates E-UTRAN, this field is encoded as the E-UTRAN CGI IE as
                      * defined in 3GPP TS 36.413
                      */
                     new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-                    curr_offset = curr_offset + dissect_s1ap_Global_ENB_ID_PDU(new_tvb, pinfo, tree, NULL);
+                    curr_offset = curr_offset + dissect_s1ap_Global_ENB_ID_PDU(new_tvb, gpinfo, tree, NULL);
                     break;
                 default:
                     break;
@@ -1915,7 +1916,7 @@ de_bssgp_ran_information_app_cont_unit(tvbuff_t *tvb, proto_tree *tree, packet_i
              * (UTRAN Source Cell ID) as defined in 3GPP TS 25.413
              */
             new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-            curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, pinfo, tree, NULL);
+            curr_offset = curr_offset + dissect_ranap_SourceCellID_PDU(new_tvb, gpinfo, tree, NULL);
             /* Octet (m+1)-n UTRA SI Container
              * UTRA SI Container: This field contains System Information Container valid for the reporting cell
              * encoded as defined in TS 25.331
@@ -1971,7 +1972,7 @@ static const value_string bssgp_utra_si_cause_vals[] = {
 };
 
 static guint16
-de_bssgp_ran_app_error_cont(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_ran_app_error_cont(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *new_tvb = NULL;
     guint32 curr_offset;
@@ -2017,7 +2018,7 @@ de_bssgp_ran_app_error_cont(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo,
              * The "SON Transfer Cause" field is encoded as the SON Transfer Cause IE as defined in 3GPP TS 36.413
              */
             new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-            curr_offset = curr_offset + dissect_s1ap_SONtransferCause_PDU(new_tvb, pinfo, tree, NULL);
+            curr_offset = curr_offset + dissect_s1ap_SONtransferCause_PDU(new_tvb, gpinfo, tree, NULL);
             /* Erroneous Application Container including IEI and LI */
             proto_tree_add_text(tree, tvb, curr_offset, len-(curr_offset-offset), "Erroneous Application Container including IEI and LI");
             break;
@@ -2211,7 +2212,7 @@ static const value_string bssgp_ra_discriminator_vals[] = {
 };
 
 static guint16
-de_bssgp_rim_routing_inf(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_rim_routing_inf(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     guint8 oct;
     guint16 rnc_id;
@@ -2260,7 +2261,7 @@ de_bssgp_rim_routing_inf(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, gu
             curr_offset = curr_offset+ de_emm_trac_area_id(tvb, tree, pinfo, curr_offset, 5, add_string, string_len);
             /* Octets 9-n contain the Global eNB ID (see 3GPP TS 36.413 [36]) of the eNodeB. */
             new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-            dissect_s1ap_Global_ENB_ID_PDU(new_tvb, pinfo, tree, NULL);
+            dissect_s1ap_Global_ENB_ID_PDU(new_tvb, gpinfo, tree, NULL);
             break;
         default:
             proto_tree_add_text(tree, tvb, curr_offset, 3, "Unknown RIM Routing Address discriminator");
@@ -2300,7 +2301,7 @@ de_bssgp_mbms_session_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_
  * 11.3.72  MBMS Session Duration
  */
 static guint16
-de_bssgp_mbms_session_dur(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_mbms_session_dur(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *new_tvb;
     guint32 curr_offset;
@@ -2309,7 +2310,7 @@ de_bssgp_mbms_session_dur(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, g
 
     /* AVP Code: 904 MBMS-Session-Duration Registered by packet-gtp.c */
     new_tvb =tvb_new_subset(tvb, offset, len, len);
-    dissector_try_uint(diameter_3gpp_avp_dissector_table, 904, new_tvb, pinfo, tree);
+    dissector_try_uint(diameter_3gpp_avp_dissector_table, 904, new_tvb, gpinfo, tree);
 
     return(curr_offset-offset);
 }
@@ -2321,7 +2322,7 @@ de_bssgp_mbms_session_dur(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, g
  *
  */
 static guint16
-de_bssgp_mbms_sai_list(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
+de_bssgp_mbms_sai_list(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *new_tvb;
     guint32 curr_offset;
@@ -2330,7 +2331,7 @@ de_bssgp_mbms_sai_list(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guin
 
     /* AVP Code: 903 MBMS-Service-Area Registered by packet-gtp.c */
     new_tvb =tvb_new_subset(tvb, offset, len, len);
-    dissector_try_uint(diameter_3gpp_avp_dissector_table, 903, new_tvb, pinfo, tree);
+    dissector_try_uint(diameter_3gpp_avp_dissector_table, 903, new_tvb, gpinfo, tree);
 
     return(curr_offset-offset);
 }
@@ -2839,7 +2840,7 @@ de_bssgp_mbms_session_rep_no(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo
  * 11.3.94  Inter RAT Handover Info
  */
 static guint16
-de_bssgp_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t    *new_tvb;
     guint32 curr_offset;
@@ -2851,7 +2852,7 @@ de_bssgp_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, 
      * Inter RAT Handover Information coded as specified in 3GPP
      * Technical Specification 25.331
      */
-    dissect_rrc_InterRATHandoverInfo_PDU(new_tvb, pinfo, tree, NULL);
+    dissect_rrc_InterRATHandoverInfo_PDU(new_tvb, gpinfo, tree, NULL);
 
     return(len);
 }
@@ -3095,7 +3096,7 @@ de_bssgp_enb_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 off
 
     /* Octets 8-n contain the Global eNB ID (see 3GPP TS 36.413) of the eNodeB. */
     new_tvb = tvb_new_subset_remaining(tvb, curr_offset);
-    dissect_s1ap_Global_ENB_ID_PDU(new_tvb, pinfo, tree, NULL);
+    dissect_s1ap_Global_ENB_ID_PDU(new_tvb, gpinfo, tree, NULL);
 
     return(len);
 }
@@ -3103,7 +3104,7 @@ de_bssgp_enb_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 off
  * 11.3.104     E-UTRAN Inter RAT Handover Info
  */
 static guint16
-de_bssgp_e_utran_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_e_utran_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t    *new_tvb;
     guint32 curr_offset;
@@ -3117,7 +3118,7 @@ de_bssgp_e_utran_inter_rat_ho_info(tvbuff_t *tvb, proto_tree *tree, packet_info 
      * significant bit of the first octet of the octet string contains bit 8 of
      * the first octet of the IE.
      */
-    dissect_lte_rrc_UE_EUTRA_Capability_PDU(new_tvb, pinfo, tree, NULL);
+    dissect_lte_rrc_UE_EUTRA_Capability_PDU(new_tvb, gpinfo, tree, NULL);
 
     return(len);
 }
@@ -3180,7 +3181,7 @@ de_bssgp_reliable_inter_rat_ho_inf(tvbuff_t *tvb, proto_tree *tree, packet_info 
  * 11.3.108     SON Transfer Application Identity
  */
 static guint16
-de_bssgp_son_transfer_app_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset _U_, guint len _U_, gchar *add_string _U_, int string_len _U_)
+de_bssgp_son_transfer_app_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo _U_, guint32 offset _U_, guint len _U_, gchar *add_string _U_, int string_len _U_)
 {
     tvbuff_t *next_tvb;
 
@@ -3189,7 +3190,7 @@ de_bssgp_son_transfer_app_id(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo
      */
     if(len > 0){
         next_tvb = tvb_new_subset(tvb, offset, len, len);
-        dissect_s1ap_SONtransferApplicationIdentity_PDU(next_tvb, pinfo, tree, NULL);
+        dissect_s1ap_SONtransferApplicationIdentity_PDU(next_tvb, gpinfo, tree, NULL);
     }
 
     return(len);
@@ -4356,7 +4357,7 @@ bssgp_suspend_nack(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 
     /* Routeing Area Routeing Area/11.3.31 M TLV 8 */
     ELEM_MAND_TELV(0x1b,GSM_A_PDU_TYPE_GM, DE_RAI, NULL);
     /* Cause Cause/11.3.8 O TLV 3 */
-    ELEM_OPT_TELV(BSSGP_IEI_CAUSE,BSSGP_PDU_TYPE, DE_BSSGP_CAUSE, NULL);
+    ELEM_MAND_TELV(BSSGP_IEI_CAUSE,BSSGP_PDU_TYPE, DE_BSSGP_CAUSE, NULL);
 
     EXTRANEOUS_DATA_CHECK_EXPERT(curr_len, 0, pinfo);
 }
@@ -4829,9 +4830,9 @@ bssgp_status(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset
     /* Cause Cause/11.3.8 M TLV 3 */
     ELEM_MAND_TELV(BSSGP_IEI_CAUSE,BSSGP_PDU_TYPE, DE_BSSGP_CAUSE, NULL);
     /* BVCI BVCI/11.3.6 C TLV 4 */
-    ELEM_OPT_TELV(BSSGP_IEI_BVCI, BSSGP_PDU_TYPE, DE_BSSGP_BVCI, NULL);
+    ELEM_MAND_TELV(BSSGP_IEI_BVCI, BSSGP_PDU_TYPE, DE_BSSGP_BVCI , NULL);
     /* PDU In Error (note) PDU In Error/11.3.24 O TLV 3-? */
-    ELEM_OPT_TELV(0x15, BSSGP_PDU_TYPE, DE_BSSGP_PDU_IN_ERROR, NULL);
+    ELEM_MAND_TELV(0x15, BSSGP_PDU_TYPE, DE_BSSGP_PDU_IN_ERROR , NULL);
 
     EXTRANEOUS_DATA_CHECK_EXPERT(curr_len, 0, pinfo);
 }
@@ -4928,7 +4929,7 @@ bssgp_create_bss_pfc(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint3
     /* Allocation/Retention Priority Priority/11.3.27 O TLV 3 */
     ELEM_OPT_TELV(0x17, GSM_A_PDU_TYPE_BSSMAP, BE_PRIO, NULL);
     /* T10 GPRS Timer/11.3.44 C (note 2) TLV 3 */
-    ELEM_OPT_TELV(BSSGP_IEI_GPRS_TIMER, BSSGP_PDU_TYPE, DE_BSSGP_GPRS_TIMER, " - T10");
+    ELEM_MAND_TELV(BSSGP_IEI_GPRS_TIMER, BSSGP_PDU_TYPE, DE_BSSGP_GPRS_TIMER , " - T10");
     /* Inter RAT Handover Info Inter RAT Handover Info/11.3.94 O (note 3) TLV 3-? */
     ELEM_OPT_TELV(0x73, BSSGP_PDU_TYPE, DE_BSSGP_INTER_RAT_HO_INFO, NULL);
     /* E-UTRAN Inter RAT Handover Info E-UTRAN Inter RAT Handover Info/11.3.104 O (note 3) TLV 3-? */
@@ -5265,11 +5266,11 @@ bssgp_ps_ho_required_ack(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, gu
     /* Target BSS to Source BSS Transparent Container (note)
      * Target BSS to Source BSS Transparent Container/11.3.80 C TLV 3-?
      */
-    ELEM_OPT_TELV(0x65,BSSGP_PDU_TYPE, DE_BSSGP_TARGET_BSS_TO_SOURCE_BSS_TRANSP_CONT, NULL);
+    ELEM_MAND_TELV(0x65,BSSGP_PDU_TYPE, DE_BSSGP_TARGET_BSS_TO_SOURCE_BSS_TRANSP_CONT, NULL);
     /* Target to Source Transparent Container (note)
      * Target to Source Transparent Container/11.3.86 C TLV 3-?
      */
-    ELEM_OPT_TELV(0x6b,BSSGP_PDU_TYPE, DE_BSSGP_TRG_TO_SRC_TRANSP_CONT, NULL);
+    ELEM_MAND_TELV(0x6b,BSSGP_PDU_TYPE, DE_BSSGP_TRG_TO_SRC_TRANSP_CONT, NULL);
 
     EXTRANEOUS_DATA_CHECK_EXPERT(curr_len, 0, pinfo);
 }
@@ -5568,7 +5569,7 @@ bssgp_perform_loc_response(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, 
     /* LCS Cause (note 3) LCS Cause/11.3.58 O TLV 3-? */
     ELEM_OPT_TELV(BSSGP_IEI_LCS_CAUSE, GSM_PDU_TYPE_BSSMAP_LE, DE_BMAPLE_LCS_CAUSE, NULL);
     /* Velocity Data Velocity Data/11.3.96 O TLV 3-? */
-    ELEM_OPT_TELV(0x78, BSSGP_PDU_TYPE, DE_BSSGP_VELOCITY_DATA, NULL);
+    ELEM_MAND_TELV(0x78, BSSGP_PDU_TYPE, DE_BSSGP_VELOCITY_DATA , NULL);
     /* GANSS Positioning Data GANSS Positioning Data /11.3.101 O TLV 3-? */
     ELEM_OPT_TELV(0x7d, GSM_A_PDU_TYPE_BSSMAP, BE_GANSS_POS_DTA, NULL);
 
@@ -5841,7 +5842,7 @@ bssgp_mbms_session_start_req(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo
     /* Allocation/Retention Priority Priority/11.3.27 O TLV 3 */
     ELEM_OPT_TELV(0x17, GSM_A_PDU_TYPE_BSSMAP, BE_PRIO, NULL);
     /* MBMS Session Repetition Number MBMS Session Repetition Number/11.3.93 O TLV 3 */
-    ELEM_OPT_TELV(0x72, BSSGP_PDU_TYPE, DE_BSSGP_MBMS_SESSION_REP_NO, NULL);
+    ELEM_MAND_TELV(0x72, BSSGP_PDU_TYPE, DE_BSSGP_MBMS_SESSION_REP_NO, NULL);
 
 
     EXTRANEOUS_DATA_CHECK_EXPERT(curr_len, 0, pinfo);
@@ -5969,7 +5970,7 @@ bssgp_mbms_session_update_req(tvbuff_t *tvb, proto_tree *tree, packet_info *pinf
     /* Allocation/Retention Priority Priority/11.3.27 O TLV 3 */
     ELEM_OPT_TELV(0x17, GSM_A_PDU_TYPE_BSSMAP, BE_PRIO, NULL);
     /* MBMS Session Repetition Number MBMS Session Repetition Number/11.3.93 O TLV 3 */
-    ELEM_OPT_TELV(0x72, BSSGP_PDU_TYPE, DE_BSSGP_MBMS_SESSION_REP_NO, NULL);
+    ELEM_MAND_TELV(0x72, BSSGP_PDU_TYPE, DE_BSSGP_MBMS_SESSION_REP_NO, NULL);
 
     EXTRANEOUS_DATA_CHECK_EXPERT(curr_len, 0, pinfo);
 }
@@ -6369,6 +6370,8 @@ dissect_bssgp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     int          hf_idx;
     void        (*msg_fcn_p)(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, guint len);
 
+    /* Save pinfo */
+    gpinfo = pinfo;
     g_rim_application_identity = 0;
     gparent_tree = tree;
     len = tvb_length(tvb);

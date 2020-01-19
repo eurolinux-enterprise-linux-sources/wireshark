@@ -1,6 +1,6 @@
 /* packet-cell_broadcast.h
  *
- * $Id$
+ * $Id: packet-cell_broadcast.h 47177 2013-01-20 17:14:24Z pascal $
  *
  * Copyright 2011, Mike Morrin <mike.morrin [AT] ipaccess.com>,
  *
@@ -33,10 +33,8 @@
  * @param tvb
  * @param tree
  * @param offset
- *
- * @return the offset after the Message Identifier
  */
-guint dissect_cbs_message_identifier(tvbuff_t *tvb, proto_tree *tree, guint offset);
+void dissect_cbs_message_identifier(tvbuff_t *tvb, proto_tree *tree, guint16 offset);
 
 
 /**
@@ -45,10 +43,8 @@ guint dissect_cbs_message_identifier(tvbuff_t *tvb, proto_tree *tree, guint offs
  * @param tvb
  * @param tree
  * @param offset
- *
- * @return the offset after the Serial Number
  */
-guint dissect_cbs_serial_number(tvbuff_t *tvb, proto_tree *tree, guint offset);
+void dissect_cbs_serial_number(tvbuff_t *tvb, proto_tree *tree, guint16 offset);
 
 
 /**
@@ -58,11 +54,11 @@ guint dissect_cbs_serial_number(tvbuff_t *tvb, proto_tree *tree, guint offset);
  * @param pinfo
  * @param tree
  */
-void dissect_umts_cell_broadcast_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
+guint16 dissect_umts_cell_broadcast_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
 
 /**
  * Dissects CB Data
  */
-tvbuff_t * dissect_cbs_data(guint8 sms_encoding, tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint offset);
+tvbuff_t * dissect_cbs_data(guint8 sms_encoding, tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint16 offset);
 
 #endif /* PACKET_CELL_BROADCAST_H */

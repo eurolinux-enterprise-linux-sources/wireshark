@@ -1,7 +1,7 @@
 /* rtp_stream_dlg.c
  * RTP streams summary addition for Wireshark
  *
- * $Id$
+ * $Id: rtp_stream_dlg.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Copyright 2003, Alcatel Business Systems
  * By Lars Ruoff <lars.ruoff@gmx.net>

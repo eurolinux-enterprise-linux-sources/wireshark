@@ -1,4 +1,4 @@
-/* $Id$ */
+/* $Id: grammar.lemon 45016 2012-09-20 01:48:30Z morriss $ */
 
 %include {
 #include "config.h"

@@ -3,7 +3,7 @@
  * This decoder is for FC-SB3 version 1.4 
  * Copyright 2003 Dinesh G Dutt (ddutt@cisco.com)
  *
- * $Id$
+ * $Id: packet-fcsb3.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

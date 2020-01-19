@@ -1,7 +1,7 @@
 /* packet-2dparityfec.c
  * Mark Lewis <mlewis@altera.com>
  *
- * $Id$
+ * $Id: packet-2dparityfec.c 48310 2013-03-15 04:52:42Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

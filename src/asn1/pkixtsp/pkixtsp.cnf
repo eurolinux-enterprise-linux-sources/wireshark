@@ -1,7 +1,7 @@
 # pkixtsp.cnf
 # Time-Stamp Protocol (RFC3161) conformation file
 
-# $Id$
+# $Id: pkixtsp.cnf 25803 2008-07-23 12:45:24Z etxrab $
 
 #.MODULE_IMPORT
 PKIX1Explicit88 pkix1explicit

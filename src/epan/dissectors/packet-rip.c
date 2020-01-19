@@ -6,7 +6,7 @@
  * RFC2082 ( Keyed Message Digest Algorithm )
  *   Emanuele Caratti  <wiz@iol.it>
  *
- * $Id$
+ * $Id: packet-rip.c 44438 2012-08-10 22:55:02Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

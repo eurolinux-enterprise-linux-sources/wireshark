@@ -1,6 +1,6 @@
 /* dfilter-macro.c
  *
- * $Id$
+ * $Id: dfilter-macro.c 48355 2013-03-17 16:48:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -26,6 +26,7 @@
 
 #include <stdio.h>
 #include <errno.h>
+#include <ctype.h>
 #include <string.h>
 
 #include "dfilter-int.h"
@@ -287,7 +288,7 @@ static const gchar* dfilter_macro_apply_recurse(const gchar* text, guint depth, 
 				}
 				break;
 			} case NAME: {
-				if ( g_ascii_isalnum(c) || c == '_' || c == '-' || c == '.' ) {
+				if ( isalnum((int)c) || c == '_' || c == '-' || c == '.' ) {
 					g_string_append_c(name,c);
 				} else if ( c == ':') {
 					state = ARGS;
@@ -398,10 +399,21 @@ static void macro_update(void* mp, const gchar** error) {
 	gchar* w;
 	gchar* part;
 	int argc = 0;
+	guint i;
 
 	DUMP_MACRO(m);
 
 	*error = NULL;
+
+	for (i = 0; i < num_macros; i++) {
+		if (m == &(macros[i])) continue;
+
+		if ( g_str_equal(m->name,macros[i].name) ) {
+			*error = ep_strdup_printf("macro '%s' exists already", m->name);
+			m->usable = FALSE;
+			return;
+		}
+	}
 
 	/* Invalidate the display filter in case it's in use */
 	if (dfilter_macro_uat && dfilter_macro_uat->post_update_cb)
@@ -567,9 +579,7 @@ static void* macro_copy(void* dest, const void* orig, size_t len _U_) {
 	return d;
 }
 
-static gboolean macro_name_chk(void *mp, const char *in_name, guint name_len,
-		const void *u1 _U_, const void *u2 _U_, const char **error) {
-	dfilter_macro_t* m = (dfilter_macro_t*)mp;
+static gboolean macro_name_chk(void* r _U_, const char* in_name, guint name_len, const void* u1 _U_, const void* u2 _U_, const char** error) {
 	guint i;
 
 	if (name_len == 0) {
@@ -578,25 +588,9 @@ static gboolean macro_name_chk(void *mp, const char *in_name, guint name_len,
 	}
 
 	for (i=0; i < name_len; i++) {
-		if (!(in_name[i] == '_' || g_ascii_isalnum(in_name[i]) ) ) {
+		if (!(in_name[i] == '_' || isalnum((guchar)in_name[i]) ) ) {
 			*error = "invalid char in name";
 			return FALSE;
-		}
-	}
-
-	/* When loading (!m->name) or when adding/changing the an item with a
-	 * different name, check for uniqueness. NOTE: if a duplicate already
-	 * exists (because the user manually edited the file), then this will
-	 * not trigger a warning. */
-	if (!m->name || !g_str_equal(m->name, in_name)) {
-		for (i = 0; i < num_macros; i++) {
-			/* This a string field which is always NUL-terminated,
-			 * so no need to check name_len. */
-			if (g_str_equal(in_name, macros[i].name)) {
-				*error = g_strdup_printf("macro '%s' already exists",
-							 in_name);
-				return FALSE;
-			}
 		}
 	}
 

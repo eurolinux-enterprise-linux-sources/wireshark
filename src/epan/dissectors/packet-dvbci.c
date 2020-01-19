@@ -2,7 +2,7 @@
  * Routines for DVB-CI (Common Interface) dissection
  * Copyright 2011-2013, Martin Kaiser <martin@kaiser.cx>
  *
- * $Id$
+ * $Id: packet-dvbci.c 50475 2013-07-09 21:03:47Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1616,14 +1616,14 @@ dissect_opp_cap_loop(guint8 cap_loop_len, const gchar *title,
 
     if (!title)
         return -1;
-    if (item_len==0)
+    if (item_len==0 || cap_loop_len%item_len != 0)
         return -1;
 
     if (tree && cap_loop_len>0) {
         ti = proto_tree_add_text(tree, tvb, offset, cap_loop_len, "%s", title);
         loop_tree = proto_item_add_subtree(ti, ett_dvbci_opp_cap_loop);
     }
-    for (i=0; i<item_len*cap_loop_len; i+=item_len) {
+    for (i=0; i<cap_loop_len; i+=item_len) {
         proto_tree_add_item(loop_tree, item_hf,
                 tvb, offset+i, item_len, ENC_BIG_ENDIAN);
     }
@@ -1983,7 +1983,7 @@ pref_key_string_to_bin(const gchar *key_string, unsigned char **key_bin)
 {
     int  key_string_len;
     int  i, j;
-    char input[3];
+    char input[2];
 
     if (!key_string || !key_bin)
         return -1;
@@ -1991,7 +1991,6 @@ pref_key_string_to_bin(const gchar *key_string, unsigned char **key_bin)
     if (key_string_len != 2*AES_KEY_LEN)
         return -1;
     *key_bin = (unsigned char*)g_malloc(key_string_len/2);
-    input[2] = '\0';
 
     j=0;
     for (i=0; i<key_string_len-1; i+=2) {
@@ -3637,7 +3636,6 @@ dissect_dvbci_payload_opp(guint32 tag, gint len_field _U_,
           cap_loop_len = tvb_get_guint8(tvb, offset);
           proto_tree_add_text(tree, tvb, offset, 1,
                   "Application capabilities loop length: %d", cap_loop_len);
-          offset++;
           dissect_opp_cap_loop(cap_loop_len,
                   "Application capabilities loop",
                   hf_dvbci_app_cap_bytes, 2,
@@ -5306,7 +5304,7 @@ proto_register_dvbci(void)
             FT_UINT8, BASE_HEX, NULL, 0x08, NULL, HFILL }
         },
         { &hf_dvbci_uri_rct,
-          { "Redistribution control trigger (RCT)", "dvb-ci.cc.uri.rct",
+          { "Redistribution control trigger (RCT)", "dvb-ci.cc.uri.ict",
             FT_UINT8, BASE_HEX, NULL, 0x04, NULL, HFILL }
         },
         { &hf_dvbci_cc_key_register,

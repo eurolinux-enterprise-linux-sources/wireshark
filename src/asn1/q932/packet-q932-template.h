@@ -2,7 +2,7 @@
  * Routines for Q.932 packet dissection
  * 2007  Tomas Kukosa
  *
- * $Id$
+ * $Id: packet-q932-template.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

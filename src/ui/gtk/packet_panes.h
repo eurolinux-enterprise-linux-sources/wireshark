@@ -2,7 +2,7 @@
  * Definitions for GTK+ packet display structures and routines (packet
  * details and hex dump panes)
  *
- * $Id$
+ * $Id: packet_panes.h 47214 2013-01-22 18:27:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

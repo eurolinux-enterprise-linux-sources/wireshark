@@ -4,7 +4,7 @@
  * Copyright 2010, Allan M. Madsen
  * Copyright 2013, Michal Labedzki for Tieto Corporation
  *
- * $Id$
+ * $Id: packet-btobex.c 50259 2013-06-30 16:38:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

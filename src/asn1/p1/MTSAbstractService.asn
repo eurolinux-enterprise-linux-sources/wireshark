@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: MTSAbstractService.asn 30409 2009-10-08 17:26:57Z krj $
 -- Module MTSAbstractService (X.411:06/1999)
 MTSAbstractService {joint-iso-itu-t mhs(6) mts(3) modules(0)
   mts-abstract-service(1) version-1999(1)} DEFINITIONS IMPLICIT TAGS ::=

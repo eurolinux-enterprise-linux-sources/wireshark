@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2005 MX Telecom Ltd. <richardv@mxtelecom.com>
  *
- * $Id$
+ * $Id: nstime.c 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

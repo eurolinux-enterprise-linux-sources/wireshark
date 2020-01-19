@@ -2,7 +2,7 @@
  * Routines for DVB (ETSI EN 300 468) Time and Date Table (TDT) dissection
  * Copyright 2012, Guy Martin <gmsoft@tuxicoman.be>
  *
- * $Id$
+ * $Id: packet-dvb-tdt.c 48891 2013-04-17 01:40:25Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

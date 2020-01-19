@@ -2,7 +2,7 @@
  * Routines for Wireless LAN (IEEE 802.11) dissection
  * Copyright 2000, Axis Communications AB
  *
- * $Id$
+ * $Id: packet-ieee80211.c 51874 2013-09-09 18:28:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -644,7 +644,7 @@ enum fixed_field {
 #define TAG_BEACON_TIMING            120
 #define TAG_MCCAOP_SETUP_REQUEST     121
 #define TAG_MCCAOP_SETUP_REPLY       122
-#define TAG_MCCAOP_ADVERTISEMENT     123
+#define TAG_MCCAOP_ADVERTISSEMENT    123
 #define TAG_MCCAOP_TEARDOWN          124
 #define TAG_GANN                     125
 #define TAG_RANN                     126  /* IEEE Std 802.11s-2011 */
@@ -664,9 +664,9 @@ enum fixed_field {
 #define TAG_CISCO_CCX3               149  /* Cisco Compatible eXtensions v3 */
 #define TAG_CISCO_UNKNOWN_96         150  /* Cisco Compatible eXtensions */
 #define TAG_SYMBOL_PROPRIETARY       173
-#define TAG_MCCAOP_ADVERTISEMENT_OV 174
-#define TAG_VHT_CAPABILITY           191  /* IEEE Std 802.11ac/D3.1 */
-#define TAG_VHT_OPERATION            192  /* IEEE Std 802.11ac/D3.1 */
+#define TAG_MCCAOP_ADVERTISSEMENT_OV 174
+#define TAG_VHT_CAPABILITY           191  /* IEEE Stc 802.11ac/D3.1 */
+#define TAG_VHT_OPERATION            192  /* IEEE Stc 802.11ac/D3.1 */
 #define TAG_VENDOR_SPECIFIC_IE       221
 
 static const value_string tag_num_vals[] = {
@@ -775,9 +775,9 @@ static const value_string tag_num_vals[] = {
   { TAG_BEACON_TIMING,                        "Beacon Timing" },
   { TAG_MCCAOP_SETUP_REQUEST,                 "MCCAOP Setup Request" },
   { TAG_MCCAOP_SETUP_REPLY,                   "MCCAOP SETUP Reply" },
-  { TAG_MCCAOP_ADVERTISEMENT,                 "MCCAOP Advertisement" },
+  { TAG_MCCAOP_ADVERTISSEMENT,                "MCCAOP Advertissement" },
   { TAG_MCCAOP_TEARDOWN,                      "MCCAOP Teardown" },
-  { TAG_GANN,                                 "Gate Announcement" },
+  { TAG_GANN,                                 "Gate Announcemen" },
   { TAG_RANN,                                 "Root Announcement" },
   { TAG_EXTENDED_CAPABILITIES,                "Extended Capabilities" },
   { TAG_AGERE_PROPRIETARY,                    "Agere Proprietary" },
@@ -795,9 +795,9 @@ static const value_string tag_num_vals[] = {
   { TAG_CISCO_CCX3,                           "Cisco Unknown 95" },
   { TAG_CISCO_UNKNOWN_96,                     "Cisco Unknown 96" },
   { TAG_SYMBOL_PROPRIETARY,                   "Symbol Proprietary" },
-  { TAG_MCCAOP_ADVERTISEMENT_OV,              "MCCAOP Advertisement Overview" },
-  { TAG_VHT_CAPABILITY,                       "VHT Capabilities (IEEE Std 802.11ac/D3.1)" },
-  { TAG_VHT_OPERATION,                        "VHT Operation (IEEE Std 802.11ac/D3.1)" },
+  { TAG_MCCAOP_ADVERTISSEMENT_OV,             "MCCAOP Advertissement Overviw" },
+  { TAG_VHT_CAPABILITY,                       "VHT Capabilities (IEEE Stc 802.11ac/D3.1)" },
+  { TAG_VHT_OPERATION,                        "VHT Operation (IEEE Stc 802.11ac/D3.1)" },
   { TAG_VENDOR_SPECIFIC_IE,                   "Vendor Specific" },
   { 0, NULL }
 };
@@ -1097,7 +1097,7 @@ static const value_string ieee80211_qos_tags_acs[] = {
   { 4, "Controlled Load (Video)" },
   { 5, "Video (Video)" },
   { 6, "Voice (Voice)" },
-  { 7, "Network Control (Voice)" },
+  { 7, "Netowrk Control (Voice)" },
   { 0, NULL }
 };
 
@@ -2254,7 +2254,6 @@ static const value_string mcsset_tx_max_spatial_streams_flags[] = {
   {0x01, "2 spatial streams"},
   {0x02, "3 spatial streams"},
   {0x03, "4 spatial streams"},
-  {0x04, "TX MCS Set Not Defined"},
   {0x00, NULL}
 };
 
@@ -9243,10 +9242,7 @@ dissect_mcs_set(proto_tree *tree, tvbuff_t *tvb, int offset, gboolean basic, gbo
 {
   proto_item *ti;
   proto_tree *mcs_tree, *bit_tree;
-  guint8 rx_nss, tx_nss; /* 0-4 for HT and 0-8 for VHT*/
-  guint32 value_mcs_0_31, value_mcs_32_52, value_mcs_53_76;
-  guint16 tx_mcs_set;
-  rx_nss = tx_nss = 8;
+
   /* 16 byte Supported MCS set */
   if (vs)
   {
@@ -9264,81 +9260,31 @@ dissect_mcs_set(proto_tree *tree, tvbuff_t *tvb, int offset, gboolean basic, gbo
   bit_tree = proto_item_add_subtree(ti, ett_mcsbit_tree);
 
   /* Bits 0 - 31 */
-  value_mcs_0_31 = tvb_get_letohl(tvb, offset);
-
-  /* Handle all zeroes/ff's case..*/
-  if (value_mcs_0_31 != 0x0)
-  {
-    if (!(value_mcs_0_31 & (0xffffff00)))
-      rx_nss = 0 ; /* 1 spatial stream*/
-      else if (!(value_mcs_0_31 & (0xffff0000)))
-        rx_nss = 1 ; /*2 spatial streams*/
-      else if (!(value_mcs_0_31 & (0xff000000)))
-        rx_nss = 2 ;/*3 spatial streams*/
-      else
-        rx_nss = 3 ;/*4 spatial streams*/
-  }
-
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_0to7, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_8to15, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_16to23, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_24to31, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   offset += 4;
 
-  /* Should be we check UEQM Supported?*/
   /* Bits 32 - 52 */
-  value_mcs_32_52 = tvb_get_letohl(tvb, offset); 
-  if (!(value_mcs_32_52 & ~(0x00000001)))
-    rx_nss = rx_nss ; /* 1 spatial stream*/
-  else if (!(value_mcs_32_52 & ~(0x00007e)))
-    rx_nss = MAX(1,rx_nss) ; /*2 spatial streams*/
-  else if (!(value_mcs_32_52 & ~(0x1ffff80)))
-    rx_nss = MAX(2,rx_nss); /*3 spatial streams*/
-
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_32, tvb, offset , 4, ENC_LITTLE_ENDIAN);
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_33to38, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_39to52, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   offset += 2;
 
   /* Bits 53 - 76 */
-  value_mcs_53_76 = tvb_get_letohl(tvb, offset); 
-  if ((value_mcs_53_76 & (0x1fffffe0)))
-    rx_nss = MAX(3,rx_nss) ; /* 4 spatial streams*/
-
   proto_tree_add_item(bit_tree, hf_ieee80211_mcsset_rx_bitmask_53to76, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   offset += 4;
 
   proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_highest_data_rate, tvb, offset, 2, ENC_LITTLE_ENDIAN);
   offset += 2;
 
-  /* Follow table 8-126 from 802.11-2012 */
-  tx_mcs_set = tvb_get_letohs(tvb,offset);
-
-  if (!(tx_mcs_set & 0x0001) && !(tx_mcs_set & 0x0002))  
-  {
-    /* TX MCS Set is not defined
-     * so there is no interpretation for Max Tx Spatial Streams
-     */
-     tx_nss = 4; /* Not Defined*/
-  }
-
-  if ((tx_mcs_set & 0x0001) && !(tx_mcs_set & 0x0002))  
-  {
-    /* TX MCS Set is defined to be equal to Rx MCS Set
-     * So, get the Max Spatial Streams from Rx 
-     * MCS set
-     */
-     tx_nss = rx_nss;
-  }
-  proto_item_append_text(ti, ": %s",val_to_str(rx_nss,mcsset_tx_max_spatial_streams_flags,"Reserved:%d" ) );
-
   proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_tx_mcs_set_defined, tvb, offset, 1,
       ENC_LITTLE_ENDIAN);
   proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_tx_rx_mcs_set_not_equal, tvb, offset, 1,
       ENC_LITTLE_ENDIAN);
-  ti = proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_tx_max_spatial_streams, tvb, offset, 1,
+  proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_tx_max_spatial_streams, tvb, offset, 1,
       ENC_LITTLE_ENDIAN);
-  proto_item_append_text(ti, ", %s",val_to_str(tx_nss,mcsset_tx_max_spatial_streams_flags,"Reserved:%d" ) );
   proto_tree_add_item(mcs_tree, hf_ieee80211_mcsset_tx_unequal_modulation, tvb, offset, 1,
       ENC_LITTLE_ENDIAN);
   offset += 1;
@@ -9599,8 +9545,6 @@ static int dissect_tfs_request(packet_info *pinfo, proto_tree *tree,
       s_end = offset + len;
       while (s_offset < s_end) {
         int tlen = add_tagged_field(pinfo, tree, tvb, s_offset, ftype);
-        if (tlen==0)
-          break;
         s_offset += tlen;
       }
       break;
@@ -9670,8 +9614,6 @@ static int dissect_tfs_response(packet_info *pinfo, proto_tree *tree,
       s_end = offset + len;
       while (s_offset < s_end) {
         int tlen = add_tagged_field(pinfo, tree, tvb, s_offset, ftype);
-        if (tlen==0)
-          break;
         s_offset += tlen;
       }
       break;
@@ -10200,13 +10142,13 @@ dissect_ht_capability_ie(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, in
     cap_item = proto_tree_add_item(tree, hf_ieee80211_htex_cap, tvb, offset, 2, ENC_LITTLE_ENDIAN);
   }
   cap_tree = proto_item_add_subtree(cap_item, ett_htex_cap_tree);
-  proto_tree_add_item(cap_tree, hf_ieee80211_htex_pco, tvb, offset, 2, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_htex_transtime, tvb, offset, 2, ENC_LITTLE_ENDIAN);
-
-  proto_tree_add_item(cap_tree, hf_ieee80211_htex_mcs, tvb, offset, 2, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_htex_htc_support, tvb, offset, 2, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_htex_rd_responder, tvb, offset, 2, ENC_LITTLE_ENDIAN);
-  offset += 2;
+  proto_tree_add_item(cap_tree, hf_ieee80211_htex_pco, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_htex_transtime, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  offset += 1;
+  proto_tree_add_item(cap_tree, hf_ieee80211_htex_mcs, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_htex_htc_support, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_htex_rd_responder, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  offset += 1;
 
 
   /* 4 byte TxBF capabilities */
@@ -10217,30 +10159,33 @@ dissect_ht_capability_ie(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, in
     cap_item = proto_tree_add_item(tree, hf_ieee80211_txbf, tvb, offset, 4, ENC_LITTLE_ENDIAN);
   }
   cap_tree = proto_item_add_subtree(cap_item, ett_txbf_tree);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_cap, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_rcv_ssc, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_tx_ssc, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_rcv_ndp, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_tx_ndp, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_impl_txbf, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_calib, tvb, offset, 4, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_cap, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_rcv_ssc, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_tx_ssc, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_rcv_ndp, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_tx_ndp, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_impl_txbf, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_calib, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  offset += 1;
 
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_csi, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_uncomp_fm, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_comp_fm, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_bf_csi, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_uncomp_fm_feed, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_comp_fm_feed, tvb, offset, 4, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_csi, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_uncomp_fm, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_comp_fm, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_bf_csi, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_uncomp_fm_feed, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_expl_comp_fm_feed, tvb, offset, 2, ENC_LITTLE_ENDIAN);
+  offset += 1;
 
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_min_group, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_csi_num_bf_ant, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_uncomp_sm_bf_ant, tvb, offset, 4,  ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_comp_sm_bf_ant, tvb, offset, 4, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_min_group, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_csi_num_bf_ant, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_uncomp_sm_bf_ant, tvb, offset, 1,  ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_comp_sm_bf_ant, tvb, offset, 2, ENC_LITTLE_ENDIAN);
+  offset += 1;
 
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_csi_max_rows_bf, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_chan_est, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_resrv, tvb, offset, 4, ENC_LITTLE_ENDIAN);
-  offset += 4;
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_csi_max_rows_bf, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_chan_est, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  proto_tree_add_item(cap_tree, hf_ieee80211_txbf_resrv, tvb, offset, 1, ENC_LITTLE_ENDIAN);
+  offset += 1;
 
   /* 1 byte Antenna Selection (ASEL) capabilities */
   if (vs)
@@ -11693,12 +11638,6 @@ add_tagged_field(packet_info *pinfo, proto_tree *tree, tvbuff_t *tvb, int offset
             /* TODO */
           case 9: /* Transmit Stream Measurement Request */
             /* TODO */
-          case 10: /* Multicast diagnostics request */
-            /* TODO */
-          case 11: /* Location Civic request */
-            /* TODO */
-          case 12: /* Location Identifier request */
-            /* TODO */
           case 255: /* Measurement Pause Request*/
             /* TODO */
           default: /* unknown */
@@ -11945,12 +11884,6 @@ add_tagged_field(packet_info *pinfo, proto_tree *tree, tvbuff_t *tvb, int offset
           case 8: /* Location Configuration Information Report element */
             /* TODO */
           case 9: /* Transmit Stream Measurement Report */
-            /* TODO */
-          case 10: /* Multicast diagnostics Report */
-            /* TODO */
-          case 11: /* Location Civic Report */
-            /* TODO */
-          case 12: /* Location Identifier Report */
             /* TODO */
           default: /* unknown */
             break;
@@ -13471,7 +13404,7 @@ dissect_ieee80211_common (tvbuff_t *tvb, packet_info *pinfo,
                   if (bmap & (G_GINT64_CONSTANT(1) << f))
                     continue;
                   proto_tree_add_uint_format_value(ba_bitmap_tree, hf_ieee80211_block_ack_bitmap_missing_frame,
-                                                   tvb, offset + (f/8), 1, ssn + f, "%u", (ssn + f) & 0x0fff);
+                                                   tvb, offset + (f/8), 1, ssn + f, "%u", ssn + f);
                 }
                 /*offset += 8;*/
                 break;
@@ -17287,8 +17220,8 @@ proto_register_ieee80211 (void)
       NULL, HFILL }},
 
     {&hf_ieee80211_mcsset_tx_max_spatial_streams,
-     {"Maximum Number of Tx Spatial Streams Supported", "wlan_mgt.ht.mcsset.txmaxss",
-      FT_UINT16, BASE_HEX, 0 , 0x000c,
+     {"Tx Maximum Number of Spatial Streams Supported", "wlan_mgt.ht.mcsset.txmaxss",
+      FT_UINT16, BASE_HEX, VALS(mcsset_tx_max_spatial_streams_flags) , 0x000c,
       NULL, HFILL }},
 
     {&hf_ieee80211_mcsset_tx_unequal_modulation,
@@ -17333,12 +17266,12 @@ proto_register_ieee80211 (void)
 
     {&hf_ieee80211_txbf,
      {"Transmit Beam Forming (TxBF) Capabilities", "wlan_mgt.txbf",
-      FT_UINT32, BASE_HEX, NULL, 0,
+      FT_UINT16, BASE_HEX, NULL, 0,
       NULL, HFILL }},
 
     {&hf_ieee80211_txbf_vs,
      {"Transmit Beam Forming (TxBF) Capabilities (VS)", "wlan_mgt.vs.txbf",
-      FT_UINT32, BASE_HEX, NULL, 0,
+      FT_UINT16, BASE_HEX, NULL, 0,
       "Vendor Specific Transmit Beam Forming (TxBF) Capabilities", HFILL }},
 
     {&hf_ieee80211_txbf_cap,
@@ -20713,18 +20646,18 @@ proto_register_ieee80211 (void)
   };
   module_t *wlan_module;
 
-  memset(&wlan_stats, 0, sizeof wlan_stats);
+  memset (&wlan_stats, 0, sizeof wlan_stats);
 
   proto_aggregate = proto_register_protocol("IEEE 802.11 wireless LAN aggregate frame",
       "IEEE 802.11 Aggregate Data", "wlan_aggregate");
   proto_register_field_array(proto_aggregate, aggregate_fields, array_length(aggregate_fields));
 
-  proto_wlan = proto_register_protocol("IEEE 802.11 wireless LAN",
+  proto_wlan = proto_register_protocol ("IEEE 802.11 wireless LAN",
       "IEEE 802.11", "wlan");
-  proto_register_field_array(proto_wlan, hf, array_length (hf));
+  proto_register_field_array (proto_wlan, hf, array_length (hf));
 
-  proto_wlan_mgt = proto_register_protocol("IEEE 802.11 wireless LAN management frame",
-      "IEEE 802.11 MGT", "wlan_mgt");
+  proto_wlan_mgt = proto_register_protocol ("IEEE 802.11 wireless LAN management frame",
+      "802.11 MGT", "wlan_mgt");
   proto_register_field_array (proto_wlan_mgt, ff, array_length (ff));
 
   proto_register_subtree_array (tree_array, array_length (tree_array));

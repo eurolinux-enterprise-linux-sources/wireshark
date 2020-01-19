@@ -2,7 +2,7 @@
  * Routines to Dissect TLV's for CM-Control Messages
  * Copyright 2010, Guido Reismueller <g.reismueller[AT]avm.de>
  *
- * $Id$
+ * $Id: packet-tlv-cmctrl.c 47607 2013-02-10 16:31:52Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* ftypes.h
  * Definitions for field types
  *
- * $Id$
+ * $Id: ftypes.h 48218 2013-03-09 20:02:19Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -92,8 +92,7 @@ typedef struct _ftype_t ftype_t;
 /* String representation types. */
 enum ftrepr {
 	FTREPR_DISPLAY,
-	FTREPR_DFILTER,
-	FTREPR_DISPLAY_HEX
+	FTREPR_DFILTER
 };
 
 typedef enum ftrepr ftrepr_t;

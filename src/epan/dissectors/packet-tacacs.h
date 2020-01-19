@@ -2,7 +2,7 @@
  * Routines for cisco tacplus packet dissection
  * Copyright 2000, Emanuele Caratti <wiz@iol.it>
  *
- * $Id$
+ * $Id: packet-tacacs.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

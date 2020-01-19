@@ -1,6 +1,6 @@
 /* airpdcap.c
  *
- * $Id$
+ * $Id: airpdcap.c 48308 2013-03-15 01:31:53Z mmann $
  * Copyright (c) 2006 CACE Technologies, Davis (California)
  * All rights reserved.
  *
@@ -1674,8 +1674,7 @@ AirPDcapGetBssidAddress(
     }
 }
 
-/* Function used to derive the PTK. Refer to IEEE 802.11I-2004, pag. 74
- * and IEEE 802.11i-2004, pag. 164 */
+/* Function used to derive the PTK. Refer to IEEE 802.11I-2004, pag. 74 */
 static void
 AirPDcapRsnaPrfX(
     AIRPDCAP_SEC_ASSOCIATION *sa,
@@ -1687,7 +1686,6 @@ AirPDcapRsnaPrfX(
     UINT8 i;
     UCHAR R[100];
     INT offset=sizeof("Pairwise key expansion");
-    UCHAR output[80]; /* allow for sha1 overflow. */
 
     memset(R, 0, 100);
 
@@ -1724,9 +1722,8 @@ AirPDcapRsnaPrfX(
     for(i = 0; i < (x+159)/160; i++)
     {
         R[offset] = i;
-        sha1_hmac(pmk, 32, R, 100, &output[20 * i]);
+        sha1_hmac(pmk, 32, R, 100, ptk + i * 20);
     }
-    memcpy(ptk, output, x/8);
 }
 
 static INT

@@ -1,6 +1,6 @@
 /* packet-ansi_a.h
  *
- * $Id$
+ * $Id: packet-ansi_a.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright 2003, Michael Lum <mlum [AT] telostech.com>,
  * In association with Telos Technology Inc.

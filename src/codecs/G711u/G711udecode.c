@@ -1,7 +1,7 @@
 /* G711udecode.c
  * mu-law G.711 codec
  *
- * $Id$
+ * $Id: G711udecode.c 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

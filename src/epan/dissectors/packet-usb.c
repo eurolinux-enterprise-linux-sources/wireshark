@@ -1,6 +1,6 @@
 /* packet-usb.c
  *
- * $Id$
+ * $Id: packet-usb.c 48847 2013-04-14 16:00:34Z pascal $
  *
  * USB basic dissector
  * By Paolo Abeni <paolo.abeni@email.it>

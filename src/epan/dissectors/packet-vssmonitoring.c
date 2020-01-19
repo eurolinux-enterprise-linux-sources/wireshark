@@ -5,7 +5,7 @@
  *
  * 20111205 - First edition by Sake Blok (sake.blok@SYN-bit.nl)
  *
- * $Id$
+ * $Id: packet-vssmonitoring.c 48933 2013-04-19 16:40:06Z jmayer $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

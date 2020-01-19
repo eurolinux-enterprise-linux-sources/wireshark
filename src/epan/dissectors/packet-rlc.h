@@ -1,6 +1,6 @@
 /* Routines for UMTS RLC disassembly
  *
- * $Id$
+ * $Id: packet-rlc.h 47891 2013-02-26 01:06:19Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

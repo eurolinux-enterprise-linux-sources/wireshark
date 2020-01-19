@@ -1,6 +1,6 @@
 /* capture_interface_dialog.cpp
  *
- * $Id$
+ * $Id: capture_interface_dialog.cpp 46780 2012-12-26 12:24:55Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

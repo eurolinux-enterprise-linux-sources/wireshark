@@ -8,7 +8,7 @@
  *
  * Copyright 2009, Robert Hogan <robert@roberthogan.net>
  *
- * $Id$
+ * $Id: packet-tn5250.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

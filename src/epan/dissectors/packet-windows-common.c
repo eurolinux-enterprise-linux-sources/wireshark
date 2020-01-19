@@ -1,7 +1,7 @@
 /* packet-windows-common.c
  * Routines for dissecting various Windows data types
  *
- * $Id$
+ * $Id: packet-windows-common.c 47924 2013-02-27 22:43:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

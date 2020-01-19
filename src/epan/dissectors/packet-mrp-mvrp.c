@@ -7,7 +7,7 @@
  * Johannes Jochen <johannes.jochen[AT]belden.com>
  * Copyright 2011
  *
- * $Id$
+ * $Id: packet-mrp-mvrp.c 45419 2012-10-09 08:49:40Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

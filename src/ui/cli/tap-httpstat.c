@@ -1,7 +1,7 @@
 /* tap-httpstat.c
  * tap-httpstat   2003 Jean-Michel FAYARD
  *
- * $Id$
+ * $Id: tap-httpstat.c 48137 2013-03-06 17:35:11Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

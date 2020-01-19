@@ -1,4 +1,4 @@
-$Id$
+$Id: README 18369 2006-06-06 23:09:20Z gerald $
 
 Wiretap is a library that is being developed as a future replacement for
 libpcap, the current standard Unix library for packet capturing. Libpcap

@@ -1,6 +1,6 @@
 /* atm.c
  *
- * $Id$
+ * $Id: atm.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>

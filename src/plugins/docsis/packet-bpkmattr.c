@@ -2,7 +2,7 @@
  * Routines for Baseline Privacy Key Management Attributes dissection
  * Copyright 2002, Anand V. Narwani <anand[AT]narwani.org>
  *
- * $Id$
+ * $Id: packet-bpkmattr.c 47607 2013-02-10 16:31:52Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Definitions for IPMI dissection
  * Copyright 2002-2008, Alexey Neyman, Pigeon Point Systems <avn@pigeonpoint.com>
  *
- * $Id$
+ * $Id: packet-ipmi.h 25951 2008-08-07 19:33:40Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

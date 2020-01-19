@@ -6,7 +6,7 @@
  * Copyright 2003, Vincent JARDIN - 6WIND - <vincent.jardin@6wind.com>
  * Copyright 2004, Remi DENIS-COURMONT
  *
- * $Id$
+ * $Id: packet-teredo.c 46928 2013-01-04 05:22:43Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

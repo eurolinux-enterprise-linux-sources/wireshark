@@ -3,7 +3,7 @@
  *
  * For further info, see: http://wiki.wireshark.org/Development/ExpertInfo
  *
- * $Id$
+ * $Id: expert.h 47995 2013-03-02 01:00:20Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

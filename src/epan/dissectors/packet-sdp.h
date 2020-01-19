@@ -5,7 +5,7 @@
  * Liberally copied from packet-http.c, by Guy Harris <guy@alum.mit.edu>
  * 2005 Alejandro Vaquero <alejandro.vaquero@verso.com>, add support for tap
  *
- * $Id$
+ * $Id: packet-sdp.h 47572 2013-02-08 17:52:12Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -37,7 +37,7 @@ enum sdp_exchange_type
 	SDP_EXCHANGE_ANSWER_REJECT,
 };
 
-extern void setup_sdp_transport(tvbuff_t *tvb, packet_info *pinfo, enum sdp_exchange_type type, int request_frame, const gboolean delay);
+extern void setup_sdp_transport(tvbuff_t *tvb, packet_info *pinfo, enum sdp_exchange_type type, int request_frame);
 /* Handles duplicate OFFER packets so they don't end up processed by dissect_sdp().  This can probably
  * be removed when all higher layer dissectors properly handle SDP themselves with setup_sdp_transport()
  */

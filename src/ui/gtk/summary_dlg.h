@@ -1,7 +1,7 @@
 /* summary_dlg.h
  * Routines for capture file summary window
  *
- * $Id$
+ * $Id: summary_dlg.h 46782 2012-12-26 12:29:43Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

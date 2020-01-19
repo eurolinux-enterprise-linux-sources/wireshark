@@ -1,8 +1,8 @@
 /* packet-lpp.c
- * Routines for 3GPP LTE Positioning Protocol (LPP) packet dissection
+ * Routines for 3GPP LTE Positioning Protocol (LLP) packet dissection
  * Copyright 2011-2013 Pascal Quantin <pascal.quantin@gmail.com>
  *
- * $Id$
+ * $Id: packet-lpp-template.c 48443 2013-03-20 21:14:25Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -34,7 +34,7 @@
 
 #include "packet-per.h"
 
-#define PNAME  "LTE Positioning Protocol (LPP)"
+#define PNAME  "LTE Positioning Protocol (LLP)"
 #define PSNAME "LPP"
 #define PFNAME "lpp"
 

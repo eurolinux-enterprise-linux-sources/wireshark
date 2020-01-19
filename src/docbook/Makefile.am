@@ -3,7 +3,7 @@
 # in several formats.
 # See the Readme.txt file for instructions.
 #
-# $Id$
+# $Id: Makefile.am 48307 2013-03-15 00:08:18Z gerald $
 #
 
 # formatting objects processor
@@ -57,10 +57,10 @@ endif
 
 
 if HAVE_XSLTPROC
-ALL_TARGETS=git_version_check wsug wsdg release_notes
+ALL_TARGETS=svn_version_check wsug wsdg release_notes
 else
 # if we don't have XSLTPROC, there's nothing to do...
-ALL_TARGETS=git_version_check
+ALL_TARGETS=svn_version_check
 endif
 
 all: $(ALL_TARGETS)
@@ -71,10 +71,10 @@ all: $(ALL_TARGETS)
 # FORCE is the portable version of .PHONY
 FORCE:
 
-git_version_check: FORCE
-	cat $(srcdir)/check_git_version.sh | tr -d '\015' | /bin/bash
+svn_version_check: FORCE
+	cat $(srcdir)/check_svn_version.sh | tr -d '\015' | /bin/bash
 
-git_version.xml: git_version_check
+svn_version.xml: svn_version_check
 
 # Wireshark User Guide
 if HAVE_FOP
@@ -258,7 +258,7 @@ EXTRA_DIST = \
 	$(WSUG_SOURCE)		\
 	$(WSDG_SOURCE)		\
 	$(RELEASE_NOTES_SOURCE)	\
-	check_git_version.sh	\
+	check_svn_version.sh	\
 	docbook.vcproj		\
 	dfilter2xml.pl		\
 	make-wsluarm.pl		\

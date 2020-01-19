@@ -6,7 +6,7 @@
  *
  * Copyright 2011, Tyson Key <tyson.key@gmail.com>
  *
- * $Id$
+ * $Id: packet-usb-ccid.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

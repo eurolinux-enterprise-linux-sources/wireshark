@@ -2,7 +2,7 @@
  * Routines for H.223 packet dissection
  * Copyright (c) 2004-5 MX Telecom Ltd <richardv@mxtelecom.com>
  *
- * $Id$
+ * $Id: packet-h223.c 48396 2013-03-18 19:47:33Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -52,7 +52,6 @@
 
 /* Wireshark ID of the H.223 protocol */
 static int proto_h223 = -1;
-static int proto_h223_bitswapped = -1;
 
 /* The following hf_* variables are used to hold the Wireshark IDs of
  * our header fields; they are filled out when we call
@@ -1601,14 +1600,11 @@ void proto_register_h223 (void)
 
     proto_h223 =
         proto_register_protocol ("ITU-T Recommendation H.223", "H.223", "h223");
-    /* Create a H.223 "placeholder" to remove confusion with Decode As" */
-    proto_h223_bitswapped =
-        proto_register_protocol ("ITU-T Recommendation H.223 (Bitswapped)", "H.223 (Bitswapped)", "h223_bitswapped");
 
     proto_register_field_array (proto_h223, hf, array_length (hf));
     proto_register_subtree_array (ett, array_length (ett));
     register_dissector("h223", dissect_h223, proto_h223);
-    register_dissector("h223_bitswapped", dissect_h223_bitswapped, proto_h223_bitswapped);
+    register_dissector("h223_bitswapped", dissect_h223_bitswapped, proto_h223);
 
     /* register our init routine to be called at the start of a capture,
        to clear out our hash tables etc */

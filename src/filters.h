@@ -1,7 +1,7 @@
 /* filters.h
  * Declarations of routines for reading and writing the filters file.
  *
- * $Id$
+ * $Id: filters.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

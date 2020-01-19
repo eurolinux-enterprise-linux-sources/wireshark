@@ -9,7 +9,7 @@
  * Frank Singleton <frank.singleton@ericsson.com>
  * Trevor Shepherd <eustrsd@am1.ericsson.se>
  *
- * $Id$
+ * $Id: packet-giop.c 48399 2013-03-18 20:44:36Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -283,6 +283,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
+#include <ctype.h>
 #include <glib.h>
 #include <math.h>
 
@@ -1402,17 +1403,17 @@ static void insert_in_objkey_hash(GHashTable *hash, const gchar *obj, guint32 le
 static gint8 hex_char_to_val(guchar c){
   gint8 retval ;
 
-  if (!g_ascii_isxdigit(c)) {
+  if (!isxdigit(c)) {
     return -1;
   }
-  if (g_ascii_isdigit(c)) {
-    retval = c - '0';           /* convert digit */
+  if (isdigit(c)) {
+    retval = c - 48;            /* convert digit */
     return retval;
   }
 
-  c = g_ascii_toupper(c);       /* convert to uppercase */
+  c = toupper(c);               /* convert to uppercase */
   if (c >= 'A' && c <= 'F') {
-    retval = c - 'A' + 10;
+    retval = c - 55;
     return retval;
   }
   else {
@@ -1447,7 +1448,7 @@ static guint32 string_to_IOR(guchar *in, guint32 in_len, guint8 **out){
   /* skip past IOR:  and convert character pairs to guint8 */
 
   for (i=4; i<in_len-1; i+=2) {
-    if ( g_ascii_isxdigit(in[i]) && g_ascii_isxdigit(in[i+1]) ) { /* hex ? */
+    if ( isxdigit(in[i]) && isxdigit(in[i+1]) ) { /* hex ? */
 
       if ( (tmpval_msb = hex_char_to_val(in[i])) < 0 ) {
         g_warning("giop: Invalid value in IOR %i \n", tmpval_msb);
@@ -5084,12 +5085,12 @@ proto_register_giop (void)
 
     { &hf_giop_char_data,
       { "char data", "giop.char_data",
-        FT_UINT32, BASE_DEC|BASE_EXT_STRING, &giop_code_set_vals_ext, 0x0, NULL, HFILL }
+        FT_UINT32, BASE_DEC, &giop_code_set_vals_ext, 0x0, NULL, HFILL }
     },
 
     { &hf_giop_wchar_data,
       { "wchar data", "giop.wchar_data",
-        FT_UINT32, BASE_DEC|BASE_EXT_STRING, &giop_code_set_vals_ext, 0x0, NULL, HFILL }
+        FT_UINT32, BASE_DEC, &giop_code_set_vals_ext, 0x0, NULL, HFILL }
     },
 
     { &hf_giop_IIOP_tag,

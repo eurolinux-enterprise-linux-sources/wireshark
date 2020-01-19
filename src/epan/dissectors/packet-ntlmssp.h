@@ -2,7 +2,7 @@
  * Declarations for NTLM Secure Service Provider
  * Copyright 2003, Tim Potter <tpot@samba.org>
  *
- * $Id$
+ * $Id: packet-ntlmssp.h 44542 2012-08-16 17:03:07Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

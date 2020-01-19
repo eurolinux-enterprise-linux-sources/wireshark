@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * $Id: crc16-plain.c 43982 2012-07-25 08:57:33Z etxrab $
  * \file crc16-plain.c
  * Functions and types for CRC checks.
  *

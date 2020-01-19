@@ -2,7 +2,7 @@
  * Dialog to setup for import of a text file, like text2pcap
  * November 2010, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: file_import_dlg.c 48745 2013-04-05 06:43:38Z ruengeler $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -461,7 +461,7 @@ file_import_open(text_import_info_t *info)
     os_info_str = g_string_new("");
     get_os_version_info(os_info_str);
 
-    g_snprintf(appname, sizeof(appname), "Wireshark " VERSION "%s", wireshark_gitversion);
+    g_snprintf(appname, sizeof(appname), "Wireshark " VERSION "%s", wireshark_svnversion);
 
     shb_hdr = g_new(wtapng_section_t,1);
     shb_hdr->section_length = -1;

@@ -3,7 +3,7 @@
 -- Taken from ITU ASN.1 database
 -- http://www.itu.int/ITU-T/formal-language/itu-t/h/h225-0/2009/H323-MESSAGES.asn
 --
--- $Id$
+-- $Id: H323-MESSAGES.asn 32672 2010-05-05 13:14:41Z kukosa $
 --
 
 -- Module H323-MESSAGES (H.225.0:12/2009)

@@ -7,7 +7,7 @@
  *
  * Major updates: tcp and application layer defragmentation, more object dissections by Graham Bloice
  *
- * $Id$
+ * $Id: packet-dnp.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1667,11 +1667,9 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
 
       if (!header_only || (AL_OBJQL_IDX_1OS <= al_objq_index && al_objq_index <= AL_OBJQL_IDX_4OS)) {
         guint8       al_2bit, al_ptflags, al_ctlobj_count, al_bi_val, al_tcc_code;
-        gint16       al_val_int16;
-        guint16      al_val_uint16, al_ctlobj_stat;
+        guint16      al_val16, al_ctlobj_stat;
         guint16      al_relms, al_filename_offs, al_filename_len, al_file_ctrl_mode;
-        gint32       al_val_int32;
-        guint32      al_val_uint32, al_ctlobj_on, al_ctlobj_off, file_data_size;
+        guint32      al_val32, al_ctlobj_on, al_ctlobj_off, file_data_size;
         nstime_t     al_reltime, al_abstime;
         gboolean     al_bit;
         gfloat       al_valflt;
@@ -1931,14 +1929,14 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
             switch (al_obj)
             {
               case AL_OBJ_AO_32OPB:
-                al_val_int32 = tvb_get_letohl(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int32);
+                al_val32 = tvb_get_letohl(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val32);
                 proto_tree_add_item(point_tree, hf_dnp3_al_anaout32, tvb, data_pos, 4, ENC_LITTLE_ENDIAN);
                 data_pos += 4;
                 break;
               case AL_OBJ_AO_16OPB:
-                al_val_int16 = tvb_get_letohs(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int16);
+                al_val32 = tvb_get_letohs(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val32);
                 proto_tree_add_item(point_tree, hf_dnp3_al_anaout16, tvb, data_pos, 2, ENC_LITTLE_ENDIAN);
                 data_pos += 2;
                 break;
@@ -2047,8 +2045,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_FCTRC_32T:
               case AL_OBJ_FDCTRC_32T:
 
-                al_val_uint32 = tvb_get_letohl(tvb, data_pos);
-                proto_item_append_text(point_item, ", Count: %u", al_val_uint32);
+                al_val32 = tvb_get_letohl(tvb, data_pos);
+                proto_item_append_text(point_item, ", Count: %u", al_val32);
                 proto_tree_add_item(point_tree, hf_dnp3_al_cnt32, tvb, data_pos, 4, ENC_LITTLE_ENDIAN);
                 data_pos += 4;
                 break;
@@ -2072,8 +2070,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_FCTRC_16T:
               case AL_OBJ_FDCTRC_16T:
 
-                al_val_uint16 = tvb_get_letohs(tvb, data_pos);
-                proto_item_append_text(point_item, ", Count: %u", al_val_uint16);
+                al_val16 = tvb_get_letohs(tvb, data_pos);
+                proto_item_append_text(point_item, ", Count: %u", al_val16);
                 proto_tree_add_item(point_tree, hf_dnp3_al_cnt16, tvb, data_pos, 2, ENC_LITTLE_ENDIAN);
                 data_pos += 2;
                 break;
@@ -2155,8 +2153,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_AIC_32T:
               case AL_OBJ_AIDB_32:
 
-                al_val_int32 = tvb_get_letohl(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int32);
+                al_val32 = tvb_get_letohl(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val32);
                 proto_tree_add_item(point_tree, hf_dnp3_al_ana32, tvb, data_pos, 4, ENC_LITTLE_ENDIAN);
                 data_pos += 4;
                 break;
@@ -2167,8 +2165,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_AIC_16T:
               case AL_OBJ_AIDB_16:
 
-                al_val_int16 = tvb_get_letohs(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int16);
+                al_val16 = tvb_get_letohs(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val16);
                 proto_tree_add_item(point_tree, hf_dnp3_al_ana16, tvb, data_pos, 2, ENC_LITTLE_ENDIAN);
                 data_pos += 2;
                 break;
@@ -2246,8 +2244,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_AOC_32NT:  /* 32-Bit Analog Output Event w/o Time (Obj:42, Var:01) */
               case AL_OBJ_AOC_32T:   /* 32-Bit Analog Output Event with Time (Obj:42, Var:03) */
 
-                al_val_int32 = tvb_get_letohl(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int32);
+                al_val32 = tvb_get_letohl(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val32);
                 proto_tree_add_item(point_tree, hf_dnp3_al_anaout32, tvb, data_pos, 4, ENC_LITTLE_ENDIAN);
                 data_pos += 4;
                 break;
@@ -2256,8 +2254,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
               case AL_OBJ_AOC_16NT:  /* 16-Bit Analog Output Event w/o Time (Obj:42, Var:02) */
               case AL_OBJ_AOC_16T:   /* 16-Bit Analog Output Event with Time (Obj:42, Var:04) */
 
-                al_val_int16 = tvb_get_letohs(tvb, data_pos);
-                proto_item_append_text(point_item, ", Value: %d", al_val_int16);
+                al_val16 = tvb_get_letohs(tvb, data_pos);
+                proto_item_append_text(point_item, ", Value: %u", al_val16);
                 proto_tree_add_item(point_tree, hf_dnp3_al_anaout16, tvb, data_pos, 2, ENC_LITTLE_ENDIAN);
                 data_pos += 2;
                 break;
@@ -2321,8 +2319,8 @@ dnp3_al_process_object(tvbuff_t *tvb, packet_info *pinfo, int offset,
 
           case AL_OBJ_TDELAYF: /* Time Delay - Fine (Obj:52, Var:02) */
 
-            al_val_uint16 = tvb_get_letohs(tvb, data_pos);
-            proto_tree_add_text(object_tree, tvb, data_pos, 2, "Time Delay: %u ms", al_val_uint16);
+            al_val16 = tvb_get_letohs(tvb, data_pos);
+            proto_tree_add_text(object_tree, tvb, data_pos, 2, "Time Delay: %u ms", al_val16);
             data_pos += 2;
             proto_item_set_len(point_item, data_pos - offset);
 
@@ -3590,13 +3588,13 @@ proto_register_dnp3(void)
 
     { &hf_dnp3_al_ana16,
       { "Value (16 bit)", "dnp3.al.ana",
-          FT_INT16, BASE_DEC, NULL, 0x0,
+          FT_UINT16, BASE_DEC, NULL, 0x0,
           "Analog Value (16 bit)", HFILL }
     },
 
     { &hf_dnp3_al_ana32,
       { "Value (32 bit)", "dnp3.al.ana",
-          FT_INT32, BASE_DEC, NULL, 0x0,
+          FT_UINT32, BASE_DEC, NULL, 0x0,
           "Analog Value (32 bit)", HFILL }
     },
 
@@ -3614,13 +3612,13 @@ proto_register_dnp3(void)
 
     { &hf_dnp3_al_anaout16,
       { "Output Value (16 bit)", "dnp3.al.anaout",
-          FT_INT16, BASE_DEC, NULL, 0x0,
+          FT_UINT16, BASE_DEC, NULL, 0x0,
           NULL, HFILL }
     },
 
     { &hf_dnp3_al_anaout32,
       { "Output Value (32 bit)", "dnp3.al.anaout",
-          FT_INT32, BASE_DEC, NULL, 0x0,
+          FT_UINT32, BASE_DEC, NULL, 0x0,
           NULL, HFILL }
     },
 

@@ -2,7 +2,7 @@
  * Routines for X.511 (X.500 Directory Asbtract Service) and X.519 DAP  packet dissection
  * Graeme Lunt 2005
  *
- * $Id$
+ * $Id: packet-dap-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

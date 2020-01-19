@@ -2,7 +2,7 @@
  * Routines called to write stuff to the recent file; their implementations
  * are GUI-dependent, but the API's aren't
  *
- * $Id$
+ * $Id: recent_utils.h 50957 2013-07-27 22:44:41Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

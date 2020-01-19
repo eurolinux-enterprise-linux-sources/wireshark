@@ -2,7 +2,7 @@
  * Routines for Cimetrics LLC OUI dissection
  * Copyright 2008 Steve Karg <skarg@users.sourceforge.net> Alabama
  *
- * $Id$
+ * $Id: packet-cimetrics.c 48313 2013-03-15 06:26:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

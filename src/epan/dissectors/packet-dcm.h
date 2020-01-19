@@ -1,6 +1,6 @@
 /* packet-dcm.h
  *
- * $Id$
+ * $Id: packet-dcm.h 43536 2012-06-28 22:56:06Z darkjames $
  * Routines for DICOM packet dissection
  * Copyright 2009, David Aggeler <david_aggeler@hispeed.ch>
  *

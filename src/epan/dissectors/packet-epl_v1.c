@@ -10,7 +10,7 @@
  *                     - David Buechi <bhd@zhwin.ch>
  *
  *
- * $Id$
+ * $Id: packet-epl_v1.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * A dissector for:
  * Wireshark - Network traffic analyzer

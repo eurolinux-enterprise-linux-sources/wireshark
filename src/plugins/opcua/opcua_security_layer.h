@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_security_layer.h 21784 2007-05-15 09:53:26Z ulfl $
 **
 ** Copyright (C) 2006-2007 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com

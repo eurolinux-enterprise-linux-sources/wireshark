@@ -14,7 +14,7 @@
  * 04/2009 Added routines for decryption of IKEv2 Encrypted Payload
  *   Naoyoshi Ueda <piyomaru3141@gmail.com>
  *
- * $Id$
+ * $Id: packet-isakmp.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -1738,6 +1738,7 @@ decrypt_payload(tvbuff_t *tvb, packet_info *pinfo, const guint8 *buf, guint buf_
   guint32 message_id, cbc_block_size, digest_size;
 
   if (!decr ||
+      decr->is_psk == FALSE ||
       decr->gi_len == 0 ||
       decr->gr_len == 0)
     return NULL;

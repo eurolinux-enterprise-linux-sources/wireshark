@@ -7,7 +7,7 @@
  * Tony Lindstrom <tony.lindstrom@ericsson.com>
  * Copyright 2012, Jerome LAFORGE <jerome.laforge@gmail.com>
  *
- * $Id$
+ * $Id: packet-dhcpv6.c 48965 2013-04-22 17:28:16Z alagoutte $
  *
  * The information used comes from:
  * RFC3315.txt (DHCPv6)

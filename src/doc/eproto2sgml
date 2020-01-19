@@ -8,7 +8,7 @@
 #	will be replaced by the pod-formatted glossary
 # STDOUT is the output
 #
-# $Id$
+# $Id: eproto2sgml 18271 2006-05-31 19:12:15Z gerald $
 
 # Read all the data into memory
 while (<STDIN>) {

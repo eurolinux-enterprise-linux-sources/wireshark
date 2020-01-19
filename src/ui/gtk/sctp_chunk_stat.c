@@ -3,7 +3,7 @@
  * Copyright 2005 Oleg Terletsky <oleg.terletsky [AT] comverse.com>
  * Copyright 2009 Varun Notibala <nbvarun [AT] gmail.com>
  *
- * $Id$
+ * $Id: sctp_chunk_stat.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

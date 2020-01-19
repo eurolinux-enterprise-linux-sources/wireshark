@@ -4,7 +4,7 @@
  *
  * See RFC 3244
  *
- * $Id$
+ * $Id: packet-kpasswd.c 45776 2012-10-24 19:32:59Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

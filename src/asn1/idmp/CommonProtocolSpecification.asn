@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: CommonProtocolSpecification.asn 33177 2010-06-09 14:17:51Z gal $
 -- http://www.itu.int/ITU-T/formal-language/itu-t/x/x519/2005/CommonProtocolSpecification.asn
 -- Module CommonProtocolSpecification (X.519:08/2005)
 CommonProtocolSpecification {joint-iso-itu-t ds(5) module(1)

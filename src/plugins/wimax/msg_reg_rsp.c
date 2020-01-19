@@ -5,7 +5,7 @@
  *
  * Author: John R. Underwood <junderx@yahoo.com>
  *
- * $Id$
+ * $Id: msg_reg_rsp.c 47617 2013-02-10 20:52:21Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

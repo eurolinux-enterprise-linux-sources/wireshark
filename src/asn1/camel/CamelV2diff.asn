@@ -1,4 +1,4 @@
--- $Id$--
+-- $Id: CamelV2diff.asn 39715 2011-11-02 18:10:34Z etxrab $--
 --
 -- Hand crafted ASN1 file for the differences between latest spec and V2
 -- statments sufixed with V2 to be able to generate this with the latest ASN1 spec.

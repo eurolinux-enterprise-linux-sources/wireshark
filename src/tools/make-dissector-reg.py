@@ -9,7 +9,7 @@
 # seds for each input file.  I wrote this python version so that
 # less processes would have to be started.
 #
-# $Id$
+# $Id: make-dissector-reg.py 51809 2013-09-07 01:19:23Z gerald $
 
 import os
 import sys
@@ -19,7 +19,7 @@ import hashlib
 from stat import *
 
 VERSION_KEY = '_VERSION'
-CUR_VERSION = '$Id$'
+CUR_VERSION = '$Id: make-dissector-reg.py 51809 2013-09-07 01:19:23Z gerald $'
 
 #
 # The first argument is the directory in which the source files live.

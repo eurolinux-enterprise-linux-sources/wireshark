@@ -1,6 +1,6 @@
 /* decode_as_dlg.c
  *
- * $Id$
+ * $Id: decode_as_dlg.c 48797 2013-04-09 02:48:03Z morriss $
  *
  * Routines to modify dissector tables on the fly.
  *
@@ -321,17 +321,8 @@ read_set_decode_as_entries(gchar *key, const gchar *value,
       lookup.handle = NULL;
       g_slist_foreach(sub_dissectors->dissector_handles, change_dissector_if_matched, &lookup);
       if (lookup.handle != NULL) {
-        char *p;
-        long long_value;
-
-        long_value = strtol(values[1], &p, 0);
-        if (p == values[0] || *p != '\0' || long_value < 0 ||
-              (unsigned long)long_value > UINT_MAX) {
-            retval = PREFS_SET_SYNTAX_ERR;
-        } else {
-            dissector_change_uint(values[0], (guint)long_value, lookup.handle);
-            decode_build_reset_list(g_strdup(values[0]), sub_dissectors->type, g_strdup(values[1]), NULL, NULL);
-        }
+	dissector_change_uint(values[0], atoi(values[1]), lookup.handle);
+	decode_build_reset_list(g_strdup(values[0]), sub_dissectors->type, g_strdup(values[1]), NULL, NULL);
       }
     } else {
       retval = PREFS_SET_SYNTAX_ERR;
@@ -979,7 +970,7 @@ decode_transport(GtkWidget *notebook_pg)
     gchar *table_name;
     gint requested_srcdst, requested_port, ppid;
     gpointer portp;
-    gpointer ptr = GUINT_TO_POINTER(LAST_PPID);
+    gpointer ptr;
 #ifdef DEBUG
     gchar *string;
 #endif
@@ -989,7 +980,8 @@ decode_transport(GtkWidget *notebook_pg)
         gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(GTK_TREE_VIEW(list)));
 
     combo_box = (GtkWidget *)g_object_get_data(G_OBJECT(notebook_pg), E_COMBO_BOX_SRCDST);
-    ws_combo_box_get_active_pointer(GTK_COMBO_BOX(combo_box), &ptr);
+    if (!ws_combo_box_get_active_pointer(GTK_COMBO_BOX(combo_box), &ptr))
+        g_assert_not_reached();  /* Programming error if no active item in combo_box */
     requested_srcdst = GPOINTER_TO_INT(ptr);
 
 #ifdef DEBUG
@@ -1895,7 +1887,7 @@ decode_add_bluetooth_page(const gchar *prompt, const gchar *table_name, const ch
     if (value == NULL)
         value = empty;
 
-    page = ws_gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5, FALSE);
+	page = ws_gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5, FALSE);
 
     g_object_set_data(G_OBJECT(page), E_PAGE_ACTION, decode_bluetooth);
     g_object_set_data(G_OBJECT(page), E_PAGE_TABLE,  (gchar *) table_name);

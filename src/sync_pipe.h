@@ -2,7 +2,7 @@
  * Low-level synchronization pipe routines for use by Wireshark/TShark
  * and dumpcap
  *
- * $Id$
+ * $Id: sync_pipe.h 46985 2013-01-07 16:26:45Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

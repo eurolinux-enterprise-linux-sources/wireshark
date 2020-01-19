@@ -1,7 +1,7 @@
 /* packet-ieee80211-airopeek.c
  * Routines for pre-V9 WildPackets AiroPeek header dissection
  *
- * $Id$
+ * $Id: packet-ieee80211-airopeek.c 47664 2013-02-15 00:34:05Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

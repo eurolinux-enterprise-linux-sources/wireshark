@@ -1,7 +1,7 @@
 # logotypecertextn.cnf
 # LogotypeCertExtn conformation file
 
-# $Id$
+# $Id: logotypecertextn.cnf 30471 2009-10-10 12:43:47Z krj $
 
 #.IMPORT ../x509af/x509af-exp.cnf
 

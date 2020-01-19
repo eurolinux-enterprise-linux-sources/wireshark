@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: wsgetopt_int.h 48869 2013-04-16 00:00:09Z eapache $
    Copied from glibc-2.15
 
    Internal declarations for getopt.

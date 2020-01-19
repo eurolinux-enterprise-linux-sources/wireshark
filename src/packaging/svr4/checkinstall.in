@@ -6,7 +6,7 @@
 # This is a modified version of a script written by mark@metalab.unc.edu .
 # The original is at http://metalab.unc.edu/pub/packages/solaris/sparc/html/creating.solaris.packages.html .
 #
-# $Id$
+# $Id: checkinstall.in 41594 2012-03-16 03:39:51Z guy $
 #
 
 PKG_CONFIG=@PKG_CONFIG@

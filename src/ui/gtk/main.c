@@ -1,6 +1,6 @@
 /* main.c
  *
- * $Id$
+ * $Id: main.c 50712 2013-07-17 23:21:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -68,7 +68,6 @@
 #include <epan/epan.h>
 #include <epan/filesystem.h>
 #include <wsutil/privileges.h>
-#include <epan/proto.h>
 #include <epan/epan_dissect.h>
 #include <epan/timestamp.h>
 #include <epan/plugins.h>
@@ -161,7 +160,6 @@
 #include "ui/gtk/main_toolbar.h"
 #include "ui/gtk/main_toolbar_private.h"
 #include "ui/gtk/main_welcome.h"
-#include "ui/gtk/main_welcome_private.h"
 #include "ui/gtk/drag_and_drop.h"
 #include "ui/gtk/capture_file_dlg.h"
 #include "ui/gtk/packet_panes.h"
@@ -668,9 +666,8 @@ copy_selected_plist_cb(GtkWidget *w _U_, gpointer data _U_, COPY_SELECTED_E acti
         break;
     case COPY_SELECTED_VALUE:
         if (cfile.edt !=0 ) {
-            gchar* field_str = get_node_field_value(cfile.finfo_selected, cfile.edt);
-            g_string_append(gtk_text_str, field_str);
-            g_free(field_str);
+            g_string_append(gtk_text_str,
+                    get_node_field_value(cfile.finfo_selected, cfile.edt));
         }
         break;
     default:
@@ -1145,7 +1142,7 @@ print_usage(gboolean print_ver) {
         "See http://www.wireshark.org for more information.\n"
         "\n"
         "%s",
-	wireshark_gitversion, get_copyright_info());
+	wireshark_svnversion, get_copyright_info());
   } else {
     output = stderr;
   }
@@ -1242,7 +1239,7 @@ show_version(void)
          "%s"
          "\n"
          "%s",
-      wireshark_gitversion, get_copyright_info(), comp_info_str->str,
+      wireshark_svnversion, get_copyright_info(), comp_info_str->str,
       runtime_info_str->str);
 }
 
@@ -2246,14 +2243,14 @@ main(int argc, char *argv[])
   runtime_info_str = g_string_new("Running ");
   get_runtime_version_info(runtime_info_str, get_gui_runtime_info);
 
+#ifdef _WIN32
   ws_add_crash_info(PACKAGE " " VERSION "%s\n"
          "\n"
          "%s"
          "\n"
          "%s",
-      wireshark_gitversion, comp_info_str->str, runtime_info_str->str);
+      wireshark_svnversion, comp_info_str->str, runtime_info_str->str);
 
-#ifdef _WIN32
   /* Start windows sockets */
   WSAStartup( MAKEWORD( 1, 1 ), &wsaData );
 #endif  /* _WIN32 */
@@ -2437,15 +2434,9 @@ main(int argc, char *argv[])
 #ifdef HAVE_LIBPCAP
   capture_callback_add(main_capture_callback, NULL);
 #endif
-
   cf_callback_add(statusbar_cf_callback, NULL);
 #ifdef HAVE_LIBPCAP
   capture_callback_add(statusbar_capture_callback, NULL);
-#endif
-
-  cf_callback_add(welcome_cf_callback, NULL);
-#ifdef HAVE_LIBPCAP
-  capture_callback_add(welcome_capture_callback, NULL);
 #endif
 
   /* Arrange that if we have no console window, and a GLib message logging
@@ -2538,7 +2529,7 @@ main(int argc, char *argv[])
 
   prefs_p = read_configuration_files (&gdp_path, &dp_path);
   /* Removed thread code:
-   * https://code.wireshark.org/review/gitweb?p=wireshark.git;a=commit;h=9e277ae6154fd04bf6a0a34ec5655a73e5a736a3
+   * http://anonsvn.wireshark.org/viewvc/viewvc.cgi?view=rev&revision=35027
    */
 
   /* this is to keep tap extensions updating once every 3 seconds */
@@ -3890,38 +3881,6 @@ void change_configuration_profile (const gchar *profile_name)
 
     /* Reload pane geometry, must be done after recreating the list */
     main_pane_load_window_geometry();
-}
-
-void
-main_fields_changed (void)
-{
-    /* Reload color filters */
-    color_filters_reload();
-
-    /* Syntax check filter */
-    filter_te_syntax_check_cb(main_display_filter_widget, NULL);
-    if (cfile.dfilter) {
-        /* Check if filter is still valid */
-        dfilter_t *dfp = NULL;
-        if (!dfilter_compile(cfile.dfilter, &dfp)) {
-            /* Not valid.  Enable 'Apply' button and remove dfilter. */
-            g_signal_emit_by_name(G_OBJECT(main_display_filter_widget), "changed");
-            g_free(cfile.dfilter);
-            cfile.dfilter = NULL;
-        }
-        dfilter_free(dfp);
-    }
-
-    if (have_custom_cols(&cfile.cinfo)) {
-        /* Recreate packet list according to new/changed/deleted fields */
-        packet_list_recreate();
-    } else if (cfile.state != FILE_CLOSED) {
-        /* Redissect packets if we have any */
-        redissect_packets();
-    }
-    destroy_packet_wins(); /* TODO: close windows until we can recreate */
-
-    proto_free_deregistered_fields();
 }
 
 /** redissect packets and update UI */

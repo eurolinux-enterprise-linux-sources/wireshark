@@ -1,7 +1,7 @@
 /* progress_dlg.h
  * Definitions for progress dialog box routines
  *
- * $Id$
+ * $Id: progress_dlg.h 45767 2012-10-24 15:52:45Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

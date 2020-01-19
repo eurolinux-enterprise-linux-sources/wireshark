@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id$
+# $Id: perlnoutf.pl 48991 2013-04-22 21:32:55Z gerald $
 
 # Call another Perl script, passing our caller's arguments, with
 # environment variables unset so perl doesn't interpret bytes as UTF-8

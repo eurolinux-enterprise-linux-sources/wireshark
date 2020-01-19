@@ -1,7 +1,7 @@
 /* packet-esis.h
  * Defines and such for ESIS protocol decode.
  *
- * $Id$
+ * $Id: packet-esis.h 43536 2012-06-28 22:56:06Z darkjames $
  * Ralf Schneider <Ralf.Schneider@t-online.de>
  *
  * Wireshark - Network traffic analyzer

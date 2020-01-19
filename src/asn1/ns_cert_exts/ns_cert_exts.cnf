@@ -1,7 +1,7 @@
 # NS-CERT-EXT.cnf
 # NetScape Certificate Extensions conformation file
 
-# $Id$
+# $Id: ns_cert_exts.cnf 30478 2009-10-10 14:20:33Z krj $
 
 #.MODULE_IMPORT
 

@@ -2,7 +2,7 @@
  * Routines for Multimedia Internet KEYing dissection
  * Copyright 2007, Mikael Magnusson <mikma@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-mikey.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

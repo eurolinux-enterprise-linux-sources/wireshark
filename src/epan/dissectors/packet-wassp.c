@@ -2,7 +2,7 @@
  * Routines for the disassembly of the Chantry/HiPath AP-Controller
  * tunneling protocol.
  *
- * $Id$
+ * $Id: packet-wassp.c 47924 2013-02-27 22:43:54Z guy $
  *
  * Copyright 2009 Joerg Mayer (see AUTHORS file)
  *

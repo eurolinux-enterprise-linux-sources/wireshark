@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: sttype-function.c 48083 2013-03-05 06:16:45Z etxrab $
  *
  * Copyright (c) 2006 by Gilbert Ramirez <gram@alumni.rice.edu>
  *

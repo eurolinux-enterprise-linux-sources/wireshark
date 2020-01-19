@@ -1,7 +1,7 @@
 /*
  * Copyright 2012, Pontus Fuchs <pontus.fuchs@gmail.com>
  *
- * $Id$
+ * $Id: main_80211_toolbar.h 43568 2012-07-05 02:01:43Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

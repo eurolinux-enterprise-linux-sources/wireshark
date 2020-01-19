@@ -11,7 +11,7 @@
  * Based on the dissector by
  * Yuriy Sidelnikov <YSidelnikov@hotmail.com>
  *
- * $Id$
+ * $Id: packet-pres.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

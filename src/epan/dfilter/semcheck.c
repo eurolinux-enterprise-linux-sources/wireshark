@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: semcheck.c 48083 2013-03-05 06:16:45Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

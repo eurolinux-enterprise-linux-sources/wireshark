@@ -1,7 +1,7 @@
 /* conversations_ipv6.c   2009 Clif Bratcher
  * Modified from conversations_ip   2003 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: conversations_ipv6.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

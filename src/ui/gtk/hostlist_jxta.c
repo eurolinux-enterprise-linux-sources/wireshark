@@ -1,7 +1,7 @@
 /* hostlist_jxta.c   2005 Mike Duigou
  * modified from hostlist_eth.c   2004 Ian Schorr
  *
- * $Id$
+ * $Id: hostlist_jxta.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

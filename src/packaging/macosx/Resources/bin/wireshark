@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id$
+# $Id: wireshark 32751 2010-05-11 13:42:13Z morriss $
 #
 # Author: Aaron Voisine <aaron@voisine.org>
 # Wireshark Modifications:

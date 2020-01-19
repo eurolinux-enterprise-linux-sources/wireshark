@@ -1,6 +1,6 @@
 /* print_dialog.cpp
  *
- * $Id$
+ * $Id: print_dialog.cpp 45893 2012-11-04 16:01:20Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

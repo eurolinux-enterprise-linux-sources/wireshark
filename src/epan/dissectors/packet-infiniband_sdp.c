@@ -3,7 +3,7 @@
  * Copyright 2010, Mellanox Technologies Ltd.
  * Code by Amir Vadai and Slava Koyfman.
  *
- * $Id$
+ * $Id: packet-infiniband_sdp.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -542,9 +542,7 @@ proto_reg_handoff_ib_sdp(void)
         int i;
 
         for (i = 0; i < 2; i++) {
-            if (gPREF_ID[i][0] == '\0') {
-                error_occured = TRUE;
-            } else if (gPREF_TYPE[i] == 0) {   /* LID */
+            if (gPREF_TYPE[i] == 0) {   /* LID */
                 errno = 0;  /* reset any previous error indicators */
                 *((guint16*)manual_addr_data[i]) = (guint16)strtoul(gPREF_ID[i], &not_parsed, 0);
                 if (errno || *not_parsed != '\0') {

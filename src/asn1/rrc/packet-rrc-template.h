@@ -1,7 +1,7 @@
 /* packet-rrc-template.h
  * Copyright 2009, Anders Broman <anders.broman@ericsson.com>
  *
- * $Id$
+ * $Id: packet-rrc-template.h 46012 2012-11-12 21:39:14Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

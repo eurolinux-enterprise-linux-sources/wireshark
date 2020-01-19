@@ -1,7 +1,7 @@
 /* packet-ans.c
  * Routines for Intel ANS probe dissection
  *
- * $Id$
+ * $Id: packet-ans.c 48272 2013-03-12 21:58:04Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

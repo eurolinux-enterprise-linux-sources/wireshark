@@ -1,7 +1,7 @@
 /* packet-x29.c
  * Routines for X.29 packet dissection
  *
- * $Id$
+ * $Id: packet-x29.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

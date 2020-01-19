@@ -1,7 +1,7 @@
 /* packet-windows-common.h
  * Declarations for dissecting various Windows data types
  *
- * $Id$
+ * $Id: packet-windows-common.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

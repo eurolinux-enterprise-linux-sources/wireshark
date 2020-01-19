@@ -2,7 +2,7 @@
  * Routines for SML dissection
  * Copyright 2013, Alexander Gaertner <gaertner.alex@gmx.de>
  *
- * $Id$
+ * $Id: packet-sml.c 47873 2013-02-25 16:19:15Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

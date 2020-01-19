@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-integer.c 45948 2012-11-06 13:28:59Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -228,7 +228,7 @@ integer_repr_len(fvalue_t *fv _U_, ftrepr_t rtype _U_)
 }
 
 static void
-integer_to_repr(fvalue_t *fv, ftrepr_t rtype, char *buf)
+integer_to_repr(fvalue_t *fv, ftrepr_t rtype _U_, char *buf)
 {
 	guint32 val;
 
@@ -237,6 +237,8 @@ integer_to_repr(fvalue_t *fv, ftrepr_t rtype, char *buf)
 		val = -fv->value.sinteger;
 	} else
 		val = fv->value.sinteger;
+
+	guint32_to_str_buf(val, buf, 11);
 }
 
 static int
@@ -246,14 +248,9 @@ uinteger_repr_len(fvalue_t *fv _U_, ftrepr_t rtype _U_)
 }
 
 static void
-uinteger_to_repr(fvalue_t *fv, ftrepr_t rtype, char *buf)
+uinteger_to_repr(fvalue_t *fv, ftrepr_t rtype _U_, char *buf)
 {
-	if (rtype == FTREPR_DISPLAY_HEX) {
-		/* This format perfectly fits into 11 bytes. */
-		sprintf(buf, "0x%08x", fv->value.uinteger);
-	} else {
-		guint32_to_str_buf(fv->value.uinteger, buf, 11);
-	}
+	guint32_to_str_buf(fv->value.uinteger, buf, 11);
 }
 
 static gboolean

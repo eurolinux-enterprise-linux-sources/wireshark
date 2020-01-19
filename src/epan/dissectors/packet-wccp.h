@@ -1,7 +1,7 @@
 /* packet-wccp.h
  * Declarations for Cisco Web Cache Communication Protocol
  *
- * $Id$
+ * $Id: packet-wccp.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

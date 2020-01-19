@@ -2,7 +2,7 @@
  * Routines for the disassembly of Extreme Networks specific
  * protocols (EDP/ESRP/EAPS(including ESL)/ELSM)
  *
- * $Id$
+ * $Id: packet-extreme.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Copyright 2005 Joerg Mayer (see AUTHORS file)
  *

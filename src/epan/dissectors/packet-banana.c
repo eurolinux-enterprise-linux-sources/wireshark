@@ -2,7 +2,7 @@
  * Routines for the Twisted Banana serialization protocol dissection
  * Copyright 2009, Gerald Combs <gerald@wireshark.org>
  *
- * $Id$
+ * $Id: packet-banana.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

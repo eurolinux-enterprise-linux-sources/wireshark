@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- $Id$ -->
+<!-- $Id: objects.xib 24640 2008-03-15 18:31:52Z gerald $ -->
 <object class="NSIBObjectData">
   <string name="targetFramework">IBCarbonFramework</string>
   <object name="rootObject" class="NSCustomObject" id="1">

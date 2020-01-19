@@ -1,6 +1,6 @@
 /* csids.c
  *
- * $Id$
+ * $Id: csids.c 47899 2013-02-26 04:42:26Z wmeier $
  *
  * Copyright (c) 2000 by Mike Hall <mlh@io.com>
  * Copyright (c) 2000 by Cisco Systems

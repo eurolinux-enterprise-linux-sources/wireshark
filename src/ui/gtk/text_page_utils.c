@@ -1,7 +1,7 @@
 /* text_page_utils.c
  *  Construct a simple text page widget from a file.
  *
- * $Id$
+ * $Id: text_page_utils.c 48447 2013-03-21 02:29:09Z wmeier $
  *
  * Ulf Lamping
  *

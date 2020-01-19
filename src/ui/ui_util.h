@@ -3,7 +3,7 @@
  * APIs, but GUI-dependent implementations, so that they can be called by
  * GUI-independent code to affect the GUI.
  *
- * $Id$
+ * $Id: ui_util.h 45767 2012-10-24 15:52:45Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

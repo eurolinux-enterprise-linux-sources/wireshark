@@ -137,12 +137,6 @@
 /* Define to use libz library */
 #undef HAVE_LIBZ
 
-/* Define to 1 if you have the <linux/if_bonding.h> header file. */
-#undef HAVE_LINUX_IF_BONDING_H
-
-/* Define to 1 if you have the <linux/sockios.h> header file. */
-#undef HAVE_LINUX_SOCKIOS_H
-
 /* Define to use Lua ${lua_ver} */
 #undef HAVE_LUA
 
@@ -347,6 +341,9 @@
 /* Define if strptime.h needs to be included */
 #undef NEED_STRPTIME_H
 
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+#undef NO_MINUS_C_MINUS_O
+
 /* Name of package */
 #undef PACKAGE
 
@@ -411,11 +408,6 @@
 /* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
    `char[]'. */
 #undef YYTEXT_POINTER
-
-/* Enable large inode numbers on Mac OS X 10.5.  */
-#ifndef _DARWIN_USE_64_BIT_INODE
-# define _DARWIN_USE_64_BIT_INODE 1
-#endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */
 #undef _FILE_OFFSET_BITS

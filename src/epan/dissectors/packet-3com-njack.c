@@ -1,7 +1,7 @@
 /* packet-3com-njack.c
  * Routines for the disassembly of the 3com NetworkJack management protocol
  *
- * $Id$
+ * $Id: packet-3com-njack.c 48265 2013-03-12 20:00:50Z etxrab $
  *
  * Copyright 2005 Joerg Mayer (see AUTHORS file)
  *

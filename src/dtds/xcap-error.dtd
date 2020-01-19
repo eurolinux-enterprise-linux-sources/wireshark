@@ -3,7 +3,7 @@
    description="XCAP Error XML doc (RFC 4825)"
    hierarchy="yes" ?>
 <!--
-$Id$
+$Id: xcap-error.dtd 22148 2007-06-21 11:37:42Z martinm $
 -->
 
 <!ELEMENT xcap-error (schema-validation-error?,

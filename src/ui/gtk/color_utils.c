@@ -1,7 +1,7 @@
 /* color_utils.c
  * Toolkit-dependent implementations of routines to handle colors.
  *
- * $Id$
+ * $Id: color_utils.c 46932 2013-01-04 17:07:26Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

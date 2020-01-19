@@ -6,7 +6,7 @@
  *
  * (c) Copyright 2007 Silvia Cristina Tejedor <silviacristina.tejedor@gmail.com>
  *
- * $Id$
+ * $Id: packet-pcep.c 47924 2013-02-27 22:43:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

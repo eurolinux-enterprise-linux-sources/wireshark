@@ -1,7 +1,7 @@
 /* value_string.c
  * Routines for value_strings
  *
- * $Id$
+ * $Id: value_string.c 48646 2013-03-30 00:11:00Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

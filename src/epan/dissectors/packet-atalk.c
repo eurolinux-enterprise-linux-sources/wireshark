@@ -2,7 +2,7 @@
  * Routines for AppleTalk packet disassembly: LLAP, DDP, NBP, ATP, ASP,
  * RTMP, PAP.
  *
- * $Id$
+ * $Id: packet-atalk.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Simon Wilkinson <sxw@dcs.ed.ac.uk>
  *
@@ -1057,9 +1057,8 @@ dissect_asp_reply_get_status(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *
   if (machine_ofs)
     proto_tree_add_item(tree, hf_asp_server_type, tvb, machine_ofs, 1, ENC_ASCII|ENC_NA);
 
-  ofs = tvb_get_ntohs(tvb, offset +AFPSTATUS_VERSOFF);
+  ofs = offset +tvb_get_ntohs(tvb, offset +AFPSTATUS_VERSOFF);
   if (ofs) {
-    ofs += offset;
     nbe = tvb_get_guint8(tvb, ofs);
     ti = proto_tree_add_text(tree, tvb, ofs, 1, "Version list: %u", nbe);
     ofs++;
@@ -1071,9 +1070,8 @@ dissect_asp_reply_get_status(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *
     }
   }
 
-  ofs = tvb_get_ntohs(tvb, offset +AFPSTATUS_UAMSOFF);
+  ofs = offset +tvb_get_ntohs(tvb, offset +AFPSTATUS_UAMSOFF);
   if (ofs) {
-    ofs += offset;
     nbe = tvb_get_guint8(tvb, ofs);
     ti = proto_tree_add_text(tree, tvb, ofs, 1, "UAMS list: %u", nbe);
     ofs++;
@@ -1085,11 +1083,9 @@ dissect_asp_reply_get_status(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *
     }
   }
 
-  ofs = tvb_get_ntohs(tvb, offset +AFPSTATUS_ICONOFF);
-  if (ofs) {
-    ofs += offset;
+  ofs = offset +tvb_get_ntohs(tvb, offset +AFPSTATUS_ICONOFF);
+  if (ofs)
     proto_tree_add_item(tree, hf_asp_server_icon, tvb, ofs, 256, ENC_NA);
-  }
 
   if (sign_ofs) {
     proto_tree_add_item(tree, hf_asp_server_signature, tvb, sign_ofs, 16, ENC_NA);

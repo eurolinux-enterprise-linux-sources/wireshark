@@ -11,7 +11,7 @@
  *   support on mobile radio interface
  *   (3GPP TS 24.011 version 4.1.1 Release 4)
  *
- * $Id$
+ * $Id: packet-gsm_a_rp.c 49526 2013-05-22 20:59:04Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

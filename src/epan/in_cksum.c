@@ -3,7 +3,7 @@
  * pointers/lengths giving the pieces to be checksummed.  Also using
  * Tahoe/CGI version of ADDCARRY(x) macro instead of from portable version.
  *
- * $Id$
+ * $Id: in_cksum.c 45016 2012-09-20 01:48:30Z morriss $
  */
 
 /*

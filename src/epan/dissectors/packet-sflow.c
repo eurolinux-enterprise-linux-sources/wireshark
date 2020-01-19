@@ -7,7 +7,7 @@
  *
  * By Yi Yu <yiyu.inbox@gmail.com>
  *
- * $Id$
+ * $Id: packet-sflow.c 48379 2013-03-17 19:24:51Z alagoutte $
  *
  * TODO:
  *   802.11 aggregation data dissection                         (sFlow v5)

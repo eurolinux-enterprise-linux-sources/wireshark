@@ -2,7 +2,7 @@
 (set -o igncr) 2>/dev/null && set -o igncr;  # hack to force this file to be processed by cygwin bash with -o igncr
                                              # needed when this file is exec'd from win32-setup.sh & win64-setup.sh
 #
-# $Id$
+# $Id: win-setup.sh 44888 2012-09-13 21:28:28Z gerald $
 
 err_exit () {
 	echo ""

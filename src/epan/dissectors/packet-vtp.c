@@ -1,7 +1,7 @@
 /* packet-vtp.c
  * Routines for the disassembly of Cisco's VLAN Trunking Protocol
  *
- * $Id$
+ * $Id: packet-vtp.c 48032 2013-03-03 07:29:28Z mmann $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,5 +1,5 @@
 /* packet-v52.c
- * $Id$
+ * $Id: packet-v52.c 47390 2013-01-31 18:31:28Z wmeier $
  * Implementation for V5.2 Interface dissection
  * References:
  * ETSI EN 300 324-1 V2.1.1 (2000-04)

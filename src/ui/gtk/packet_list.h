@@ -1,6 +1,6 @@
 /* packet_list.h
  *
- * $Id$
+ * $Id: packet_list.h 47214 2013-01-22 18:27:18Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

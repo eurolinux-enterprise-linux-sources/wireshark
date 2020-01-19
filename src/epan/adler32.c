@@ -3,7 +3,7 @@
  * 2003 Tomas Kukosa
  * Based on code from RFC 1950 (Chapter 9. Appendix: Sample code)
  *
- * $Id$
+ * $Id: adler32.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

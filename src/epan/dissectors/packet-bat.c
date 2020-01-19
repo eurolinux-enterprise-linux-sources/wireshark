@@ -2,7 +2,7 @@
  * Routines for B.A.T.M.A.N. Layer 3 dissection
  * Copyright 2008-2010 Sven Eckelmann <sven@narfation.org>
  *
- * $Id$
+ * $Id: packet-bat.c 48622 2013-03-28 16:02:41Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

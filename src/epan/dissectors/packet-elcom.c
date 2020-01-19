@@ -2,7 +2,7 @@
  * Routines for elcom packet dissection
  * Copyright 2008, 2011 juha.takala@iki.fi (Juha Takala)
  *
- * $Id$
+ * $Id: packet-elcom.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

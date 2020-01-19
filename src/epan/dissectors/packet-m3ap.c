@@ -9,7 +9,7 @@
 /* packet-m3ap.c
  * Routines for M3 Application Protocol packet dissection
  *
- * $Id$
+ * $Id: packet-m3ap.c 48820 2013-04-11 18:14:53Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

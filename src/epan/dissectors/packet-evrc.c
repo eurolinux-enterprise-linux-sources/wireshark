@@ -16,7 +16,7 @@
  * RFC 4788  http://www.ietf.org/rfc/rfc4788.txt?number=4788
  * RFC 5188  http://www.ietf.org/rfc/rfc5188.txt?number=5188
  *
- * $Id$
+ * $Id: packet-evrc.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

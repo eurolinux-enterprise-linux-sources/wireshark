@@ -1,7 +1,7 @@
 /* packet-udp.c
  * Routines for UDP/UDPLite packet disassembly
  *
- * $Id$
+ * $Id: packet-udp.c 48439 2013-03-20 05:59:22Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

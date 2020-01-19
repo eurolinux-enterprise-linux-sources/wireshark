@@ -2,7 +2,7 @@
  * routines for time statistics
  * Copyrigth 2003 Lars Roland
  *
- * $Id$
+ * $Id: timestats.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

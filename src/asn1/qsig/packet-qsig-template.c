@@ -2,7 +2,7 @@
  * Routines for QSIG packet dissection
  * 2007  Tomas Kukosa
  *
- * $Id$
+ * $Id: packet-qsig-template.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

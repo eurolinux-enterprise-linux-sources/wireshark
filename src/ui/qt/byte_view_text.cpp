@@ -1,6 +1,6 @@
 /* byte_view_text.cpp
  *
- * $Id$
+ * $Id: byte_view_text.cpp 46361 2012-12-03 23:15:59Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  *
  * Copyright 2011, Mariusz Okroj <okrojmariusz[]gmail.com>
  *
- * $Id$
+ * $Id: packet-xmpp-utils.h 48641 2013-03-29 17:43:14Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

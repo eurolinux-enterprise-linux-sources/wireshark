@@ -3,7 +3,7 @@
  *
  * Copyright 2011, Mariusz Okroj <okrojmariusz[]gmail.com>
  *
- * $Id$
+ * $Id: packet-xmpp.c 52970 2013-10-29 21:58:59Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

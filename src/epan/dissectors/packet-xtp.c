@@ -2,7 +2,7 @@
  * Routines for Xpress Transport Protocol dissection
  * Copyright 2008, Shigeo Nakamura <naka_shigeo@yahoo.co.jp>
  *
- * $Id$
+ * $Id: packet-xtp.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

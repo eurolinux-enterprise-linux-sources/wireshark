@@ -1,7 +1,7 @@
 /* strutil.h
  * String utility definitions
  *
- * $Id$
+ * $Id: strutil.h 49151 2013-05-03 23:40:45Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

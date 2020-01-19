@@ -5,7 +5,7 @@
 
    Copyright (C) Julien Kerihuel 2006
 
-   $Id$
+   $Id: mapitags_enum.h 25096 2008-04-17 12:05:16Z sahlberg $
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

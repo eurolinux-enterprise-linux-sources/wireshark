@@ -2,7 +2,7 @@
  * Routines for the Check Point High-Availability Protocol (CPHAP)
  * Copyright 2002, Yaniv Kaul <mykaul -at- gmail.com>
  *
- * $Id$
+ * $Id: packet-cpha.c 48334 2013-03-15 22:40:15Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

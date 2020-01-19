@@ -6,7 +6,7 @@
 #
 # Usage: checkhf.pl [--debug=?] <file or files>
 #
-# $Id$
+# $Id: checkhf.pl 47612 2013-02-10 18:40:54Z wmeier $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -563,7 +563,6 @@ sub debug_print_hash {
 
     ##print "==> $title\n";
     for my $k (sort keys %{$href}) {
-        my $h = defined($href->{$k}) ?  $href->{$k} : "undef";
-        printf "%-40.40s %5.5s %s\n", $title, $h, $k;
+        printf "%-40.40s %5.5s %s\n", $title, $href->{$k} // "undef", $k;
     }
 }

@@ -2,7 +2,7 @@
 *
 * Copyright 2004, Luis E. Garcia Ontanon <luis@ontanon.org>
 *
-* $Id$
+* $Id: mate_util.h 47893 2013-02-26 01:30:56Z wmeier $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

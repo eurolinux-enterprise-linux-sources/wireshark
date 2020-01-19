@@ -8,7 +8,7 @@
  * By Gerald Combs <gerald@wireshark.org>
  * Copyright 1998 Gerald Combs
  *
- * $Id$
+ * $Id: tcap-persistentdata.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

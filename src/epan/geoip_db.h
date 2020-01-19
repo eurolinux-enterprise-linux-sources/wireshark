@@ -1,7 +1,7 @@
 /* geoip_db.h
  * GeoIP database support
  *
- * $Id$
+ * $Id: geoip_db.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Copyright 2008, Gerald Combs <gerald@wireshark.org>
  *

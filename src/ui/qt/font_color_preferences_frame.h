@@ -1,6 +1,6 @@
 /* font_color_preferences_frame.h
  *
- * $Id$
+ * $Id: font_color_preferences_frame.h 47240 2013-01-24 01:10:12Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

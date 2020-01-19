@@ -14,7 +14,7 @@
  *                     http://www.systec-electronic.com
  *                     - Daniel Krueger <daniel.krueger[AT]systec-electronic.com>
  *
- * $Id$
+ * $Id: packet-epl.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * A dissector for:
  * Wireshark - Network traffic analyzer

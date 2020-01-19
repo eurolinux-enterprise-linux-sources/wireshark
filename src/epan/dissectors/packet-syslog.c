@@ -7,7 +7,7 @@
  * facility) to the MTP3 dissector by Abhik Sarkar <sarkar.abhik[AT]gmail.com>
  * with some rework by Jeff Morriss <jeff.morriss.ws [AT] gmail.com>
  *
- * $Id$
+ * $Id: packet-syslog.c 46057 2012-11-17 12:16:05Z jake $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>
@@ -31,6 +31,7 @@
 #include "config.h"
 
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -242,7 +243,7 @@ dissect_syslog(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
     msg_off++;
     pri = 0;
     while (tvb_bytes_exist(tvb, msg_off, 1) &&
-           g_ascii_isdigit(tvb_get_guint8(tvb, msg_off)) && msg_off <= MAX_DIGITS) {
+           isdigit(tvb_get_guint8(tvb, msg_off)) && msg_off <= MAX_DIGITS) {
       pri = pri * 10 + (tvb_get_guint8(tvb, msg_off) - '0');
       msg_off++;
     }

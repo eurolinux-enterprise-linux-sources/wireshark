@@ -9,7 +9,7 @@
  * Last Updated to:
  * http://www.3gpp2.org/Public_html/specs/C.S0016-C_v2.0_081031.pdf
  *
- * $Id$
+ * $Id: packet-ansi_683.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

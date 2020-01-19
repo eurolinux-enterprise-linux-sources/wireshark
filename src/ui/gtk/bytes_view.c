@@ -1,6 +1,6 @@
 /* bytes_view.c
  *
- * $Id$
+ * $Id: bytes_view.c 52263 2013-09-29 12:22:40Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

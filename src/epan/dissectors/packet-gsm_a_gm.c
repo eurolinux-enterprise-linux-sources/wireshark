@@ -47,7 +47,7 @@
  *   Stage 3
  *   (3GPP TS 24.008 version 11.6.0 Release 11)
  *
- * $Id$
+ * $Id: packet-gsm_a_gm.c 51601 2013-08-30 17:43:07Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -3849,7 +3849,7 @@ de_sm_apn(tvbuff_t *tvb, proto_tree *tree, packet_info *pinfo, guint32 offset, g
 	curr_offset = offset;
 
 	/* init buffer and copy it */
-	memset(str, 0, MAX_APN_LENGTH+1);
+	memset(str, 0, MAX_APN_LENGTH);
 	tvb_memcpy(tvb, str, offset, len<MAX_APN_LENGTH?len:MAX_APN_LENGTH);
 
 	curr_len = 0;

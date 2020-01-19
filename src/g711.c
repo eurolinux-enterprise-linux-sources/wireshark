@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: g711.c 15355 2005-08-14 23:25:20Z jmayer $
  *
  * This source code is a product of Sun Microsystems, Inc. and is provided
  * for unrestricted use.  Users may copy or modify this source code without

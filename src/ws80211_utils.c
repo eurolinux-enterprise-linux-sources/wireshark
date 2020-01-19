@@ -2,7 +2,7 @@
  * ws80211 utilities
  * Copyright 2012, Pontus Fuchs <pontus.fuchs@gmail.com>
 
-$Id$
+$Id: ws80211_utils.c 50710 2013-07-17 22:20:12Z gerald $
 
 Parts of this file was copied from iw:
 

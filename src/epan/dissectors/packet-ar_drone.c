@@ -5,7 +5,7 @@
  * and Claire Brantley <brantleyc@bit-sys.com>
  * Copyright 2012 BIT Systems
  *
- * $Id$
+ * $Id: packet-ar_drone.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

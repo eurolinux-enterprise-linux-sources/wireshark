@@ -2,7 +2,7 @@
   * Contains all bitmask defines for unistim dissecting
   * Copyright 2007 Don Newton <dnewton@cypresscom.net>
   *
-  * $Id$
+  * $Id: defines.h 43536 2012-06-28 22:56:06Z darkjames $
   *
   * Wireshark - Network traffic analyzer
   * By Gerald Combs <gerald@wireshark.org>

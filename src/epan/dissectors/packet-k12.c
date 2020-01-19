@@ -3,7 +3,7 @@
 *
 * Luis E. Garcia Ontanon <luis@ontanon.org>
 *
-* $Id$
+* $Id: packet-k12.c 49721 2013-06-03 17:44:22Z gerald $
 *
 * Wireshark - Network traffic analyzer
 * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* type_util.c
  * Types utility routines
  *
- * $Id$
+ * $Id: type_util.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

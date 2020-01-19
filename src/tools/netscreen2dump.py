@@ -2,7 +2,7 @@
 """
 Converts netscreen snoop hex-dumps to a hex-dump that text2pcap can read.
 
-$Id$
+$Id: netscreen2dump.py 43536 2012-06-28 22:56:06Z darkjames $
 
 Copyright (c) 2004 by Gilbert Ramirez <gram@alumni.rice.edu>
 

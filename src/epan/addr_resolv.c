@@ -1,7 +1,7 @@
 /* addr_resolv.c
  * Routines for network object lookup
  *
- * $Id$
+ * $Id: addr_resolv.c 50687 2013-07-17 01:18:54Z gerald $
  *
  * Laurent Deniel <laurent.deniel@free.fr>
  *
@@ -26,6 +26,7 @@
 
 #include "config.h"
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1040,7 +1041,7 @@ parse_ether_address(const char *cp, ether_t *eth, unsigned int *mask,
 
   for (i = 0; i < 6; i++) {
     /* Get a hex number, 1 or 2 digits, no sign characters allowed. */
-    if (!g_ascii_isxdigit(*cp))
+    if (!isxdigit((unsigned char)*cp))
       return FALSE;
     num = strtoul(cp, &p, 16);
     if (p == cp)
@@ -1058,13 +1059,13 @@ parse_ether_address(const char *cp, ether_t *eth, unsigned int *mask,
         return FALSE;
       }
       cp++; /* skip past the '/' to get to the mask */
-      if (!g_ascii_isdigit(*cp))
+      if (!isdigit((unsigned char)*cp))
         return FALSE;   /* no sign allowed */
       num = strtoul(cp, &p, 10);
       if (p == cp)
         return FALSE;   /* failed */
       cp = p;   /* skip past the number */
-      if (*cp != '\0' && !g_ascii_isspace(*cp))
+      if (*cp != '\0' && !isspace((unsigned char)*cp))
         return FALSE;   /* bogus terminator */
       if (num == 0 || num >= 48)
         return FALSE;   /* bogus mask */
@@ -3223,7 +3224,7 @@ get_eui64_name(const guint64 addr_eui64)
   }
 
   if (!gbl_resolv_flags.mac_name || ((mtp = manuf_name_lookup(addr)) == NULL)) {
-    cur=ep_strdup_printf("%02x:%02x:%02x:%02x:%02x:%02x%02x:%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5], addr[6], addr[7]);
+    cur=ep_strdup_printf("%02x:%02x:%02x%02x:%02x:%02x%02x:%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5], addr[6], addr[7]);
     return cur;
   }
   cur=ep_strdup_printf("%s_%02x:%02x:%02x:%02x:%02x", mtp->name, addr[3], addr[4], addr[5], addr[6], addr[7]);

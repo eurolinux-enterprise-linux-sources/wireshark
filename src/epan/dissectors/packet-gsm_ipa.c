@@ -3,7 +3,7 @@
  * Copyright 2009 by Harald Welte <laforge@gnumonks.org>
  * Copyright 2009, 2010 by Holger Hans Peter Freyther <zecke@selfish.org>
  *
- * $Id$
+ * $Id: packet-gsm_ipa.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  ** wimaxasncp_dict.h
  ** WIMAXASNCP Dictionary Import Routines
  **
- ** $Id$
+ ** $Id: wimaxasncp_dict.h 48907 2013-04-18 02:04:18Z guy $
  **
  ** (c) 2007, Stephen Croll <stephen.d.croll@gmail.com>
  **

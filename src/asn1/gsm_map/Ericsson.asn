@@ -1,5 +1,5 @@
 -- Ericsson proprietary extensions
--- $Id$
+-- $Id: Ericsson.asn 44605 2012-08-21 15:14:50Z pascal $
 
 EricssonMAP{ 0 identified-organization (4) etsi (0) mobileDomain (0) gsm-Network (1) modules (3) map-Protocol (4) version13 (13) }
 

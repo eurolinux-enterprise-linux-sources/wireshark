@@ -1,7 +1,7 @@
 /* packet-aim.h
  * Copyright 2004, Jelmer Vernooij <jelmer@samba.org>
  *
- * $Id$
+ * $Id: packet-aim.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

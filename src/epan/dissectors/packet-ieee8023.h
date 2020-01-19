@@ -2,7 +2,7 @@
  * Declaration of routine for dissecting 802.3 (as opposed to D/I/X Ethernet)
  * packets.
  *
- * $Id$
+ * $Id: packet-ieee8023.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

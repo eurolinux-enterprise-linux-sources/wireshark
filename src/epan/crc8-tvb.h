@@ -10,7 +10,7 @@
  * 2011 Hans-Christoph Schemmel <hans-christoph.schemmel[AT]cinterion.com>
  *
  *
- * $Id$
+ * $Id: crc8-tvb.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

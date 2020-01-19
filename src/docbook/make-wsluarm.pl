@@ -5,7 +5,7 @@
 #
 # (c) 2006, Luis E. Garcia Onatnon <luis@ontanon.org>
 #
-# $Id$
+# $Id: make-wsluarm.pl 43536 2012-06-28 22:56:06Z darkjames $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* hostlist_sctp.c    2008 Stig Bjorlykke
  *
- * $Id$
+ * $Id: hostlist_sctp.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

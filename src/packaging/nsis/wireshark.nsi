@@ -1,7 +1,7 @@
 ;
 ; wireshark.nsi
 ;
-; $Id$
+; $Id: wireshark.nsi 51793 2013-09-05 23:56:49Z guy $
 
 
 ; Set the compression mechanism first.

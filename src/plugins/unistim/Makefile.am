@@ -2,7 +2,7 @@
 # Automake file for Nortel Unistim plugin
 # Copyright 2007, Don Newton <dnewton@cypresscom.net>
 #
-# $Id$
+# $Id: Makefile.am 48261 2013-03-12 06:53:39Z jake $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

@@ -4,7 +4,7 @@
  *
  * Srishylam Simharajan simha@netapp.com
  *
- * $Id$
+ * $Id: packet-icap.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -28,6 +28,7 @@
 #include "config.h"
 
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 #include <epan/packet.h>
@@ -141,16 +142,23 @@ dissect_icap(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 			c = *linep++;
 
 			/*
-			 * This must be a CHAR, and must not be a CTL, to be
-			 * part of a token; that means it must be printable
-			 * ASCII.
+			 * This must be a CHAR to be part of a token; that
+			 * means it must be ASCII.
+			 */
+			if (!isascii(c)) {
+				is_icap = FALSE;
+				break;	/* not ASCII, thus not a CHAR */
+			}
+
+			/*
+			 * This mustn't be a CTL to be part of a token.
 			 *
 			 * XXX - what about leading LWS on continuation
 			 * lines of a header?
 			 */
-			if (!g_ascii_isprint(c)) {
+			if (iscntrl(c)) {
 				is_icap = FALSE;
-				break;
+				break;	/* CTL, not part of a header */
 			}
 
 			switch (c) {

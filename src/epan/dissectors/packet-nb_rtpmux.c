@@ -2,7 +2,7 @@
  * Routines for 3GPP RTP Multiplex dissection, 3GPP TS 29.414
  * Copyright 2009, ip.access ltd <amp@ipaccess.com>
  *
- * $Id$
+ * $Id: packet-nb_rtpmux.c 47640 2013-02-12 16:12:03Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

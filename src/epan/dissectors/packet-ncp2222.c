@@ -43,26 +43,26 @@ static void ncp_init_protocol(void);
 static void ncp_postseq_cleanup(void);
 
 /* Endianness macros */
-#define BE              0
-#define LE              1
-#define NO_ENDIANNESS   0
+#define BE		0
+#define LE		1
+#define NO_ENDIANNESS	0
 
-#define NO_LENGTH       -1
+#define NO_LENGTH	-1
 
 /* We use this int-pointer as a special flag in ptvc_record's */
 static int ptvc_struct_int_storage;
-#define PTVC_STRUCT     (&ptvc_struct_int_storage)
+#define PTVC_STRUCT	(&ptvc_struct_int_storage)
 
 /* Values used in the count-variable ("var"/"repeat") logic. */
 #define NUM_REPEAT_VARS	3
 static guint repeat_vars[NUM_REPEAT_VARS];
 
-#define NO_VAR          NUM_REPEAT_VARS
-#define NO_REPEAT       NUM_REPEAT_VARS
+#define NO_VAR		NUM_REPEAT_VARS
+#define NO_REPEAT	NUM_REPEAT_VARS
 
-#define REQ_COND_SIZE_CONSTANT  0
-#define REQ_COND_SIZE_VARIABLE  1
-#define NO_REQ_COND_SIZE        0
+#define REQ_COND_SIZE_CONSTANT	0
+#define REQ_COND_SIZE_VARIABLE	1
+#define NO_REQ_COND_SIZE	0
 
 
 #define NTREE   0x00020000
@@ -4200,126 +4200,126 @@ static const char *ncp_groups[] = {
 /* Request-Condition dfilter records. The NULL pointer
    is replaced by a pointer to the created dfilter_t. */
 static conditional_record req_conds[] = {
-	{ "(ncp.ext_info_64_bit_fs == 1) && (ncp.ret_info_mask_fname == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_fname == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 0)", NULL },
-	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_alloc  == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_arch == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_attr == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_create == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_dir == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_eattr == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_fname == 1)", NULL },
 	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_mod == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_ns == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_rights == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_size == 1)", NULL },
-	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_tspace == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 1)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 0)", NULL },
-	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 1)", NULL },
-	{ "ncp.alloc_reply_lvl2 == FALSE", NULL },
-	{ "ncp.alloc_reply_lvl2 == TRUE", NULL },
-	{ "ncp.ctrl_flags==0x0000", NULL },
-	{ "ncp.ctrl_flags==0x0001", NULL },
-	{ "ncp.dm_info_level == 0x00", NULL },
-	{ "ncp.dm_info_level == 0x01", NULL },
-	{ "ncp.dm_info_level == 0x02", NULL },
-	{ "ncp.enum_info_account==TRUE", NULL },
-	{ "ncp.enum_info_auth==TRUE", NULL },
-	{ "ncp.enum_info_lock==TRUE", NULL },
 	{ "ncp.enum_info_name==TRUE", NULL },
-	{ "ncp.enum_info_print==TRUE", NULL },
-	{ "ncp.enum_info_stats==TRUE", NULL },
-	{ "ncp.enum_info_time==TRUE", NULL },
-	{ "ncp.enum_info_transport==TRUE", NULL },
-	{ "ncp.ext_info_64_bit_fs == 1", NULL },
-	{ "ncp.ext_info_access == 1", NULL },
-	{ "ncp.ext_info_dos_name == 1", NULL },
-	{ "ncp.ext_info_effective == 1", NULL },
-	{ "ncp.ext_info_flush == 1", NULL },
-	{ "ncp.ext_info_mac_date == 1", NULL },
-	{ "ncp.ext_info_mac_finder == 1", NULL },
-	{ "ncp.ext_info_parental == 1", NULL },
-	{ "ncp.ext_info_sibling == 1", NULL },
-	{ "ncp.ext_info_update == 1", NULL },
-	{ "ncp.handle_info_level==0x00", NULL },
-	{ "ncp.handle_info_level==0x01", NULL },
-	{ "ncp.handle_info_level==0x02", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_create == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 1)", NULL },
+	{ "ncp.ns_info_mask_max_acc_mask == TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_fname == 1)", NULL },
 	{ "ncp.handle_info_level==0x03", NULL },
+	{ "ncp.enum_info_auth==TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_arch == 1)", NULL },
+	{ "ncp.ns_info_mask_modify == TRUE", NULL },
+	{ "ncp.enum_info_lock==TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 1)", NULL },
+	{ "ncp.ext_info_64_bit_fs == 1", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_attr == 1)", NULL },
+	{ "ncp.enum_info_account==TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 0)", NULL },
+	{ "ncp.ext_info_mac_finder == 1", NULL },
+	{ "ncp.info_flags_name == TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 0)", NULL },
+	{ "ncp.sattr_sub!=TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_fname == 1)", NULL },
+	{ "ncp.ext_info_dos_name == 1", NULL },
+	{ "ncp.enum_info_time==TRUE", NULL },
+	{ "ncp.ns_info_mask_aid == TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 0)", NULL },
+	{ "ncp.ns_info_mask_udate == TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 0)", NULL },
+	{ "ncp.ret_info_mask_fname == 1", NULL },
+	{ "ncp.info_level_num==0x02", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 0)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_size == 1)", NULL },
+	{ "ncp.ns_info_mask_uid == TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_rights == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_ns == 1)", NULL },
+	{ "ncp.ns_info_mask_atime == TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 1)", NULL },
+	{ "ncp.alloc_reply_lvl2 == FALSE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 1)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_ns == 1)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 1)", NULL },
+	{ "ncp.sattr_sub==TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 0)", NULL },
+	{ "ncp.ext_info_mac_date == 1", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 1)", NULL },
+	{ "ncp.dm_info_level == 0x01", NULL },
+	{ "ncp.dm_info_level == 0x00", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_alloc == 1)", NULL },
+	{ "ncp.dm_info_level == 0x02", NULL },
+	{ "ncp.ext_info_update == 1", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 0)", NULL },
+	{ "ncp.info_flags_flags == TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_mod == 0)", NULL },
+	{ "ncp.ext_info_parental == 1", NULL },
 	{ "ncp.handle_info_level==0x04", NULL },
 	{ "ncp.handle_info_level==0x05", NULL },
-	{ "ncp.info_flags_flags == TRUE", NULL },
-	{ "ncp.info_flags_name == TRUE", NULL },
-	{ "ncp.info_flags_security == TRUE", NULL },
-	{ "ncp.info_flags_type == TRUE", NULL },
-	{ "ncp.info_level_num==0x01", NULL },
-	{ "ncp.info_level_num==0x02", NULL },
-	{ "ncp.ns_info_mask_acc_date == TRUE", NULL },
-	{ "ncp.ns_info_mask_adate == TRUE", NULL },
-	{ "ncp.ns_info_mask_aid == TRUE", NULL },
-	{ "ncp.ns_info_mask_atime == TRUE", NULL },
-	{ "ncp.ns_info_mask_cdate == TRUE", NULL },
-	{ "ncp.ns_info_mask_ctime == TRUE", NULL },
-	{ "ncp.ns_info_mask_fatt == TRUE", NULL },
-	{ "ncp.ns_info_mask_max_acc_mask == TRUE", NULL },
-	{ "ncp.ns_info_mask_modify == TRUE", NULL },
+	{ "ncp.handle_info_level==0x02", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_attr == 1)", NULL },
+	{ "ncp.handle_info_level==0x00", NULL },
+	{ "ncp.handle_info_level==0x01", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 0)", NULL },
+	{ "ncp.ext_info_access == 1", NULL },
 	{ "ncp.ns_info_mask_owner == TRUE", NULL },
-	{ "ncp.ns_info_mask_udate == TRUE", NULL },
-	{ "ncp.ns_info_mask_uid == TRUE", NULL },
-	{ "ncp.ns_info_mask_utime == TRUE", NULL },
+	{ "ncp.info_flags_security == TRUE", NULL },
+	{ "ncp.ext_info_sibling == 1", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 1)", NULL },
+	{ "ncp.ns_info_mask_cdate == TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_create == 0)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 1)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 0)", NULL },
+	{ "ncp.enum_info_transport==TRUE", NULL },
+	{ "ncp.enum_info_stats==TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_tspace == 1)", NULL },
+	{ "ncp.info_level_num==0x01", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_eattr == 1)", NULL },
+	{ "ncp.ns_info_mask_adate == TRUE", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_arch == 0)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 1)", NULL },
+	{ "(ncp.ext_info_64_bit_fs == 1) && (ncp.ret_info_mask_fname == 1)", NULL },
+	{ "ncp.ctrl_flags==0x0000", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 0)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 0)", NULL },
+	{ "ncp.ns_info_mask_ctime == TRUE", NULL },
 	{ "ncp.ret_info_mask_actual == 1", NULL },
+	{ "ncp.ext_info_flush == 1", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 0)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 1)", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_size == 1)", NULL },
+	{ "ncp.ext_info_effective == 1", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_eattr == 1)", NULL },
+	{ "ncp.enum_info_print==TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_dir == 1)", NULL },
+	{ "ncp.ret_info_mask_logical == 1 && ncp.number_of_data_streams_long > 0", NULL },
+	{ "ncp.ns_info_mask_fatt == TRUE", NULL },
+	{ "ncp.alloc_reply_lvl2 == TRUE", NULL },
+	{ "ncp.search_att_sub == FALSE", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_dir == 1)", NULL },
+	{ "ncp.ns_info_mask_acc_date == TRUE", NULL },
+	{ "ncp.ns_info_mask_utime == TRUE", NULL },
+	{ "(ncp.ext_info_newstyle == 1) && (ncp.ret_info_mask_alloc  == 1)", NULL },
+	{ "(ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_tspace == 0)", NULL },
+	{ "ncp.info_flags_type == TRUE", NULL },
+	{ "ncp.ret_info_mask_ns_attr == 1", NULL },
+	{ "ncp.volume_request_flags==0x0001", NULL },
+	{ "ncp.volume_request_flags==0x0000", NULL },
 	{ "ncp.ret_info_mask_actual == 1 && ncp.number_of_data_streams_long > 0", NULL },
-	{ "ncp.ret_info_mask_fname == 1", NULL },
+	{ "(ncp.ret_info_mask != 0x0000) && (ncp.ext_info_newstyle == 0) && (ncp.ret_info_mask_rights == 0)", NULL },
 	{ "ncp.ret_info_mask_id == 1", NULL },
 	{ "ncp.ret_info_mask_logical == 1", NULL },
-	{ "ncp.ret_info_mask_logical == 1 && ncp.number_of_data_streams_long > 0", NULL },
-	{ "ncp.ret_info_mask_ns_attr == 1", NULL },
-	{ "ncp.sattr_sub!=TRUE", NULL },
-	{ "ncp.sattr_sub==TRUE", NULL },
-	{ "ncp.search_att_sub == FALSE", NULL },
-	{ "ncp.volume_request_flags==0x0000", NULL },
-	{ "ncp.volume_request_flags==0x0001", NULL },
+	{ "ncp.ctrl_flags==0x0001", NULL },
 };
 #define NUM_REQ_CONDS 120
 #define NO_REQ_COND   NUM_REQ_CONDS
@@ -8088,7 +8088,7 @@ static const ptvc_record ncp_0x1625_request[] = {
 	{ &hf_ncp_change_bits, 2, &ncp_change_bits_bitfield, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved2, 2, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_sub_directory, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_file_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_file_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 105, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -8322,8 +8322,8 @@ static const ptvc_record ncp_0x1634_request[] = {
 static const ptvc_record ncp_0x1634_reply[] = {
 	{ &hf_ncp_items_in_packet, 4, NULL, LE, 0, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_next_volume_number, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_volume_struct, NO_ENDIANNESS, NO_VAR, 0, 118, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_volume_with_name_struct, NO_ENDIANNESS, NO_VAR, 0, 119, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_volume_struct, NO_ENDIANNESS, NO_VAR, 0, 114, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_volume_with_name_struct, NO_ENDIANNESS, NO_VAR, 0, 113, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -8579,10 +8579,10 @@ static const ptvc_record ncp_0x1720_reply[] = {
 	{ &hf_ncp_object_info_rtn_count, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_next_object_id, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_object_id, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_object_type_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_object_security_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 91, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_object_flags_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_object_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_object_type_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_object_security_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 72, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_object_flags_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 59, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_object_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10031,8 +10031,8 @@ static const ptvc_record ncp_0x3f_request[] = {
 };
 
 static const ptvc_record ncp_0x3f_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_directory_instance, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_instance, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 115, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_directory_instance, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_instance, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10283,53 +10283,53 @@ static const ptvc_record ncp_0x5701_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10365,53 +10365,53 @@ static const ptvc_record ncp_0x5703_request[] = {
 static const ptvc_record ncp_0x5703_reply[] = {
 	{ PTVC_STRUCT, NO_LENGTH, &struct_search_seq, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10467,56 +10467,56 @@ static const ptvc_record ncp_0x5706_request[] = {
 };
 
 static const ptvc_record ncp_0x5706_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_number_of_data_streams_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_number_of_data_streams_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 113, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_number_of_data_streams_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 115, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_number_of_data_streams_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 102, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10616,8 +10616,8 @@ static const ptvc_record ncp_0x570c_request[] = {
 };
 
 static const ptvc_record ncp_0x570c_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_reply_lvl_2_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 59, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_reply_lvl_1_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_reply_lvl_2_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 104, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_reply_lvl_1_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10642,41 +10642,41 @@ static const ptvc_record ncp_0x5710_reply[] = {
 	{ &hf_ncp_delete_id, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_volume_id, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_dir_base, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10710,19 +10710,19 @@ static const ptvc_record ncp_0x5713_request[] = {
 };
 
 static const ptvc_record ncp_0x5713_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 103, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 100, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_owner_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 104, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 105, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 107, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 102, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 103, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 91, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_owner_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 71, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 84, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 107, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10874,41 +10874,41 @@ static const ptvc_record ncp_0x571d_request[] = {
 
 static const ptvc_record ncp_0x571d_reply[] = {
 	{ &hf_ncp_effective_rights, 2, &ncp_effective_rights_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10935,41 +10935,41 @@ static const ptvc_record ncp_0x571e_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10982,12 +10982,12 @@ static const ptvc_record ncp_0x571f_request[] = {
 static const ptvc_record ncp_0x571f_reply[] = {
 	{ &hf_ncp_volume_number_long, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_dir_base, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_0, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_1, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 84, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_3, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_4, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 87, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_5, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 88, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_0, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 66, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_1, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 67, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 64, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_3, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_4, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 62, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_handle_info_level_5, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 63, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -10995,53 +10995,53 @@ static const ptvc_record ncp_0x5720_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_o_c_ret_flags, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11049,53 +11049,53 @@ static const ptvc_record ncp_0x5721_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_o_c_ret_flags, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11177,41 +11177,41 @@ static const ptvc_record ncp_0x5728_reply[] = {
 	{ PTVC_STRUCT, NO_LENGTH, &struct_search_seq, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_more_flag, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_info_count, 2, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11232,8 +11232,8 @@ static const ptvc_record ncp_0x5729_reply[] = {
 	{ &hf_ncp_sequence_number, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_dir_base, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_scan_items, 4, NULL, LE, 0, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_scan_info_file_name, NO_ENDIANNESS, NO_VAR, 0, 61, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_scan_info_file_no_name, NO_ENDIANNESS, NO_VAR, 0, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_scan_info_file_name, NO_ENDIANNESS, NO_VAR, 0, 119, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_scan_info_file_no_name, NO_ENDIANNESS, NO_VAR, 0, 88, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11354,54 +11354,54 @@ static const ptvc_record ncp_0x5901_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11433,54 +11433,54 @@ static const ptvc_record ncp_0x5903_request[] = {
 static const ptvc_record ncp_0x5903_reply[] = {
 	{ PTVC_STRUCT, NO_LENGTH, &struct_search_seq, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11525,54 +11525,54 @@ static const ptvc_record ncp_0x5906_request[] = {
 };
 
 static const ptvc_record ncp_0x5906_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11706,42 +11706,42 @@ static const ptvc_record ncp_0x5910_reply[] = {
 	{ &hf_ncp_delete_id, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_volume_id, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_dir_base, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11767,19 +11767,19 @@ static const ptvc_record ncp_0x5913_request[] = {
 };
 
 static const ptvc_record ncp_0x5913_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 103, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 100, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_owner_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 104, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 105, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 107, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_update_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 102, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 103, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 91, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_owner_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 71, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 84, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_date_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_update_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 107, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11865,42 +11865,42 @@ static const ptvc_record ncp_0x591d_request[] = {
 
 static const ptvc_record ncp_0x591d_reply[] = {
 	{ &hf_ncp_effective_rights, 2, &ncp_effective_rights_bitfield, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 87, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11929,42 +11929,42 @@ static const ptvc_record ncp_0x591e_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 87, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -11972,54 +11972,54 @@ static const ptvc_record ncp_0x5920_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_o_c_ret_flags, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -12027,54 +12027,54 @@ static const ptvc_record ncp_0x5921_reply[] = {
 	{ &hf_ncp_file_handle, 4, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_open_create_action, 1, &ncp_open_create_action_bitfield, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_o_c_ret_flags, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 43, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 48, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 39, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 55, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 40, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 47, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 96, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 90, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 36, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 49, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 58, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 85, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 116, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 95, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 83, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 45, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 111, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 114, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 108, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 75, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 77, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 78, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 74, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ref_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 117, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_attrib_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 112, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_stream_actual, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 92, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_d_string_logical, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 118, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_update_in_seconds_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 57, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dos_name_16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_flush_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_parent_base_id_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 61, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_finder_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_sibling_count_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 73, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_eff_rights_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 97, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_mac_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 51, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_last_access_time_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -12112,42 +12112,42 @@ static const ptvc_record ncp_0x5928_reply[] = {
 	{ PTVC_STRUCT, NO_LENGTH, &struct_search_seq, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_more_flag, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_info_count, 2, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 6, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 20, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 22, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 4, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 18, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 9, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 12, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 17, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 16, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 24, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 26, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 44, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ds_space_alloc, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_attributes, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 50, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 86, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_data_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 98, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_total_stream_size, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 110, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 52, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_creation_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 76, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 41, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_modify_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 60, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 3, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_archive_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 19, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 42, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_rights_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 15, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 101, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_dir_entry, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 89, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 11, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ea_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 46, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_pad_ns_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 21, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ds_space_alloc_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 109, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_attributes_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 13, NCP_FMT_NONE },
 	{ PTVC_STRUCT, NO_LENGTH, &struct_data_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 34, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 35, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 27, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 25, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 33, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 28, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 29, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 32, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 30, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_total_stream_size_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 81, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_creation_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 2, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_modify_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 0, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_archive_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 8, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_rights_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 37, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dir_entry_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 106, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ea_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 99, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_ns_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 38, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_sz_64bit_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 87, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_file_name16_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 5, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -12326,9 +12326,9 @@ static const ptvc_record ncp_0x5a84_request[] = {
 };
 
 static const ptvc_record ncp_0x5a84_reply[] = {
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_0, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 62, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_1, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 63, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 64, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_0, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 54, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_1, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 53, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_dm_info_level_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 56, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -12747,14 +12747,14 @@ static const ptvc_record ncp_0x7b10_reply[] = {
 	{ &hf_ncp_vconsole_rev, 1, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved2, 2, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_items_in_packet, 4, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_net_addr_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 72, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_time_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 71, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_name_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 68, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_lock_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 67, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_print_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 69, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_stats_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 70, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_acctng_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 65, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_auth_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 66, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_net_addr_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 79, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_time_info, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 23, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_name_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 1, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_lock_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 10, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_print_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 100, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_stats_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 80, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_acctng_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 14, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_auth_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 7, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -12942,8 +12942,8 @@ static const ptvc_record ncp_0x7b22_reply[] = {
 	{ &hf_ncp_reserved2, 2, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_info_level_num, 1, NULL, LE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
 	{ &hf_ncp_reserved3, 3, NULL, BE, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_vol_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 93, NCP_FMT_NONE },
-	{ PTVC_STRUCT, NO_LENGTH, &struct_vol_info_struct_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 94, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_vol_info_struct, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 82, NCP_FMT_NONE },
+	{ PTVC_STRUCT, NO_LENGTH, &struct_vol_info_struct_2, NO_ENDIANNESS, NO_VAR, NO_REPEAT, 31, NCP_FMT_NONE },
 	{ NULL, 0, NULL, NO_ENDIANNESS, NO_VAR, NO_REPEAT, NO_REQ_COND, NCP_FMT_NONE }
 };
 
@@ -16564,39 +16564,56 @@ static const error_equivalency ncp_0x8303_errors[] = {
 };
 
 /* Request Condition Indexes */
-static const int ncp_0x1634_req_cond_indexes[] = {	118, 119, -1 };
+static const int ncp_0x1634_req_cond_indexes[] = {
+	113,  114,  -1 };
 
-static const int ncp_0x1720_req_cond_indexes[] = {	89, 90, 91, 92, -1 };
+static const int ncp_0x1720_req_cond_indexes[] = {
+	17,  59,  72,  111,  -1 };
 
-static const int ncp_0x3f_req_cond_indexes[] = {	115, 116, -1 };
+static const int ncp_0x3f_req_cond_indexes[] = {
+	20,  48,  -1 };
 
-static const int ncp_0x5701_req_cond_indexes[] = {	24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 74, 75, 76, 77, 78, 79, 80, 81, 82, 108, 110, 111, 112, 114, -1 };
+static const int ncp_0x5701_req_cond_indexes[] = {
+	0,  2,  8,  13,  16,  18,  22,  27,  30,  32,  33,  34,  36,  37,  38,  40,  45,  47,  49,  51,  55,  57,  58,  61,  68,  70,  73,  74,  77,  78,  81,  83,  85,  90,  92,  93,  94,  95,  96,  97,  99,  106,  109,  112,  116,  117,  118,  -1 };
 
-static const int ncp_0x5706_req_cond_indexes[] = {	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 108, 109, 110, 111, 112, 113, 114, -1 };
+static const int ncp_0x5706_req_cond_indexes[] = {
+	0,  2,  3,  8,  11,  12,  13,  15,  16,  19,  22,  25,  28,  29,  30,  34,  37,  38,  41,  42,  44,  46,  50,  51,  52,  57,  60,  61,  65,  69,  70,  73,  76,  81,  86,  89,  92,  93,  97,  98,  99,  101,  102,  106,  109,  110,  112,  115,  117,  118,  -1 };
 
-static const int ncp_0x570c_req_cond_indexes[] = {	58, 59, -1 };
+static const int ncp_0x570c_req_cond_indexes[] = {
+	43,  104,  -1 };
 
-static const int ncp_0x5710_req_cond_indexes[] = {	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1 };
+static const int ncp_0x5710_req_cond_indexes[] = {
+	0,  2,  3,  5,  8,  11,  13,  15,  19,  21,  25,  28,  29,  34,  37,  38,  41,  42,  44,  46,  50,  52,  60,  65,  69,  76,  81,  86,  89,  98,  99,  101,  106,  109,  110,  -1 };
 
-static const int ncp_0x5713_req_cond_indexes[] = {	95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, -1 };
+static const int ncp_0x5713_req_cond_indexes[] = {
+	4,  9,  24,  26,  35,  39,  71,  75,  84,  91,  103,  107,  108,  -1 };
 
-static const int ncp_0x571f_req_cond_indexes[] = {	83, 84, 85, 86, 87, 88, -1 };
+static const int ncp_0x571f_req_cond_indexes[] = {
+	6,  62,  63,  64,  66,  67,  -1 };
 
-static const int ncp_0x5729_req_cond_indexes[] = {	60, 61, -1 };
+static const int ncp_0x5729_req_cond_indexes[] = {
+	88,  119,  -1 };
 
-static const int ncp_0x5901_req_cond_indexes[] = {	24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 108, 110, 111, 112, 114, -1 };
+static const int ncp_0x5901_req_cond_indexes[] = {
+	0,  2,  8,  12,  13,  16,  18,  22,  27,  30,  32,  33,  34,  36,  37,  38,  40,  45,  47,  49,  51,  55,  57,  58,  61,  68,  70,  73,  74,  77,  78,  81,  83,  85,  90,  92,  93,  94,  95,  96,  97,  99,  106,  109,  112,  116,  117,  118,  -1 };
 
-static const int ncp_0x5906_req_cond_indexes[] = {	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 108, 110, 111, 112, 114, -1 };
+static const int ncp_0x5906_req_cond_indexes[] = {
+	0,  2,  3,  8,  11,  12,  13,  15,  16,  19,  22,  25,  28,  29,  30,  34,  37,  38,  41,  42,  44,  46,  50,  51,  52,  57,  60,  61,  65,  69,  70,  73,  76,  81,  86,  89,  92,  93,  97,  98,  99,  101,  106,  109,  110,  112,  117,  118,  -1 };
 
-static const int ncp_0x5910_req_cond_indexes[] = {	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 73, -1 };
+static const int ncp_0x5910_req_cond_indexes[] = {
+	0,  2,  3,  5,  8,  11,  12,  13,  15,  19,  21,  25,  28,  29,  34,  37,  38,  41,  42,  44,  46,  50,  52,  60,  65,  69,  76,  81,  86,  89,  98,  99,  101,  106,  109,  110,  -1 };
 
-static const int ncp_0x591d_req_cond_indexes[] = {	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1 };
+static const int ncp_0x591d_req_cond_indexes[] = {
+	0,  2,  3,  5,  8,  11,  13,  15,  19,  21,  25,  28,  29,  34,  37,  38,  41,  42,  44,  46,  50,  52,  60,  65,  69,  76,  81,  86,  87,  89,  98,  99,  101,  106,  109,  110,  -1 };
 
-static const int ncp_0x5a84_req_cond_indexes[] = {	62, 63, 64, -1 };
+static const int ncp_0x5a84_req_cond_indexes[] = {
+	53,  54,  56,  -1 };
 
-static const int ncp_0x7b10_req_cond_indexes[] = {	65, 66, 67, 68, 69, 70, 71, 72, -1 };
+static const int ncp_0x7b10_req_cond_indexes[] = {
+	1,  7,  10,  14,  23,  79,  80,  100,  -1 };
 
-static const int ncp_0x7b22_req_cond_indexes[] = {	93, 94, -1 };
+static const int ncp_0x7b22_req_cond_indexes[] = {
+	31,  82,  -1 };
 
 /* Info Strings */
 static const info_string_t info_str_0x9_req = {
@@ -17847,1665 +17864,1665 @@ static const info_string_t info_str_0x8307_req = {
 	", %s"
 };
 
-#define SUBFUNC_WITH_LENGTH      0x02
-#define SUBFUNC_NO_LENGTH        0x01
-#define NO_SUBFUNC               0x00
+#define SUBFUNC_WITH_LENGTH	0x02
+#define SUBFUNC_NO_LENGTH	0x01
+#define NO_SUBFUNC		0x00
 /* ncp_record structs for packets */
 static const ncp_record ncp_packets[] = {
-	{ 0x01, 0x00, NO_SUBFUNC, "File Set Lock",	0 /* sync */,
+	{ 0x01, 0x00, NO_SUBFUNC, "File Set Lock", 	0 /* sync */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x02, 0x00, NO_SUBFUNC, "File Release Lock",	0 /* sync */,
+	{ 0x02, 0x00, NO_SUBFUNC, "File Release Lock", 	0 /* sync */,
 		NULL, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x03, 0x00, NO_SUBFUNC, "Log File Exclusive",	0 /* sync */,
+	{ 0x03, 0x00, NO_SUBFUNC, "Log File Exclusive", 	0 /* sync */,
 		ncp_0x3_request, NULL, ncp_0x3_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x04, 0x00, NO_SUBFUNC, "Lock File Set",	0 /* sync */,
+	{ 0x04, 0x00, NO_SUBFUNC, "Lock File Set", 	0 /* sync */,
 		ncp_0x4_request, NULL, ncp_0x4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x05, 0x00, NO_SUBFUNC, "Release File",	0 /* sync */,
+	{ 0x05, 0x00, NO_SUBFUNC, "Release File", 	0 /* sync */,
 		ncp_0x5_request, NULL, ncp_0x5_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x06, 0x00, NO_SUBFUNC, "Release File Set",	0 /* sync */,
+	{ 0x06, 0x00, NO_SUBFUNC, "Release File Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x07, 0x00, NO_SUBFUNC, "Clear File",	0 /* sync */,
+	{ 0x07, 0x00, NO_SUBFUNC, "Clear File", 	0 /* sync */,
 		ncp_0x5_request, NULL, ncp_0x7_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x08, 0x00, NO_SUBFUNC, "Clear File Set",	0 /* sync */,
+	{ 0x08, 0x00, NO_SUBFUNC, "Clear File Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x09, 0x00, NO_SUBFUNC, "Log Logical Record",	0 /* sync */,
+	{ 0x09, 0x00, NO_SUBFUNC, "Log Logical Record", 	0 /* sync */,
 		ncp_0x9_request, NULL, ncp_0x9_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x9_req },
 
-	{ 0x0a, 0x00, NO_SUBFUNC, "Lock Logical Record Set",	0 /* sync */,
+	{ 0x0a, 0x00, NO_SUBFUNC, "Lock Logical Record Set", 	0 /* sync */,
 		ncp_0xa_request, NULL, ncp_0xa_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x0b, 0x00, NO_SUBFUNC, "Clear Logical Record",	0 /* sync */,
+	{ 0x0b, 0x00, NO_SUBFUNC, "Clear Logical Record", 	0 /* sync */,
 		ncp_0xb_request, NULL, ncp_0xb_errors, NULL, NO_REQ_COND_SIZE, &info_str_0xb_req },
 
-	{ 0x0c, 0x00, NO_SUBFUNC, "Release Logical Record",	0 /* sync */,
+	{ 0x0c, 0x00, NO_SUBFUNC, "Release Logical Record", 	0 /* sync */,
 		ncp_0xb_request, NULL, ncp_0xb_errors, NULL, NO_REQ_COND_SIZE, &info_str_0xc_req },
 
-	{ 0x0d, 0x00, NO_SUBFUNC, "Release Logical Record Set",	0 /* sync */,
+	{ 0x0d, 0x00, NO_SUBFUNC, "Release Logical Record Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x0e, 0x00, NO_SUBFUNC, "Clear Logical Record Set",	0 /* sync */,
+	{ 0x0e, 0x00, NO_SUBFUNC, "Clear Logical Record Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x11, 0x00, SUBFUNC_WITH_LENGTH, "Write to Spool File",	1 /* print */,
+	{ 0x11, 0x00, SUBFUNC_WITH_LENGTH, "Write to Spool File", 	1 /* print */,
 		ncp_0x1100_request, NULL, ncp_0x1100_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1100_req },
 
-	{ 0x11, 0x01, SUBFUNC_WITH_LENGTH, "Close Spool File",	1 /* print */,
+	{ 0x11, 0x01, SUBFUNC_WITH_LENGTH, "Close Spool File", 	1 /* print */,
 		ncp_0x1101_request, NULL, ncp_0x1101_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x11, 0x02, SUBFUNC_WITH_LENGTH, "Set Spool File Flags",	1 /* print */,
+	{ 0x11, 0x02, SUBFUNC_WITH_LENGTH, "Set Spool File Flags", 	1 /* print */,
 		ncp_0x1102_request, NULL, ncp_0x1102_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x11, 0x03, SUBFUNC_WITH_LENGTH, "Spool A Disk File",	1 /* print */,
+	{ 0x11, 0x03, SUBFUNC_WITH_LENGTH, "Spool A Disk File", 	1 /* print */,
 		ncp_0x1103_request, NULL, ncp_0x1101_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1103_req },
 
-	{ 0x11, 0x06, SUBFUNC_WITH_LENGTH, "Get Printer Status",	1 /* print */,
+	{ 0x11, 0x06, SUBFUNC_WITH_LENGTH, "Get Printer Status", 	1 /* print */,
 		ncp_0x1106_request, ncp_0x1106_reply, ncp_0x1106_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x11, 0x09, SUBFUNC_WITH_LENGTH, "Create Spool File",	1 /* print */,
+	{ 0x11, 0x09, SUBFUNC_WITH_LENGTH, "Create Spool File", 	1 /* print */,
 		ncp_0x1103_request, NULL, ncp_0x1109_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1109_req },
 
-	{ 0x11, 0x0a, SUBFUNC_WITH_LENGTH, "Get Printer's Queue",	1 /* print */,
+	{ 0x11, 0x0a, SUBFUNC_WITH_LENGTH, "Get Printer's Queue", 	1 /* print */,
 		ncp_0x1106_request, ncp_0x110a_reply, ncp_0x110a_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x12, 0x00, NO_SUBFUNC, "Get Volume Info with Number",	2 /* file */,
+	{ 0x12, 0x00, NO_SUBFUNC, "Get Volume Info with Number", 	2 /* file */,
 		ncp_0x12_request, ncp_0x12_reply, ncp_0x12_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x12_req },
 
-	{ 0x13, 0x00, NO_SUBFUNC, "Get Station Number",	3 /* connection */,
+	{ 0x13, 0x00, NO_SUBFUNC, "Get Station Number", 	3 /* connection */,
 		NULL, ncp_0x13_reply, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x14, 0x00, NO_SUBFUNC, "Get File Server Date And Time",	4 /* fileserver */,
+	{ 0x14, 0x00, NO_SUBFUNC, "Get File Server Date And Time", 	4 /* fileserver */,
 		NULL, ncp_0x14_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x15, 0x00, SUBFUNC_WITH_LENGTH, "Send Broadcast Message",	5 /* message */,
+	{ 0x15, 0x00, SUBFUNC_WITH_LENGTH, "Send Broadcast Message", 	5 /* message */,
 		ncp_0x1500_request, ncp_0x1500_reply, ncp_0x1500_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1500_req },
 
-	{ 0x15, 0x01, SUBFUNC_WITH_LENGTH, "Get Broadcast Message",	5 /* message */,
+	{ 0x15, 0x01, SUBFUNC_WITH_LENGTH, "Get Broadcast Message", 	5 /* message */,
 		NULL, ncp_0x1501_reply, ncp_0x1500_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x15, 0x02, SUBFUNC_WITH_LENGTH, "Disable Broadcasts",	5 /* message */,
+	{ 0x15, 0x02, SUBFUNC_WITH_LENGTH, "Disable Broadcasts", 	5 /* message */,
 		NULL, NULL, ncp_0x1502_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x15, 0x03, SUBFUNC_WITH_LENGTH, "Enable Broadcasts",	5 /* message */,
+	{ 0x15, 0x03, SUBFUNC_WITH_LENGTH, "Enable Broadcasts", 	5 /* message */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x15, 0x09, SUBFUNC_WITH_LENGTH, "Broadcast To Console",	5 /* message */,
+	{ 0x15, 0x09, SUBFUNC_WITH_LENGTH, "Broadcast To Console", 	5 /* message */,
 		ncp_0x1501_reply, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1509_req },
 
-	{ 0x15, 0x0a, SUBFUNC_WITH_LENGTH, "Send Broadcast Message",	5 /* message */,
+	{ 0x15, 0x0a, SUBFUNC_WITH_LENGTH, "Send Broadcast Message", 	5 /* message */,
 		ncp_0x150a_request, ncp_0x150a_reply, ncp_0x1500_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x150a_req },
 
-	{ 0x15, 0x0b, SUBFUNC_WITH_LENGTH, "Get Broadcast Message",	5 /* message */,
+	{ 0x15, 0x0b, SUBFUNC_WITH_LENGTH, "Get Broadcast Message", 	5 /* message */,
 		NULL, ncp_0x1501_reply, ncp_0x1500_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x15, 0x0c, SUBFUNC_WITH_LENGTH, "Connection Message Control",	5 /* message */,
+	{ 0x15, 0x0c, SUBFUNC_WITH_LENGTH, "Connection Message Control", 	5 /* message */,
 		ncp_0x150c_request, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x00, SUBFUNC_WITH_LENGTH, "Set Directory Handle",	2 /* file */,
+	{ 0x16, 0x00, SUBFUNC_WITH_LENGTH, "Set Directory Handle", 	2 /* file */,
 		ncp_0x1600_request, NULL, ncp_0x1600_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1600_req },
 
-	{ 0x16, 0x01, SUBFUNC_WITH_LENGTH, "Get Directory Path",	2 /* file */,
+	{ 0x16, 0x01, SUBFUNC_WITH_LENGTH, "Get Directory Path", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x1601_reply, ncp_0x1601_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1601_req },
 
-	{ 0x16, 0x02, SUBFUNC_WITH_LENGTH, "Scan Directory Information",	2 /* file */,
+	{ 0x16, 0x02, SUBFUNC_WITH_LENGTH, "Scan Directory Information", 	2 /* file */,
 		ncp_0x1602_request, ncp_0x1602_reply, ncp_0x1600_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1602_req },
 
-	{ 0x16, 0x03, SUBFUNC_WITH_LENGTH, "Get Effective Directory Rights",	2 /* file */,
+	{ 0x16, 0x03, SUBFUNC_WITH_LENGTH, "Get Effective Directory Rights", 	2 /* file */,
 		ncp_0x1603_request, ncp_0x1603_reply, ncp_0x1600_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1603_req },
 
-	{ 0x16, 0x04, SUBFUNC_WITH_LENGTH, "Modify Maximum Rights Mask",	2 /* file */,
+	{ 0x16, 0x04, SUBFUNC_WITH_LENGTH, "Modify Maximum Rights Mask", 	2 /* file */,
 		ncp_0x1604_request, NULL, ncp_0x1604_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1604_req },
 
-	{ 0x16, 0x05, SUBFUNC_WITH_LENGTH, "Get Volume Number",	2 /* file */,
+	{ 0x16, 0x05, SUBFUNC_WITH_LENGTH, "Get Volume Number", 	2 /* file */,
 		ncp_0x1605_request, ncp_0x12_request, ncp_0x1605_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1605_req },
 
-	{ 0x16, 0x06, SUBFUNC_WITH_LENGTH, "Get Volume Name",	2 /* file */,
+	{ 0x16, 0x06, SUBFUNC_WITH_LENGTH, "Get Volume Name", 	2 /* file */,
 		ncp_0x12_request, ncp_0x1605_request, ncp_0x1606_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1606_req },
 
-	{ 0x16, 0x0a, SUBFUNC_WITH_LENGTH, "Create Directory",	2 /* file */,
+	{ 0x16, 0x0a, SUBFUNC_WITH_LENGTH, "Create Directory", 	2 /* file */,
 		ncp_0x160a_request, NULL, ncp_0x160a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160a_req },
 
-	{ 0x16, 0x0b, SUBFUNC_WITH_LENGTH, "Delete Directory",	2 /* file */,
+	{ 0x16, 0x0b, SUBFUNC_WITH_LENGTH, "Delete Directory", 	2 /* file */,
 		ncp_0x160b_request, NULL, ncp_0x160b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160b_req },
 
-	{ 0x16, 0x0c, SUBFUNC_WITH_LENGTH, "Scan Directory for Trustees",	2 /* file */,
+	{ 0x16, 0x0c, SUBFUNC_WITH_LENGTH, "Scan Directory for Trustees", 	2 /* file */,
 		ncp_0x160c_request, ncp_0x160c_reply, ncp_0x160c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160c_req },
 
-	{ 0x16, 0x0d, SUBFUNC_WITH_LENGTH, "Add Trustee to Directory",	2 /* file */,
+	{ 0x16, 0x0d, SUBFUNC_WITH_LENGTH, "Add Trustee to Directory", 	2 /* file */,
 		ncp_0x160d_request, NULL, ncp_0x160d_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160d_req },
 
-	{ 0x16, 0x0e, SUBFUNC_WITH_LENGTH, "Delete Trustee from Directory",	2 /* file */,
+	{ 0x16, 0x0e, SUBFUNC_WITH_LENGTH, "Delete Trustee from Directory", 	2 /* file */,
 		ncp_0x160e_request, NULL, ncp_0x160e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160e_req },
 
-	{ 0x16, 0x0f, SUBFUNC_WITH_LENGTH, "Rename Directory",	2 /* file */,
+	{ 0x16, 0x0f, SUBFUNC_WITH_LENGTH, "Rename Directory", 	2 /* file */,
 		ncp_0x160f_request, NULL, ncp_0x160f_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x160f_req },
 
-	{ 0x16, 0x10, SUBFUNC_WITH_LENGTH, "Purge Erased Files",	2 /* file */,
+	{ 0x16, 0x10, SUBFUNC_WITH_LENGTH, "Purge Erased Files", 	2 /* file */,
 		NULL, NULL, ncp_0x1610_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x11, SUBFUNC_WITH_LENGTH, "Recover Erased File",	2 /* file */,
+	{ 0x16, 0x11, SUBFUNC_WITH_LENGTH, "Recover Erased File", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x1611_reply, ncp_0x1611_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1611_req },
 
-	{ 0x16, 0x12, SUBFUNC_WITH_LENGTH, "Alloc Permanent Directory Handle",	2 /* file */,
+	{ 0x16, 0x12, SUBFUNC_WITH_LENGTH, "Alloc Permanent Directory Handle", 	2 /* file */,
 		ncp_0x1612_request, ncp_0x1612_reply, ncp_0x1612_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1612_req },
 
-	{ 0x16, 0x13, SUBFUNC_WITH_LENGTH, "Alloc Temporary Directory Handle",	2 /* file */,
+	{ 0x16, 0x13, SUBFUNC_WITH_LENGTH, "Alloc Temporary Directory Handle", 	2 /* file */,
 		ncp_0x1612_request, ncp_0x1612_reply, ncp_0x1613_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1613_req },
 
-	{ 0x16, 0x14, SUBFUNC_WITH_LENGTH, "Deallocate Directory Handle",	2 /* file */,
+	{ 0x16, 0x14, SUBFUNC_WITH_LENGTH, "Deallocate Directory Handle", 	2 /* file */,
 		ncp_0x1601_request, NULL, ncp_0x1614_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1614_req },
 
-	{ 0x16, 0x15, SUBFUNC_WITH_LENGTH, "Get Volume Info with Handle",	2 /* file */,
+	{ 0x16, 0x15, SUBFUNC_WITH_LENGTH, "Get Volume Info with Handle", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x12_reply, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1615_req },
 
-	{ 0x16, 0x16, SUBFUNC_WITH_LENGTH, "Alloc Special Temporary Directory Handle",	2 /* file */,
+	{ 0x16, 0x16, SUBFUNC_WITH_LENGTH, "Alloc Special Temporary Directory Handle", 	2 /* file */,
 		ncp_0x1612_request, ncp_0x1612_reply, ncp_0x1612_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1616_req },
 
-	{ 0x16, 0x17, SUBFUNC_WITH_LENGTH, "Extract a Base Handle",	2 /* file */,
+	{ 0x16, 0x17, SUBFUNC_WITH_LENGTH, "Extract a Base Handle", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x1617_reply, ncp_0x1617_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1617_req },
 
-	{ 0x16, 0x18, SUBFUNC_WITH_LENGTH, "Restore an Extracted Base Handle",	2 /* file */,
+	{ 0x16, 0x18, SUBFUNC_WITH_LENGTH, "Restore an Extracted Base Handle", 	2 /* file */,
 		ncp_0x1617_reply, ncp_0x1612_reply, ncp_0x1618_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x19, SUBFUNC_WITH_LENGTH, "Set Directory Information",	2 /* file */,
+	{ 0x16, 0x19, SUBFUNC_WITH_LENGTH, "Set Directory Information", 	2 /* file */,
 		ncp_0x1619_request, NULL, ncp_0x1619_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1619_req },
 
-	{ 0x16, 0x1a, SUBFUNC_WITH_LENGTH, "Get Path Name of a Volume-Directory Number Pair",	2 /* file */,
+	{ 0x16, 0x1a, SUBFUNC_WITH_LENGTH, "Get Path Name of a Volume-Directory Number Pair", 	2 /* file */,
 		ncp_0x161a_request, ncp_0x1601_reply, ncp_0x161a_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x1b, SUBFUNC_WITH_LENGTH, "Scan Salvageable Files",	2 /* file */,
+	{ 0x16, 0x1b, SUBFUNC_WITH_LENGTH, "Scan Salvageable Files", 	2 /* file */,
 		ncp_0x161b_request, ncp_0x161b_reply, ncp_0x161b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x1c, SUBFUNC_WITH_LENGTH, "Recover Salvageable File",	2 /* file */,
+	{ 0x16, 0x1c, SUBFUNC_WITH_LENGTH, "Recover Salvageable File", 	2 /* file */,
 		ncp_0x161c_request, NULL, ncp_0x161c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x161c_req },
 
-	{ 0x16, 0x1d, SUBFUNC_WITH_LENGTH, "Purge Salvageable File",	2 /* file */,
+	{ 0x16, 0x1d, SUBFUNC_WITH_LENGTH, "Purge Salvageable File", 	2 /* file */,
 		ncp_0x161b_request, NULL, ncp_0x161d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x1e, SUBFUNC_WITH_LENGTH, "Scan a Directory",	2 /* file */,
+	{ 0x16, 0x1e, SUBFUNC_WITH_LENGTH, "Scan a Directory", 	2 /* file */,
 		ncp_0x161e_request, ncp_0x161e_reply, ncp_0x161d_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x161e_req },
 
-	{ 0x16, 0x1f, SUBFUNC_WITH_LENGTH, "Get Directory Entry",	2 /* file */,
+	{ 0x16, 0x1f, SUBFUNC_WITH_LENGTH, "Get Directory Entry", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x161f_reply, ncp_0x161f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x20, SUBFUNC_WITH_LENGTH, "Scan Volume's User Disk Restrictions",	2 /* file */,
+	{ 0x16, 0x20, SUBFUNC_WITH_LENGTH, "Scan Volume's User Disk Restrictions", 	2 /* file */,
 		ncp_0x1620_request, ncp_0x1620_reply, ncp_0x1620_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x21, SUBFUNC_WITH_LENGTH, "Add User Disk Space Restriction",	2 /* file */,
+	{ 0x16, 0x21, SUBFUNC_WITH_LENGTH, "Add User Disk Space Restriction", 	2 /* file */,
 		ncp_0x1621_request, NULL, ncp_0x1621_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x22, SUBFUNC_WITH_LENGTH, "Remove User Disk Space Restrictions",	2 /* file */,
+	{ 0x16, 0x22, SUBFUNC_WITH_LENGTH, "Remove User Disk Space Restrictions", 	2 /* file */,
 		ncp_0x1622_request, NULL, ncp_0x1622_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x23, SUBFUNC_WITH_LENGTH, "Get Directory Disk Space Restriction",	2 /* file */,
+	{ 0x16, 0x23, SUBFUNC_WITH_LENGTH, "Get Directory Disk Space Restriction", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x1623_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x24, SUBFUNC_WITH_LENGTH, "Set Directory Disk Space Restriction",	2 /* file */,
+	{ 0x16, 0x24, SUBFUNC_WITH_LENGTH, "Set Directory Disk Space Restriction", 	2 /* file */,
 		ncp_0x1624_request, NULL, ncp_0x1624_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x25, SUBFUNC_WITH_LENGTH, "Set Directory Entry Information",	2 /* file */,
+	{ 0x16, 0x25, SUBFUNC_WITH_LENGTH, "Set Directory Entry Information", 	2 /* file */,
 		ncp_0x1625_request, NULL, ncp_0x1625_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x26, SUBFUNC_WITH_LENGTH, "Scan File or Directory for Extended Trustees",	2 /* file */,
+	{ 0x16, 0x26, SUBFUNC_WITH_LENGTH, "Scan File or Directory for Extended Trustees", 	2 /* file */,
 		ncp_0x1626_request, ncp_0x1626_reply, ncp_0x1626_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1626_req },
 
-	{ 0x16, 0x27, SUBFUNC_WITH_LENGTH, "Add Extended Trustee to Directory or File",	2 /* file */,
+	{ 0x16, 0x27, SUBFUNC_WITH_LENGTH, "Add Extended Trustee to Directory or File", 	2 /* file */,
 		ncp_0x1627_request, NULL, ncp_0x1627_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1627_req },
 
-	{ 0x16, 0x28, SUBFUNC_WITH_LENGTH, "Scan Directory Disk Space",	2 /* file */,
+	{ 0x16, 0x28, SUBFUNC_WITH_LENGTH, "Scan Directory Disk Space", 	2 /* file */,
 		ncp_0x1628_request, ncp_0x1628_reply, ncp_0x1628_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1628_req },
 
-	{ 0x16, 0x29, SUBFUNC_WITH_LENGTH, "Get Object Disk Usage and Restrictions",	2 /* file */,
+	{ 0x16, 0x29, SUBFUNC_WITH_LENGTH, "Get Object Disk Usage and Restrictions", 	2 /* file */,
 		ncp_0x1629_request, ncp_0x1629_reply, ncp_0x1629_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x2a, SUBFUNC_WITH_LENGTH, "Get Effective Rights for Directory Entry",	2 /* file */,
+	{ 0x16, 0x2a, SUBFUNC_WITH_LENGTH, "Get Effective Rights for Directory Entry", 	2 /* file */,
 		ncp_0x1603_request, ncp_0x162a_reply, ncp_0x162a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x162a_req },
 
-	{ 0x16, 0x2b, SUBFUNC_WITH_LENGTH, "Remove Extended Trustee from Dir or File",	2 /* file */,
+	{ 0x16, 0x2b, SUBFUNC_WITH_LENGTH, "Remove Extended Trustee from Dir or File", 	2 /* file */,
 		ncp_0x162b_request, NULL, ncp_0x162b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x162b_req },
 
-	{ 0x16, 0x2c, SUBFUNC_WITH_LENGTH, "Get Volume and Purge Information",	2 /* file */,
+	{ 0x16, 0x2c, SUBFUNC_WITH_LENGTH, "Get Volume and Purge Information", 	2 /* file */,
 		ncp_0x12_request, ncp_0x162c_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x162c_req },
 
-	{ 0x16, 0x2d, SUBFUNC_WITH_LENGTH, "Get Directory Information",	2 /* file */,
+	{ 0x16, 0x2d, SUBFUNC_WITH_LENGTH, "Get Directory Information", 	2 /* file */,
 		ncp_0x1601_request, ncp_0x162d_reply, ncp_0x1614_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x2e, SUBFUNC_WITH_LENGTH, "Rename Or Move",	2 /* file */,
+	{ 0x16, 0x2e, SUBFUNC_WITH_LENGTH, "Rename Or Move", 	2 /* file */,
 		ncp_0x162e_request, NULL, ncp_0x162e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x162e_req },
 
-	{ 0x16, 0x2f, SUBFUNC_WITH_LENGTH, "Get Name Space Information",	2 /* file */,
+	{ 0x16, 0x2f, SUBFUNC_WITH_LENGTH, "Get Name Space Information", 	2 /* file */,
 		ncp_0x12_request, ncp_0x162f_reply, ncp_0x162f_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x162f_req },
 
-	{ 0x16, 0x30, SUBFUNC_WITH_LENGTH, "Get Name Space Directory Entry",	2 /* file */,
+	{ 0x16, 0x30, SUBFUNC_WITH_LENGTH, "Get Name Space Directory Entry", 	2 /* file */,
 		ncp_0x1630_request, ncp_0x1630_reply, ncp_0x1630_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x16, 0x31, SUBFUNC_WITH_LENGTH, "Open Data Stream",	2 /* file */,
+	{ 0x16, 0x31, SUBFUNC_WITH_LENGTH, "Open Data Stream", 	2 /* file */,
 		ncp_0x1631_request, ncp_0x1631_reply, ncp_0x1631_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1631_req },
 
-	{ 0x16, 0x32, SUBFUNC_WITH_LENGTH, "Get Object Effective Rights for Directory Entry",	2 /* file */,
+	{ 0x16, 0x32, SUBFUNC_WITH_LENGTH, "Get Object Effective Rights for Directory Entry", 	2 /* file */,
 		ncp_0x1632_request, ncp_0x1632_reply, ncp_0x1632_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1632_req },
 
-	{ 0x16, 0x33, SUBFUNC_WITH_LENGTH, "Get Extended Volume Information",	2 /* file */,
+	{ 0x16, 0x33, SUBFUNC_WITH_LENGTH, "Get Extended Volume Information", 	2 /* file */,
 		ncp_0x12_request, ncp_0x1633_reply, ncp_0x1633_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1633_req },
 
-	{ 0x16, 0x34, SUBFUNC_WITH_LENGTH, "Get Mount Volume List",	2 /* file */,
+	{ 0x16, 0x34, SUBFUNC_WITH_LENGTH, "Get Mount Volume List", 	2 /* file */,
 		ncp_0x1634_request, ncp_0x1634_reply, ncp_0x1629_errors, ncp_0x1634_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x16, 0x35, SUBFUNC_WITH_LENGTH, "Get Volume Capabilities",	2 /* file */,
+	{ 0x16, 0x35, SUBFUNC_WITH_LENGTH, "Get Volume Capabilities", 	2 /* file */,
 		ncp_0x1635_request, ncp_0x1635_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x00, SUBFUNC_WITH_LENGTH, "Login User",	3 /* connection */,
+	{ 0x17, 0x00, SUBFUNC_WITH_LENGTH, "Login User", 	3 /* connection */,
 		ncp_0x1700_request, NULL, ncp_0x1700_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1700_req },
 
-	{ 0x17, 0x01, SUBFUNC_WITH_LENGTH, "Change User Password",	6 /* bindery */,
+	{ 0x17, 0x01, SUBFUNC_WITH_LENGTH, "Change User Password", 	6 /* bindery */,
 		ncp_0x1701_request, NULL, ncp_0x1701_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1701_req },
 
-	{ 0x17, 0x02, SUBFUNC_WITH_LENGTH, "Get User Connection List",	3 /* connection */,
+	{ 0x17, 0x02, SUBFUNC_WITH_LENGTH, "Get User Connection List", 	3 /* connection */,
 		ncp_0x1702_request, ncp_0x1702_reply, ncp_0x1702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1702_req },
 
-	{ 0x17, 0x03, SUBFUNC_WITH_LENGTH, "Get User Number",	6 /* bindery */,
+	{ 0x17, 0x03, SUBFUNC_WITH_LENGTH, "Get User Number", 	6 /* bindery */,
 		ncp_0x1702_request, ncp_0x110a_reply, ncp_0x1702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1703_req },
 
-	{ 0x17, 0x05, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info",	3 /* connection */,
+	{ 0x17, 0x05, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info", 	3 /* connection */,
 		ncp_0x1705_request, ncp_0x1705_reply, ncp_0x1705_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1705_req },
 
-	{ 0x17, 0x07, SUBFUNC_WITH_LENGTH, "Get Group Number",	6 /* bindery */,
+	{ 0x17, 0x07, SUBFUNC_WITH_LENGTH, "Get Group Number", 	6 /* bindery */,
 		ncp_0x110a_reply, ncp_0x1707_reply, ncp_0x1707_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x0c, SUBFUNC_WITH_LENGTH, "Verify Serialization",	4 /* fileserver */,
+	{ 0x17, 0x0c, SUBFUNC_WITH_LENGTH, "Verify Serialization", 	4 /* fileserver */,
 		ncp_0x170c_request, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x0d, SUBFUNC_WITH_LENGTH, "Log Network Message",	2 /* file */,
+	{ 0x17, 0x0d, SUBFUNC_WITH_LENGTH, "Log Network Message", 	2 /* file */,
 		ncp_0x1501_reply, NULL, ncp_0x170d_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x170d_req },
 
-	{ 0x17, 0x0e, SUBFUNC_WITH_LENGTH, "Get Disk Utilization",	4 /* fileserver */,
+	{ 0x17, 0x0e, SUBFUNC_WITH_LENGTH, "Get Disk Utilization", 	4 /* fileserver */,
 		ncp_0x170e_request, ncp_0x170e_reply, ncp_0x170e_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x0f, SUBFUNC_WITH_LENGTH, "Scan File Information",	2 /* file */,
+	{ 0x17, 0x0f, SUBFUNC_WITH_LENGTH, "Scan File Information", 	2 /* file */,
 		ncp_0x170f_request, ncp_0x170f_reply, ncp_0x170f_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x170f_req },
 
-	{ 0x17, 0x10, SUBFUNC_WITH_LENGTH, "Set File Information",	2 /* file */,
+	{ 0x17, 0x10, SUBFUNC_WITH_LENGTH, "Set File Information", 	2 /* file */,
 		ncp_0x1710_request, NULL, ncp_0x1710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1710_req },
 
-	{ 0x17, 0x11, SUBFUNC_WITH_LENGTH, "Get File Server Information",	4 /* fileserver */,
+	{ 0x17, 0x11, SUBFUNC_WITH_LENGTH, "Get File Server Information", 	4 /* fileserver */,
 		NULL, ncp_0x1711_reply, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x12, SUBFUNC_WITH_LENGTH, "Get Network Serial Number",	4 /* fileserver */,
+	{ 0x17, 0x12, SUBFUNC_WITH_LENGTH, "Get Network Serial Number", 	4 /* fileserver */,
 		NULL, ncp_0x1712_reply, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x13, SUBFUNC_WITH_LENGTH, "Get Internet Address",	3 /* connection */,
+	{ 0x17, 0x13, SUBFUNC_WITH_LENGTH, "Get Internet Address", 	3 /* connection */,
 		ncp_0x1705_request, ncp_0x1713_reply, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1713_req },
 
-	{ 0x17, 0x14, SUBFUNC_WITH_LENGTH, "Login Object",	3 /* connection */,
+	{ 0x17, 0x14, SUBFUNC_WITH_LENGTH, "Login Object", 	3 /* connection */,
 		ncp_0x1714_request, NULL, ncp_0x1714_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1714_req },
 
-	{ 0x17, 0x15, SUBFUNC_WITH_LENGTH, "Get Object Connection List",	3 /* connection */,
+	{ 0x17, 0x15, SUBFUNC_WITH_LENGTH, "Get Object Connection List", 	3 /* connection */,
 		ncp_0x1715_request, ncp_0x1702_reply, ncp_0x1702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1715_req },
 
-	{ 0x17, 0x16, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info",	3 /* connection */,
+	{ 0x17, 0x16, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info", 	3 /* connection */,
 		ncp_0x1705_request, ncp_0x1716_reply, ncp_0x1716_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x17, SUBFUNC_WITH_LENGTH, "Get Login Key",	3 /* connection */,
+	{ 0x17, 0x17, SUBFUNC_WITH_LENGTH, "Get Login Key", 	3 /* connection */,
 		NULL, ncp_0x1717_reply, ncp_0x1717_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x18, SUBFUNC_WITH_LENGTH, "Keyed Object Login",	3 /* connection */,
+	{ 0x17, 0x18, SUBFUNC_WITH_LENGTH, "Keyed Object Login", 	3 /* connection */,
 		ncp_0x1718_request, NULL, ncp_0x1718_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1718_req },
 
-	{ 0x17, 0x1a, SUBFUNC_WITH_LENGTH, "Get Internet Address",	3 /* connection */,
+	{ 0x17, 0x1a, SUBFUNC_WITH_LENGTH, "Get Internet Address", 	3 /* connection */,
 		ncp_0x171a_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x1b, SUBFUNC_WITH_LENGTH, "Get Object Connection List",	3 /* connection */,
+	{ 0x17, 0x1b, SUBFUNC_WITH_LENGTH, "Get Object Connection List", 	3 /* connection */,
 		ncp_0x171b_request, ncp_0x171b_reply, ncp_0x1702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x171b_req },
 
-	{ 0x17, 0x1c, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info",	3 /* connection */,
+	{ 0x17, 0x1c, SUBFUNC_WITH_LENGTH, "Get Station's Logged Info", 	3 /* connection */,
 		ncp_0x171c_request, ncp_0x1716_reply, ncp_0x171c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x1d, SUBFUNC_WITH_LENGTH, "Change Connection State",	3 /* connection */,
+	{ 0x17, 0x1d, SUBFUNC_WITH_LENGTH, "Change Connection State", 	3 /* connection */,
 		ncp_0x171d_request, NULL, ncp_0x171d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x1e, SUBFUNC_WITH_LENGTH, "Set Watchdog Delay Interval",	3 /* connection */,
+	{ 0x17, 0x1e, SUBFUNC_WITH_LENGTH, "Set Watchdog Delay Interval", 	3 /* connection */,
 		ncp_0x171e_request, NULL, ncp_0x171e_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x1f, SUBFUNC_WITH_LENGTH, "Get Connection List From Object",	3 /* connection */,
+	{ 0x17, 0x1f, SUBFUNC_WITH_LENGTH, "Get Connection List From Object", 	3 /* connection */,
 		ncp_0x171f_request, ncp_0x1702_reply, ncp_0x1702_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x20, SUBFUNC_WITH_LENGTH, "Scan Bindery Object (List)",	6 /* bindery */,
+	{ 0x17, 0x20, SUBFUNC_WITH_LENGTH, "Scan Bindery Object (List)", 	6 /* bindery */,
 		ncp_0x1720_request, ncp_0x1720_reply, ncp_0x1720_errors, ncp_0x1720_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x1720_req },
 
-	{ 0x17, 0x21, SUBFUNC_WITH_LENGTH, "Generate GUIDs",	3 /* connection */,
+	{ 0x17, 0x21, SUBFUNC_WITH_LENGTH, "Generate GUIDs", 	3 /* connection */,
 		ncp_0x1721_request, ncp_0x1721_reply, ncp_0x1721_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x22, SUBFUNC_WITH_LENGTH, "Set Connection Language Encoding",	3 /* connection */,
+	{ 0x17, 0x22, SUBFUNC_WITH_LENGTH, "Set Connection Language Encoding", 	3 /* connection */,
 		ncp_0x1722_request, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x32, SUBFUNC_WITH_LENGTH, "Create Bindery Object",	6 /* bindery */,
+	{ 0x17, 0x32, SUBFUNC_WITH_LENGTH, "Create Bindery Object", 	6 /* bindery */,
 		ncp_0x1732_request, NULL, ncp_0x1732_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1732_req },
 
-	{ 0x17, 0x33, SUBFUNC_WITH_LENGTH, "Delete Bindery Object",	6 /* bindery */,
+	{ 0x17, 0x33, SUBFUNC_WITH_LENGTH, "Delete Bindery Object", 	6 /* bindery */,
 		ncp_0x1733_request, NULL, ncp_0x1733_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1733_req },
 
-	{ 0x17, 0x34, SUBFUNC_WITH_LENGTH, "Rename Bindery Object",	6 /* bindery */,
+	{ 0x17, 0x34, SUBFUNC_WITH_LENGTH, "Rename Bindery Object", 	6 /* bindery */,
 		ncp_0x1734_request, NULL, ncp_0x1734_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1734_req },
 
-	{ 0x17, 0x35, SUBFUNC_WITH_LENGTH, "Get Bindery Object ID",	6 /* bindery */,
+	{ 0x17, 0x35, SUBFUNC_WITH_LENGTH, "Get Bindery Object ID", 	6 /* bindery */,
 		ncp_0x1733_request, ncp_0x1707_reply, ncp_0x1735_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1735_req },
 
-	{ 0x17, 0x36, SUBFUNC_WITH_LENGTH, "Get Bindery Object Name",	6 /* bindery */,
+	{ 0x17, 0x36, SUBFUNC_WITH_LENGTH, "Get Bindery Object Name", 	6 /* bindery */,
 		ncp_0x110a_reply, ncp_0x1707_reply, ncp_0x1736_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x37, SUBFUNC_WITH_LENGTH, "Scan Bindery Object",	6 /* bindery */,
+	{ 0x17, 0x37, SUBFUNC_WITH_LENGTH, "Scan Bindery Object", 	6 /* bindery */,
 		ncp_0x1737_request, ncp_0x1737_reply, ncp_0x1720_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1737_req },
 
-	{ 0x17, 0x38, SUBFUNC_WITH_LENGTH, "Change Bindery Object Security",	6 /* bindery */,
+	{ 0x17, 0x38, SUBFUNC_WITH_LENGTH, "Change Bindery Object Security", 	6 /* bindery */,
 		ncp_0x1738_request, NULL, ncp_0x1738_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1738_req },
 
-	{ 0x17, 0x39, SUBFUNC_WITH_LENGTH, "Create Property",	6 /* bindery */,
+	{ 0x17, 0x39, SUBFUNC_WITH_LENGTH, "Create Property", 	6 /* bindery */,
 		ncp_0x1739_request, NULL, ncp_0x1739_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1739_req },
 
-	{ 0x17, 0x3a, SUBFUNC_WITH_LENGTH, "Delete Property",	6 /* bindery */,
+	{ 0x17, 0x3a, SUBFUNC_WITH_LENGTH, "Delete Property", 	6 /* bindery */,
 		ncp_0x173a_request, NULL, ncp_0x173a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173a_req },
 
-	{ 0x17, 0x3b, SUBFUNC_WITH_LENGTH, "Change Property Security",	6 /* bindery */,
+	{ 0x17, 0x3b, SUBFUNC_WITH_LENGTH, "Change Property Security", 	6 /* bindery */,
 		ncp_0x173b_request, NULL, ncp_0x173b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173b_req },
 
-	{ 0x17, 0x3c, SUBFUNC_WITH_LENGTH, "Scan Property",	6 /* bindery */,
+	{ 0x17, 0x3c, SUBFUNC_WITH_LENGTH, "Scan Property", 	6 /* bindery */,
 		ncp_0x173c_request, ncp_0x173c_reply, ncp_0x173b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173c_req },
 
-	{ 0x17, 0x3d, SUBFUNC_WITH_LENGTH, "Read Property Value",	6 /* bindery */,
+	{ 0x17, 0x3d, SUBFUNC_WITH_LENGTH, "Read Property Value", 	6 /* bindery */,
 		ncp_0x173d_request, ncp_0x173d_reply, ncp_0x173d_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173d_req },
 
-	{ 0x17, 0x3e, SUBFUNC_WITH_LENGTH, "Write Property Value",	6 /* bindery */,
+	{ 0x17, 0x3e, SUBFUNC_WITH_LENGTH, "Write Property Value", 	6 /* bindery */,
 		ncp_0x173e_request, NULL, ncp_0x173e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173e_req },
 
-	{ 0x17, 0x3f, SUBFUNC_WITH_LENGTH, "Verify Bindery Object Password",	6 /* bindery */,
+	{ 0x17, 0x3f, SUBFUNC_WITH_LENGTH, "Verify Bindery Object Password", 	6 /* bindery */,
 		ncp_0x173f_request, NULL, ncp_0x173f_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x173f_req },
 
-	{ 0x17, 0x40, SUBFUNC_WITH_LENGTH, "Change Bindery Object Password",	6 /* bindery */,
+	{ 0x17, 0x40, SUBFUNC_WITH_LENGTH, "Change Bindery Object Password", 	6 /* bindery */,
 		ncp_0x1740_request, NULL, ncp_0x1740_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1740_req },
 
-	{ 0x17, 0x41, SUBFUNC_WITH_LENGTH, "Add Bindery Object To Set",	6 /* bindery */,
+	{ 0x17, 0x41, SUBFUNC_WITH_LENGTH, "Add Bindery Object To Set", 	6 /* bindery */,
 		ncp_0x1741_request, NULL, ncp_0x1741_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1741_req },
 
-	{ 0x17, 0x42, SUBFUNC_WITH_LENGTH, "Delete Bindery Object From Set",	6 /* bindery */,
+	{ 0x17, 0x42, SUBFUNC_WITH_LENGTH, "Delete Bindery Object From Set", 	6 /* bindery */,
 		ncp_0x1741_request, NULL, ncp_0x1742_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1742_req },
 
-	{ 0x17, 0x43, SUBFUNC_WITH_LENGTH, "Is Bindery Object In Set",	6 /* bindery */,
+	{ 0x17, 0x43, SUBFUNC_WITH_LENGTH, "Is Bindery Object In Set", 	6 /* bindery */,
 		ncp_0x1741_request, NULL, ncp_0x1743_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1743_req },
 
-	{ 0x17, 0x44, SUBFUNC_WITH_LENGTH, "Close Bindery",	6 /* bindery */,
+	{ 0x17, 0x44, SUBFUNC_WITH_LENGTH, "Close Bindery", 	6 /* bindery */,
 		NULL, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x45, SUBFUNC_WITH_LENGTH, "Open Bindery",	6 /* bindery */,
+	{ 0x17, 0x45, SUBFUNC_WITH_LENGTH, "Open Bindery", 	6 /* bindery */,
 		NULL, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x46, SUBFUNC_WITH_LENGTH, "Get Bindery Access Level",	6 /* bindery */,
+	{ 0x17, 0x46, SUBFUNC_WITH_LENGTH, "Get Bindery Access Level", 	6 /* bindery */,
 		NULL, ncp_0x1746_reply, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x47, SUBFUNC_WITH_LENGTH, "Scan Bindery Object Trustee Paths",	6 /* bindery */,
+	{ 0x17, 0x47, SUBFUNC_WITH_LENGTH, "Scan Bindery Object Trustee Paths", 	6 /* bindery */,
 		ncp_0x1747_request, ncp_0x1747_reply, ncp_0x1747_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x48, SUBFUNC_WITH_LENGTH, "Get Bindery Object Access Level",	6 /* bindery */,
+	{ 0x17, 0x48, SUBFUNC_WITH_LENGTH, "Get Bindery Object Access Level", 	6 /* bindery */,
 		ncp_0x110a_reply, ncp_0x1748_reply, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x49, SUBFUNC_WITH_LENGTH, "Is Calling Station a Manager",	6 /* bindery */,
+	{ 0x17, 0x49, SUBFUNC_WITH_LENGTH, "Is Calling Station a Manager", 	6 /* bindery */,
 		NULL, NULL, ncp_0x1749_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x4a, SUBFUNC_WITH_LENGTH, "Keyed Verify Password",	6 /* bindery */,
+	{ 0x17, 0x4a, SUBFUNC_WITH_LENGTH, "Keyed Verify Password", 	6 /* bindery */,
 		ncp_0x1718_request, NULL, ncp_0x174a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x174a_req },
 
-	{ 0x17, 0x4b, SUBFUNC_WITH_LENGTH, "Keyed Change Password",	6 /* bindery */,
+	{ 0x17, 0x4b, SUBFUNC_WITH_LENGTH, "Keyed Change Password", 	6 /* bindery */,
 		ncp_0x174b_request, NULL, ncp_0x174a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x174b_req },
 
-	{ 0x17, 0x4c, SUBFUNC_WITH_LENGTH, "List Relations Of an Object",	6 /* bindery */,
+	{ 0x17, 0x4c, SUBFUNC_WITH_LENGTH, "List Relations Of an Object", 	6 /* bindery */,
 		ncp_0x174c_request, ncp_0x174c_reply, ncp_0x174c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x174c_req },
 
-	{ 0x17, 0x64, SUBFUNC_WITH_LENGTH, "Create Queue",	7 /* qms */,
+	{ 0x17, 0x64, SUBFUNC_WITH_LENGTH, "Create Queue", 	7 /* qms */,
 		ncp_0x1764_request, ncp_0x1764_reply, ncp_0x1764_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1764_req },
 
-	{ 0x17, 0x65, SUBFUNC_WITH_LENGTH, "Destroy Queue",	7 /* qms */,
+	{ 0x17, 0x65, SUBFUNC_WITH_LENGTH, "Destroy Queue", 	7 /* qms */,
 		ncp_0x1764_reply, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x66, SUBFUNC_WITH_LENGTH, "Read Queue Current Status",	7 /* qms */,
+	{ 0x17, 0x66, SUBFUNC_WITH_LENGTH, "Read Queue Current Status", 	7 /* qms */,
 		ncp_0x1764_reply, ncp_0x1766_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x67, SUBFUNC_WITH_LENGTH, "Set Queue Current Status",	7 /* qms */,
+	{ 0x17, 0x67, SUBFUNC_WITH_LENGTH, "Set Queue Current Status", 	7 /* qms */,
 		ncp_0x1767_request, NULL, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x68, SUBFUNC_WITH_LENGTH, "Create Queue Job And File",	7 /* qms */,
+	{ 0x17, 0x68, SUBFUNC_WITH_LENGTH, "Create Queue Job And File", 	7 /* qms */,
 		ncp_0x1768_request, ncp_0x1768_reply, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x69, SUBFUNC_WITH_LENGTH, "Close File And Start Queue Job",	7 /* qms */,
+	{ 0x17, 0x69, SUBFUNC_WITH_LENGTH, "Close File And Start Queue Job", 	7 /* qms */,
 		ncp_0x1769_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6a, SUBFUNC_WITH_LENGTH, "Remove Job From Queue",	7 /* qms */,
+	{ 0x17, 0x6a, SUBFUNC_WITH_LENGTH, "Remove Job From Queue", 	7 /* qms */,
 		ncp_0x1769_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6b, SUBFUNC_WITH_LENGTH, "Get Queue Job List",	7 /* qms */,
+	{ 0x17, 0x6b, SUBFUNC_WITH_LENGTH, "Get Queue Job List", 	7 /* qms */,
 		ncp_0x1764_reply, ncp_0x176b_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6c, SUBFUNC_WITH_LENGTH, "Read Queue Job Entry",	7 /* qms */,
+	{ 0x17, 0x6c, SUBFUNC_WITH_LENGTH, "Read Queue Job Entry", 	7 /* qms */,
 		ncp_0x1769_request, ncp_0x176c_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6d, SUBFUNC_WITH_LENGTH, "Change Queue Job Entry",	7 /* qms */,
+	{ 0x17, 0x6d, SUBFUNC_WITH_LENGTH, "Change Queue Job Entry", 	7 /* qms */,
 		ncp_0x176c_reply, NULL, ncp_0x176d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6e, SUBFUNC_WITH_LENGTH, "Change Queue Job Position",	7 /* qms */,
+	{ 0x17, 0x6e, SUBFUNC_WITH_LENGTH, "Change Queue Job Position", 	7 /* qms */,
 		ncp_0x176e_request, NULL, ncp_0x176e_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x6f, SUBFUNC_WITH_LENGTH, "Attach Queue Server To Queue",	7 /* qms */,
+	{ 0x17, 0x6f, SUBFUNC_WITH_LENGTH, "Attach Queue Server To Queue", 	7 /* qms */,
 		ncp_0x1764_reply, NULL, ncp_0x176f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x70, SUBFUNC_WITH_LENGTH, "Detach Queue Server From Queue",	7 /* qms */,
+	{ 0x17, 0x70, SUBFUNC_WITH_LENGTH, "Detach Queue Server From Queue", 	7 /* qms */,
 		ncp_0x1764_reply, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x71, SUBFUNC_WITH_LENGTH, "Service Queue Job",	7 /* qms */,
+	{ 0x17, 0x71, SUBFUNC_WITH_LENGTH, "Service Queue Job", 	7 /* qms */,
 		ncp_0x1771_request, ncp_0x1768_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x72, SUBFUNC_WITH_LENGTH, "Finish Servicing Queue Job",	7 /* qms */,
+	{ 0x17, 0x72, SUBFUNC_WITH_LENGTH, "Finish Servicing Queue Job", 	7 /* qms */,
 		ncp_0x1772_request, NULL, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x73, SUBFUNC_WITH_LENGTH, "Abort Servicing Queue Job",	7 /* qms */,
+	{ 0x17, 0x73, SUBFUNC_WITH_LENGTH, "Abort Servicing Queue Job", 	7 /* qms */,
 		ncp_0x1769_request, NULL, ncp_0x1773_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x74, SUBFUNC_WITH_LENGTH, "Change To Client Rights",	7 /* qms */,
+	{ 0x17, 0x74, SUBFUNC_WITH_LENGTH, "Change To Client Rights", 	7 /* qms */,
 		ncp_0x1769_request, NULL, ncp_0x176d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x75, SUBFUNC_WITH_LENGTH, "Restore Queue Server Rights",	7 /* qms */,
+	{ 0x17, 0x75, SUBFUNC_WITH_LENGTH, "Restore Queue Server Rights", 	7 /* qms */,
 		NULL, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x76, SUBFUNC_WITH_LENGTH, "Read Queue Server Current Status",	7 /* qms */,
+	{ 0x17, 0x76, SUBFUNC_WITH_LENGTH, "Read Queue Server Current Status", 	7 /* qms */,
 		ncp_0x1776_request, ncp_0x1776_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x77, SUBFUNC_WITH_LENGTH, "Set Queue Server Current Status",	7 /* qms */,
+	{ 0x17, 0x77, SUBFUNC_WITH_LENGTH, "Set Queue Server Current Status", 	7 /* qms */,
 		ncp_0x1777_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x78, SUBFUNC_WITH_LENGTH, "Get Queue Job File Size",	7 /* qms */,
+	{ 0x17, 0x78, SUBFUNC_WITH_LENGTH, "Get Queue Job File Size", 	7 /* qms */,
 		ncp_0x1769_request, ncp_0x1778_reply, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x79, SUBFUNC_WITH_LENGTH, "Create Queue Job And File",	7 /* qms */,
+	{ 0x17, 0x79, SUBFUNC_WITH_LENGTH, "Create Queue Job And File", 	7 /* qms */,
 		ncp_0x1779_request, ncp_0x1779_reply, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7a, SUBFUNC_WITH_LENGTH, "Read Queue Job Entry",	7 /* qms */,
+	{ 0x17, 0x7a, SUBFUNC_WITH_LENGTH, "Read Queue Job Entry", 	7 /* qms */,
 		ncp_0x177a_request, ncp_0x177a_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7b, SUBFUNC_WITH_LENGTH, "Change Queue Job Entry",	7 /* qms */,
+	{ 0x17, 0x7b, SUBFUNC_WITH_LENGTH, "Change Queue Job Entry", 	7 /* qms */,
 		ncp_0x1768_request, NULL, ncp_0x177b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7c, SUBFUNC_WITH_LENGTH, "Service Queue Job",	7 /* qms */,
+	{ 0x17, 0x7c, SUBFUNC_WITH_LENGTH, "Service Queue Job", 	7 /* qms */,
 		ncp_0x177c_request, ncp_0x1779_reply, ncp_0x177c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7d, SUBFUNC_WITH_LENGTH, "Read Queue Current Status",	7 /* qms */,
+	{ 0x17, 0x7d, SUBFUNC_WITH_LENGTH, "Read Queue Current Status", 	7 /* qms */,
 		ncp_0x1764_reply, ncp_0x177d_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7e, SUBFUNC_WITH_LENGTH, "Set Queue Current Status",	7 /* qms */,
+	{ 0x17, 0x7e, SUBFUNC_WITH_LENGTH, "Set Queue Current Status", 	7 /* qms */,
 		ncp_0x1767_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x7f, SUBFUNC_WITH_LENGTH, "Close File And Start Queue Job",	7 /* qms */,
+	{ 0x17, 0x7f, SUBFUNC_WITH_LENGTH, "Close File And Start Queue Job", 	7 /* qms */,
 		ncp_0x177a_request, NULL, ncp_0x1767_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x80, SUBFUNC_WITH_LENGTH, "Remove Job From Queue",	7 /* qms */,
+	{ 0x17, 0x80, SUBFUNC_WITH_LENGTH, "Remove Job From Queue", 	7 /* qms */,
 		ncp_0x177a_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x81, SUBFUNC_WITH_LENGTH, "Get Queue Job List",	7 /* qms */,
+	{ 0x17, 0x81, SUBFUNC_WITH_LENGTH, "Get Queue Job List", 	7 /* qms */,
 		ncp_0x177a_request, ncp_0x1781_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x82, SUBFUNC_WITH_LENGTH, "Change Job Priority",	7 /* qms */,
+	{ 0x17, 0x82, SUBFUNC_WITH_LENGTH, "Change Job Priority", 	7 /* qms */,
 		ncp_0x1782_request, NULL, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x83, SUBFUNC_WITH_LENGTH, "Finish Servicing Queue Job",	7 /* qms */,
+	{ 0x17, 0x83, SUBFUNC_WITH_LENGTH, "Finish Servicing Queue Job", 	7 /* qms */,
 		ncp_0x1783_request, NULL, ncp_0x177c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x84, SUBFUNC_WITH_LENGTH, "Abort Servicing Queue Job",	7 /* qms */,
+	{ 0x17, 0x84, SUBFUNC_WITH_LENGTH, "Abort Servicing Queue Job", 	7 /* qms */,
 		ncp_0x177a_request, NULL, ncp_0x1784_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x85, SUBFUNC_WITH_LENGTH, "Change To Client Rights",	7 /* qms */,
+	{ 0x17, 0x85, SUBFUNC_WITH_LENGTH, "Change To Client Rights", 	7 /* qms */,
 		ncp_0x177a_request, NULL, ncp_0x176d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x86, SUBFUNC_WITH_LENGTH, "Read Queue Server Current Status",	7 /* qms */,
+	{ 0x17, 0x86, SUBFUNC_WITH_LENGTH, "Read Queue Server Current Status", 	7 /* qms */,
 		ncp_0x1786_request, ncp_0x1776_reply, ncp_0x1765_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x87, SUBFUNC_WITH_LENGTH, "Get Queue Job File Size",	7 /* qms */,
+	{ 0x17, 0x87, SUBFUNC_WITH_LENGTH, "Get Queue Job File Size", 	7 /* qms */,
 		ncp_0x177a_request, ncp_0x1787_reply, ncp_0x177c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x88, SUBFUNC_WITH_LENGTH, "Move Queue Job From Src Q to Dst Q",	7 /* qms */,
+	{ 0x17, 0x88, SUBFUNC_WITH_LENGTH, "Move Queue Job From Src Q to Dst Q", 	7 /* qms */,
 		ncp_0x1788_request, ncp_0x1788_reply, ncp_0x1788_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x89, SUBFUNC_WITH_LENGTH, "Get Queue Jobs From Form List",	7 /* qms */,
+	{ 0x17, 0x89, SUBFUNC_WITH_LENGTH, "Get Queue Jobs From Form List", 	7 /* qms */,
 		ncp_0x1789_request, ncp_0x1789_reply, ncp_0x1789_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x8a, SUBFUNC_WITH_LENGTH, "Service Queue Job By Form List",	7 /* qms */,
+	{ 0x17, 0x8a, SUBFUNC_WITH_LENGTH, "Service Queue Job By Form List", 	7 /* qms */,
 		ncp_0x1789_request, ncp_0x1779_reply, ncp_0x178a_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0x96, SUBFUNC_WITH_LENGTH, "Get Current Account Status",	8 /* accounting */,
+	{ 0x17, 0x96, SUBFUNC_WITH_LENGTH, "Get Current Account Status", 	8 /* accounting */,
 		ncp_0x1733_request, ncp_0x1796_reply, ncp_0x1796_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1796_req },
 
-	{ 0x17, 0x97, SUBFUNC_WITH_LENGTH, "Submit Account Charge",	8 /* accounting */,
+	{ 0x17, 0x97, SUBFUNC_WITH_LENGTH, "Submit Account Charge", 	8 /* accounting */,
 		ncp_0x1797_request, NULL, ncp_0x1797_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1797_req },
 
-	{ 0x17, 0x98, SUBFUNC_WITH_LENGTH, "Submit Account Hold",	8 /* accounting */,
+	{ 0x17, 0x98, SUBFUNC_WITH_LENGTH, "Submit Account Hold", 	8 /* accounting */,
 		ncp_0x1798_request, NULL, ncp_0x1797_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1798_req },
 
-	{ 0x17, 0x99, SUBFUNC_WITH_LENGTH, "Submit Account Note",	8 /* accounting */,
+	{ 0x17, 0x99, SUBFUNC_WITH_LENGTH, "Submit Account Note", 	8 /* accounting */,
 		ncp_0x1799_request, NULL, ncp_0x1799_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1799_req },
 
-	{ 0x17, 0xc8, SUBFUNC_WITH_LENGTH, "Check Console Privileges",	4 /* fileserver */,
+	{ 0x17, 0xc8, SUBFUNC_WITH_LENGTH, "Check Console Privileges", 	4 /* fileserver */,
 		NULL, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xc9, SUBFUNC_WITH_LENGTH, "Get File Server Description Strings",	4 /* fileserver */,
+	{ 0x17, 0xc9, SUBFUNC_WITH_LENGTH, "Get File Server Description Strings", 	4 /* fileserver */,
 		NULL, ncp_0x17c9_reply, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xca, SUBFUNC_WITH_LENGTH, "Set File Server Date And Time",	4 /* fileserver */,
+	{ 0x17, 0xca, SUBFUNC_WITH_LENGTH, "Set File Server Date And Time", 	4 /* fileserver */,
 		ncp_0x17ca_request, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xcb, SUBFUNC_WITH_LENGTH, "Disable File Server Login",	4 /* fileserver */,
+	{ 0x17, 0xcb, SUBFUNC_WITH_LENGTH, "Disable File Server Login", 	4 /* fileserver */,
 		NULL, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xcc, SUBFUNC_WITH_LENGTH, "Enable File Server Login",	4 /* fileserver */,
+	{ 0x17, 0xcc, SUBFUNC_WITH_LENGTH, "Enable File Server Login", 	4 /* fileserver */,
 		NULL, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xcd, SUBFUNC_WITH_LENGTH, "Get File Server Login Status",	4 /* fileserver */,
+	{ 0x17, 0xcd, SUBFUNC_WITH_LENGTH, "Get File Server Login Status", 	4 /* fileserver */,
 		NULL, ncp_0x17cd_reply, ncp_0x17cd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xcf, SUBFUNC_WITH_LENGTH, "Disable Transaction Tracking",	4 /* fileserver */,
+	{ 0x17, 0xcf, SUBFUNC_WITH_LENGTH, "Disable Transaction Tracking", 	4 /* fileserver */,
 		NULL, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd0, SUBFUNC_WITH_LENGTH, "Enable Transaction Tracking",	4 /* fileserver */,
+	{ 0x17, 0xd0, SUBFUNC_WITH_LENGTH, "Enable Transaction Tracking", 	4 /* fileserver */,
 		NULL, NULL, ncp_0x17c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd1, SUBFUNC_WITH_LENGTH, "Send Console Broadcast",	4 /* fileserver */,
+	{ 0x17, 0xd1, SUBFUNC_WITH_LENGTH, "Send Console Broadcast", 	4 /* fileserver */,
 		ncp_0x17d1_request, NULL, ncp_0x17d1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17d1_req },
 
-	{ 0x17, 0xd2, SUBFUNC_WITH_LENGTH, "Clear Connection Number",	4 /* fileserver */,
+	{ 0x17, 0xd2, SUBFUNC_WITH_LENGTH, "Clear Connection Number", 	4 /* fileserver */,
 		ncp_0x17d2_request, NULL, ncp_0x17d1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17d2_req },
 
-	{ 0x17, 0xd3, SUBFUNC_WITH_LENGTH, "Down File Server",	4 /* fileserver */,
+	{ 0x17, 0xd3, SUBFUNC_WITH_LENGTH, "Down File Server", 	4 /* fileserver */,
 		ncp_0x17d3_request, NULL, ncp_0x17d3_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd4, SUBFUNC_WITH_LENGTH, "Get File System Statistics",	4 /* fileserver */,
+	{ 0x17, 0xd4, SUBFUNC_WITH_LENGTH, "Get File System Statistics", 	4 /* fileserver */,
 		NULL, ncp_0x17d4_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd5, SUBFUNC_WITH_LENGTH, "Get Transaction Tracking Statistics",	4 /* fileserver */,
+	{ 0x17, 0xd5, SUBFUNC_WITH_LENGTH, "Get Transaction Tracking Statistics", 	4 /* fileserver */,
 		ncp_0x17d5_request, ncp_0x17d5_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd6, SUBFUNC_WITH_LENGTH, "Read Disk Cache Statistics",	4 /* fileserver */,
+	{ 0x17, 0xd6, SUBFUNC_WITH_LENGTH, "Read Disk Cache Statistics", 	4 /* fileserver */,
 		NULL, ncp_0x17d6_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd7, SUBFUNC_WITH_LENGTH, "Get Drive Mapping Table",	4 /* fileserver */,
+	{ 0x17, 0xd7, SUBFUNC_WITH_LENGTH, "Get Drive Mapping Table", 	4 /* fileserver */,
 		NULL, ncp_0x17d7_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd8, SUBFUNC_WITH_LENGTH, "Read Physical Disk Statistics",	4 /* fileserver */,
+	{ 0x17, 0xd8, SUBFUNC_WITH_LENGTH, "Read Physical Disk Statistics", 	4 /* fileserver */,
 		ncp_0x17d8_request, ncp_0x17d8_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xd9, SUBFUNC_WITH_LENGTH, "Get Disk Channel Statistics",	4 /* fileserver */,
+	{ 0x17, 0xd9, SUBFUNC_WITH_LENGTH, "Get Disk Channel Statistics", 	4 /* fileserver */,
 		ncp_0x17d9_request, ncp_0x17d9_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xdb, SUBFUNC_WITH_LENGTH, "Get Connection's Open Files",	4 /* fileserver */,
+	{ 0x17, 0xdb, SUBFUNC_WITH_LENGTH, "Get Connection's Open Files", 	4 /* fileserver */,
 		ncp_0x17db_request, ncp_0x17db_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xdc, SUBFUNC_WITH_LENGTH, "Get Connection Using A File",	4 /* fileserver */,
+	{ 0x17, 0xdc, SUBFUNC_WITH_LENGTH, "Get Connection Using A File", 	4 /* fileserver */,
 		ncp_0x17dc_request, ncp_0x17dc_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17dc_req },
 
-	{ 0x17, 0xdd, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By Connection And File",	4 /* fileserver */,
+	{ 0x17, 0xdd, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By Connection And File", 	4 /* fileserver */,
 		ncp_0x17dd_request, ncp_0x17dd_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17dd_req },
 
-	{ 0x17, 0xde, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By File",	4 /* fileserver */,
+	{ 0x17, 0xde, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By File", 	4 /* fileserver */,
 		ncp_0x17de_request, ncp_0x17de_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17de_req },
 
-	{ 0x17, 0xdf, SUBFUNC_WITH_LENGTH, "Get Logical Records By Connection",	4 /* fileserver */,
+	{ 0x17, 0xdf, SUBFUNC_WITH_LENGTH, "Get Logical Records By Connection", 	4 /* fileserver */,
 		ncp_0x17df_request, ncp_0x17df_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe0, SUBFUNC_WITH_LENGTH, "Get Logical Record Information",	4 /* fileserver */,
+	{ 0x17, 0xe0, SUBFUNC_WITH_LENGTH, "Get Logical Record Information", 	4 /* fileserver */,
 		ncp_0x17e0_request, ncp_0x17e0_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17e0_req },
 
-	{ 0x17, 0xe1, SUBFUNC_WITH_LENGTH, "Get Connection's Semaphores",	4 /* fileserver */,
+	{ 0x17, 0xe1, SUBFUNC_WITH_LENGTH, "Get Connection's Semaphores", 	4 /* fileserver */,
 		ncp_0x17e1_request, ncp_0x17e1_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe2, SUBFUNC_WITH_LENGTH, "Get Semaphore Information",	4 /* fileserver */,
+	{ 0x17, 0xe2, SUBFUNC_WITH_LENGTH, "Get Semaphore Information", 	4 /* fileserver */,
 		ncp_0x17d5_request, ncp_0x17e2_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17e2_req },
 
-	{ 0x17, 0xe3, SUBFUNC_WITH_LENGTH, "Get LAN Driver Configuration Information",	4 /* fileserver */,
+	{ 0x17, 0xe3, SUBFUNC_WITH_LENGTH, "Get LAN Driver Configuration Information", 	4 /* fileserver */,
 		ncp_0x17e3_request, ncp_0x17e3_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe5, SUBFUNC_WITH_LENGTH, "Get Connection Usage Statistics",	4 /* fileserver */,
+	{ 0x17, 0xe5, SUBFUNC_WITH_LENGTH, "Get Connection Usage Statistics", 	4 /* fileserver */,
 		ncp_0x17e5_request, ncp_0x17e5_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe6, SUBFUNC_WITH_LENGTH, "Get Object's Remaining Disk Space",	4 /* fileserver */,
+	{ 0x17, 0xe6, SUBFUNC_WITH_LENGTH, "Get Object's Remaining Disk Space", 	4 /* fileserver */,
 		ncp_0x110a_reply, ncp_0x17e6_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe7, SUBFUNC_WITH_LENGTH, "Get File Server LAN I/O Statistics",	4 /* fileserver */,
+	{ 0x17, 0xe7, SUBFUNC_WITH_LENGTH, "Get File Server LAN I/O Statistics", 	4 /* fileserver */,
 		NULL, ncp_0x17e7_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe8, SUBFUNC_WITH_LENGTH, "Get File Server Misc Information",	4 /* fileserver */,
+	{ 0x17, 0xe8, SUBFUNC_WITH_LENGTH, "Get File Server Misc Information", 	4 /* fileserver */,
 		NULL, ncp_0x17e8_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xe9, SUBFUNC_WITH_LENGTH, "Get Volume Information",	4 /* fileserver */,
+	{ 0x17, 0xe9, SUBFUNC_WITH_LENGTH, "Get Volume Information", 	4 /* fileserver */,
 		ncp_0x12_request, ncp_0x17e9_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17e9_req },
 
-	{ 0x17, 0xea, SUBFUNC_WITH_LENGTH, "Get Connection's Task Information",	4 /* fileserver */,
+	{ 0x17, 0xea, SUBFUNC_WITH_LENGTH, "Get Connection's Task Information", 	4 /* fileserver */,
 		ncp_0x17e5_request, ncp_0x17ea_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xeb, SUBFUNC_WITH_LENGTH, "Get Connection's Open Files",	4 /* fileserver */,
+	{ 0x17, 0xeb, SUBFUNC_WITH_LENGTH, "Get Connection's Open Files", 	4 /* fileserver */,
 		ncp_0x17e1_request, ncp_0x17eb_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xec, SUBFUNC_WITH_LENGTH, "Get Connection Using A File",	4 /* fileserver */,
+	{ 0x17, 0xec, SUBFUNC_WITH_LENGTH, "Get Connection Using A File", 	4 /* fileserver */,
 		ncp_0x17ec_request, ncp_0x17ec_reply, ncp_0x17d4_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xed, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By Connection And File",	4 /* fileserver */,
+	{ 0x17, 0xed, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By Connection And File", 	4 /* fileserver */,
 		ncp_0x17ed_request, ncp_0x17ed_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xee, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By File",	4 /* fileserver */,
+	{ 0x17, 0xee, SUBFUNC_WITH_LENGTH, "Get Physical Record Locks By File", 	4 /* fileserver */,
 		ncp_0x17ec_request, ncp_0x17ee_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xef, SUBFUNC_WITH_LENGTH, "Get Logical Records By Connection",	4 /* fileserver */,
+	{ 0x17, 0xef, SUBFUNC_WITH_LENGTH, "Get Logical Records By Connection", 	4 /* fileserver */,
 		ncp_0x17ef_request, ncp_0x17ef_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xf0, SUBFUNC_WITH_LENGTH, "Get Logical Record Information (old)",	4 /* fileserver */,
+	{ 0x17, 0xf0, SUBFUNC_WITH_LENGTH, "Get Logical Record Information (old)", 	4 /* fileserver */,
 		ncp_0x17e0_request, ncp_0x17f0_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xf1, SUBFUNC_WITH_LENGTH, "Get Connection's Semaphores",	4 /* fileserver */,
+	{ 0x17, 0xf1, SUBFUNC_WITH_LENGTH, "Get Connection's Semaphores", 	4 /* fileserver */,
 		ncp_0x17e1_request, ncp_0x17f1_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xf2, SUBFUNC_WITH_LENGTH, "Get Semaphore Information",	4 /* fileserver */,
+	{ 0x17, 0xf2, SUBFUNC_WITH_LENGTH, "Get Semaphore Information", 	4 /* fileserver */,
 		ncp_0x17d5_request, ncp_0x17f2_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17f2_req },
 
-	{ 0x17, 0xf3, SUBFUNC_WITH_LENGTH, "Map Directory Number to Path",	2 /* file */,
+	{ 0x17, 0xf3, SUBFUNC_WITH_LENGTH, "Map Directory Number to Path", 	2 /* file */,
 		ncp_0x17f3_request, ncp_0x1601_reply, ncp_0x17f3_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x17, 0xf4, SUBFUNC_WITH_LENGTH, "Convert Path to Dir Entry",	2 /* file */,
+	{ 0x17, 0xf4, SUBFUNC_WITH_LENGTH, "Convert Path to Dir Entry", 	2 /* file */,
 		ncp_0x1603_request, ncp_0x17f4_reply, ncp_0x17dd_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17f4_req },
 
-	{ 0x17, 0xfd, SUBFUNC_WITH_LENGTH, "Send Console Broadcast",	4 /* fileserver */,
+	{ 0x17, 0xfd, SUBFUNC_WITH_LENGTH, "Send Console Broadcast", 	4 /* fileserver */,
 		ncp_0x17fd_request, NULL, ncp_0x17d1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x17fd_req },
 
-	{ 0x17, 0xfe, SUBFUNC_WITH_LENGTH, "Clear Connection Number",	4 /* fileserver */,
+	{ 0x17, 0xfe, SUBFUNC_WITH_LENGTH, "Clear Connection Number", 	4 /* fileserver */,
 		ncp_0x17fe_request, NULL, ncp_0x17d1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x18, 0x00, NO_SUBFUNC, "End of Job",	3 /* connection */,
+	{ 0x18, 0x00, NO_SUBFUNC, "End of Job", 	3 /* connection */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x19, 0x00, NO_SUBFUNC, "Logout",	3 /* connection */,
+	{ 0x19, 0x00, NO_SUBFUNC, "Logout", 	3 /* connection */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x1a, 0x00, NO_SUBFUNC, "Log Physical Record",	0 /* sync */,
+	{ 0x1a, 0x00, NO_SUBFUNC, "Log Physical Record", 	0 /* sync */,
 		ncp_0x1a_request, NULL, ncp_0x1a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1a_req },
 
-	{ 0x1b, 0x00, NO_SUBFUNC, "Lock Physical Record Set",	0 /* sync */,
+	{ 0x1b, 0x00, NO_SUBFUNC, "Lock Physical Record Set", 	0 /* sync */,
 		ncp_0x1b_request, NULL, ncp_0x1a_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x1c, 0x00, NO_SUBFUNC, "Release Physical Record",	0 /* sync */,
+	{ 0x1c, 0x00, NO_SUBFUNC, "Release Physical Record", 	0 /* sync */,
 		ncp_0x1c_request, NULL, ncp_0x1c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1c_req },
 
-	{ 0x1d, 0x00, NO_SUBFUNC, "Release Physical Record Set",	0 /* sync */,
+	{ 0x1d, 0x00, NO_SUBFUNC, "Release Physical Record Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x1e, 0x00, NO_SUBFUNC, "Clear Physical Record",	0 /* sync */,
+	{ 0x1e, 0x00, NO_SUBFUNC, "Clear Physical Record", 	0 /* sync */,
 		ncp_0x1e_request, NULL, ncp_0x1e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x1e_req },
 
-	{ 0x1f, 0x00, NO_SUBFUNC, "Clear Physical Record Set",	0 /* sync */,
+	{ 0x1f, 0x00, NO_SUBFUNC, "Clear Physical Record Set", 	0 /* sync */,
 		ncp_0x6_request, NULL, ncp_0x1c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x20, 0x00, SUBFUNC_NO_LENGTH, "Open Semaphore",	0 /* sync */,
+	{ 0x20, 0x00, SUBFUNC_NO_LENGTH, "Open Semaphore", 	0 /* sync */,
 		ncp_0x2000_request, ncp_0x2000_reply, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2000_req },
 
-	{ 0x20, 0x01, SUBFUNC_NO_LENGTH, "Examine Semaphore",	0 /* sync */,
+	{ 0x20, 0x01, SUBFUNC_NO_LENGTH, "Examine Semaphore", 	0 /* sync */,
 		ncp_0x2001_request, ncp_0x2001_reply, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x20, 0x02, SUBFUNC_NO_LENGTH, "Wait On Semaphore",	0 /* sync */,
+	{ 0x20, 0x02, SUBFUNC_NO_LENGTH, "Wait On Semaphore", 	0 /* sync */,
 		ncp_0x2002_request, NULL, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x20, 0x03, SUBFUNC_NO_LENGTH, "Signal Semaphore",	0 /* sync */,
+	{ 0x20, 0x03, SUBFUNC_NO_LENGTH, "Signal Semaphore", 	0 /* sync */,
 		ncp_0x2001_request, NULL, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x20, 0x04, SUBFUNC_NO_LENGTH, "Close Semaphore",	0 /* sync */,
+	{ 0x20, 0x04, SUBFUNC_NO_LENGTH, "Close Semaphore", 	0 /* sync */,
 		ncp_0x2001_request, NULL, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x21, 0x00, NO_SUBFUNC, "Negotiate Buffer Size",	3 /* connection */,
+	{ 0x21, 0x00, NO_SUBFUNC, "Negotiate Buffer Size", 	3 /* connection */,
 		ncp_0x21_request, ncp_0x21_request, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x00, SUBFUNC_NO_LENGTH, "TTS Is Available",	9 /* tts */,
+	{ 0x22, 0x00, SUBFUNC_NO_LENGTH, "TTS Is Available", 	9 /* tts */,
 		NULL, NULL, ncp_0x2200_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x01, SUBFUNC_NO_LENGTH, "TTS Begin Transaction",	9 /* tts */,
+	{ 0x22, 0x01, SUBFUNC_NO_LENGTH, "TTS Begin Transaction", 	9 /* tts */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x02, SUBFUNC_NO_LENGTH, "TTS End Transaction",	9 /* tts */,
+	{ 0x22, 0x02, SUBFUNC_NO_LENGTH, "TTS End Transaction", 	9 /* tts */,
 		NULL, ncp_0x2202_reply, ncp_0x2202_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x03, SUBFUNC_NO_LENGTH, "TTS Abort Transaction",	9 /* tts */,
+	{ 0x22, 0x03, SUBFUNC_NO_LENGTH, "TTS Abort Transaction", 	9 /* tts */,
 		NULL, NULL, ncp_0x2203_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x04, SUBFUNC_NO_LENGTH, "TTS Transaction Status",	9 /* tts */,
+	{ 0x22, 0x04, SUBFUNC_NO_LENGTH, "TTS Transaction Status", 	9 /* tts */,
 		ncp_0x2202_reply, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x05, SUBFUNC_NO_LENGTH, "TTS Get Application Thresholds",	9 /* tts */,
+	{ 0x22, 0x05, SUBFUNC_NO_LENGTH, "TTS Get Application Thresholds", 	9 /* tts */,
 		NULL, ncp_0x2205_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x06, SUBFUNC_NO_LENGTH, "TTS Set Application Thresholds",	9 /* tts */,
+	{ 0x22, 0x06, SUBFUNC_NO_LENGTH, "TTS Set Application Thresholds", 	9 /* tts */,
 		ncp_0x2205_reply, NULL, ncp_0x1711_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x07, SUBFUNC_NO_LENGTH, "TTS Get Workstation Thresholds",	9 /* tts */,
+	{ 0x22, 0x07, SUBFUNC_NO_LENGTH, "TTS Get Workstation Thresholds", 	9 /* tts */,
 		NULL, ncp_0x2205_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x08, SUBFUNC_NO_LENGTH, "TTS Set Workstation Thresholds",	9 /* tts */,
+	{ 0x22, 0x08, SUBFUNC_NO_LENGTH, "TTS Set Workstation Thresholds", 	9 /* tts */,
 		ncp_0x2205_reply, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x09, SUBFUNC_NO_LENGTH, "TTS Get Transaction Bits",	9 /* tts */,
+	{ 0x22, 0x09, SUBFUNC_NO_LENGTH, "TTS Get Transaction Bits", 	9 /* tts */,
 		NULL, ncp_0x2209_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x22, 0x0a, SUBFUNC_NO_LENGTH, "TTS Set Transaction Bits",	9 /* tts */,
+	{ 0x22, 0x0a, SUBFUNC_NO_LENGTH, "TTS Set Transaction Bits", 	9 /* tts */,
 		ncp_0x2209_reply, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x23, 0x01, SUBFUNC_WITH_LENGTH, "AFP Create Directory",	10 /* afp */,
+	{ 0x23, 0x01, SUBFUNC_WITH_LENGTH, "AFP Create Directory", 	10 /* afp */,
 		ncp_0x2301_request, ncp_0x2301_reply, ncp_0x2301_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2301_req },
 
-	{ 0x23, 0x02, SUBFUNC_WITH_LENGTH, "AFP Create File",	10 /* afp */,
+	{ 0x23, 0x02, SUBFUNC_WITH_LENGTH, "AFP Create File", 	10 /* afp */,
 		ncp_0x2302_request, ncp_0x2301_reply, ncp_0x2302_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2302_req },
 
-	{ 0x23, 0x03, SUBFUNC_WITH_LENGTH, "AFP Delete",	10 /* afp */,
+	{ 0x23, 0x03, SUBFUNC_WITH_LENGTH, "AFP Delete", 	10 /* afp */,
 		ncp_0x2303_request, NULL, ncp_0x2303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2303_req },
 
-	{ 0x23, 0x04, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From Name",	10 /* afp */,
+	{ 0x23, 0x04, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From Name", 	10 /* afp */,
 		ncp_0x2303_request, ncp_0x2304_reply, ncp_0x2304_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2304_req },
 
-	{ 0x23, 0x05, SUBFUNC_WITH_LENGTH, "AFP Get File Information",	10 /* afp */,
+	{ 0x23, 0x05, SUBFUNC_WITH_LENGTH, "AFP Get File Information", 	10 /* afp */,
 		ncp_0x2305_request, ncp_0x2305_reply, ncp_0x2304_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2305_req },
 
-	{ 0x23, 0x06, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From NetWare Handle",	10 /* afp */,
+	{ 0x23, 0x06, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From NetWare Handle", 	10 /* afp */,
 		ncp_0x2306_request, ncp_0x2306_reply, ncp_0x2306_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x23, 0x07, SUBFUNC_WITH_LENGTH, "AFP Rename",	10 /* afp */,
+	{ 0x23, 0x07, SUBFUNC_WITH_LENGTH, "AFP Rename", 	10 /* afp */,
 		ncp_0x2307_request, NULL, ncp_0x2307_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2307_req },
 
-	{ 0x23, 0x08, SUBFUNC_WITH_LENGTH, "AFP Open File Fork",	10 /* afp */,
+	{ 0x23, 0x08, SUBFUNC_WITH_LENGTH, "AFP Open File Fork", 	10 /* afp */,
 		ncp_0x2308_request, ncp_0x2308_reply, ncp_0x2308_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2308_req },
 
-	{ 0x23, 0x09, SUBFUNC_WITH_LENGTH, "AFP Set File Information",	10 /* afp */,
+	{ 0x23, 0x09, SUBFUNC_WITH_LENGTH, "AFP Set File Information", 	10 /* afp */,
 		ncp_0x2309_request, NULL, ncp_0x2309_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2309_req },
 
-	{ 0x23, 0x0a, SUBFUNC_WITH_LENGTH, "AFP Scan File Information",	10 /* afp */,
+	{ 0x23, 0x0a, SUBFUNC_WITH_LENGTH, "AFP Scan File Information", 	10 /* afp */,
 		ncp_0x230a_request, ncp_0x230a_reply, ncp_0x230a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230a_req },
 
-	{ 0x23, 0x0b, SUBFUNC_WITH_LENGTH, "AFP Alloc Temporary Directory Handle",	10 /* afp */,
+	{ 0x23, 0x0b, SUBFUNC_WITH_LENGTH, "AFP Alloc Temporary Directory Handle", 	10 /* afp */,
 		ncp_0x230b_request, ncp_0x1612_reply, ncp_0x230b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230b_req },
 
-	{ 0x23, 0x0c, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From Path Name",	10 /* afp */,
+	{ 0x23, 0x0c, SUBFUNC_WITH_LENGTH, "AFP Get Entry ID From Path Name", 	10 /* afp */,
 		ncp_0x1603_request, ncp_0x230c_reply, ncp_0x230c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230c_req },
 
-	{ 0x23, 0x0d, SUBFUNC_WITH_LENGTH, "AFP 2.0 Create Directory",	10 /* afp */,
+	{ 0x23, 0x0d, SUBFUNC_WITH_LENGTH, "AFP 2.0 Create Directory", 	10 /* afp */,
 		ncp_0x230d_request, ncp_0x2301_reply, ncp_0x230d_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230d_req },
 
-	{ 0x23, 0x0e, SUBFUNC_WITH_LENGTH, "AFP 2.0 Create File",	10 /* afp */,
+	{ 0x23, 0x0e, SUBFUNC_WITH_LENGTH, "AFP 2.0 Create File", 	10 /* afp */,
 		ncp_0x230e_request, ncp_0x2301_reply, ncp_0x230e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230e_req },
 
-	{ 0x23, 0x0f, SUBFUNC_WITH_LENGTH, "AFP 2.0 Get File Or Directory Information",	10 /* afp */,
+	{ 0x23, 0x0f, SUBFUNC_WITH_LENGTH, "AFP 2.0 Get File Or Directory Information", 	10 /* afp */,
 		ncp_0x2305_request, ncp_0x230f_reply, ncp_0x2304_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x230f_req },
 
-	{ 0x23, 0x10, SUBFUNC_WITH_LENGTH, "AFP 2.0 Set File Information",	10 /* afp */,
+	{ 0x23, 0x10, SUBFUNC_WITH_LENGTH, "AFP 2.0 Set File Information", 	10 /* afp */,
 		ncp_0x2310_request, NULL, ncp_0x2309_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2310_req },
 
-	{ 0x23, 0x11, SUBFUNC_WITH_LENGTH, "AFP 2.0 Scan File Information",	10 /* afp */,
+	{ 0x23, 0x11, SUBFUNC_WITH_LENGTH, "AFP 2.0 Scan File Information", 	10 /* afp */,
 		ncp_0x230a_request, ncp_0x2311_reply, ncp_0x230a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2311_req },
 
-	{ 0x23, 0x12, SUBFUNC_WITH_LENGTH, "AFP Get DOS Name From Entry ID",	10 /* afp */,
+	{ 0x23, 0x12, SUBFUNC_WITH_LENGTH, "AFP Get DOS Name From Entry ID", 	10 /* afp */,
 		ncp_0x2312_request, ncp_0x1601_reply, ncp_0x2312_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x23, 0x13, SUBFUNC_WITH_LENGTH, "AFP Get Macintosh Info On Deleted File",	10 /* afp */,
+	{ 0x23, 0x13, SUBFUNC_WITH_LENGTH, "AFP Get Macintosh Info On Deleted File", 	10 /* afp */,
 		ncp_0x2313_request, ncp_0x2313_reply, ncp_0x2313_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x00, SUBFUNC_WITH_LENGTH, "Get NCP Extension Information",	11 /* extension */,
+	{ 0x24, 0x00, SUBFUNC_WITH_LENGTH, "Get NCP Extension Information", 	11 /* extension */,
 		ncp_0x2400_request, ncp_0x2400_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x01, SUBFUNC_WITH_LENGTH, "Get NCP Extension Maximum Data Size",	11 /* extension */,
+	{ 0x24, 0x01, SUBFUNC_WITH_LENGTH, "Get NCP Extension Maximum Data Size", 	11 /* extension */,
 		NULL, ncp_0x2401_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x02, SUBFUNC_WITH_LENGTH, "Get NCP Extension Information by Name",	11 /* extension */,
+	{ 0x24, 0x02, SUBFUNC_WITH_LENGTH, "Get NCP Extension Information by Name", 	11 /* extension */,
 		ncp_0x2402_request, ncp_0x2400_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x2402_req },
 
-	{ 0x24, 0x03, SUBFUNC_WITH_LENGTH, "Get Number of Registered NCP Extensions",	11 /* extension */,
+	{ 0x24, 0x03, SUBFUNC_WITH_LENGTH, "Get Number of Registered NCP Extensions", 	11 /* extension */,
 		NULL, ncp_0x2403_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x04, SUBFUNC_WITH_LENGTH, "Get NCP Extension Registered Verbs List",	11 /* extension */,
+	{ 0x24, 0x04, SUBFUNC_WITH_LENGTH, "Get NCP Extension Registered Verbs List", 	11 /* extension */,
 		ncp_0x2404_request, ncp_0x2404_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x05, SUBFUNC_WITH_LENGTH, "Return NCP Extension Information",	11 /* extension */,
+	{ 0x24, 0x05, SUBFUNC_WITH_LENGTH, "Return NCP Extension Information", 	11 /* extension */,
 		ncp_0x2400_request, ncp_0x2400_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x24, 0x06, SUBFUNC_WITH_LENGTH, "Return NCP Extension Maximum Data Size",	11 /* extension */,
+	{ 0x24, 0x06, SUBFUNC_WITH_LENGTH, "Return NCP Extension Maximum Data Size", 	11 /* extension */,
 		NULL, ncp_0x2406_reply, ncp_0x2400_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x25, 0x00, NO_SUBFUNC, "Execute NCP Extension",	11 /* extension */,
+	{ 0x25, 0x00, NO_SUBFUNC, "Execute NCP Extension", 	11 /* extension */,
 		ncp_0x2400_request, NULL, ncp_0x25_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x3b, 0x00, NO_SUBFUNC, "Commit File",	2 /* file */,
+	{ 0x3b, 0x00, NO_SUBFUNC, "Commit File", 	2 /* file */,
 		ncp_0x3b_request, NULL, ncp_0x3b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x3b_req },
 
-	{ 0x3d, 0x00, NO_SUBFUNC, "Commit File",	2 /* file */,
+	{ 0x3d, 0x00, NO_SUBFUNC, "Commit File", 	2 /* file */,
 		ncp_0x3b_request, NULL, ncp_0x3b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x3d_req },
 
-	{ 0x3e, 0x00, NO_SUBFUNC, "File Search Initialize",	2 /* file */,
+	{ 0x3e, 0x00, NO_SUBFUNC, "File Search Initialize", 	2 /* file */,
 		ncp_0x1603_request, ncp_0x3e_reply, ncp_0x3e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x3e_req },
 
-	{ 0x3f, 0x00, NO_SUBFUNC, "File Search Continue",	2 /* file */,
+	{ 0x3f, 0x00, NO_SUBFUNC, "File Search Continue", 	2 /* file */,
 		ncp_0x3f_request, ncp_0x3f_reply, ncp_0x3f_errors, ncp_0x3f_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x3f_req },
 
-	{ 0x40, 0x00, NO_SUBFUNC, "Search for a File",	2 /* file */,
+	{ 0x40, 0x00, NO_SUBFUNC, "Search for a File", 	2 /* file */,
 		ncp_0x40_request, ncp_0x40_reply, ncp_0x40_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x40_req },
 
-	{ 0x41, 0x00, NO_SUBFUNC, "Open File",	2 /* file */,
+	{ 0x41, 0x00, NO_SUBFUNC, "Open File", 	2 /* file */,
 		ncp_0x41_request, ncp_0x41_reply, ncp_0x41_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x41_req },
 
-	{ 0x42, 0x00, NO_SUBFUNC, "Close File",	2 /* file */,
+	{ 0x42, 0x00, NO_SUBFUNC, "Close File", 	2 /* file */,
 		ncp_0x3b_request, NULL, ncp_0x42_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x42_req },
 
-	{ 0x43, 0x00, NO_SUBFUNC, "Create File",	2 /* file */,
+	{ 0x43, 0x00, NO_SUBFUNC, "Create File", 	2 /* file */,
 		ncp_0x43_request, ncp_0x41_reply, ncp_0x43_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x43_req },
 
-	{ 0x44, 0x00, NO_SUBFUNC, "Erase File",	2 /* file */,
+	{ 0x44, 0x00, NO_SUBFUNC, "Erase File", 	2 /* file */,
 		ncp_0x41_request, NULL, ncp_0x44_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x44_req },
 
-	{ 0x45, 0x00, NO_SUBFUNC, "Rename File",	2 /* file */,
+	{ 0x45, 0x00, NO_SUBFUNC, "Rename File", 	2 /* file */,
 		ncp_0x45_request, NULL, ncp_0x45_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x45_req },
 
-	{ 0x46, 0x00, NO_SUBFUNC, "Set File Attributes",	2 /* file */,
+	{ 0x46, 0x00, NO_SUBFUNC, "Set File Attributes", 	2 /* file */,
 		ncp_0x46_request, NULL, ncp_0x46_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x46_req },
 
-	{ 0x47, 0x00, NO_SUBFUNC, "Get Current Size of File",	2 /* file */,
+	{ 0x47, 0x00, NO_SUBFUNC, "Get Current Size of File", 	2 /* file */,
 		ncp_0x3b_request, ncp_0x47_reply, ncp_0x47_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x47_req },
 
-	{ 0x48, 0x00, NO_SUBFUNC, "Read From A File",	2 /* file */,
+	{ 0x48, 0x00, NO_SUBFUNC, "Read From A File", 	2 /* file */,
 		ncp_0x48_request, ncp_0x48_reply, ncp_0x48_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x48_req },
 
-	{ 0x49, 0x00, NO_SUBFUNC, "Write to a File",	2 /* file */,
+	{ 0x49, 0x00, NO_SUBFUNC, "Write to a File", 	2 /* file */,
 		ncp_0x48_request, NULL, ncp_0x49_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x49_req },
 
-	{ 0x4a, 0x00, NO_SUBFUNC, "Copy from One File to Another",	2 /* file */,
+	{ 0x4a, 0x00, NO_SUBFUNC, "Copy from One File to Another", 	2 /* file */,
 		ncp_0x4a_request, ncp_0x4a_reply, ncp_0x4a_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x4b, 0x00, NO_SUBFUNC, "Set File Time Date Stamp",	2 /* file */,
+	{ 0x4b, 0x00, NO_SUBFUNC, "Set File Time Date Stamp", 	2 /* file */,
 		ncp_0x4b_request, NULL, ncp_0x4b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x4b_req },
 
-	{ 0x4c, 0x00, NO_SUBFUNC, "Open File",	2 /* file */,
+	{ 0x4c, 0x00, NO_SUBFUNC, "Open File", 	2 /* file */,
 		ncp_0x4c_request, ncp_0x41_reply, ncp_0x41_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x4c_req },
 
-	{ 0x4d, 0x00, NO_SUBFUNC, "Create File",	2 /* file */,
+	{ 0x4d, 0x00, NO_SUBFUNC, "Create File", 	2 /* file */,
 		ncp_0x43_request, ncp_0x41_reply, ncp_0x43_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x4d_req },
 
-	{ 0x4f, 0x00, NO_SUBFUNC, "Set File Extended Attributes",	2 /* file */,
+	{ 0x4f, 0x00, NO_SUBFUNC, "Set File Extended Attributes", 	2 /* file */,
 		ncp_0x4f_request, NULL, ncp_0x46_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x4f_req },
 
-	{ 0x54, 0x00, NO_SUBFUNC, "Open/Create File",	2 /* file */,
+	{ 0x54, 0x00, NO_SUBFUNC, "Open/Create File", 	2 /* file */,
 		ncp_0x54_request, ncp_0x41_reply, ncp_0x54_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x54_req },
 
-	{ 0x55, 0x00, NO_SUBFUNC, "Get Sparse File Data Block Bit Map",	2 /* file */,
+	{ 0x55, 0x00, NO_SUBFUNC, "Get Sparse File Data Block Bit Map", 	2 /* file */,
 		ncp_0x55_request, ncp_0x55_reply, ncp_0x47_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x55_req },
 
-	{ 0x56, 0x01, SUBFUNC_NO_LENGTH, "Close Extended Attribute Handle",	12 /* extended */,
+	{ 0x56, 0x01, SUBFUNC_NO_LENGTH, "Close Extended Attribute Handle", 	12 /* extended */,
 		ncp_0x5601_request, NULL, ncp_0x5601_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x56, 0x02, SUBFUNC_NO_LENGTH, "Write Extended Attribute",	12 /* extended */,
+	{ 0x56, 0x02, SUBFUNC_NO_LENGTH, "Write Extended Attribute", 	12 /* extended */,
 		ncp_0x5602_request, ncp_0x5602_reply, ncp_0x5602_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5602_req },
 
-	{ 0x56, 0x03, SUBFUNC_NO_LENGTH, "Read Extended Attribute",	12 /* extended */,
+	{ 0x56, 0x03, SUBFUNC_NO_LENGTH, "Read Extended Attribute", 	12 /* extended */,
 		ncp_0x5603_request, ncp_0x5603_reply, ncp_0x5603_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5603_req },
 
-	{ 0x56, 0x04, SUBFUNC_NO_LENGTH, "Enumerate Extended Attribute",	12 /* extended */,
+	{ 0x56, 0x04, SUBFUNC_NO_LENGTH, "Enumerate Extended Attribute", 	12 /* extended */,
 		ncp_0x5604_request, ncp_0x5604_reply, ncp_0x5604_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5604_req },
 
-	{ 0x56, 0x05, SUBFUNC_NO_LENGTH, "Duplicate Extended Attributes",	12 /* extended */,
+	{ 0x56, 0x05, SUBFUNC_NO_LENGTH, "Duplicate Extended Attributes", 	12 /* extended */,
 		ncp_0x5605_request, ncp_0x5605_reply, ncp_0x5605_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x01, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x01, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory", 	2 /* file */,
 		ncp_0x5701_request, ncp_0x5701_reply, ncp_0x5701_errors, ncp_0x5701_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5701_req },
 
-	{ 0x57, 0x02, SUBFUNC_NO_LENGTH, "Initialize Search",	2 /* file */,
+	{ 0x57, 0x02, SUBFUNC_NO_LENGTH, "Initialize Search", 	2 /* file */,
 		ncp_0x5702_request, ncp_0x5702_reply, ncp_0x5702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5702_req },
 
-	{ 0x57, 0x03, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x03, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory", 	2 /* file */,
 		ncp_0x5703_request, ncp_0x5703_reply, ncp_0x5702_errors, ncp_0x5701_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5703_req },
 
-	{ 0x57, 0x04, SUBFUNC_NO_LENGTH, "Rename Or Move a File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x04, SUBFUNC_NO_LENGTH, "Rename Or Move a File or Subdirectory", 	2 /* file */,
 		ncp_0x5704_request, NULL, ncp_0x5704_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5704_req },
 
-	{ 0x57, 0x05, SUBFUNC_NO_LENGTH, "Scan File or Subdirectory for Trustees",	2 /* file */,
+	{ 0x57, 0x05, SUBFUNC_NO_LENGTH, "Scan File or Subdirectory for Trustees", 	2 /* file */,
 		ncp_0x5705_request, ncp_0x5705_reply, ncp_0x5705_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5705_req },
 
-	{ 0x57, 0x06, SUBFUNC_NO_LENGTH, "Obtain File or SubDirectory Information",	2 /* file */,
+	{ 0x57, 0x06, SUBFUNC_NO_LENGTH, "Obtain File or SubDirectory Information", 	2 /* file */,
 		ncp_0x5706_request, ncp_0x5706_reply, ncp_0x5706_errors, ncp_0x5706_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5706_req },
 
-	{ 0x57, 0x07, SUBFUNC_NO_LENGTH, "Modify File or Subdirectory DOS Information",	2 /* file */,
+	{ 0x57, 0x07, SUBFUNC_NO_LENGTH, "Modify File or Subdirectory DOS Information", 	2 /* file */,
 		ncp_0x5707_request, NULL, ncp_0x5707_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5707_req },
 
-	{ 0x57, 0x08, SUBFUNC_NO_LENGTH, "Delete a File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x08, SUBFUNC_NO_LENGTH, "Delete a File or Subdirectory", 	2 /* file */,
 		ncp_0x5708_request, NULL, ncp_0x5708_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5708_req },
 
-	{ 0x57, 0x09, SUBFUNC_NO_LENGTH, "Set Short Directory Handle",	2 /* file */,
+	{ 0x57, 0x09, SUBFUNC_NO_LENGTH, "Set Short Directory Handle", 	2 /* file */,
 		ncp_0x5709_request, NULL, ncp_0x5702_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5709_req },
 
-	{ 0x57, 0x0a, SUBFUNC_NO_LENGTH, "Add Trustee Set to File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x0a, SUBFUNC_NO_LENGTH, "Add Trustee Set to File or Subdirectory", 	2 /* file */,
 		ncp_0x570a_request, NULL, ncp_0x570a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x570a_req },
 
-	{ 0x57, 0x0b, SUBFUNC_NO_LENGTH, "Delete Trustee Set from File or SubDirectory",	2 /* file */,
+	{ 0x57, 0x0b, SUBFUNC_NO_LENGTH, "Delete Trustee Set from File or SubDirectory", 	2 /* file */,
 		ncp_0x570b_request, NULL, ncp_0x570b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x570b_req },
 
-	{ 0x57, 0x0c, SUBFUNC_NO_LENGTH, "Allocate Short Directory Handle",	2 /* file */,
+	{ 0x57, 0x0c, SUBFUNC_NO_LENGTH, "Allocate Short Directory Handle", 	2 /* file */,
 		ncp_0x570c_request, ncp_0x570c_reply, ncp_0x570c_errors, ncp_0x570c_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x570c_req },
 
-	{ 0x57, 0x10, SUBFUNC_NO_LENGTH, "Scan Salvageable Files",	2 /* file */,
+	{ 0x57, 0x10, SUBFUNC_NO_LENGTH, "Scan Salvageable Files", 	2 /* file */,
 		ncp_0x5710_request, ncp_0x5710_reply, ncp_0x5710_errors, ncp_0x5710_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5710_req },
 
-	{ 0x57, 0x11, SUBFUNC_NO_LENGTH, "Recover Salvageable File",	2 /* file */,
+	{ 0x57, 0x11, SUBFUNC_NO_LENGTH, "Recover Salvageable File", 	2 /* file */,
 		ncp_0x5711_request, NULL, ncp_0x5711_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5711_req },
 
-	{ 0x57, 0x12, SUBFUNC_NO_LENGTH, "Purge Salvageable Files",	2 /* file */,
+	{ 0x57, 0x12, SUBFUNC_NO_LENGTH, "Purge Salvageable Files", 	2 /* file */,
 		ncp_0x5712_request, NULL, ncp_0x5712_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x13, SUBFUNC_NO_LENGTH, "Get Name Space Information",	2 /* file */,
+	{ 0x57, 0x13, SUBFUNC_NO_LENGTH, "Get Name Space Information", 	2 /* file */,
 		ncp_0x5713_request, ncp_0x5713_reply, ncp_0x5710_errors, ncp_0x5713_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x57, 0x14, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set",	2 /* file */,
+	{ 0x57, 0x14, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set", 	2 /* file */,
 		ncp_0x5714_request, NULL, ncp_0x5702_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x15, SUBFUNC_NO_LENGTH, "Get Path String from Short Directory Handle",	2 /* file */,
+	{ 0x57, 0x15, SUBFUNC_NO_LENGTH, "Get Path String from Short Directory Handle", 	2 /* file */,
 		ncp_0x5715_request, ncp_0x1601_reply, ncp_0x54_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x16, SUBFUNC_NO_LENGTH, "Generate Directory Base and Volume Number",	2 /* file */,
+	{ 0x57, 0x16, SUBFUNC_NO_LENGTH, "Generate Directory Base and Volume Number", 	2 /* file */,
 		ncp_0x5716_request, ncp_0x5716_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5716_req },
 
-	{ 0x57, 0x17, SUBFUNC_NO_LENGTH, "Query Name Space Information Format",	2 /* file */,
+	{ 0x57, 0x17, SUBFUNC_NO_LENGTH, "Query Name Space Information Format", 	2 /* file */,
 		ncp_0x5717_request, ncp_0x5717_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x18, SUBFUNC_NO_LENGTH, "Get Name Spaces Loaded List from Volume Number",	2 /* file */,
+	{ 0x57, 0x18, SUBFUNC_NO_LENGTH, "Get Name Spaces Loaded List from Volume Number", 	2 /* file */,
 		ncp_0x5718_request, ncp_0x5718_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5718_req },
 
-	{ 0x57, 0x19, SUBFUNC_NO_LENGTH, "Set Name Space Information",	2 /* file */,
+	{ 0x57, 0x19, SUBFUNC_NO_LENGTH, "Set Name Space Information", 	2 /* file */,
 		ncp_0x5719_request, NULL, ncp_0x5719_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x1a, SUBFUNC_NO_LENGTH, "Get Huge Name Space Information",	2 /* file */,
+	{ 0x57, 0x1a, SUBFUNC_NO_LENGTH, "Get Huge Name Space Information", 	2 /* file */,
 		ncp_0x571a_request, ncp_0x571a_reply, ncp_0x5719_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x1b, SUBFUNC_NO_LENGTH, "Set Huge Name Space Information",	2 /* file */,
+	{ 0x57, 0x1b, SUBFUNC_NO_LENGTH, "Set Huge Name Space Information", 	2 /* file */,
 		ncp_0x571b_request, ncp_0x571b_reply, ncp_0x5719_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x1c, SUBFUNC_NO_LENGTH, "Get Full Path String",	2 /* file */,
+	{ 0x57, 0x1c, SUBFUNC_NO_LENGTH, "Get Full Path String", 	2 /* file */,
 		ncp_0x571c_request, ncp_0x571c_reply, ncp_0x5719_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x571c_req },
 
-	{ 0x57, 0x1d, SUBFUNC_NO_LENGTH, "Get Effective Directory Rights",	2 /* file */,
+	{ 0x57, 0x1d, SUBFUNC_NO_LENGTH, "Get Effective Directory Rights", 	2 /* file */,
 		ncp_0x571d_request, ncp_0x571d_reply, ncp_0x5710_errors, ncp_0x5710_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x571d_req },
 
-	{ 0x57, 0x1e, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x1e, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory", 	2 /* file */,
 		ncp_0x571e_request, ncp_0x571e_reply, ncp_0x571e_errors, ncp_0x5710_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x571e_req },
 
-	{ 0x57, 0x1f, SUBFUNC_NO_LENGTH, "Get File Information",	2 /* file */,
+	{ 0x57, 0x1f, SUBFUNC_NO_LENGTH, "Get File Information", 	2 /* file */,
 		ncp_0x571f_request, ncp_0x571f_reply, ncp_0x5710_errors, ncp_0x571f_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x571f_req },
 
-	{ 0x57, 0x20, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory with Callback",	2 /* file */,
+	{ 0x57, 0x20, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory with Callback", 	2 /* file */,
 		ncp_0x5701_request, ncp_0x5720_reply, ncp_0x5720_errors, ncp_0x5701_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5720_req },
 
-	{ 0x57, 0x21, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory II with Callback",	2 /* file */,
+	{ 0x57, 0x21, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory II with Callback", 	2 /* file */,
 		ncp_0x571e_request, ncp_0x5721_reply, ncp_0x571e_errors, ncp_0x5701_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5721_req },
 
-	{ 0x57, 0x22, SUBFUNC_NO_LENGTH, "Open CallBack Control (Op-Lock)",	2 /* file */,
+	{ 0x57, 0x22, SUBFUNC_NO_LENGTH, "Open CallBack Control (Op-Lock)", 	2 /* file */,
 		ncp_0x5722_request, NULL, ncp_0x5722_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x23, SUBFUNC_NO_LENGTH, "Modify DOS Attributes on a File or Subdirectory",	2 /* file */,
+	{ 0x57, 0x23, SUBFUNC_NO_LENGTH, "Modify DOS Attributes on a File or Subdirectory", 	2 /* file */,
 		ncp_0x5723_request, ncp_0x5723_reply, ncp_0x5723_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5723_req },
 
-	{ 0x57, 0x24, SUBFUNC_NO_LENGTH, "Log File",	0 /* sync */,
+	{ 0x57, 0x24, SUBFUNC_NO_LENGTH, "Log File", 	0 /* sync */,
 		ncp_0x5724_request, NULL, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5724_req },
 
-	{ 0x57, 0x25, SUBFUNC_NO_LENGTH, "Release File",	0 /* sync */,
+	{ 0x57, 0x25, SUBFUNC_NO_LENGTH, "Release File", 	0 /* sync */,
 		ncp_0x5725_request, NULL, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5725_req },
 
-	{ 0x57, 0x26, SUBFUNC_NO_LENGTH, "Clear File",	0 /* sync */,
+	{ 0x57, 0x26, SUBFUNC_NO_LENGTH, "Clear File", 	0 /* sync */,
 		ncp_0x5725_request, NULL, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5726_req },
 
-	{ 0x57, 0x27, SUBFUNC_NO_LENGTH, "Get Directory Disk Space Restriction",	2 /* file */,
+	{ 0x57, 0x27, SUBFUNC_NO_LENGTH, "Get Directory Disk Space Restriction", 	2 /* file */,
 		ncp_0x5727_request, ncp_0x5727_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5727_req },
 
-	{ 0x57, 0x28, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set (Extended Errors)",	2 /* file */,
+	{ 0x57, 0x28, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set (Extended Errors)", 	2 /* file */,
 		ncp_0x5714_request, ncp_0x5728_reply, ncp_0x5710_errors, ncp_0x5710_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5728_req },
 
-	{ 0x57, 0x29, SUBFUNC_NO_LENGTH, "Scan Salvageable Files",	2 /* file */,
+	{ 0x57, 0x29, SUBFUNC_NO_LENGTH, "Scan Salvageable Files", 	2 /* file */,
 		ncp_0x5729_request, ncp_0x5729_reply, ncp_0x5710_errors, ncp_0x5729_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5729_req },
 
-	{ 0x57, 0x2a, SUBFUNC_NO_LENGTH, "Purge Salvageable File List",	2 /* file */,
+	{ 0x57, 0x2a, SUBFUNC_NO_LENGTH, "Purge Salvageable File List", 	2 /* file */,
 		ncp_0x572a_request, ncp_0x572a_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x2b, SUBFUNC_NO_LENGTH, "Revoke File Handle Rights",	2 /* file */,
+	{ 0x57, 0x2b, SUBFUNC_NO_LENGTH, "Revoke File Handle Rights", 	2 /* file */,
 		ncp_0x572b_request, ncp_0x572b_reply, ncp_0x5710_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x2c, SUBFUNC_NO_LENGTH, "Update File Handle Rights",	2 /* file */,
+	{ 0x57, 0x2c, SUBFUNC_NO_LENGTH, "Update File Handle Rights", 	2 /* file */,
 		ncp_0x572c_request, ncp_0x572c_reply, ncp_0x572c_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x40, SUBFUNC_NO_LENGTH, "Read from File",	2 /* file */,
+	{ 0x57, 0x40, SUBFUNC_NO_LENGTH, "Read from File", 	2 /* file */,
 		ncp_0x5740_request, ncp_0x48_reply, ncp_0x5740_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x41, SUBFUNC_NO_LENGTH, "Write to File",	2 /* file */,
+	{ 0x57, 0x41, SUBFUNC_NO_LENGTH, "Write to File", 	2 /* file */,
 		ncp_0x5740_request, NULL, ncp_0x5741_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x42, SUBFUNC_NO_LENGTH, "Get Current Size of File",	2 /* file */,
+	{ 0x57, 0x42, SUBFUNC_NO_LENGTH, "Get Current Size of File", 	2 /* file */,
 		ncp_0x5742_request, ncp_0x5742_reply, ncp_0x5742_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x43, SUBFUNC_NO_LENGTH, "Log Physical Record",	2 /* file */,
+	{ 0x57, 0x43, SUBFUNC_NO_LENGTH, "Log Physical Record", 	2 /* file */,
 		ncp_0x5743_request, NULL, ncp_0x5743_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x44, SUBFUNC_NO_LENGTH, "Release Physical Record",	2 /* file */,
+	{ 0x57, 0x44, SUBFUNC_NO_LENGTH, "Release Physical Record", 	2 /* file */,
 		ncp_0x5744_request, NULL, ncp_0x5744_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x57, 0x45, SUBFUNC_NO_LENGTH, "Clear Physical Record",	2 /* file */,
+	{ 0x57, 0x45, SUBFUNC_NO_LENGTH, "Clear Physical Record", 	2 /* file */,
 		ncp_0x5744_request, NULL, ncp_0x5744_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x01, SUBFUNC_NO_LENGTH, "Query Volume Audit Status",	13 /* auditing */,
+	{ 0x58, 0x01, SUBFUNC_NO_LENGTH, "Query Volume Audit Status", 	13 /* auditing */,
 		ncp_0x17fe_request, ncp_0x5801_reply, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x02, SUBFUNC_NO_LENGTH, "Add User Audit Property",	13 /* auditing */,
+	{ 0x58, 0x02, SUBFUNC_NO_LENGTH, "Add User Audit Property", 	13 /* auditing */,
 		ncp_0x5802_request, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x03, SUBFUNC_NO_LENGTH, "Add Auditor Access",	13 /* auditing */,
+	{ 0x58, 0x03, SUBFUNC_NO_LENGTH, "Add Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5803_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x04, SUBFUNC_NO_LENGTH, "Change Auditor Volume Password",	13 /* auditing */,
+	{ 0x58, 0x04, SUBFUNC_NO_LENGTH, "Change Auditor Volume Password", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x05, SUBFUNC_NO_LENGTH, "Check Auditor Access",	13 /* auditing */,
+	{ 0x58, 0x05, SUBFUNC_NO_LENGTH, "Check Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x06, SUBFUNC_NO_LENGTH, "Delete User Audit Property",	13 /* auditing */,
+	{ 0x58, 0x06, SUBFUNC_NO_LENGTH, "Delete User Audit Property", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5806_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x07, SUBFUNC_NO_LENGTH, "Disable Auditing On A Volume",	13 /* auditing */,
+	{ 0x58, 0x07, SUBFUNC_NO_LENGTH, "Disable Auditing On A Volume", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x08, SUBFUNC_NO_LENGTH, "Enable Auditing On A Volume",	13 /* auditing */,
+	{ 0x58, 0x08, SUBFUNC_NO_LENGTH, "Enable Auditing On A Volume", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5803_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x09, SUBFUNC_NO_LENGTH, "Query User Being Audited",	13 /* auditing */,
+	{ 0x58, 0x09, SUBFUNC_NO_LENGTH, "Query User Being Audited", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x0a, SUBFUNC_NO_LENGTH, "Read Audit Bit Map",	13 /* auditing */,
+	{ 0x58, 0x0a, SUBFUNC_NO_LENGTH, "Read Audit Bit Map", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x0b, SUBFUNC_NO_LENGTH, "Read Audit File Configuration Header",	13 /* auditing */,
+	{ 0x58, 0x0b, SUBFUNC_NO_LENGTH, "Read Audit File Configuration Header", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x0d, SUBFUNC_NO_LENGTH, "Remove Auditor Access",	13 /* auditing */,
+	{ 0x58, 0x0d, SUBFUNC_NO_LENGTH, "Remove Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x0e, SUBFUNC_NO_LENGTH, "Reset Audit File",	13 /* auditing */,
+	{ 0x58, 0x0e, SUBFUNC_NO_LENGTH, "Reset Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x0f, SUBFUNC_NO_LENGTH, "Auditing NCP",	13 /* auditing */,
+	{ 0x58, 0x0f, SUBFUNC_NO_LENGTH, "Auditing NCP", 	13 /* auditing */,
 		NULL, NULL, ncp_0x580f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x10, SUBFUNC_NO_LENGTH, "Write Audit Bit Map",	13 /* auditing */,
+	{ 0x58, 0x10, SUBFUNC_NO_LENGTH, "Write Audit Bit Map", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x11, SUBFUNC_NO_LENGTH, "Write Audit File Configuration Header",	13 /* auditing */,
+	{ 0x58, 0x11, SUBFUNC_NO_LENGTH, "Write Audit File Configuration Header", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x12, SUBFUNC_NO_LENGTH, "Change Auditor Volume Password2",	13 /* auditing */,
+	{ 0x58, 0x12, SUBFUNC_NO_LENGTH, "Change Auditor Volume Password2", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x13, SUBFUNC_NO_LENGTH, "Return Audit Flags",	13 /* auditing */,
+	{ 0x58, 0x13, SUBFUNC_NO_LENGTH, "Return Audit Flags", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x14, SUBFUNC_NO_LENGTH, "Close Old Audit File",	13 /* auditing */,
+	{ 0x58, 0x14, SUBFUNC_NO_LENGTH, "Close Old Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x16, SUBFUNC_NO_LENGTH, "Check Level Two Access",	13 /* auditing */,
+	{ 0x58, 0x16, SUBFUNC_NO_LENGTH, "Check Level Two Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5803_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x17, SUBFUNC_NO_LENGTH, "Return Old Audit File List",	13 /* auditing */,
+	{ 0x58, 0x17, SUBFUNC_NO_LENGTH, "Return Old Audit File List", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x18, SUBFUNC_NO_LENGTH, "Init Audit File Reads",	13 /* auditing */,
+	{ 0x58, 0x18, SUBFUNC_NO_LENGTH, "Init Audit File Reads", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x19, SUBFUNC_NO_LENGTH, "Read Auditing File",	13 /* auditing */,
+	{ 0x58, 0x19, SUBFUNC_NO_LENGTH, "Read Auditing File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x1a, SUBFUNC_NO_LENGTH, "Delete Old Audit File",	13 /* auditing */,
+	{ 0x58, 0x1a, SUBFUNC_NO_LENGTH, "Delete Old Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x1e, SUBFUNC_NO_LENGTH, "Restart Volume auditing",	13 /* auditing */,
+	{ 0x58, 0x1e, SUBFUNC_NO_LENGTH, "Restart Volume auditing", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x58, 0x1f, SUBFUNC_NO_LENGTH, "Set Volume Password",	13 /* auditing */,
+	{ 0x58, 0x1f, SUBFUNC_NO_LENGTH, "Set Volume Password", 	13 /* auditing */,
 		NULL, NULL, ncp_0x5801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x59, 0x01, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x01, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x5901_request, ncp_0x5901_reply, ncp_0x5901_errors, ncp_0x5901_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5901_req },
 
-	{ 0x59, 0x02, SUBFUNC_NO_LENGTH, "Initialize Search",	14 /* enhanced */,
+	{ 0x59, 0x02, SUBFUNC_NO_LENGTH, "Initialize Search", 	14 /* enhanced */,
 		ncp_0x5902_request, ncp_0x5702_reply, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5902_req },
 
-	{ 0x59, 0x03, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x03, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x5903_request, ncp_0x5903_reply, ncp_0x5902_errors, ncp_0x5901_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5903_req },
 
-	{ 0x59, 0x04, SUBFUNC_NO_LENGTH, "Rename Or Move a File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x04, SUBFUNC_NO_LENGTH, "Rename Or Move a File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x5904_request, NULL, ncp_0x5904_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5904_req },
 
-	{ 0x59, 0x05, SUBFUNC_NO_LENGTH, "Scan File or Subdirectory for Trustees",	14 /* enhanced */,
+	{ 0x59, 0x05, SUBFUNC_NO_LENGTH, "Scan File or Subdirectory for Trustees", 	14 /* enhanced */,
 		ncp_0x5905_request, ncp_0x5705_reply, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5905_req },
 
-	{ 0x59, 0x06, SUBFUNC_NO_LENGTH, "Obtain File or SubDirectory Information",	14 /* enhanced */,
+	{ 0x59, 0x06, SUBFUNC_NO_LENGTH, "Obtain File or SubDirectory Information", 	14 /* enhanced */,
 		ncp_0x5906_request, ncp_0x5906_reply, ncp_0x5906_errors, ncp_0x5906_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5906_req },
 
-	{ 0x59, 0x07, SUBFUNC_NO_LENGTH, "Modify File or Subdirectory DOS Information",	14 /* enhanced */,
+	{ 0x59, 0x07, SUBFUNC_NO_LENGTH, "Modify File or Subdirectory DOS Information", 	14 /* enhanced */,
 		ncp_0x5907_request, NULL, ncp_0x5907_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5907_req },
 
-	{ 0x59, 0x08, SUBFUNC_NO_LENGTH, "Delete a File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x08, SUBFUNC_NO_LENGTH, "Delete a File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x5908_request, NULL, ncp_0x5908_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5908_req },
 
-	{ 0x59, 0x09, SUBFUNC_NO_LENGTH, "Set Short Directory Handle",	14 /* enhanced */,
+	{ 0x59, 0x09, SUBFUNC_NO_LENGTH, "Set Short Directory Handle", 	14 /* enhanced */,
 		ncp_0x5909_request, NULL, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5909_req },
 
-	{ 0x59, 0x0a, SUBFUNC_NO_LENGTH, "Add Trustee Set to File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x0a, SUBFUNC_NO_LENGTH, "Add Trustee Set to File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x590a_request, NULL, ncp_0x590a_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x590a_req },
 
-	{ 0x59, 0x0b, SUBFUNC_NO_LENGTH, "Delete Trustee Set from File or SubDirectory",	14 /* enhanced */,
+	{ 0x59, 0x0b, SUBFUNC_NO_LENGTH, "Delete Trustee Set from File or SubDirectory", 	14 /* enhanced */,
 		ncp_0x590b_request, NULL, ncp_0x590b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x590b_req },
 
-	{ 0x59, 0x0c, SUBFUNC_NO_LENGTH, "Allocate Short Directory Handle",	14 /* enhanced */,
+	{ 0x59, 0x0c, SUBFUNC_NO_LENGTH, "Allocate Short Directory Handle", 	14 /* enhanced */,
 		ncp_0x590c_request, ncp_0x570c_reply, ncp_0x5902_errors, ncp_0x570c_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x590c_req },
 
-	{ 0x59, 0x10, SUBFUNC_NO_LENGTH, "Scan Salvageable Files",	14 /* enhanced */,
+	{ 0x59, 0x10, SUBFUNC_NO_LENGTH, "Scan Salvageable Files", 	14 /* enhanced */,
 		ncp_0x5910_request, ncp_0x5910_reply, ncp_0x5902_errors, ncp_0x5910_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5910_req },
 
-	{ 0x59, 0x11, SUBFUNC_NO_LENGTH, "Recover Salvageable File",	14 /* enhanced */,
+	{ 0x59, 0x11, SUBFUNC_NO_LENGTH, "Recover Salvageable File", 	14 /* enhanced */,
 		ncp_0x5911_request, NULL, ncp_0x5911_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5911_req },
 
-	{ 0x59, 0x13, SUBFUNC_NO_LENGTH, "Get Name Space Information",	14 /* enhanced */,
+	{ 0x59, 0x13, SUBFUNC_NO_LENGTH, "Get Name Space Information", 	14 /* enhanced */,
 		ncp_0x5913_request, ncp_0x5913_reply, ncp_0x5902_errors, ncp_0x5713_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x59, 0x14, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set",	14 /* enhanced */,
+	{ 0x59, 0x14, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set", 	14 /* enhanced */,
 		ncp_0x5914_request, NULL, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x59, 0x16, SUBFUNC_NO_LENGTH, "Generate Directory Base and Volume Number",	14 /* enhanced */,
+	{ 0x59, 0x16, SUBFUNC_NO_LENGTH, "Generate Directory Base and Volume Number", 	14 /* enhanced */,
 		ncp_0x5916_request, ncp_0x5716_reply, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5916_req },
 
-	{ 0x59, 0x19, SUBFUNC_NO_LENGTH, "Set Name Space Information",	14 /* enhanced */,
+	{ 0x59, 0x19, SUBFUNC_NO_LENGTH, "Set Name Space Information", 	14 /* enhanced */,
 		ncp_0x5919_request, NULL, ncp_0x5919_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x59, 0x1c, SUBFUNC_NO_LENGTH, "Get Full Path String",	14 /* enhanced */,
+	{ 0x59, 0x1c, SUBFUNC_NO_LENGTH, "Get Full Path String", 	14 /* enhanced */,
 		ncp_0x591c_request, ncp_0x591c_reply, ncp_0x591c_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x591c_req },
 
-	{ 0x59, 0x1d, SUBFUNC_NO_LENGTH, "Get Effective Directory Rights",	14 /* enhanced */,
+	{ 0x59, 0x1d, SUBFUNC_NO_LENGTH, "Get Effective Directory Rights", 	14 /* enhanced */,
 		ncp_0x591d_request, ncp_0x591d_reply, ncp_0x5902_errors, ncp_0x591d_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x591d_req },
 
-	{ 0x59, 0x1e, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x1e, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x591e_request, ncp_0x591e_reply, ncp_0x5911_errors, ncp_0x591d_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x591e_req },
 
-	{ 0x59, 0x20, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory with Callback",	14 /* enhanced */,
+	{ 0x59, 0x20, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory with Callback", 	14 /* enhanced */,
 		ncp_0x5901_request, ncp_0x5920_reply, ncp_0x5920_errors, ncp_0x5901_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5920_req },
 
-	{ 0x59, 0x21, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory II with Callback",	14 /* enhanced */,
+	{ 0x59, 0x21, SUBFUNC_NO_LENGTH, "Open/Create File or Subdirectory II with Callback", 	14 /* enhanced */,
 		ncp_0x591e_request, ncp_0x5921_reply, ncp_0x5911_errors, ncp_0x5901_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5921_req },
 
-	{ 0x59, 0x23, SUBFUNC_NO_LENGTH, "Modify DOS Attributes on a File or Subdirectory",	14 /* enhanced */,
+	{ 0x59, 0x23, SUBFUNC_NO_LENGTH, "Modify DOS Attributes on a File or Subdirectory", 	14 /* enhanced */,
 		ncp_0x5923_request, ncp_0x5723_reply, ncp_0x5911_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5923_req },
 
-	{ 0x59, 0x27, SUBFUNC_NO_LENGTH, "Get Directory Disk Space Restriction",	14 /* enhanced */,
+	{ 0x59, 0x27, SUBFUNC_NO_LENGTH, "Get Directory Disk Space Restriction", 	14 /* enhanced */,
 		ncp_0x5927_request, ncp_0x5727_reply, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5927_req },
 
-	{ 0x59, 0x28, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set (Extended Errors)",	14 /* enhanced */,
+	{ 0x59, 0x28, SUBFUNC_NO_LENGTH, "Search for File or Subdirectory Set (Extended Errors)", 	14 /* enhanced */,
 		ncp_0x5914_request, ncp_0x5928_reply, ncp_0x5902_errors, ncp_0x591d_req_cond_indexes, REQ_COND_SIZE_VARIABLE, &info_str_0x5928_req },
 
-	{ 0x59, 0x32, SUBFUNC_NO_LENGTH, "Get Object Effective Rights",	14 /* enhanced */,
+	{ 0x59, 0x32, SUBFUNC_NO_LENGTH, "Get Object Effective Rights", 	14 /* enhanced */,
 		ncp_0x5932_request, ncp_0x1632_reply, ncp_0x5932_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x59, 0x34, SUBFUNC_NO_LENGTH, "Write Extended Attribute",	14 /* enhanced */,
+	{ 0x59, 0x34, SUBFUNC_NO_LENGTH, "Write Extended Attribute", 	14 /* enhanced */,
 		ncp_0x5934_request, ncp_0x5602_reply, ncp_0x5934_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5934_req },
 
-	{ 0x59, 0x35, SUBFUNC_NO_LENGTH, "Read Extended Attribute",	14 /* enhanced */,
+	{ 0x59, 0x35, SUBFUNC_NO_LENGTH, "Read Extended Attribute", 	14 /* enhanced */,
 		ncp_0x5935_request, ncp_0x5603_reply, ncp_0x5935_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5935_req },
 
-	{ 0x59, 0x36, SUBFUNC_NO_LENGTH, "Enumerate Extended Attribute",	14 /* enhanced */,
+	{ 0x59, 0x36, SUBFUNC_NO_LENGTH, "Enumerate Extended Attribute", 	14 /* enhanced */,
 		ncp_0x5936_request, ncp_0x5604_reply, ncp_0x5936_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x5936_req },
 
-	{ 0x59, 0x47, SUBFUNC_NO_LENGTH, "Scan Volume Trustee Object Paths",	14 /* enhanced */,
+	{ 0x59, 0x47, SUBFUNC_NO_LENGTH, "Scan Volume Trustee Object Paths", 	14 /* enhanced */,
 		ncp_0x5947_request, ncp_0x5947_reply, ncp_0x5902_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x00, SUBFUNC_WITH_LENGTH, "Parse Tree",	2 /* file */,
+	{ 0x5a, 0x00, SUBFUNC_WITH_LENGTH, "Parse Tree", 	2 /* file */,
 		ncp_0x5a00_request, ncp_0x5a00_reply, ncp_0x5a00_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x0a, SUBFUNC_WITH_LENGTH, "Get Reference Count from Dir Entry Number",	2 /* file */,
+	{ 0x5a, 0x0a, SUBFUNC_WITH_LENGTH, "Get Reference Count from Dir Entry Number", 	2 /* file */,
 		ncp_0x5a0a_request, ncp_0x5a0a_reply, ncp_0x5a00_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x0b, SUBFUNC_WITH_LENGTH, "Get Reference Count from Dir Handle",	2 /* file */,
+	{ 0x5a, 0x0b, SUBFUNC_WITH_LENGTH, "Get Reference Count from Dir Handle", 	2 /* file */,
 		ncp_0x5a0b_request, ncp_0x5a0a_reply, ncp_0x5a00_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x0c, SUBFUNC_WITH_LENGTH, "Set Compressed File Size",	2 /* file */,
+	{ 0x5a, 0x0c, SUBFUNC_WITH_LENGTH, "Set Compressed File Size", 	2 /* file */,
 		ncp_0x5a0c_request, ncp_0x5a0c_reply, ncp_0x5a00_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x80, SUBFUNC_WITH_LENGTH, "Move File Data To Data Migration",	15 /* migration */,
+	{ 0x5a, 0x80, SUBFUNC_WITH_LENGTH, "Move File Data To Data Migration", 	15 /* migration */,
 		ncp_0x5a80_request, NULL, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x81, SUBFUNC_WITH_LENGTH, "Data Migration File Information",	15 /* migration */,
+	{ 0x5a, 0x81, SUBFUNC_WITH_LENGTH, "Data Migration File Information", 	15 /* migration */,
 		ncp_0x5a81_request, ncp_0x5a81_reply, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x82, SUBFUNC_WITH_LENGTH, "Volume Data Migration Status",	15 /* migration */,
+	{ 0x5a, 0x82, SUBFUNC_WITH_LENGTH, "Volume Data Migration Status", 	15 /* migration */,
 		ncp_0x5a82_request, ncp_0x5a82_reply, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x83, SUBFUNC_WITH_LENGTH, "Migrator Status Info",	15 /* migration */,
+	{ 0x5a, 0x83, SUBFUNC_WITH_LENGTH, "Migrator Status Info", 	15 /* migration */,
 		NULL, ncp_0x5a83_reply, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x84, SUBFUNC_WITH_LENGTH, "Data Migration Support Module Information",	15 /* migration */,
+	{ 0x5a, 0x84, SUBFUNC_WITH_LENGTH, "Data Migration Support Module Information", 	15 /* migration */,
 		ncp_0x5a84_request, ncp_0x5a84_reply, ncp_0x5a80_errors, ncp_0x5a84_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x5a, 0x85, SUBFUNC_WITH_LENGTH, "Move File Data From Data Migration",	15 /* migration */,
+	{ 0x5a, 0x85, SUBFUNC_WITH_LENGTH, "Move File Data From Data Migration", 	15 /* migration */,
 		ncp_0x5a81_request, NULL, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x86, SUBFUNC_WITH_LENGTH, "Get/Set Default Read-Write Support Module ID",	15 /* migration */,
+	{ 0x5a, 0x86, SUBFUNC_WITH_LENGTH, "Get/Set Default Read-Write Support Module ID", 	15 /* migration */,
 		ncp_0x5a86_request, ncp_0x5a86_reply, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x87, SUBFUNC_WITH_LENGTH, "Data Migration Support Module Capacity Request",	15 /* migration */,
+	{ 0x5a, 0x87, SUBFUNC_WITH_LENGTH, "Data Migration Support Module Capacity Request", 	15 /* migration */,
 		ncp_0x5a87_request, ncp_0x5a87_reply, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x88, SUBFUNC_WITH_LENGTH, "RTDM Request",	15 /* migration */,
+	{ 0x5a, 0x88, SUBFUNC_WITH_LENGTH, "RTDM Request", 	15 /* migration */,
 		ncp_0x5a88_request, NULL, ncp_0x5a80_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5a, 0x96, SUBFUNC_WITH_LENGTH, "File Migration Request",	2 /* file */,
+	{ 0x5a, 0x96, SUBFUNC_WITH_LENGTH, "File Migration Request", 	2 /* file */,
 		ncp_0x5a96_request, NULL, ncp_0x5a96_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5b, 0x00, NO_SUBFUNC, "NMAS Graded Authentication",	16 /* nmas */,
+	{ 0x5b, 0x00, NO_SUBFUNC, "NMAS Graded Authentication", 	16 /* nmas */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x01, SUBFUNC_NO_LENGTH, "SecretStore Services (Ping Server)",	17 /* sss */,
+	{ 0x5c, 0x01, SUBFUNC_NO_LENGTH, "SecretStore Services (Ping Server)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x02, SUBFUNC_NO_LENGTH, "SecretStore Services (Fragment)",	17 /* sss */,
+	{ 0x5c, 0x02, SUBFUNC_NO_LENGTH, "SecretStore Services (Fragment)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x03, SUBFUNC_NO_LENGTH, "SecretStore Services (Write App Secrets)",	17 /* sss */,
+	{ 0x5c, 0x03, SUBFUNC_NO_LENGTH, "SecretStore Services (Write App Secrets)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x04, SUBFUNC_NO_LENGTH, "SecretStore Services (Add Secret ID)",	17 /* sss */,
+	{ 0x5c, 0x04, SUBFUNC_NO_LENGTH, "SecretStore Services (Add Secret ID)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x05, SUBFUNC_NO_LENGTH, "SecretStore Services (Remove Secret ID)",	17 /* sss */,
+	{ 0x5c, 0x05, SUBFUNC_NO_LENGTH, "SecretStore Services (Remove Secret ID)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x06, SUBFUNC_NO_LENGTH, "SecretStore Services (Remove SecretStore)",	17 /* sss */,
+	{ 0x5c, 0x06, SUBFUNC_NO_LENGTH, "SecretStore Services (Remove SecretStore)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x07, SUBFUNC_NO_LENGTH, "SecretStore Services (Enumerate Secret IDs)",	17 /* sss */,
+	{ 0x5c, 0x07, SUBFUNC_NO_LENGTH, "SecretStore Services (Enumerate Secret IDs)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x08, SUBFUNC_NO_LENGTH, "SecretStore Services (Unlock Store)",	17 /* sss */,
+	{ 0x5c, 0x08, SUBFUNC_NO_LENGTH, "SecretStore Services (Unlock Store)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x09, SUBFUNC_NO_LENGTH, "SecretStore Services (Set Master Password)",	17 /* sss */,
+	{ 0x5c, 0x09, SUBFUNC_NO_LENGTH, "SecretStore Services (Set Master Password)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5c, 0x0a, SUBFUNC_NO_LENGTH, "SecretStore Services (Get Service Information)",	17 /* sss */,
+	{ 0x5c, 0x0a, SUBFUNC_NO_LENGTH, "SecretStore Services (Get Service Information)", 	17 /* sss */,
 		NULL, NULL, ncp_0x5b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5e, 0x01, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Ping)",	16 /* nmas */,
+	{ 0x5e, 0x01, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Ping)", 	16 /* nmas */,
 		NULL, NULL, ncp_0x5e01_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5e, 0x02, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Fragment)",	16 /* nmas */,
+	{ 0x5e, 0x02, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Fragment)", 	16 /* nmas */,
 		NULL, NULL, ncp_0x5e01_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x5e, 0x03, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Abort)",	16 /* nmas */,
+	{ 0x5e, 0x03, SUBFUNC_NO_LENGTH, "NMAS Communications Packet (Abort)", 	16 /* nmas */,
 		NULL, NULL, ncp_0x5e01_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x61, 0x00, NO_SUBFUNC, "Get Big Packet NCP Max Packet Size",	3 /* connection */,
+	{ 0x61, 0x00, NO_SUBFUNC, "Get Big Packet NCP Max Packet Size", 	3 /* connection */,
 		ncp_0x61_request, ncp_0x61_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x61_req },
 
-	{ 0x63, 0x00, NO_SUBFUNC, "Undocumented Packet Burst",	18 /* pburst */,
+	{ 0x63, 0x00, NO_SUBFUNC, "Undocumented Packet Burst", 	18 /* pburst */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x64, 0x00, NO_SUBFUNC, "Undocumented Packet Burst",	18 /* pburst */,
+	{ 0x64, 0x00, NO_SUBFUNC, "Undocumented Packet Burst", 	18 /* pburst */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x65, 0x00, NO_SUBFUNC, "Packet Burst Connection Request",	18 /* pburst */,
+	{ 0x65, 0x00, NO_SUBFUNC, "Packet Burst Connection Request", 	18 /* pburst */,
 		ncp_0x65_request, ncp_0x65_reply, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x66, 0x00, NO_SUBFUNC, "Undocumented Packet Burst",	18 /* pburst */,
+	{ 0x66, 0x00, NO_SUBFUNC, "Undocumented Packet Burst", 	18 /* pburst */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x67, 0x00, NO_SUBFUNC, "Undocumented Packet Burst",	18 /* pburst */,
+	{ 0x67, 0x00, NO_SUBFUNC, "Undocumented Packet Burst", 	18 /* pburst */,
 		NULL, NULL, ncp_0x1_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x01, SUBFUNC_NO_LENGTH, "Ping for NDS NCP",	19 /* nds */,
+	{ 0x68, 0x01, SUBFUNC_NO_LENGTH, "Ping for NDS NCP", 	19 /* nds */,
 		NULL, NULL, ncp_0x6801_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x02, SUBFUNC_NO_LENGTH, "Send NDS Fragmented Request/Reply",	19 /* nds */,
+	{ 0x68, 0x02, SUBFUNC_NO_LENGTH, "Send NDS Fragmented Request/Reply", 	19 /* nds */,
 		NULL, NULL, ncp_0x6802_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x03, SUBFUNC_NO_LENGTH, "Fragment Close",	19 /* nds */,
+	{ 0x68, 0x03, SUBFUNC_NO_LENGTH, "Fragment Close", 	19 /* nds */,
 		ncp_0x6803_request, NULL, ncp_0x2_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x04, SUBFUNC_NO_LENGTH, "Return Bindery Context",	19 /* nds */,
+	{ 0x68, 0x04, SUBFUNC_NO_LENGTH, "Return Bindery Context", 	19 /* nds */,
 		NULL, ncp_0x6804_reply, ncp_0x6804_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x05, SUBFUNC_NO_LENGTH, "Monitor NDS Connection",	19 /* nds */,
+	{ 0x68, 0x05, SUBFUNC_NO_LENGTH, "Monitor NDS Connection", 	19 /* nds */,
 		NULL, NULL, ncp_0x6805_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x06, SUBFUNC_NO_LENGTH, "Return NDS Statistics",	19 /* nds */,
+	{ 0x68, 0x06, SUBFUNC_NO_LENGTH, "Return NDS Statistics", 	19 /* nds */,
 		ncp_0x6806_request, NULL, ncp_0x6806_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x07, SUBFUNC_NO_LENGTH, "Clear NDS Statistics",	19 /* nds */,
+	{ 0x68, 0x07, SUBFUNC_NO_LENGTH, "Clear NDS Statistics", 	19 /* nds */,
 		NULL, NULL, ncp_0x6806_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0x08, SUBFUNC_NO_LENGTH, "Reload NDS Software",	19 /* nds */,
+	{ 0x68, 0x08, SUBFUNC_NO_LENGTH, "Reload NDS Software", 	19 /* nds */,
 		NULL, ncp_0x6808_reply, ncp_0x6806_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xc8, SUBFUNC_NO_LENGTH, "Query Container Audit Status",	13 /* auditing */,
+	{ 0x68, 0xc8, SUBFUNC_NO_LENGTH, "Query Container Audit Status", 	13 /* auditing */,
 		ncp_0x17fe_request, ncp_0x5801_reply, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xca, SUBFUNC_NO_LENGTH, "Add Auditor Access",	13 /* auditing */,
+	{ 0x68, 0xca, SUBFUNC_NO_LENGTH, "Add Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xcb, SUBFUNC_NO_LENGTH, "Change Auditor Container Password",	13 /* auditing */,
+	{ 0x68, 0xcb, SUBFUNC_NO_LENGTH, "Change Auditor Container Password", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xcc, SUBFUNC_NO_LENGTH, "Check Auditor Access",	13 /* auditing */,
+	{ 0x68, 0xcc, SUBFUNC_NO_LENGTH, "Check Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x80, 0xce, SUBFUNC_NO_LENGTH, "Disable Container Auditing",	13 /* auditing */,
+	{ 0x80, 0xce, SUBFUNC_NO_LENGTH, "Disable Container Auditing", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xcf, SUBFUNC_NO_LENGTH, "Enable Container Auditing",	13 /* auditing */,
+	{ 0x68, 0xcf, SUBFUNC_NO_LENGTH, "Enable Container Auditing", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd1, SUBFUNC_NO_LENGTH, "Read Audit File Header",	13 /* auditing */,
+	{ 0x68, 0xd1, SUBFUNC_NO_LENGTH, "Read Audit File Header", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd3, SUBFUNC_NO_LENGTH, "Remove Auditor Access",	13 /* auditing */,
+	{ 0x68, 0xd3, SUBFUNC_NO_LENGTH, "Remove Auditor Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd4, SUBFUNC_NO_LENGTH, "Reset Audit File",	13 /* auditing */,
+	{ 0x68, 0xd4, SUBFUNC_NO_LENGTH, "Reset Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd6, SUBFUNC_NO_LENGTH, "Write Audit File Configuration Header",	13 /* auditing */,
+	{ 0x68, 0xd6, SUBFUNC_NO_LENGTH, "Write Audit File Configuration Header", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd7, SUBFUNC_NO_LENGTH, "Change Auditor Container Password2",	13 /* auditing */,
+	{ 0x68, 0xd7, SUBFUNC_NO_LENGTH, "Change Auditor Container Password2", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd8, SUBFUNC_NO_LENGTH, "Return Audit Flags",	13 /* auditing */,
+	{ 0x68, 0xd8, SUBFUNC_NO_LENGTH, "Return Audit Flags", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xd9, SUBFUNC_NO_LENGTH, "Close Old Audit File",	13 /* auditing */,
+	{ 0x68, 0xd9, SUBFUNC_NO_LENGTH, "Close Old Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xdb, SUBFUNC_NO_LENGTH, "Check Level Two Access",	13 /* auditing */,
+	{ 0x68, 0xdb, SUBFUNC_NO_LENGTH, "Check Level Two Access", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xdc, SUBFUNC_NO_LENGTH, "Check Object Audited",	13 /* auditing */,
+	{ 0x68, 0xdc, SUBFUNC_NO_LENGTH, "Check Object Audited", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xdd, SUBFUNC_NO_LENGTH, "Change Object Audited",	13 /* auditing */,
+	{ 0x68, 0xdd, SUBFUNC_NO_LENGTH, "Change Object Audited", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xde, SUBFUNC_NO_LENGTH, "Return Old Audit File List",	13 /* auditing */,
+	{ 0x68, 0xde, SUBFUNC_NO_LENGTH, "Return Old Audit File List", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xdf, SUBFUNC_NO_LENGTH, "Init Audit File Reads",	13 /* auditing */,
+	{ 0x68, 0xdf, SUBFUNC_NO_LENGTH, "Init Audit File Reads", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xe0, SUBFUNC_NO_LENGTH, "Read Auditing File",	13 /* auditing */,
+	{ 0x68, 0xe0, SUBFUNC_NO_LENGTH, "Read Auditing File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xe1, SUBFUNC_NO_LENGTH, "Delete Old Audit File",	13 /* auditing */,
+	{ 0x68, 0xe1, SUBFUNC_NO_LENGTH, "Delete Old Audit File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xe5, SUBFUNC_NO_LENGTH, "Set Audit Password",	13 /* auditing */,
+	{ 0x68, 0xe5, SUBFUNC_NO_LENGTH, "Set Audit Password", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x68, 0xe7, SUBFUNC_NO_LENGTH, "External Audit Append To File",	13 /* auditing */,
+	{ 0x68, 0xe7, SUBFUNC_NO_LENGTH, "External Audit Append To File", 	13 /* auditing */,
 		NULL, NULL, ncp_0x68c8_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x69, 0x00, NO_SUBFUNC, "Log File",	0 /* sync */,
+	{ 0x69, 0x00, NO_SUBFUNC, "Log File", 	0 /* sync */,
 		ncp_0x69_request, NULL, ncp_0x69_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x69_req },
 
-	{ 0x6a, 0x00, NO_SUBFUNC, "Lock File Set",	0 /* sync */,
+	{ 0x6a, 0x00, NO_SUBFUNC, "Lock File Set", 	0 /* sync */,
 		ncp_0x4_request, NULL, ncp_0x69_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6b, 0x00, NO_SUBFUNC, "Log Logical Record",	0 /* sync */,
+	{ 0x6b, 0x00, NO_SUBFUNC, "Log Logical Record", 	0 /* sync */,
 		ncp_0x6b_request, NULL, ncp_0x6b_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x6b_req },
 
-	{ 0x6c, 0x00, NO_SUBFUNC, "Log Logical Record",	0 /* sync */,
+	{ 0x6c, 0x00, NO_SUBFUNC, "Log Logical Record", 	0 /* sync */,
 		ncp_0xa_request, NULL, ncp_0x6b_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6d, 0x00, NO_SUBFUNC, "Log Physical Record",	0 /* sync */,
+	{ 0x6d, 0x00, NO_SUBFUNC, "Log Physical Record", 	0 /* sync */,
 		ncp_0x6d_request, NULL, ncp_0x6d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6e, 0x00, NO_SUBFUNC, "Lock Physical Record Set",	0 /* sync */,
+	{ 0x6e, 0x00, NO_SUBFUNC, "Lock Physical Record Set", 	0 /* sync */,
 		ncp_0x1b_request, NULL, ncp_0x6d_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6f, 0x00, SUBFUNC_NO_LENGTH, "Open/Create a Semaphore",	0 /* sync */,
+	{ 0x6f, 0x00, SUBFUNC_NO_LENGTH, "Open/Create a Semaphore", 	0 /* sync */,
 		ncp_0x6f00_request, ncp_0x6f00_reply, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x6f00_req },
 
-	{ 0x6f, 0x01, SUBFUNC_NO_LENGTH, "Examine Semaphore",	0 /* sync */,
+	{ 0x6f, 0x01, SUBFUNC_NO_LENGTH, "Examine Semaphore", 	0 /* sync */,
 		ncp_0x6f01_request, ncp_0x2001_reply, ncp_0x2000_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6f, 0x02, SUBFUNC_NO_LENGTH, "Wait On (P) Semaphore",	0 /* sync */,
+	{ 0x6f, 0x02, SUBFUNC_NO_LENGTH, "Wait On (P) Semaphore", 	0 /* sync */,
 		ncp_0x6f02_request, NULL, ncp_0x6f02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6f, 0x03, SUBFUNC_NO_LENGTH, "Signal (V) Semaphore",	0 /* sync */,
+	{ 0x6f, 0x03, SUBFUNC_NO_LENGTH, "Signal (V) Semaphore", 	0 /* sync */,
 		ncp_0x6f01_request, NULL, ncp_0x6f02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x6f, 0x04, SUBFUNC_NO_LENGTH, "Close Semaphore",	0 /* sync */,
+	{ 0x6f, 0x04, SUBFUNC_NO_LENGTH, "Close Semaphore", 	0 /* sync */,
 		ncp_0x6f01_request, ncp_0x6f04_reply, ncp_0x6f02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x70, 0x00, NO_SUBFUNC, "Clear and Get Waiting Lock Completion",	0 /* sync */,
+	{ 0x70, 0x00, NO_SUBFUNC, "Clear and Get Waiting Lock Completion", 	0 /* sync */,
 		NULL, NULL, ncp_0x5_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x72, 0x01, SUBFUNC_WITH_LENGTH, "Timesync Get Time",	20 /* tsync */,
+	{ 0x72, 0x01, SUBFUNC_WITH_LENGTH, "Timesync Get Time", 	20 /* tsync */,
 		NULL, ncp_0x7201_reply, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x72, 0x02, SUBFUNC_WITH_LENGTH, "Timesync Exchange Time",	20 /* tsync */,
+	{ 0x72, 0x02, SUBFUNC_WITH_LENGTH, "Timesync Exchange Time", 	20 /* tsync */,
 		ncp_0x7202_request, ncp_0x7202_reply, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x7202_req },
 
-	{ 0x72, 0x05, SUBFUNC_WITH_LENGTH, "Timesync Get Server List",	20 /* tsync */,
+	{ 0x72, 0x05, SUBFUNC_WITH_LENGTH, "Timesync Get Server List", 	20 /* tsync */,
 		ncp_0x7205_request, ncp_0x7205_reply, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x72, 0x06, SUBFUNC_WITH_LENGTH, "Timesync Set Server List",	20 /* tsync */,
+	{ 0x72, 0x06, SUBFUNC_WITH_LENGTH, "Timesync Set Server List", 	20 /* tsync */,
 		ncp_0x7205_request, ncp_0x7205_reply, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x72, 0x0c, SUBFUNC_WITH_LENGTH, "Timesync Get Version",	20 /* tsync */,
+	{ 0x72, 0x0c, SUBFUNC_WITH_LENGTH, "Timesync Get Version", 	20 /* tsync */,
 		NULL, ncp_0x720c_reply, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x01, SUBFUNC_WITH_LENGTH, "Get Cache Information",	21 /* stats */,
+	{ 0x7b, 0x01, SUBFUNC_WITH_LENGTH, "Get Cache Information", 	21 /* stats */,
 		NULL, ncp_0x7b01_reply, ncp_0x7b01_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x02, SUBFUNC_WITH_LENGTH, "Get File Server Information",	21 /* stats */,
+	{ 0x7b, 0x02, SUBFUNC_WITH_LENGTH, "Get File Server Information", 	21 /* stats */,
 		NULL, ncp_0x7b02_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x03, SUBFUNC_WITH_LENGTH, "NetWare File System Information",	21 /* stats */,
+	{ 0x7b, 0x03, SUBFUNC_WITH_LENGTH, "NetWare File System Information", 	21 /* stats */,
 		ncp_0x7b03_request, ncp_0x7b03_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x04, SUBFUNC_WITH_LENGTH, "User Information",	21 /* stats */,
+	{ 0x7b, 0x04, SUBFUNC_WITH_LENGTH, "User Information", 	21 /* stats */,
 		ncp_0x7b04_request, ncp_0x7b04_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x05, SUBFUNC_WITH_LENGTH, "Packet Burst Information",	21 /* stats */,
+	{ 0x7b, 0x05, SUBFUNC_WITH_LENGTH, "Packet Burst Information", 	21 /* stats */,
 		NULL, ncp_0x7b05_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x06, SUBFUNC_WITH_LENGTH, "IPX SPX Information",	21 /* stats */,
+	{ 0x7b, 0x06, SUBFUNC_WITH_LENGTH, "IPX SPX Information", 	21 /* stats */,
 		NULL, ncp_0x7b06_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x07, SUBFUNC_WITH_LENGTH, "Garbage Collection Information",	21 /* stats */,
+	{ 0x7b, 0x07, SUBFUNC_WITH_LENGTH, "Garbage Collection Information", 	21 /* stats */,
 		NULL, ncp_0x7b07_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x08, SUBFUNC_WITH_LENGTH, "CPU Information",	21 /* stats */,
+	{ 0x7b, 0x08, SUBFUNC_WITH_LENGTH, "CPU Information", 	21 /* stats */,
 		ncp_0x7b08_request, ncp_0x7b08_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x09, SUBFUNC_WITH_LENGTH, "Volume Switch Information",	21 /* stats */,
+	{ 0x7b, 0x09, SUBFUNC_WITH_LENGTH, "Volume Switch Information", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b09_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0a, SUBFUNC_WITH_LENGTH, "Get NLM Loaded List",	21 /* stats */,
+	{ 0x7b, 0x0a, SUBFUNC_WITH_LENGTH, "Get NLM Loaded List", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b0a_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0b, SUBFUNC_WITH_LENGTH, "NLM Information",	21 /* stats */,
+	{ 0x7b, 0x0b, SUBFUNC_WITH_LENGTH, "NLM Information", 	21 /* stats */,
 		ncp_0x7b0b_request, ncp_0x7b0b_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0c, SUBFUNC_WITH_LENGTH, "Get Directory Cache Information",	21 /* stats */,
+	{ 0x7b, 0x0c, SUBFUNC_WITH_LENGTH, "Get Directory Cache Information", 	21 /* stats */,
 		NULL, ncp_0x7b0c_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0d, SUBFUNC_WITH_LENGTH, "Get Operating System Version Information",	21 /* stats */,
+	{ 0x7b, 0x0d, SUBFUNC_WITH_LENGTH, "Get Operating System Version Information", 	21 /* stats */,
 		NULL, ncp_0x7b0d_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0e, SUBFUNC_WITH_LENGTH, "Get Active Connection List by Type",	21 /* stats */,
+	{ 0x7b, 0x0e, SUBFUNC_WITH_LENGTH, "Get Active Connection List by Type", 	21 /* stats */,
 		ncp_0x7b0e_request, ncp_0x7b0e_reply, ncp_0x7b0e_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x0f, SUBFUNC_WITH_LENGTH, "Get NLM Resource Tag List",	21 /* stats */,
+	{ 0x7b, 0x0f, SUBFUNC_WITH_LENGTH, "Get NLM Resource Tag List", 	21 /* stats */,
 		ncp_0x7b0f_request, ncp_0x7b0f_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x10, SUBFUNC_WITH_LENGTH, "Enumerate Connection Information from Connection List",	21 /* stats */,
+	{ 0x7b, 0x10, SUBFUNC_WITH_LENGTH, "Enumerate Connection Information from Connection List", 	21 /* stats */,
 		ncp_0x7b10_request, ncp_0x7b10_reply, ncp_0x7b02_errors, ncp_0x7b10_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x7b, 0x11, SUBFUNC_WITH_LENGTH, "Enumerate NCP Service Network Addresses",	21 /* stats */,
+	{ 0x7b, 0x11, SUBFUNC_WITH_LENGTH, "Enumerate NCP Service Network Addresses", 	21 /* stats */,
 		ncp_0x7b11_request, ncp_0x7b11_reply, ncp_0x7b11_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x14, SUBFUNC_WITH_LENGTH, "Active LAN Board List",	21 /* stats */,
+	{ 0x7b, 0x14, SUBFUNC_WITH_LENGTH, "Active LAN Board List", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b14_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x15, SUBFUNC_WITH_LENGTH, "LAN Configuration Information",	21 /* stats */,
+	{ 0x7b, 0x15, SUBFUNC_WITH_LENGTH, "LAN Configuration Information", 	21 /* stats */,
 		ncp_0x7b15_request, ncp_0x7b15_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x16, SUBFUNC_WITH_LENGTH, "LAN Common Counters Information",	21 /* stats */,
+	{ 0x7b, 0x16, SUBFUNC_WITH_LENGTH, "LAN Common Counters Information", 	21 /* stats */,
 		ncp_0x7b16_request, ncp_0x7b16_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x17, SUBFUNC_WITH_LENGTH, "LAN Custom Counters Information",	21 /* stats */,
+	{ 0x7b, 0x17, SUBFUNC_WITH_LENGTH, "LAN Custom Counters Information", 	21 /* stats */,
 		ncp_0x7b17_request, ncp_0x7b17_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x18, SUBFUNC_WITH_LENGTH, "LAN Name Information",	21 /* stats */,
+	{ 0x7b, 0x18, SUBFUNC_WITH_LENGTH, "LAN Name Information", 	21 /* stats */,
 		ncp_0x7b15_request, ncp_0x7b18_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x19, SUBFUNC_WITH_LENGTH, "LSL Information",	21 /* stats */,
+	{ 0x7b, 0x19, SUBFUNC_WITH_LENGTH, "LSL Information", 	21 /* stats */,
 		NULL, ncp_0x7b19_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x1a, SUBFUNC_WITH_LENGTH, "LSL Logical Board Statistics",	21 /* stats */,
+	{ 0x7b, 0x1a, SUBFUNC_WITH_LENGTH, "LSL Logical Board Statistics", 	21 /* stats */,
 		ncp_0x7b15_request, ncp_0x7b1a_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x1b, SUBFUNC_WITH_LENGTH, "MLID Board Information",	21 /* stats */,
+	{ 0x7b, 0x1b, SUBFUNC_WITH_LENGTH, "MLID Board Information", 	21 /* stats */,
 		ncp_0x7b15_request, ncp_0x7b1b_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x1e, SUBFUNC_WITH_LENGTH, "Get Media Manager Object Information",	21 /* stats */,
+	{ 0x7b, 0x1e, SUBFUNC_WITH_LENGTH, "Get Media Manager Object Information", 	21 /* stats */,
 		ncp_0x7b1e_request, ncp_0x7b1e_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x1f, SUBFUNC_WITH_LENGTH, "Get Media Manager Objects List",	21 /* stats */,
+	{ 0x7b, 0x1f, SUBFUNC_WITH_LENGTH, "Get Media Manager Objects List", 	21 /* stats */,
 		ncp_0x7b1f_request, ncp_0x7b1f_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x20, SUBFUNC_WITH_LENGTH, "Get Media Manager Object Childrens List",	21 /* stats */,
+	{ 0x7b, 0x20, SUBFUNC_WITH_LENGTH, "Get Media Manager Object Childrens List", 	21 /* stats */,
 		ncp_0x7b20_request, ncp_0x7b1f_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x21, SUBFUNC_WITH_LENGTH, "Get Volume Segment List",	21 /* stats */,
+	{ 0x7b, 0x21, SUBFUNC_WITH_LENGTH, "Get Volume Segment List", 	21 /* stats */,
 		ncp_0x7b21_request, ncp_0x7b21_reply, ncp_0x7b21_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x22, SUBFUNC_WITH_LENGTH, "Get Volume Information by Level",	21 /* stats */,
+	{ 0x7b, 0x22, SUBFUNC_WITH_LENGTH, "Get Volume Information by Level", 	21 /* stats */,
 		ncp_0x7b22_request, ncp_0x7b22_reply, ncp_0x7b02_errors, ncp_0x7b22_req_cond_indexes, REQ_COND_SIZE_VARIABLE, NULL },
 
-	{ 0x7b, 0x28, SUBFUNC_WITH_LENGTH, "Active Protocol Stacks",	21 /* stats */,
+	{ 0x7b, 0x28, SUBFUNC_WITH_LENGTH, "Active Protocol Stacks", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b28_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x29, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Configuration Information",	21 /* stats */,
+	{ 0x7b, 0x29, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Configuration Information", 	21 /* stats */,
 		ncp_0x7b29_request, ncp_0x7b29_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2a, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Statistics Information",	21 /* stats */,
+	{ 0x7b, 0x2a, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Statistics Information", 	21 /* stats */,
 		ncp_0x7b29_request, ncp_0x7b2a_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2b, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Custom Information",	21 /* stats */,
+	{ 0x7b, 0x2b, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Custom Information", 	21 /* stats */,
 		ncp_0x7b2b_request, ncp_0x7b2b_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2c, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Numbers by Media Number",	21 /* stats */,
+	{ 0x7b, 0x2c, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Numbers by Media Number", 	21 /* stats */,
 		ncp_0x7b2c_request, ncp_0x7b2c_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2d, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Numbers by LAN Board Number",	21 /* stats */,
+	{ 0x7b, 0x2d, SUBFUNC_WITH_LENGTH, "Get Protocol Stack Numbers by LAN Board Number", 	21 /* stats */,
 		ncp_0x7b15_request, ncp_0x7b2c_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2e, SUBFUNC_WITH_LENGTH, "Get Media Name by Media Number",	21 /* stats */,
+	{ 0x7b, 0x2e, SUBFUNC_WITH_LENGTH, "Get Media Name by Media Number", 	21 /* stats */,
 		ncp_0x7b2c_request, ncp_0x7b2e_reply, ncp_0x7b02_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x2f, SUBFUNC_WITH_LENGTH, "Get Loaded Media Number",	21 /* stats */,
+	{ 0x7b, 0x2f, SUBFUNC_WITH_LENGTH, "Get Loaded Media Number", 	21 /* stats */,
 		NULL, ncp_0x7b2f_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x32, SUBFUNC_WITH_LENGTH, "Get General Router and SAP Information",	21 /* stats */,
+	{ 0x7b, 0x32, SUBFUNC_WITH_LENGTH, "Get General Router and SAP Information", 	21 /* stats */,
 		NULL, ncp_0x7b32_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x33, SUBFUNC_WITH_LENGTH, "Get Network Router Information",	21 /* stats */,
+	{ 0x7b, 0x33, SUBFUNC_WITH_LENGTH, "Get Network Router Information", 	21 /* stats */,
 		ncp_0x7b33_request, ncp_0x7b33_reply, ncp_0x7b33_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x34, SUBFUNC_WITH_LENGTH, "Get Network Routers Information",	21 /* stats */,
+	{ 0x7b, 0x34, SUBFUNC_WITH_LENGTH, "Get Network Routers Information", 	21 /* stats */,
 		ncp_0x7b34_request, ncp_0x7b34_reply, ncp_0x7b33_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x35, SUBFUNC_WITH_LENGTH, "Get Known Networks Information",	21 /* stats */,
+	{ 0x7b, 0x35, SUBFUNC_WITH_LENGTH, "Get Known Networks Information", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b35_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x36, SUBFUNC_WITH_LENGTH, "Get Server Information",	21 /* stats */,
+	{ 0x7b, 0x36, SUBFUNC_WITH_LENGTH, "Get Server Information", 	21 /* stats */,
 		ncp_0x7b36_request, ncp_0x7b36_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x7b36_req },
 
-	{ 0x7b, 0x37, SUBFUNC_WITH_LENGTH, "Get Server Sources Information",	21 /* stats */,
+	{ 0x7b, 0x37, SUBFUNC_WITH_LENGTH, "Get Server Sources Information", 	21 /* stats */,
 		ncp_0x7b37_request, ncp_0x7b37_reply, ncp_0x7b33_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x7b37_req },
 
-	{ 0x7b, 0x38, SUBFUNC_WITH_LENGTH, "Get Known Servers Information",	21 /* stats */,
+	{ 0x7b, 0x38, SUBFUNC_WITH_LENGTH, "Get Known Servers Information", 	21 /* stats */,
 		ncp_0x7b38_request, ncp_0x7b38_reply, ncp_0x7b33_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x3c, SUBFUNC_WITH_LENGTH, "Get Server Set Commands Information",	21 /* stats */,
+	{ 0x7b, 0x3c, SUBFUNC_WITH_LENGTH, "Get Server Set Commands Information", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b3c_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x3d, SUBFUNC_WITH_LENGTH, "Get Server Set Categories",	21 /* stats */,
+	{ 0x7b, 0x3d, SUBFUNC_WITH_LENGTH, "Get Server Set Categories", 	21 /* stats */,
 		ncp_0x7205_request, ncp_0x7b3d_reply, ncp_0x7b2f_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x3e, SUBFUNC_WITH_LENGTH, "Get Server Set Commands Information By Name",	21 /* stats */,
+	{ 0x7b, 0x3e, SUBFUNC_WITH_LENGTH, "Get Server Set Commands Information By Name", 	21 /* stats */,
 		ncp_0x7b3e_request, ncp_0x7b3e_reply, ncp_0x7b3e_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x7b3e_req },
 
-	{ 0x7b, 0x46, SUBFUNC_WITH_LENGTH, "Get Current Compressing File",	21 /* stats */,
+	{ 0x7b, 0x46, SUBFUNC_WITH_LENGTH, "Get Current Compressing File", 	21 /* stats */,
 		ncp_0x7b21_request, ncp_0x7b46_reply, ncp_0x7b46_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x47, SUBFUNC_WITH_LENGTH, "Get Current DeCompressing File Info List",	21 /* stats */,
+	{ 0x7b, 0x47, SUBFUNC_WITH_LENGTH, "Get Current DeCompressing File Info List", 	21 /* stats */,
 		ncp_0x7b21_request, ncp_0x7b47_reply, ncp_0x7b47_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0x48, SUBFUNC_WITH_LENGTH, "Get Compression and Decompression Time and Counts",	21 /* stats */,
+	{ 0x7b, 0x48, SUBFUNC_WITH_LENGTH, "Get Compression and Decompression Time and Counts", 	21 /* stats */,
 		ncp_0x7b21_request, ncp_0x7b48_reply, ncp_0x7b47_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xf9, SUBFUNC_WITH_LENGTH, "Set Alert Notification",	21 /* stats */,
+	{ 0x7b, 0xf9, SUBFUNC_WITH_LENGTH, "Set Alert Notification", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xfb, SUBFUNC_WITH_LENGTH, "Get Item Configuration Information",	21 /* stats */,
+	{ 0x7b, 0xfb, SUBFUNC_WITH_LENGTH, "Get Item Configuration Information", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xfc, SUBFUNC_WITH_LENGTH, "Get Subject Item ID List",	21 /* stats */,
+	{ 0x7b, 0xfc, SUBFUNC_WITH_LENGTH, "Get Subject Item ID List", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xfd, SUBFUNC_WITH_LENGTH, "Get Subject Item List Count",	21 /* stats */,
+	{ 0x7b, 0xfd, SUBFUNC_WITH_LENGTH, "Get Subject Item List Count", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xfe, SUBFUNC_WITH_LENGTH, "Get Subject ID List",	21 /* stats */,
+	{ 0x7b, 0xfe, SUBFUNC_WITH_LENGTH, "Get Subject ID List", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x7b, 0xff, SUBFUNC_WITH_LENGTH, "Get Number of NetMan Subjects",	21 /* stats */,
+	{ 0x7b, 0xff, SUBFUNC_WITH_LENGTH, "Get Number of NetMan Subjects", 	21 /* stats */,
 		NULL, NULL, ncp_0x7201_errors, NULL, NO_REQ_COND_SIZE, NULL },
 
-	{ 0x83, 0x01, SUBFUNC_WITH_LENGTH, "RPC Load an NLM",	22 /* remote */,
+	{ 0x83, 0x01, SUBFUNC_WITH_LENGTH, "RPC Load an NLM", 	22 /* remote */,
 		ncp_0x8301_request, ncp_0x8301_reply, ncp_0x8301_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8301_req },
 
-	{ 0x83, 0x02, SUBFUNC_WITH_LENGTH, "RPC Unload an NLM",	22 /* remote */,
+	{ 0x83, 0x02, SUBFUNC_WITH_LENGTH, "RPC Unload an NLM", 	22 /* remote */,
 		ncp_0x8302_request, ncp_0x8301_reply, ncp_0x8301_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8302_req },
 
-	{ 0x83, 0x03, SUBFUNC_WITH_LENGTH, "RPC Mount Volume",	22 /* remote */,
+	{ 0x83, 0x03, SUBFUNC_WITH_LENGTH, "RPC Mount Volume", 	22 /* remote */,
 		ncp_0x8303_request, ncp_0x8303_reply, ncp_0x8303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8303_req },
 
-	{ 0x83, 0x04, SUBFUNC_WITH_LENGTH, "RPC Dismount Volume",	22 /* remote */,
+	{ 0x83, 0x04, SUBFUNC_WITH_LENGTH, "RPC Dismount Volume", 	22 /* remote */,
 		ncp_0x8303_request, ncp_0x8301_reply, ncp_0x8303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8304_req },
 
-	{ 0x83, 0x05, SUBFUNC_WITH_LENGTH, "RPC Add Name Space To Volume",	22 /* remote */,
+	{ 0x83, 0x05, SUBFUNC_WITH_LENGTH, "RPC Add Name Space To Volume", 	22 /* remote */,
 		ncp_0x8305_request, ncp_0x8301_reply, ncp_0x8303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8305_req },
 
-	{ 0x83, 0x06, SUBFUNC_WITH_LENGTH, "RPC Set Command Value",	22 /* remote */,
+	{ 0x83, 0x06, SUBFUNC_WITH_LENGTH, "RPC Set Command Value", 	22 /* remote */,
 		ncp_0x8306_request, ncp_0x8301_reply, ncp_0x8303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8306_req },
 
-	{ 0x83, 0x07, SUBFUNC_WITH_LENGTH, "RPC Execute NCF File",	22 /* remote */,
+	{ 0x83, 0x07, SUBFUNC_WITH_LENGTH, "RPC Execute NCF File", 	22 /* remote */,
 		ncp_0x8307_request, ncp_0x8301_reply, ncp_0x8303_errors, NULL, NO_REQ_COND_SIZE, &info_str_0x8307_req },
 
 	{ 0, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NO_REQ_COND_SIZE, NULL }
@@ -19556,1688 +19573,1688 @@ static const guint8 ncp_func_has_no_length_parameter[] = {
 
 
 static const value_string ncp_nds_verb_vals[] = {
-    { 1, "Resolve Name" },
-    { 2, "Read Entry Information" },
-    { 3, "Read" },
-    { 4, "Compare" },
-    { 5, "List" },
-    { 6, "Search Entries" },
-    { 7, "Add Entry" },
-    { 8, "Remove Entry" },
-    { 9, "Modify Entry" },
-    { 10, "Modify RDN" },
-    { 11, "Create Attribute" },
-    { 12, "Read Attribute Definition" },
-    { 13, "Remove Attribute Definition" },
-    { 14, "Define Class" },
-    { 15, "Read Class Definition " },
-    { 16, "Modify Class Definition" },
-    { 17, "Remove Class Definition" },
-    { 18, "List Containable Classes" },
-    { 19, "Get Effective Rights" },
-    { 20, "Add Partition" },
-    { 21, "Remove Partition" },
-    { 22, "List Partitions" },
-    { 23, "Split Partition" },
-    { 24, "Join Partitions" },
-    { 25, "Add Replica" },
-    { 26, "Remove Replica" },
-    { 27, "Open Stream" },
-    { 28, "Search Filter" },
-    { 29, "Create Subordinate Reference" },
-    { 30, "Link Replica" },
-    { 31, "Change Replica Type" },
-    { 32, "Start Update Schema" },
-    { 33, "End Update Schema" },
-    { 34, "Update Schema" },
-    { 35, "Start Update Replica" },
-    { 36, "End Update Replica" },
-    { 37, "Update Replica" },
-    { 38, "Synchronize Partition" },
-    { 39, "Synchronize Schema" },
-    { 40, "Read Syntaxes" },
-    { 41, "Get Replica Root ID" },
-    { 42, "Begin Move Entry" },
-    { 43, "Finish Move Entry" },
-    { 44, "Release Moved Entry" },
-    { 45, "Backup Entry" },
-    { 46, "Restore Entry" },
-    { 47, "Save DIB (Obsolete)" },
-    { 48, "Control" },
-    { 49, "Remove Backlink" },
-    { 50, "Close Iteration" },
-    { 51, "Mutate Entry" },
-    { 52, "Audit Skulking" },
-    { 53, "Get Server Address" },
-    { 54, "Set Keys" },
-    { 55, "Change Password" },
-    { 56, "Verify Password" },
-    { 57, "Begin Login" },
-    { 58, "Finish Login" },
-    { 59, "Begin Authentication" },
-    { 60, "Finish Authentication" },
-    { 61, "Logout" },
-    { 62, "Repair Ring (Obsolete)" },
-    { 63, "Repair Timestamps" },
-    { 64, "Create Back Link" },
-    { 65, "Delete External Reference" },
-    { 66, "Rename External Reference" },
-    { 67, "Create Queue Entry Directory" },
-    { 68, "Remove Queue Entry Directory" },
-    { 69, "Merge Entries" },
-    { 70, "Change Tree Name" },
-    { 71, "Partition Entry Count" },
-    { 72, "Check Login Restrictions" },
-    { 73, "Start Join" },
-    { 74, "Low Level Split" },
-    { 75, "Low Level Join" },
-    { 76, "Abort Partition Operation" },
-    { 77, "Get All Servers" },
-    { 78, "Partition Function" },
-    { 79, "Read References" },
-    { 80, "Inspect Entry" },
-    { 81, "Get Remote Entry ID" },
-    { 82, "Change Security" },
-    { 83, "Check Console Operator" },
-    { 84, "Start Move Tree" },
-    { 85, "Move Tree" },
-    { 86, "End Move Tree" },
-    { 87, "Low Level Abort Join" },
-    { 88, "Check Security Equivalence" },
-    { 89, "Merge Tree" },
-    { 90, "Sync External Reference" },
-    { 91, "Resend Entry" },
-    { 92, "New Schema Epoch" },
-    { 93, "Statistics" },
-    { 94, "Ping" },
-    { 95, "Get Bindery Contexts" },
-    { 96, "Monitor Connection" },
-    { 97, "Get DS Statistics" },
-    { 98, "Reset DS Counters" },
-    { 99, "Console" },
-    { 100, "Read Stream" },
-    { 101, "Write Stream" },
-    { 102, "Create Orphan Partition" },
-    { 103, "Remove Orphan Partition" },
-    { 104, "Link Orphan Partition" },
-    { 105, "Set Distributed Reference Link (DRL)" },
-    { 106, "Available" },
-    { 107, "Available" },
-    { 108, "Verify Distributed Reference Link (DRL)" },
-    { 109, "Verify Partition" },
-    { 110, "Iterator" },
-    { 111, "Available" },
-    { 112, "Close Stream" },
-    { 113, "Available" },
-    { 114, "Read Status" },
-    { 115, "Partition Sync Status" },
-    { 116, "Read Reference Data" },
-    { 117, "Write Reference Data" },
-    { 118, "Resource Event" },
-    { 119, "DIB Request (obsolete)" },
-    { 120, "Set Replication Filter" },
-    { 121, "Get Replication Filter" },
-    { 122, "Change Attribute Definition" },
-    { 123, "Schema in Use" },
-    { 124, "Remove Keys" },
-    { 125, "Clone" },
-    { 126, "Multiple Operations Transaction" },
-    { 240, "Ping" },
-    { 255, "EDirectory Call" },
-    { 0,  NULL }
+	{ 1, "Resolve Name" },
+	{ 2, "Read Entry Information" },
+	{ 3, "Read" },
+	{ 4, "Compare" },
+	{ 5, "List" },
+	{ 6, "Search Entries" },
+	{ 7, "Add Entry" },
+	{ 8, "Remove Entry" },
+	{ 9, "Modify Entry" },
+	{ 10, "Modify RDN" },
+	{ 11, "Create Attribute" },
+	{ 12, "Read Attribute Definition" },
+	{ 13, "Remove Attribute Definition" },
+	{ 14, "Define Class" },
+	{ 15, "Read Class Definition " },
+	{ 16, "Modify Class Definition" },
+	{ 17, "Remove Class Definition" },
+	{ 18, "List Containable Classes" },
+	{ 19, "Get Effective Rights" },
+	{ 20, "Add Partition" },
+	{ 21, "Remove Partition" },
+	{ 22, "List Partitions" },
+	{ 23, "Split Partition" },
+	{ 24, "Join Partitions" },
+	{ 25, "Add Replica" },
+	{ 26, "Remove Replica" },
+	{ 27, "Open Stream" },
+	{ 28, "Search Filter" },
+	{ 29, "Create Subordinate Reference" },
+	{ 30, "Link Replica" },
+	{ 31, "Change Replica Type" },
+	{ 32, "Start Update Schema" },
+	{ 33, "End Update Schema" },
+	{ 34, "Update Schema" },
+	{ 35, "Start Update Replica" },
+	{ 36, "End Update Replica" },
+	{ 37, "Update Replica" },
+	{ 38, "Synchronize Partition" },
+	{ 39, "Synchronize Schema" },
+	{ 40, "Read Syntaxes" },
+	{ 41, "Get Replica Root ID" },
+	{ 42, "Begin Move Entry" },
+	{ 43, "Finish Move Entry" },
+	{ 44, "Release Moved Entry" },
+	{ 45, "Backup Entry" },
+	{ 46, "Restore Entry" },
+	{ 47, "Save DIB (Obsolete)" },
+	{ 48, "Control" },
+	{ 49, "Remove Backlink" },
+	{ 50, "Close Iteration" },
+	{ 51, "Mutate Entry" },
+	{ 52, "Audit Skulking" },
+	{ 53, "Get Server Address" },
+	{ 54, "Set Keys" },
+	{ 55, "Change Password" },
+	{ 56, "Verify Password" },
+	{ 57, "Begin Login" },
+	{ 58, "Finish Login" },
+	{ 59, "Begin Authentication" },
+	{ 60, "Finish Authentication" },
+	{ 61, "Logout" },
+	{ 62, "Repair Ring (Obsolete)" },
+	{ 63, "Repair Timestamps" },
+	{ 64, "Create Back Link" },
+	{ 65, "Delete External Reference" },
+	{ 66, "Rename External Reference" },
+	{ 67, "Create Queue Entry Directory" },
+	{ 68, "Remove Queue Entry Directory" },
+	{ 69, "Merge Entries" },
+	{ 70, "Change Tree Name" },
+	{ 71, "Partition Entry Count" },
+	{ 72, "Check Login Restrictions" },
+	{ 73, "Start Join" },
+	{ 74, "Low Level Split" },
+	{ 75, "Low Level Join" },
+	{ 76, "Abort Partition Operation" },
+	{ 77, "Get All Servers" },
+	{ 78, "Partition Function" },
+	{ 79, "Read References" },
+	{ 80, "Inspect Entry" },
+	{ 81, "Get Remote Entry ID" },
+	{ 82, "Change Security" },
+	{ 83, "Check Console Operator" },
+	{ 84, "Start Move Tree" },
+	{ 85, "Move Tree" },
+	{ 86, "End Move Tree" },
+	{ 87, "Low Level Abort Join" },
+	{ 88, "Check Security Equivalence" },
+	{ 89, "Merge Tree" },
+	{ 90, "Sync External Reference" },
+	{ 91, "Resend Entry" },
+	{ 92, "New Schema Epoch" },
+	{ 93, "Statistics" },
+	{ 94, "Ping" },
+	{ 95, "Get Bindery Contexts" },
+	{ 96, "Monitor Connection" },
+	{ 97, "Get DS Statistics" },
+	{ 98, "Reset DS Counters" },
+	{ 99, "Console" },
+	{ 100, "Read Stream" },
+	{ 101, "Write Stream" },
+	{ 102, "Create Orphan Partition" },
+	{ 103, "Remove Orphan Partition" },
+	{ 104, "Link Orphan Partition" },
+	{ 105, "Set Distributed Reference Link (DRL)" },
+	{ 106, "Available" },
+	{ 107, "Available" },
+	{ 108, "Verify Distributed Reference Link (DRL)" },
+	{ 109, "Verify Partition" },
+	{ 110, "Iterator" },
+	{ 111, "Available" },
+	{ 112, "Close Stream" },
+	{ 113, "Available" },
+	{ 114, "Read Status" },
+	{ 115, "Partition Sync Status" },
+	{ 116, "Read Reference Data" },
+	{ 117, "Write Reference Data" },
+	{ 118, "Resource Event" },
+	{ 119, "DIB Request (obsolete)" },
+	{ 120, "Set Replication Filter" },
+	{ 121, "Get Replication Filter" },
+	{ 122, "Change Attribute Definition" },
+	{ 123, "Schema in Use" },
+	{ 124, "Remove Keys" },
+	{ 125, "Clone" },
+	{ 126, "Multiple Operations Transaction" },
+	{ 240, "Ping" },
+	{ 255, "EDirectory Call" },
+	{ 0,  NULL }
 };
 
 static const value_string connection_status_vals[] = {
-    { 0x00, "Ok" },
-    { 0x01, "Bad Service Connection" },
-    { 0x10, "File Server is Down" },
-    { 0x40, "Broadcast Message Pending" },
-    { 0,    NULL }
+	{ 0x00, "Ok" },
+	{ 0x01, "Bad Service Connection" },
+	{ 0x10, "File Server is Down" },
+	{ 0x40, "Broadcast Message Pending" },
+    	{ 0,	NULL }
 };
 
 void
 proto_register_ncp2222(void)
 {
 
-    static hf_register_info hf[] = {
-    { &hf_ncp_func,
-    { "Function", "ncp.func", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	static hf_register_info hf[] = {
+	{ &hf_ncp_func,
+	{ "Function", "ncp.func", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_length,
-    { "Packet Length", "ncp.length", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_length,
+	{ "Packet Length", "ncp.length", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_subfunc,
-    { "SubFunction", "ncp.subfunc", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_subfunc,
+	{ "SubFunction", "ncp.subfunc", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_completion_code,
-    { "Completion Code", "ncp.completion_code", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_completion_code,
+	{ "Completion Code", "ncp.completion_code", FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_group,
-    { "NCP Group Type", "ncp.group", FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_group,
+	{ "NCP Group Type", "ncp.group", FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_fragment_handle,
-    { "NDS Fragment Handle", "ncp.ndsfrag", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_fragment_handle,
+	{ "NDS Fragment Handle", "ncp.ndsfrag", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_fragment_size,
-    { "NDS Fragment Size", "ncp.ndsfragsize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_fragment_size,
+	{ "NDS Fragment Size", "ncp.ndsfragsize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_message_size,
-    { "Message Size", "ncp.ndsmessagesize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_message_size,
+	{ "Message Size", "ncp.ndsmessagesize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_nds_flag,
-    { "Flags", "ncp.ndsflag", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_nds_flag,
+	{ "Flags", "ncp.ndsflag", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_nds_verb,
-    { "NDS Verb", "ncp.ndsverb", FT_UINT8, BASE_HEX, VALS(ncp_nds_verb_vals), 0x0, NULL, HFILL }},
+	{ &hf_ncp_nds_verb,
+	{ "NDS Verb", "ncp.ndsverb", FT_UINT8, BASE_HEX, VALS(ncp_nds_verb_vals), 0x0, NULL, HFILL }},
 
-    { &hf_ping_version,
-    { "NDS Version", "ncp.ping_version", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-#if 0 /* Unused ? */
-    { &hf_nds_version,
-    { "NDS Version", "ncp.nds_version", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-#endif
-
-    { &hf_nds_tree_name,
-    { "Tree Name", "ncp.nds_tree_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    /*
-     * XXX - the page at
-     *
-     *      http://www.odyssea.com/whats_new/tcpipnet/tcpipnet.html
-     *
-     * says of the connection status "The Connection Code field may
-     * contain values that indicate the status of the client host to
-     * server connection.  A value of 1 in the fourth bit of this data
-     * byte indicates that the server is unavailable (server was
-     * downed).
-     *
-     * The page at
-     *
-     *      http://www.unm.edu/~network/presentations/course/appendix/appendix_f/tsld088.htm
-     *
-     * says that bit 0 is "bad service", bit 2 is "no connection
-     * available", bit 4 is "service down", and bit 6 is "server
-     * has a broadcast message waiting for the client".
-     *
-     * Should it be displayed in hex, and should those bits (and any
-     * other bits with significance) be displayed as bitfields
-     * underneath it?
-     */
-    { &hf_ncp_connection_status,
-    { "Connection Status", "ncp.connection_status", FT_UINT8, BASE_DEC, VALS(connection_status_vals), 0x0, NULL, HFILL }},
-
-    { &hf_ncp_req_frame_num,
-    { "Response to Request in Frame Number", "ncp.req_frame_num", FT_FRAMENUM, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_ncp_req_frame_time,
-    { "Time from Request", "ncp.time", FT_RELATIVE_TIME, BASE_NONE, NULL, 0x0, "Time between request and response in seconds", HFILL }},
+	{ &hf_ping_version,
+	{ "NDS Version", "ncp.ping_version", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_flags,
-    { "NDS Return Flags", "ncp.nds_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_version,
+	{ "NDS Version", "ncp.nds_version", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_nds_reply_depth,
-    { "Distance from Root", "ncp.ndsdepth", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_reply_rev,
-    { "NDS Revision", "ncp.ndsrev", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_reply_flags,
-    { "Flags", "ncp.ndsflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_p1type,
-    { "NDS Parameter Type", "ncp.p1type", FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_uint32value,
-    { "NDS Value", "ncp.uint32value", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_bit1,
-    { "Typeless", "ncp.nds_bit1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_nds_bit2,
-    { "All Containers", "ncp.nds_bit2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_nds_bit3,
-    { "Slashed", "ncp.nds_bit3", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_nds_bit4,
-    { "Dotted", "ncp.nds_bit4", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_nds_bit5,
-    { "Tuned", "ncp.nds_bit5", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_nds_bit6,
-    { "Not Defined", "ncp.nds_bit6", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_nds_bit7,
-    { "Not Defined", "ncp.nds_bit7", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_nds_bit8,
-    { "Not Defined", "ncp.nds_bit8", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_nds_bit9,
-    { "Not Defined", "ncp.nds_bit9", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_nds_bit10,
-    { "Not Defined", "ncp.nds_bit10", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_nds_bit11,
-    { "Not Defined", "ncp.nds_bit11", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_nds_bit12,
-    { "Not Defined", "ncp.nds_bit12", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_nds_bit13,
-    { "Not Defined", "ncp.nds_bit13", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_nds_bit14,
-    { "Not Defined", "ncp.nds_bit14", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_nds_bit15,
-    { "Not Defined", "ncp.nds_bit15", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_nds_bit16,
-    { "Not Defined", "ncp.nds_bit16", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1outflags,
-    { "Output Flags", "ncp.bit1outflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2outflags,
-    { "Entry ID", "ncp.bit2outflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3outflags,
-    { "Replica State", "ncp.bit3outflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4outflags,
-    { "Modification Timestamp", "ncp.bit4outflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5outflags,
-    { "Purge Time", "ncp.bit5outflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6outflags,
-    { "Local Partition ID", "ncp.bit6outflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7outflags,
-    { "Distinguished Name", "ncp.bit7outflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8outflags,
-    { "Replica Type", "ncp.bit8outflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9outflags,
-    { "Partition Busy", "ncp.bit9outflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10outflags,
-    { "Not Defined", "ncp.bit10outflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11outflags,
-    { "Not Defined", "ncp.bit11outflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12outflags,
-    { "Not Defined", "ncp.bit12outflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13outflags,
-    { "Not Defined", "ncp.bit13outflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14outflags,
-    { "Not Defined", "ncp.bit14outflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15outflags,
-    { "Not Defined", "ncp.bit15outflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16outflags,
-    { "Not Defined", "ncp.bit16outflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1nflags,
-    { "Entry ID", "ncp.bit1nflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2nflags,
-    { "Readable", "ncp.bit2nflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3nflags,
-    { "Writeable", "ncp.bit3nflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4nflags,
-    { "Master", "ncp.bit4nflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5nflags,
-    { "Create ID", "ncp.bit5nflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6nflags,
-    { "Walk Tree", "ncp.bit6nflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7nflags,
-    { "Dereference Alias", "ncp.bit7nflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8nflags,
-    { "Not Defined", "ncp.bit8nflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9nflags,
-    { "Not Defined", "ncp.bit9nflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10nflags,
-    { "Not Defined", "ncp.bit10nflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11nflags,
-    { "Not Defined", "ncp.bit11nflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12nflags,
-    { "Not Defined", "ncp.bit12nflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13nflags,
-    { "Not Defined", "ncp.bit13nflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14nflags,
-    { "Prefer Referrals", "ncp.bit14nflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15nflags,
-    { "Prefer Only Referrals", "ncp.bit15nflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16nflags,
-    { "Not Defined", "ncp.bit16nflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1rflags,
-    { "Typeless", "ncp.bit1rflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2rflags,
-    { "Slashed", "ncp.bit2rflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3rflags,
-    { "Dotted", "ncp.bit3rflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4rflags,
-    { "Tuned", "ncp.bit4rflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5rflags,
-    { "Not Defined", "ncp.bit5rflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6rflags,
-    { "Not Defined", "ncp.bit6rflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7rflags,
-    { "Not Defined", "ncp.bit7rflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8rflags,
-    { "Not Defined", "ncp.bit8rflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9rflags,
-    { "Not Defined", "ncp.bit9rflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10rflags,
-    { "Not Defined", "ncp.bit10rflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11rflags,
-    { "Not Defined", "ncp.bit11rflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12rflags,
-    { "Not Defined", "ncp.bit12rflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13rflags,
-    { "Not Defined", "ncp.bit13rflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14rflags,
-    { "Not Defined", "ncp.bit14rflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15rflags,
-    { "Not Defined", "ncp.bit15rflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16rflags,
-    { "Not Defined", "ncp.bit16rflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1eflags,
-    { "Alias Entry", "ncp.bit1eflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2eflags,
-    { "Partition Root", "ncp.bit2eflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3eflags,
-    { "Container Entry", "ncp.bit3eflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4eflags,
-    { "Container Alias", "ncp.bit4eflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5eflags,
-    { "Matches List Filter", "ncp.bit5eflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6eflags,
-    { "Reference Entry", "ncp.bit6eflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7eflags,
-    { "40x Reference Entry", "ncp.bit7eflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8eflags,
-    { "Back Linked", "ncp.bit8eflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9eflags,
-    { "New Entry", "ncp.bit9eflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10eflags,
-    { "Temporary Reference", "ncp.bit10eflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11eflags,
-    { "Audited", "ncp.bit11eflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12eflags,
-    { "Entry Not Present", "ncp.bit12eflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13eflags,
-    { "Entry Verify CTS", "ncp.bit13eflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14eflags,
-    { "Entry Damaged", "ncp.bit14eflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15eflags,
-    { "Not Defined", "ncp.bit15rflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16eflags,
-    { "Not Defined", "ncp.bit16rflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1infoflagsl,
-    { "Output Flags", "ncp.bit1infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2infoflagsl,
-    { "Entry ID", "ncp.bit2infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3infoflagsl,
-    { "Entry Flags", "ncp.bit3infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4infoflagsl,
-    { "Subordinate Count", "ncp.bit4infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5infoflagsl,
-    { "Modification Time", "ncp.bit5infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6infoflagsl,
-    { "Modification Timestamp", "ncp.bit6infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7infoflagsl,
-    { "Creation Timestamp", "ncp.bit7infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8infoflagsl,
-    { "Partition Root ID", "ncp.bit8infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9infoflagsl,
-    { "Parent ID", "ncp.bit9infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10infoflagsl,
-    { "Revision Count", "ncp.bit10infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11infoflagsl,
-    { "Replica Type", "ncp.bit11infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12infoflagsl,
-    { "Base Class", "ncp.bit12infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13infoflagsl,
-    { "Relative Distinguished Name", "ncp.bit13infoflagsl", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14infoflagsl,
-    { "Distinguished Name", "ncp.bit14infoflagsl", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15infoflagsl,
-    { "Root Distinguished Name", "ncp.bit15infoflagsl", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16infoflagsl,
-    { "Parent Distinguished Name", "ncp.bit16infoflagsl", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1infoflagsh,
-    { "Purge Time", "ncp.bit1infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2infoflagsh,
-    { "Dereference Base Class", "ncp.bit2infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3infoflagsh,
-    { "Not Defined", "ncp.bit3infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4infoflagsh,
-    { "Not Defined", "ncp.bit4infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5infoflagsh,
-    { "Not Defined", "ncp.bit5infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6infoflagsh,
-    { "Not Defined", "ncp.bit6infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7infoflagsh,
-    { "Not Defined", "ncp.bit7infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8infoflagsh,
-    { "Not Defined", "ncp.bit8infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9infoflagsh,
-    { "Not Defined", "ncp.bit9infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10infoflagsh,
-    { "Not Defined", "ncp.bit10infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11infoflagsh,
-    { "Not Defined", "ncp.bit11infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12infoflagsh,
-    { "Not Defined", "ncp.bit12infoflagshs", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13infoflagsh,
-    { "Not Defined", "ncp.bit13infoflagsh", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14infoflagsh,
-    { "Not Defined", "ncp.bit14infoflagsh", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15infoflagsh,
-    { "Not Defined", "ncp.bit15infoflagsh", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16infoflagsh,
-    { "Not Defined", "ncp.bit16infoflagsh", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1lflags,
-    { "List Typeless", "ncp.bit1lflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2lflags,
-    { "List Containers", "ncp.bit2lflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3lflags,
-    { "List Slashed", "ncp.bit3lflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4lflags,
-    { "List Dotted", "ncp.bit4lflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5lflags,
-    { "Dereference Alias", "ncp.bit5lflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6lflags,
-    { "List All Containers", "ncp.bit6lflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7lflags,
-    { "List Obsolete", "ncp.bit7lflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8lflags,
-    { "List Tuned Output", "ncp.bit8lflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9lflags,
-    { "List External Reference", "ncp.bit9lflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10lflags,
-    { "Not Defined", "ncp.bit10lflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11lflags,
-    { "Not Defined", "ncp.bit11lflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12lflags,
-    { "Not Defined", "ncp.bit12lflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13lflags,
-    { "Not Defined", "ncp.bit13lflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14lflags,
-    { "Not Defined", "ncp.bit14lflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15lflags,
-    { "Not Defined", "ncp.bit15lflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16lflags,
-    { "Not Defined", "ncp.bit16lflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1l1flagsl,
-    { "Output Flags", "ncp.bit1l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2l1flagsl,
-    { "Entry ID", "ncp.bit2l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3l1flagsl,
-    { "Replica State", "ncp.bit3l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4l1flagsl,
-    { "Modification Timestamp", "ncp.bit4l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5l1flagsl,
-    { "Purge Time", "ncp.bit5l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6l1flagsl,
-    { "Local Partition ID", "ncp.bit6l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7l1flagsl,
-    { "Distinguished Name", "ncp.bit7l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8l1flagsl,
-    { "Replica Type", "ncp.bit8l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9l1flagsl,
-    { "Partition Busy", "ncp.bit9l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10l1flagsl,
-    { "Not Defined", "ncp.bit10l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11l1flagsl,
-    { "Not Defined", "ncp.bit11l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12l1flagsl,
-    { "Not Defined", "ncp.bit12l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13l1flagsl,
-    { "Not Defined", "ncp.bit13l1flagsl", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14l1flagsl,
-    { "Not Defined", "ncp.bit14l1flagsl", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15l1flagsl,
-    { "Not Defined", "ncp.bit15l1flagsl", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16l1flagsl,
-    { "Not Defined", "ncp.bit16l1flagsl", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1l1flagsh,
-    { "Not Defined", "ncp.bit1l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2l1flagsh,
-    { "Not Defined", "ncp.bit2l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3l1flagsh,
-    { "Not Defined", "ncp.bit3l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4l1flagsh,
-    { "Not Defined", "ncp.bit4l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5l1flagsh,
-    { "Not Defined", "ncp.bit5l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6l1flagsh,
-    { "Not Defined", "ncp.bit6l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7l1flagsh,
-    { "Not Defined", "ncp.bit7l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8l1flagsh,
-    { "Not Defined", "ncp.bit8l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9l1flagsh,
-    { "Not Defined", "ncp.bit9l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10l1flagsh,
-    { "Not Defined", "ncp.bit10l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11l1flagsh,
-    { "Not Defined", "ncp.bit11l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12l1flagsh,
-    { "Not Defined", "ncp.bit12l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13l1flagsh,
-    { "Not Defined", "ncp.bit13l1flagsh", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14l1flagsh,
-    { "Not Defined", "ncp.bit14l1flagsh", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15l1flagsh,
-    { "Not Defined", "ncp.bit15l1flagsh", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16l1flagsh,
-    { "Not Defined", "ncp.bit16l1flagsh", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1vflags,
-    { "Naming", "ncp.bit1vflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2vflags,
-    { "Base Class", "ncp.bit2vflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3vflags,
-    { "Present", "ncp.bit3vflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4vflags,
-    { "Value Damaged", "ncp.bit4vflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5vflags,
-    { "Not Defined", "ncp.bit5vflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6vflags,
-    { "Not Defined", "ncp.bit6vflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7vflags,
-    { "Not Defined", "ncp.bit7vflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8vflags,
-    { "Not Defined", "ncp.bit8vflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9vflags,
-    { "Not Defined", "ncp.bit9vflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10vflags,
-    { "Not Defined", "ncp.bit10vflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11vflags,
-    { "Not Defined", "ncp.bit11vflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12vflags,
-    { "Not Defined", "ncp.bit12vflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13vflags,
-    { "Not Defined", "ncp.bit13vflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14vflags,
-    { "Not Defined", "ncp.bit14vflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15vflags,
-    { "Not Defined", "ncp.bit15vflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16vflags,
-    { "Not Defined", "ncp.bit16vflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1cflags,
-    { "Container", "ncp.bit1cflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2cflags,
-    { "Effective", "ncp.bit2cflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3cflags,
-    { "Class Definition Cannot be Removed", "ncp.bit3cflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4cflags,
-    { "Ambiguous Naming", "ncp.bit4cflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5cflags,
-    { "Ambiguous Containment", "ncp.bit5cflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6cflags,
-    { "Auxiliary", "ncp.bit6cflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7cflags,
-    { "Operational", "ncp.bit7cflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8cflags,
-    { "Sparse Required", "ncp.bit8cflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9cflags,
-    { "Sparse Operational", "ncp.bit9cflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10cflags,
-    { "Not Defined", "ncp.bit10cflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11cflags,
-    { "Not Defined", "ncp.bit11cflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12cflags,
-    { "Not Defined", "ncp.bit12cflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13cflags,
-    { "Not Defined", "ncp.bit13cflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14cflags,
-    { "Not Defined", "ncp.bit14cflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15cflags,
-    { "Not Defined", "ncp.bit15cflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16cflags,
-    { "Not Defined", "ncp.bit16cflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-    { &hf_bit1acflags,
-    { "Single Valued", "ncp.bit1acflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
-
-    { &hf_bit2acflags,
-    { "Sized", "ncp.bit2acflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
-
-    { &hf_bit3acflags,
-    { "Non-Removable", "ncp.bit3acflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
-
-    { &hf_bit4acflags,
-    { "Read Only", "ncp.bit4acflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
-
-    { &hf_bit5acflags,
-    { "Hidden", "ncp.bit5acflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
-
-    { &hf_bit6acflags,
-    { "String", "ncp.bit6acflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
-
-    { &hf_bit7acflags,
-    { "Synchronize Immediate", "ncp.bit7acflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
-
-    { &hf_bit8acflags,
-    { "Public Read", "ncp.bit8acflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
-
-    { &hf_bit9acflags,
-    { "Server Read", "ncp.bit9acflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
-
-    { &hf_bit10acflags,
-    { "Write Managed", "ncp.bit10acflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
-
-    { &hf_bit11acflags,
-    { "Per Replica", "ncp.bit11acflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
-
-    { &hf_bit12acflags,
-    { "Never Schedule Synchronization", "ncp.bit12acflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
-
-    { &hf_bit13acflags,
-    { "Operational", "ncp.bit13acflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
-
-    { &hf_bit14acflags,
-    { "Not Defined", "ncp.bit14acflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
-
-    { &hf_bit15acflags,
-    { "Not Defined", "ncp.bit15acflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
-
-    { &hf_bit16acflags,
-    { "Not Defined", "ncp.bit16acflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
-
-
-    { &hf_nds_reply_error,
-    { "NDS Error", "ncp.ndsreplyerror", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_net,
-    { "Network","ncp.ndsnet", FT_IPXNET, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_node,
-    { "Node",       "ncp.ndsnode", FT_ETHER, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_socket,
-    { "Socket",     "ncp.ndssocket", FT_UINT16, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_add_ref_ip,
-    { "Address Referral", "ncp.ipref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_add_ref_udp,
-    { "Address Referral", "ncp.udpref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_add_ref_tcp,
-    { "Address Referral", "ncp.tcpref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_referral_record,
-    { "Referral Record", "ncp.ref_rec", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_referral_addcount,
-    { "Address Count", "ncp.ref_addcount", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_port,
-    { "Port", "ncp.ndsport", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_mv_string,
-    { "Attribute Name", "ncp.mv_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_syntax,
-    { "Attribute Syntax", "ncp.nds_syntax", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_value_string,
-    { "Value", "ncp.value_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_stream_name,
-    { "Stream Name", "ncp.nds_stream_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_buffer_size,
-    { "NDS Reply Buffer Size", "ncp.nds_reply_buf", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_ver,
-    { "NDS Version", "ncp.nds_ver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_nflags,
-    { "Flags", "ncp.nds_nflags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_rflags,
-    { "Request Flags", "ncp.nds_rflags", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_eflags,
-    { "Entry Flags", "ncp.nds_eflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_scope,
-    { "Scope", "ncp.nds_scope", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_name,
-    { "Name", "ncp.nds_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_name_type,
-    { "Name Type", "ncp.nds_name_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_comm_trans,
-    { "Communications Transport", "ncp.nds_comm_trans", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_tree_trans,
-    { "Tree Walker Transport", "ncp.nds_tree_trans", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_iteration,
-    { "Iteration Handle", "ncp.nds_iteration", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_iterator,
-    { "Iterator", "ncp.nds_iterator", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_file_handle,
-    { "File Handle", "ncp.nds_file_handle", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_file_size,
-    { "File Size", "ncp.nds_file_size", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_eid,
-    { "NDS EID", "ncp.nds_eid", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_depth,
-    { "Distance object is from Root", "ncp.nds_depth", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_info_type,
-    { "Info Type", "ncp.nds_info_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_class_def_type,
-    { "Class Definition Type", "ncp.nds_class_def_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_all_attr,
-    { "All Attributes", "ncp.nds_all_attr", FT_UINT32, BASE_DEC, NULL, 0x0, "Return all Attributes?", HFILL }},
-
-    { &hf_nds_return_all_classes,
-    { "All Classes", "ncp.nds_return_all_classes", FT_STRING, BASE_NONE, NULL, 0x0, "Return all Classes?", HFILL }},
-
-    { &hf_nds_req_flags,
-    { "Request Flags", "ncp.nds_req_flags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_attr,
-    { "Attributes", "ncp.nds_attributes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_classes,
-    { "Classes", "ncp.nds_classes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_crc,
-    { "CRC", "ncp.nds_crc", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_referrals,
-    { "Referrals", "ncp.nds_referrals", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_result_flags,
-    { "Result Flags", "ncp.nds_result_flags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_stream_flags,
-    { "Streams Flags", "ncp.nds_stream_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_tag_string,
-    { "Tags", "ncp.nds_tags", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_value_bytes,
-    { "Bytes", "ncp.value_bytes", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_replica_type,
-    { "Replica Type", "ncp.rtype", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_replica_state,
-    { "Replica State", "ncp.rstate", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_rnum,
-    { "Replica Number", "ncp.rnum", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_revent,
-    { "Event", "ncp.revent", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_replica_number,
-    { "Replica Number", "ncp.rnum", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_min_nds_ver,
-    { "Minimum NDS Version", "ncp.min_nds_version", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_ver_include,
-    { "Include NDS Version", "ncp.inc_nds_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_ver_exclude,
-    { "Exclude NDS Version", "ncp.exc_nds_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_tree_name,
+	{ "Tree Name", "ncp.nds_tree_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+        /*
+	 * XXX - the page at
+	 *
+	 *	http://www.odyssea.com/whats_new/tcpipnet/tcpipnet.html
+	 *
+	 * says of the connection status "The Connection Code field may
+	 * contain values that indicate the status of the client host to
+	 * server connection.  A value of 1 in the fourth bit of this data
+	 * byte indicates that the server is unavailable (server was
+	 * downed).
+	 *
+	 * The page at
+	 *
+	 *	http://www.unm.edu/~network/presentations/course/appendix/appendix_f/tsld088.htm
+	 *
+	 * says that bit 0 is "bad service", bit 2 is "no connection
+	 * available", bit 4 is "service down", and bit 6 is "server
+	 * has a broadcast message waiting for the client".
+	 *
+	 * Should it be displayed in hex, and should those bits (and any
+	 * other bits with significance) be displayed as bitfields
+	 * underneath it?
+	 */
+	{ &hf_ncp_connection_status,
+	{ "Connection Status", "ncp.connection_status", FT_UINT8, BASE_DEC, VALS(connection_status_vals), 0x0, NULL, HFILL }},
+
+	{ &hf_ncp_req_frame_num,
+	{ "Response to Request in Frame Number", "ncp.req_frame_num", FT_FRAMENUM, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_ncp_req_frame_time,
+	{ "Time from Request", "ncp.time", FT_RELATIVE_TIME, BASE_NONE, NULL, 0x0, "Time between request and response in seconds", HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_es,
-    { "Input Entry Specifier", "ncp.nds_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_flags,
+	{ "NDS Return Flags", "ncp.nds_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_es_type,
-    { "Entry Specifier Type", "ncp.nds_es_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_reply_depth,
+	{ "Distance from Root", "ncp.ndsdepth", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_rdn_string,
-    { "RDN", "ncp.nds_rdn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_reply_rev,
+	{ "NDS Revision", "ncp.ndsrev", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_reply_flags,
+	{ "Flags", "ncp.ndsflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_p1type,
+	{ "NDS Parameter Type", "ncp.p1type", FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_uint32value,
+	{ "NDS Value", "ncp.uint32value", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_bit1,
+	{ "Typeless", "ncp.nds_bit1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_nds_bit2,
+	{ "All Containers", "ncp.nds_bit2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_nds_bit3,
+	{ "Slashed", "ncp.nds_bit3", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_nds_bit4,
+	{ "Dotted", "ncp.nds_bit4", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_nds_bit5,
+	{ "Tuned", "ncp.nds_bit5", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_nds_bit6,
+	{ "Not Defined", "ncp.nds_bit6", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_nds_bit7,
+	{ "Not Defined", "ncp.nds_bit7", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_nds_bit8,
+	{ "Not Defined", "ncp.nds_bit8", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_nds_bit9,
+	{ "Not Defined", "ncp.nds_bit9", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_nds_bit10,
+	{ "Not Defined", "ncp.nds_bit10", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_nds_bit11,
+	{ "Not Defined", "ncp.nds_bit11", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_nds_bit12,
+	{ "Not Defined", "ncp.nds_bit12", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_nds_bit13,
+	{ "Not Defined", "ncp.nds_bit13", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_nds_bit14,
+	{ "Not Defined", "ncp.nds_bit14", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_nds_bit15,
+	{ "Not Defined", "ncp.nds_bit15", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_nds_bit16,
+	{ "Not Defined", "ncp.nds_bit16", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1outflags,
+	{ "Output Flags", "ncp.bit1outflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2outflags,
+	{ "Entry ID", "ncp.bit2outflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3outflags,
+	{ "Replica State", "ncp.bit3outflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4outflags,
+	{ "Modification Timestamp", "ncp.bit4outflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5outflags,
+	{ "Purge Time", "ncp.bit5outflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6outflags,
+	{ "Local Partition ID", "ncp.bit6outflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7outflags,
+	{ "Distinguished Name", "ncp.bit7outflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8outflags,
+	{ "Replica Type", "ncp.bit8outflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9outflags,
+	{ "Partition Busy", "ncp.bit9outflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10outflags,
+	{ "Not Defined", "ncp.bit10outflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11outflags,
+	{ "Not Defined", "ncp.bit11outflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12outflags,
+	{ "Not Defined", "ncp.bit12outflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13outflags,
+	{ "Not Defined", "ncp.bit13outflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14outflags,
+	{ "Not Defined", "ncp.bit14outflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15outflags,
+	{ "Not Defined", "ncp.bit15outflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16outflags,
+	{ "Not Defined", "ncp.bit16outflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1nflags,
+	{ "Entry ID", "ncp.bit1nflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2nflags,
+	{ "Readable", "ncp.bit2nflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3nflags,
+	{ "Writeable", "ncp.bit3nflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4nflags,
+	{ "Master", "ncp.bit4nflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5nflags,
+	{ "Create ID", "ncp.bit5nflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6nflags,
+	{ "Walk Tree", "ncp.bit6nflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7nflags,
+	{ "Dereference Alias", "ncp.bit7nflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8nflags,
+	{ "Not Defined", "ncp.bit8nflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9nflags,
+	{ "Not Defined", "ncp.bit9nflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10nflags,
+	{ "Not Defined", "ncp.bit10nflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11nflags,
+	{ "Not Defined", "ncp.bit11nflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12nflags,
+	{ "Not Defined", "ncp.bit12nflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13nflags,
+	{ "Not Defined", "ncp.bit13nflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14nflags,
+	{ "Prefer Referrals", "ncp.bit14nflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15nflags,
+	{ "Prefer Only Referrals", "ncp.bit15nflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16nflags,
+	{ "Not Defined", "ncp.bit16nflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1rflags,
+	{ "Typeless", "ncp.bit1rflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2rflags,
+	{ "Slashed", "ncp.bit2rflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3rflags,
+	{ "Dotted", "ncp.bit3rflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4rflags,
+	{ "Tuned", "ncp.bit4rflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5rflags,
+	{ "Not Defined", "ncp.bit5rflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6rflags,
+	{ "Not Defined", "ncp.bit6rflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7rflags,
+	{ "Not Defined", "ncp.bit7rflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8rflags,
+	{ "Not Defined", "ncp.bit8rflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9rflags,
+	{ "Not Defined", "ncp.bit9rflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10rflags,
+	{ "Not Defined", "ncp.bit10rflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11rflags,
+	{ "Not Defined", "ncp.bit11rflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12rflags,
+	{ "Not Defined", "ncp.bit12rflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13rflags,
+	{ "Not Defined", "ncp.bit13rflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14rflags,
+	{ "Not Defined", "ncp.bit14rflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15rflags,
+	{ "Not Defined", "ncp.bit15rflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16rflags,
+	{ "Not Defined", "ncp.bit16rflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1eflags,
+	{ "Alias Entry", "ncp.bit1eflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2eflags,
+	{ "Partition Root", "ncp.bit2eflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3eflags,
+	{ "Container Entry", "ncp.bit3eflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4eflags,
+	{ "Container Alias", "ncp.bit4eflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5eflags,
+	{ "Matches List Filter", "ncp.bit5eflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6eflags,
+	{ "Reference Entry", "ncp.bit6eflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7eflags,
+	{ "40x Reference Entry", "ncp.bit7eflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8eflags,
+	{ "Back Linked", "ncp.bit8eflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9eflags,
+	{ "New Entry", "ncp.bit9eflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10eflags,
+	{ "Temporary Reference", "ncp.bit10eflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11eflags,
+	{ "Audited", "ncp.bit11eflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12eflags,
+	{ "Entry Not Present", "ncp.bit12eflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13eflags,
+	{ "Entry Verify CTS", "ncp.bit13eflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14eflags,
+	{ "Entry Damaged", "ncp.bit14eflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15eflags,
+	{ "Not Defined", "ncp.bit15rflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16eflags,
+	{ "Not Defined", "ncp.bit16rflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1infoflagsl,
+	{ "Output Flags", "ncp.bit1infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2infoflagsl,
+	{ "Entry ID", "ncp.bit2infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3infoflagsl,
+	{ "Entry Flags", "ncp.bit3infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4infoflagsl,
+	{ "Subordinate Count", "ncp.bit4infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5infoflagsl,
+	{ "Modification Time", "ncp.bit5infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6infoflagsl,
+	{ "Modification Timestamp", "ncp.bit6infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7infoflagsl,
+	{ "Creation Timestamp", "ncp.bit7infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8infoflagsl,
+	{ "Partition Root ID", "ncp.bit8infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9infoflagsl,
+	{ "Parent ID", "ncp.bit9infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10infoflagsl,
+	{ "Revision Count", "ncp.bit10infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11infoflagsl,
+	{ "Replica Type", "ncp.bit11infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12infoflagsl,
+	{ "Base Class", "ncp.bit12infoflagsl", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13infoflagsl,
+	{ "Relative Distinguished Name", "ncp.bit13infoflagsl", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14infoflagsl,
+	{ "Distinguished Name", "ncp.bit14infoflagsl", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15infoflagsl,
+	{ "Root Distinguished Name", "ncp.bit15infoflagsl", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16infoflagsl,
+	{ "Parent Distinguished Name", "ncp.bit16infoflagsl", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1infoflagsh,
+	{ "Purge Time", "ncp.bit1infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2infoflagsh,
+	{ "Dereference Base Class", "ncp.bit2infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3infoflagsh,
+	{ "Not Defined", "ncp.bit3infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4infoflagsh,
+	{ "Not Defined", "ncp.bit4infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5infoflagsh,
+	{ "Not Defined", "ncp.bit5infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6infoflagsh,
+	{ "Not Defined", "ncp.bit6infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7infoflagsh,
+	{ "Not Defined", "ncp.bit7infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8infoflagsh,
+	{ "Not Defined", "ncp.bit8infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9infoflagsh,
+	{ "Not Defined", "ncp.bit9infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10infoflagsh,
+	{ "Not Defined", "ncp.bit10infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11infoflagsh,
+	{ "Not Defined", "ncp.bit11infoflagsh", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12infoflagsh,
+	{ "Not Defined", "ncp.bit12infoflagshs", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13infoflagsh,
+	{ "Not Defined", "ncp.bit13infoflagsh", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14infoflagsh,
+	{ "Not Defined", "ncp.bit14infoflagsh", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15infoflagsh,
+	{ "Not Defined", "ncp.bit15infoflagsh", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16infoflagsh,
+	{ "Not Defined", "ncp.bit16infoflagsh", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1lflags,
+	{ "List Typeless", "ncp.bit1lflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2lflags,
+	{ "List Containers", "ncp.bit2lflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3lflags,
+	{ "List Slashed", "ncp.bit3lflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4lflags,
+	{ "List Dotted", "ncp.bit4lflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5lflags,
+	{ "Dereference Alias", "ncp.bit5lflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6lflags,
+	{ "List All Containers", "ncp.bit6lflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7lflags,
+	{ "List Obsolete", "ncp.bit7lflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8lflags,
+	{ "List Tuned Output", "ncp.bit8lflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9lflags,
+	{ "List External Reference", "ncp.bit9lflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10lflags,
+	{ "Not Defined", "ncp.bit10lflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11lflags,
+	{ "Not Defined", "ncp.bit11lflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12lflags,
+	{ "Not Defined", "ncp.bit12lflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13lflags,
+	{ "Not Defined", "ncp.bit13lflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14lflags,
+	{ "Not Defined", "ncp.bit14lflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15lflags,
+	{ "Not Defined", "ncp.bit15lflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16lflags,
+	{ "Not Defined", "ncp.bit16lflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1l1flagsl,
+	{ "Output Flags", "ncp.bit1l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2l1flagsl,
+	{ "Entry ID", "ncp.bit2l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3l1flagsl,
+	{ "Replica State", "ncp.bit3l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4l1flagsl,
+	{ "Modification Timestamp", "ncp.bit4l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5l1flagsl,
+	{ "Purge Time", "ncp.bit5l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6l1flagsl,
+	{ "Local Partition ID", "ncp.bit6l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7l1flagsl,
+	{ "Distinguished Name", "ncp.bit7l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8l1flagsl,
+	{ "Replica Type", "ncp.bit8l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9l1flagsl,
+	{ "Partition Busy", "ncp.bit9l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10l1flagsl,
+	{ "Not Defined", "ncp.bit10l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11l1flagsl,
+	{ "Not Defined", "ncp.bit11l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12l1flagsl,
+	{ "Not Defined", "ncp.bit12l1flagsl", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13l1flagsl,
+	{ "Not Defined", "ncp.bit13l1flagsl", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14l1flagsl,
+	{ "Not Defined", "ncp.bit14l1flagsl", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15l1flagsl,
+	{ "Not Defined", "ncp.bit15l1flagsl", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16l1flagsl,
+	{ "Not Defined", "ncp.bit16l1flagsl", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1l1flagsh,
+	{ "Not Defined", "ncp.bit1l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2l1flagsh,
+	{ "Not Defined", "ncp.bit2l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3l1flagsh,
+	{ "Not Defined", "ncp.bit3l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4l1flagsh,
+	{ "Not Defined", "ncp.bit4l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5l1flagsh,
+	{ "Not Defined", "ncp.bit5l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6l1flagsh,
+	{ "Not Defined", "ncp.bit6l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7l1flagsh,
+	{ "Not Defined", "ncp.bit7l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8l1flagsh,
+	{ "Not Defined", "ncp.bit8l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9l1flagsh,
+	{ "Not Defined", "ncp.bit9l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10l1flagsh,
+	{ "Not Defined", "ncp.bit10l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11l1flagsh,
+	{ "Not Defined", "ncp.bit11l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12l1flagsh,
+	{ "Not Defined", "ncp.bit12l1flagsh", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13l1flagsh,
+	{ "Not Defined", "ncp.bit13l1flagsh", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14l1flagsh,
+	{ "Not Defined", "ncp.bit14l1flagsh", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15l1flagsh,
+	{ "Not Defined", "ncp.bit15l1flagsh", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16l1flagsh,
+	{ "Not Defined", "ncp.bit16l1flagsh", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1vflags,
+	{ "Naming", "ncp.bit1vflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2vflags,
+	{ "Base Class", "ncp.bit2vflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3vflags,
+	{ "Present", "ncp.bit3vflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4vflags,
+	{ "Value Damaged", "ncp.bit4vflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5vflags,
+	{ "Not Defined", "ncp.bit5vflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6vflags,
+	{ "Not Defined", "ncp.bit6vflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7vflags,
+	{ "Not Defined", "ncp.bit7vflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8vflags,
+	{ "Not Defined", "ncp.bit8vflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9vflags,
+	{ "Not Defined", "ncp.bit9vflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10vflags,
+	{ "Not Defined", "ncp.bit10vflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11vflags,
+	{ "Not Defined", "ncp.bit11vflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12vflags,
+	{ "Not Defined", "ncp.bit12vflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13vflags,
+	{ "Not Defined", "ncp.bit13vflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14vflags,
+	{ "Not Defined", "ncp.bit14vflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15vflags,
+	{ "Not Defined", "ncp.bit15vflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16vflags,
+	{ "Not Defined", "ncp.bit16vflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1cflags,
+	{ "Container", "ncp.bit1cflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2cflags,
+	{ "Effective", "ncp.bit2cflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3cflags,
+	{ "Class Definition Cannot be Removed", "ncp.bit3cflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4cflags,
+	{ "Ambiguous Naming", "ncp.bit4cflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5cflags,
+	{ "Ambiguous Containment", "ncp.bit5cflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6cflags,
+	{ "Auxiliary", "ncp.bit6cflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7cflags,
+	{ "Operational", "ncp.bit7cflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8cflags,
+	{ "Sparse Required", "ncp.bit8cflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9cflags,
+	{ "Sparse Operational", "ncp.bit9cflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10cflags,
+	{ "Not Defined", "ncp.bit10cflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11cflags,
+	{ "Not Defined", "ncp.bit11cflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12cflags,
+	{ "Not Defined", "ncp.bit12cflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13cflags,
+	{ "Not Defined", "ncp.bit13cflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14cflags,
+	{ "Not Defined", "ncp.bit14cflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15cflags,
+	{ "Not Defined", "ncp.bit15cflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16cflags,
+	{ "Not Defined", "ncp.bit16cflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+	{ &hf_bit1acflags,
+	{ "Single Valued", "ncp.bit1acflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+
+	{ &hf_bit2acflags,
+	{ "Sized", "ncp.bit2acflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+
+	{ &hf_bit3acflags,
+	{ "Non-Removable", "ncp.bit3acflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+
+	{ &hf_bit4acflags,
+	{ "Read Only", "ncp.bit4acflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+
+	{ &hf_bit5acflags,
+	{ "Hidden", "ncp.bit5acflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+
+	{ &hf_bit6acflags,
+	{ "String", "ncp.bit6acflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+
+	{ &hf_bit7acflags,
+	{ "Synchronize Immediate", "ncp.bit7acflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+
+	{ &hf_bit8acflags,
+	{ "Public Read", "ncp.bit8acflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+
+	{ &hf_bit9acflags,
+	{ "Server Read", "ncp.bit9acflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+
+	{ &hf_bit10acflags,
+	{ "Write Managed", "ncp.bit10acflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+
+	{ &hf_bit11acflags,
+	{ "Per Replica", "ncp.bit11acflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+
+	{ &hf_bit12acflags,
+	{ "Never Schedule Synchronization", "ncp.bit12acflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+
+	{ &hf_bit13acflags,
+	{ "Operational", "ncp.bit13acflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+
+	{ &hf_bit14acflags,
+	{ "Not Defined", "ncp.bit14acflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+
+	{ &hf_bit15acflags,
+	{ "Not Defined", "ncp.bit15acflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+
+	{ &hf_bit16acflags,
+	{ "Not Defined", "ncp.bit16acflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+
+
+	{ &hf_nds_reply_error,
+	{ "NDS Error", "ncp.ndsreplyerror", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_net,
+	{ "Network","ncp.ndsnet", FT_IPXNET, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_node,
+	{ "Node",	"ncp.ndsnode", FT_ETHER, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_socket,
+	{ "Socket",	"ncp.ndssocket", FT_UINT16, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_add_ref_ip,
+	{ "Address Referral", "ncp.ipref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_add_ref_udp,
+	{ "Address Referral", "ncp.udpref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_add_ref_tcp,
+	{ "Address Referral", "ncp.tcpref", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_referral_record,
+	{ "Referral Record", "ncp.ref_rec", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_referral_addcount,
+	{ "Address Count", "ncp.ref_addcount", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_port,
+	{ "Port", "ncp.ndsport", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_mv_string,
+	{ "Attribute Name", "ncp.mv_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_syntax,
+	{ "Attribute Syntax", "ncp.nds_syntax", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_value_string,
+	{ "Value", "ncp.value_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_stream_name,
+	{ "Stream Name", "ncp.nds_stream_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_buffer_size,
+	{ "NDS Reply Buffer Size", "ncp.nds_reply_buf", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_ver,
+	{ "NDS Version", "ncp.nds_ver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_nflags,
+	{ "Flags", "ncp.nds_nflags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_rflags,
+	{ "Request Flags", "ncp.nds_rflags", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_eflags,
+	{ "Entry Flags", "ncp.nds_eflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_scope,
+	{ "Scope", "ncp.nds_scope", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_name,
+	{ "Name", "ncp.nds_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_name_type,
+	{ "Name Type", "ncp.nds_name_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_comm_trans,
+	{ "Communications Transport", "ncp.nds_comm_trans", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_tree_trans,
+	{ "Tree Walker Transport", "ncp.nds_tree_trans", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_iteration,
+	{ "Iteration Handle", "ncp.nds_iteration", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_iterator,
+	{ "Iterator", "ncp.nds_iterator", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_file_handle,
+	{ "File Handle", "ncp.nds_file_handle", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_file_size,
+	{ "File Size", "ncp.nds_file_size", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_eid,
+	{ "NDS EID", "ncp.nds_eid", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_depth,
+	{ "Distance object is from Root", "ncp.nds_depth", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_info_type,
+	{ "Info Type", "ncp.nds_info_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_class_def_type,
+	{ "Class Definition Type", "ncp.nds_class_def_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_all_attr,
+	{ "All Attributes", "ncp.nds_all_attr", FT_UINT32, BASE_DEC, NULL, 0x0, "Return all Attributes?", HFILL }},
+
+	{ &hf_nds_return_all_classes,
+	{ "All Classes", "ncp.nds_return_all_classes", FT_STRING, BASE_NONE, NULL, 0x0, "Return all Classes?", HFILL }},
+
+ 	{ &hf_nds_req_flags,
+	{ "Request Flags", "ncp.nds_req_flags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_attr,
+	{ "Attributes", "ncp.nds_attributes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_classes,
+	{ "Classes", "ncp.nds_classes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_crc,
+	{ "CRC", "ncp.nds_crc", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_referrals,
+	{ "Referrals", "ncp.nds_referrals", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_result_flags,
+	{ "Result Flags", "ncp.nds_result_flags", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_stream_flags,
+	{ "Streams Flags", "ncp.nds_stream_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_nds_tag_string,
+	{ "Tags", "ncp.nds_tags", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+ 	{ &hf_value_bytes,
+	{ "Bytes", "ncp.value_bytes", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_replica_type,
+	{ "Replica Type", "ncp.rtype", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_replica_state,
+	{ "Replica State", "ncp.rstate", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_rnum,
+	{ "Replica Number", "ncp.rnum", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_revent,
+	{ "Event", "ncp.revent", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_replica_number,
+	{ "Replica Number", "ncp.rnum", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_min_nds_ver,
+	{ "Minimum NDS Version", "ncp.min_nds_version", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_ver_include,
+	{ "Include NDS Version", "ncp.inc_nds_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_ver_exclude,
+	{ "Exclude NDS Version", "ncp.exc_nds_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_delim_string,
-    { "Delimiter", "ncp.nds_delim", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_es,
+	{ "Input Entry Specifier", "ncp.nds_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_nds_dn_output_type,
-    { "Output Entry Specifier Type", "ncp.nds_out_es_type", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+ 	{ &hf_es_type,
+	{ "Entry Specifier Type", "ncp.nds_es_type", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_nested_output_type,
-    { "Nested Output Entry Specifier Type", "ncp.nds_nested_out_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_output_delimiter,
-    { "Output Delimiter", "ncp.nds_out_delimiter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_output_entry_specifier,
-    { "Output Entry Specifier", "ncp.nds_out_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_es_value,
-    { "Entry Specifier Value", "ncp.nds_es_value", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_es_rdn_count,
-    { "RDN Count", "ncp.nds_es_rdn_count", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_replica_num,
-    { "Replica Number", "ncp.nds_replica_num", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_es_seconds,
-    { "Seconds", "ncp.nds_es_seconds", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_event_num,
-    { "Event Number", "ncp.nds_event_num", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_compare_results,
-    { "Compare Results", "ncp.nds_compare_results", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_parent,
-    { "Parent ID", "ncp.nds_parent", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_name_filter,
-    { "Name Filter", "ncp.nds_name_filter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_class_filter,
-    { "Class Filter", "ncp.nds_class_filter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_time_filter,
-    { "Time Filter", "ncp.nds_time_filter", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_partition_root_id,
-    { "Partition Root ID", "ncp.nds_partition_root_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_replicas,
-    { "Replicas", "ncp.nds_replicas", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_purge,
-    { "Purge Time", "ncp.nds_purge", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_local_partition,
-    { "Local Partition ID", "ncp.nds_local_partition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_partition_busy,
-    { "Partition Busy", "ncp.nds_partition_busy", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_number_of_changes,
-    { "Number of Attribute Changes", "ncp.nds_number_of_changes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_sub_count,
-    { "Subordinate Count", "ncp.sub_count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_revision,
-    { "Revision Count", "ncp.nds_rev_count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_base_class,
-    { "Base Class", "ncp.nds_base_class", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-    { &hf_nds_relative_dn,
-    { "Relative Distinguished Name", "ncp.nds_relative_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+ 	{ &hf_rdn_string,
+	{ "RDN", "ncp.nds_rdn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_root_dn,
-    { "Root Distinguished Name", "ncp.nds_root_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+ 	{ &hf_delim_string,
+	{ "Delimiter", "ncp.nds_delim", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+#endif
+
+	{ &hf_nds_dn_output_type,
+	{ "Output Entry Specifier Type", "ncp.nds_out_es_type", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_nested_output_type,
+	{ "Nested Output Entry Specifier Type", "ncp.nds_nested_out_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_output_delimiter,
+	{ "Output Delimiter", "ncp.nds_out_delimiter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_output_entry_specifier,
+	{ "Output Entry Specifier", "ncp.nds_out_es", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_es_value,
+	{ "Entry Specifier Value", "ncp.nds_es_value", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_es_rdn_count,
+	{ "RDN Count", "ncp.nds_es_rdn_count", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_replica_num,
+	{ "Replica Number", "ncp.nds_replica_num", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_es_seconds,
+	{ "Seconds", "ncp.nds_es_seconds", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_event_num,
+	{ "Event Number", "ncp.nds_event_num", FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_compare_results,
+	{ "Compare Results", "ncp.nds_compare_results", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_parent,
+	{ "Parent ID", "ncp.nds_parent", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_name_filter,
+	{ "Name Filter", "ncp.nds_name_filter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_class_filter,
+	{ "Class Filter", "ncp.nds_class_filter", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_time_filter,
+	{ "Time Filter", "ncp.nds_time_filter", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_partition_root_id,
+	{ "Partition Root ID", "ncp.nds_partition_root_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_replicas,
+	{ "Replicas", "ncp.nds_replicas", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_purge,
+	{ "Purge Time", "ncp.nds_purge", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_local_partition,
+	{ "Local Partition ID", "ncp.nds_local_partition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_partition_busy,
+	{ "Partition Busy", "ncp.nds_partition_busy", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_number_of_changes,
+	{ "Number of Attribute Changes", "ncp.nds_number_of_changes", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_sub_count,
+	{ "Subordinate Count", "ncp.sub_count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_revision,
+	{ "Revision Count", "ncp.nds_rev_count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_base_class,
+	{ "Base Class", "ncp.nds_base_class", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+	{ &hf_nds_relative_dn,
+	{ "Relative Distinguished Name", "ncp.nds_relative_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+
+#if 0 /* Unused ? */
+	{ &hf_nds_root_dn,
+	{ "Root Distinguished Name", "ncp.nds_root_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 #endif
 
 #if 0 /* Unused ? */
-    { &hf_nds_parent_dn,
-    { "Parent Distinguished Name", "ncp.nds_parent_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_parent_dn,
+	{ "Parent Distinguished Name", "ncp.nds_parent_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_deref_base,
-    { "Dereference Base Class", "ncp.nds_deref_base", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_deref_base,
+	{ "Dereference Base Class", "ncp.nds_deref_base", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_base,
-    { "Base Class", "ncp.nds_base", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_base,
+	{ "Base Class", "ncp.nds_base", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_super,
-    { "Super Class", "ncp.nds_super", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_super,
+	{ "Super Class", "ncp.nds_super", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_entry_info,
-    { "Entry Information", "ncp.nds_entry_info", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_entry_info,
+	{ "Entry Information", "ncp.nds_entry_info", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_nds_privileges,
-    { "Privileges", "ncp.nds_privileges", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_privileges,
+	{ "Privileges", "ncp.nds_privileges", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_compare_attributes,
-    { "Compare Attributes?", "ncp.nds_compare_attributes", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_nds_compare_attributes,
+	{ "Compare Attributes?", "ncp.nds_compare_attributes", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_nds_read_attribute,
-    { "Read Attribute?", "ncp.nds_read_attribute", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_nds_read_attribute,
+	{ "Read Attribute?", "ncp.nds_read_attribute", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_nds_write_add_delete_attribute,
-    { "Write, Add, Delete Attribute?", "ncp.nds_write_add_delete_attribute", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_nds_write_add_delete_attribute,
+	{ "Write, Add, Delete Attribute?", "ncp.nds_write_add_delete_attribute", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_nds_add_delete_self,
-    { "Add/Delete Self?", "ncp.nds_add_delete_self", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_nds_add_delete_self,
+	{ "Add/Delete Self?", "ncp.nds_add_delete_self", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_nds_privilege_not_defined,
-    { "Privilege Not defined", "ncp.nds_privilege_not_defined", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_nds_privilege_not_defined,
+	{ "Privilege Not defined", "ncp.nds_privilege_not_defined", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_nds_supervisor,
-    { "Supervisor?", "ncp.nds_supervisor", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_nds_supervisor,
+	{ "Supervisor?", "ncp.nds_supervisor", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_nds_inheritance_control,
-    { "Inheritance?", "ncp.nds_inheritance_control", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_nds_inheritance_control,
+	{ "Inheritance?", "ncp.nds_inheritance_control", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_nds_browse_entry,
-    { "Browse Entry?", "ncp.nds_browse_entry", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_nds_browse_entry,
+	{ "Browse Entry?", "ncp.nds_browse_entry", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_nds_add_entry,
-    { "Add Entry?", "ncp.nds_add_entry", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_nds_add_entry,
+	{ "Add Entry?", "ncp.nds_add_entry", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_nds_delete_entry,
-    { "Delete Entry?", "ncp.nds_delete_entry", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_nds_delete_entry,
+	{ "Delete Entry?", "ncp.nds_delete_entry", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_nds_rename_entry,
-    { "Rename Entry?", "ncp.nds_rename_entry", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_nds_rename_entry,
+	{ "Rename Entry?", "ncp.nds_rename_entry", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_nds_supervisor_entry,
-    { "Supervisor?", "ncp.nds_supervisor_entry", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_nds_supervisor_entry,
+	{ "Supervisor?", "ncp.nds_supervisor_entry", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_nds_entry_privilege_not_defined,
-    { "Privilege Not Defined", "ncp.nds_entry_privilege_not_defined", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_nds_entry_privilege_not_defined,
+	{ "Privilege Not Defined", "ncp.nds_entry_privilege_not_defined", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_nds_vflags,
-    { "Value Flags", "ncp.nds_vflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_vflags,
+	{ "Value Flags", "ncp.nds_vflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_value_len,
-    { "Value Length", "ncp.nds_vlength", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_value_len,
+	{ "Value Length", "ncp.nds_vlength", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_cflags,
-    { "Class Flags", "ncp.nds_cflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_cflags,
+	{ "Class Flags", "ncp.nds_cflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_asn1,
-    { "ASN.1 ID", "ncp.nds_asn1", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_asn1,
+	{ "ASN.1 ID", "ncp.nds_asn1", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_acflags,
-    { "Attribute Constraint Flags", "ncp.nds_acflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_acflags,
+	{ "Attribute Constraint Flags", "ncp.nds_acflags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_upper,
-    { "Upper Limit Value", "ncp.nds_upper", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_upper,
+	{ "Upper Limit Value", "ncp.nds_upper", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_lower,
-    { "Lower Limit Value", "ncp.nds_lower", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_lower,
+	{ "Lower Limit Value", "ncp.nds_lower", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_trustee_dn,
-    { "Trustee Distinguished Name", "ncp.nds_trustee_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_trustee_dn,
+	{ "Trustee Distinguished Name", "ncp.nds_trustee_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_attribute_dn,
-    { "Attribute Name", "ncp.nds_attribute_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_attribute_dn,
+	{ "Attribute Name", "ncp.nds_attribute_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_acl_add,
-    { "Access Control Lists to Add", "ncp.nds_acl_add", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_acl_add,
+	{ "Access Control Lists to Add", "ncp.nds_acl_add", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_acl_del,
-    { "Access Control Lists to Delete", "ncp.nds_acl_del", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_acl_del,
+	{ "Access Control Lists to Delete", "ncp.nds_acl_del", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_att_add,
-    { "Attribute to Add", "ncp.nds_att_add", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_att_add,
+	{ "Attribute to Add", "ncp.nds_att_add", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_att_del,
-    { "Attribute to Delete", "ncp.nds_att_del", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_att_del,
+	{ "Attribute to Delete", "ncp.nds_att_del", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_keep,
-    { "Delete Original RDN", "ncp.nds_keep", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_keep,
+	{ "Delete Original RDN", "ncp.nds_keep", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_new_rdn,
-    { "New Relative Distinguished Name", "ncp.nds_new_rdn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_new_rdn,
+	{ "New Relative Distinguished Name", "ncp.nds_new_rdn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_time_delay,
-    { "Time Delay", "ncp.nds_time_delay", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_time_delay,
+	{ "Time Delay", "ncp.nds_time_delay", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_root_name,
-    { "Root Most Object Name", "ncp.nds_root_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_root_name,
+	{ "Root Most Object Name", "ncp.nds_root_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_new_part_id,
-    { "New Partition Root ID", "ncp.nds_new_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_new_part_id,
+	{ "New Partition Root ID", "ncp.nds_new_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_child_part_id,
-    { "Child Partition Root ID", "ncp.nds_child_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_child_part_id,
+	{ "Child Partition Root ID", "ncp.nds_child_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_master_part_id,
-    { "Master Partition Root ID", "ncp.nds_master_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_master_part_id,
+	{ "Master Partition Root ID", "ncp.nds_master_part_id", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_target_name,
-    { "Target Server Name", "ncp.nds_target_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_target_name,
+	{ "Target Server Name", "ncp.nds_target_dn", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
 
-    { &hf_bit1pingflags1,
-    { "Supported Fields", "ncp.bit1pingflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_bit1pingflags1,
+	{ "Supported Fields", "ncp.bit1pingflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_bit2pingflags1,
-    { "Depth", "ncp.bit2pingflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_bit2pingflags1,
+	{ "Depth", "ncp.bit2pingflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_bit3pingflags1,
-    { "Build Number", "ncp.bit3pingflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_bit3pingflags1,
+	{ "Build Number", "ncp.bit3pingflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_bit4pingflags1,
-    { "Flags", "ncp.bit4pingflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_bit4pingflags1,
+	{ "Flags", "ncp.bit4pingflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_bit5pingflags1,
-    { "Verification Flags", "ncp.bit5pingflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_bit5pingflags1,
+	{ "Verification Flags", "ncp.bit5pingflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_bit6pingflags1,
-    { "Letter Version", "ncp.bit6pingflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_bit6pingflags1,
+	{ "Letter Version", "ncp.bit6pingflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_bit7pingflags1,
-    { "OS Version", "ncp.bit7pingflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_bit7pingflags1,
+	{ "OS Version", "ncp.bit7pingflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_bit8pingflags1,
-    { "Not Defined", "ncp.bit8pingflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_bit8pingflags1,
+	{ "Not Defined", "ncp.bit8pingflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_bit9pingflags1,
-    { "License Flags", "ncp.bit9pingflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_bit9pingflags1,
+	{ "License Flags", "ncp.bit9pingflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_bit10pingflags1,
-    { "DS Time", "ncp.bit10pingflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_bit10pingflags1,
+	{ "DS Time", "ncp.bit10pingflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_bit11pingflags1,
-    { "Server Time", "ncp.bit11pingflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_bit11pingflags1,
+	{ "Server Time", "ncp.bit11pingflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_bit12pingflags1,
-    { "Create Time", "ncp.bit12pingflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_bit12pingflags1,
+	{ "Create Time", "ncp.bit12pingflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_bit13pingflags1,
-    { "Not Defined", "ncp.bit13pingflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_bit13pingflags1,
+	{ "Not Defined", "ncp.bit13pingflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_bit14pingflags1,
-    { "Not Defined", "ncp.bit14pingflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_bit14pingflags1,
+	{ "Not Defined", "ncp.bit14pingflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_bit15pingflags1,
-    { "Not Defined", "ncp.bit15pingflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_bit15pingflags1,
+	{ "Not Defined", "ncp.bit15pingflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_bit16pingflags1,
-    { "Not Defined", "ncp.bit16pingflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_bit16pingflags1,
+	{ "Not Defined", "ncp.bit16pingflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_bit1pingflags2,
-    { "Sap Name", "ncp.bit1pingflags2", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_bit1pingflags2,
+	{ "Sap Name", "ncp.bit1pingflags2", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_bit2pingflags2,
-    { "Tree Name", "ncp.bit2pingflags2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_bit2pingflags2,
+	{ "Tree Name", "ncp.bit2pingflags2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_bit3pingflags2,
-    { "OS Name", "ncp.bit3pingflags2", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_bit3pingflags2,
+	{ "OS Name", "ncp.bit3pingflags2", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_bit4pingflags2,
-    { "Hardware Name", "ncp.bit4pingflags2", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_bit4pingflags2,
+	{ "Hardware Name", "ncp.bit4pingflags2", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_bit5pingflags2,
-    { "Vendor Name", "ncp.bit5pingflags2", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_bit5pingflags2,
+	{ "Vendor Name", "ncp.bit5pingflags2", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_bit6pingflags2,
-    { "Not Defined", "ncp.bit6pingflags2", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_bit6pingflags2,
+	{ "Not Defined", "ncp.bit6pingflags2", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_bit7pingflags2,
-    { "Not Defined", "ncp.bit7pingflags2", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_bit7pingflags2,
+	{ "Not Defined", "ncp.bit7pingflags2", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_bit8pingflags2,
-    { "Not Defined", "ncp.bit8pingflags2", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_bit8pingflags2,
+	{ "Not Defined", "ncp.bit8pingflags2", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_bit9pingflags2,
-    { "Not Defined", "ncp.bit9pingflags2", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_bit9pingflags2,
+	{ "Not Defined", "ncp.bit9pingflags2", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_bit10pingflags2,
-    { "Not Defined", "ncp.bit10pingflags2", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_bit10pingflags2,
+	{ "Not Defined", "ncp.bit10pingflags2", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_bit11pingflags2,
-    { "Not Defined", "ncp.bit11pingflags2", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_bit11pingflags2,
+	{ "Not Defined", "ncp.bit11pingflags2", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_bit12pingflags2,
-    { "Not Defined", "ncp.bit12pingflags2", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_bit12pingflags2,
+	{ "Not Defined", "ncp.bit12pingflags2", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_bit13pingflags2,
-    { "Not Defined", "ncp.bit13pingflags2", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_bit13pingflags2,
+	{ "Not Defined", "ncp.bit13pingflags2", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_bit14pingflags2,
-    { "Not Defined", "ncp.bit14pingflags2", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_bit14pingflags2,
+	{ "Not Defined", "ncp.bit14pingflags2", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_bit15pingflags2,
-    { "Not Defined", "ncp.bit15pingflags2", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_bit15pingflags2,
+	{ "Not Defined", "ncp.bit15pingflags2", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_bit16pingflags2,
-    { "Not Defined", "ncp.bit16pingflags2", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_bit16pingflags2,
+	{ "Not Defined", "ncp.bit16pingflags2", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_bit1pingpflags1,
-    { "Root Most Master Replica", "ncp.bit1pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_bit1pingpflags1,
+	{ "Root Most Master Replica", "ncp.bit1pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_bit2pingpflags1,
-    { "Is Time Synchronized?", "ncp.bit2pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_bit2pingpflags1,
+	{ "Is Time Synchronized?", "ncp.bit2pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_bit3pingpflags1,
-    { "Is Time Valid?", "ncp.bit3pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_bit3pingpflags1,
+	{ "Is Time Valid?", "ncp.bit3pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_bit4pingpflags1,
-    { "Is DS Time Synchronized?", "ncp.bit4pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_bit4pingpflags1,
+	{ "Is DS Time Synchronized?", "ncp.bit4pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_bit5pingpflags1,
-    { "Does Agent Have All Replicas?", "ncp.bit5pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_bit5pingpflags1,
+	{ "Does Agent Have All Replicas?", "ncp.bit5pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_bit6pingpflags1,
-    { "Not Defined", "ncp.bit6pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_bit6pingpflags1,
+	{ "Not Defined", "ncp.bit6pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_bit7pingpflags1,
-    { "Not Defined", "ncp.bit7pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_bit7pingpflags1,
+	{ "Not Defined", "ncp.bit7pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_bit8pingpflags1,
-    { "Not Defined", "ncp.bit8pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_bit8pingpflags1,
+	{ "Not Defined", "ncp.bit8pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_bit9pingpflags1,
-    { "Not Defined", "ncp.bit9pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_bit9pingpflags1,
+	{ "Not Defined", "ncp.bit9pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_bit10pingpflags1,
-    { "Not Defined", "ncp.bit10pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_bit10pingpflags1,
+	{ "Not Defined", "ncp.bit10pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_bit11pingpflags1,
-    { "Not Defined", "ncp.bit11pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_bit11pingpflags1,
+	{ "Not Defined", "ncp.bit11pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_bit12pingpflags1,
-    { "Not Defined", "ncp.bit12pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_bit12pingpflags1,
+	{ "Not Defined", "ncp.bit12pingpflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_bit13pingpflags1,
-    { "Not Defined", "ncp.bit13pingpflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_bit13pingpflags1,
+	{ "Not Defined", "ncp.bit13pingpflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_bit14pingpflags1,
-    { "Not Defined", "ncp.bit14pingpflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_bit14pingpflags1,
+	{ "Not Defined", "ncp.bit14pingpflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_bit15pingpflags1,
-    { "Not Defined", "ncp.bit15pingpflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_bit15pingpflags1,
+	{ "Not Defined", "ncp.bit15pingpflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_bit16pingpflags1,
-    { "Not Defined", "ncp.bit16pingpflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_bit16pingpflags1,
+	{ "Not Defined", "ncp.bit16pingpflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_bit1pingvflags1,
-    { "Checksum", "ncp.bit1pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_bit1pingvflags1,
+	{ "Checksum", "ncp.bit1pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_bit2pingvflags1,
-    { "CRC32", "ncp.bit2pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_bit2pingvflags1,
+	{ "CRC32", "ncp.bit2pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_bit3pingvflags1,
-    { "Not Defined", "ncp.bit3pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_bit3pingvflags1,
+	{ "Not Defined", "ncp.bit3pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_bit4pingvflags1,
-    { "Not Defined", "ncp.bit4pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_bit4pingvflags1,
+	{ "Not Defined", "ncp.bit4pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_bit5pingvflags1,
-    { "Not Defined", "ncp.bit5pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_bit5pingvflags1,
+	{ "Not Defined", "ncp.bit5pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_bit6pingvflags1,
-    { "Not Defined", "ncp.bit6pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_bit6pingvflags1,
+	{ "Not Defined", "ncp.bit6pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_bit7pingvflags1,
-    { "Not Defined", "ncp.bit7pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_bit7pingvflags1,
+	{ "Not Defined", "ncp.bit7pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_bit8pingvflags1,
-    { "Not Defined", "ncp.bit8pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_bit8pingvflags1,
+	{ "Not Defined", "ncp.bit8pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_bit9pingvflags1,
-    { "Not Defined", "ncp.bit9pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_bit9pingvflags1,
+	{ "Not Defined", "ncp.bit9pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_bit10pingvflags1,
-    { "Not Defined", "ncp.bit10pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_bit10pingvflags1,
+	{ "Not Defined", "ncp.bit10pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_bit11pingvflags1,
-    { "Not Defined", "ncp.bit11pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_bit11pingvflags1,
+	{ "Not Defined", "ncp.bit11pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_bit12pingvflags1,
-    { "Not Defined", "ncp.bit12pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_bit12pingvflags1,
+	{ "Not Defined", "ncp.bit12pingvflags1", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_bit13pingvflags1,
-    { "Not Defined", "ncp.bit13pingvflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_bit13pingvflags1,
+	{ "Not Defined", "ncp.bit13pingvflags1", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_bit14pingvflags1,
-    { "Not Defined", "ncp.bit14pingvflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_bit14pingvflags1,
+	{ "Not Defined", "ncp.bit14pingvflags1", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_bit15pingvflags1,
-    { "Not Defined", "ncp.bit15pingvflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_bit15pingvflags1,
+	{ "Not Defined", "ncp.bit15pingvflags1", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_bit16pingvflags1,
-    { "Not Defined", "ncp.bit16pingvflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_bit16pingvflags1,
+	{ "Not Defined", "ncp.bit16pingvflags1", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_nds_letter_ver,
-    { "Letter Version", "ncp.nds_letter_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_letter_ver,
+	{ "Letter Version", "ncp.nds_letter_ver", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_os_majver,
-    { "OS Major Version", "ncp.nds_os_majver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_os_majver,
+	{ "OS Major Version", "ncp.nds_os_majver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_os_minver,
-    { "OS Minor Version", "ncp.nds_os_minver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_os_minver,
+	{ "OS Minor Version", "ncp.nds_os_minver", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_lic_flags,
-    { "License Flags", "ncp.nds_lic_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_lic_flags,
+	{ "License Flags", "ncp.nds_lic_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_ds_time,
-    { "DS Time", "ncp.nds_ds_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_ds_time,
+	{ "DS Time", "ncp.nds_ds_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_svr_time,
-    { "Server Time", "ncp.nds_svr_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_svr_time,
+	{ "Server Time", "ncp.nds_svr_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_crt_time,
-    { "Agent Create Time", "ncp.nds_crt_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_crt_time,
+	{ "Agent Create Time", "ncp.nds_crt_time", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_ping_version,
-    { "Ping Version", "ncp.nds_ping_version", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_ping_version,
+	{ "Ping Version", "ncp.nds_ping_version", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_search_scope,
-    { "Search Scope", "ncp.nds_search_scope", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_search_scope,
+	{ "Search Scope", "ncp.nds_search_scope", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_num_objects,
-    { "Number of Objects to Search", "ncp.nds_num_objects", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_num_objects,
+	{ "Number of Objects to Search", "ncp.nds_num_objects", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
 
-    { &hf_bit1siflags,
-    { "Names", "ncp.bit1siflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_bit1siflags,
+	{ "Names", "ncp.bit1siflags", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_bit2siflags,
-    { "Names and Values", "ncp.bit2siflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_bit2siflags,
+	{ "Names and Values", "ncp.bit2siflags", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_bit3siflags,
-    { "Effective Privileges", "ncp.bit3siflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_bit3siflags,
+	{ "Effective Privileges", "ncp.bit3siflags", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_bit4siflags,
-    { "Value Info", "ncp.bit4siflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_bit4siflags,
+	{ "Value Info", "ncp.bit4siflags", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_bit5siflags,
-    { "Abbreviated Value", "ncp.bit5siflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_bit5siflags,
+	{ "Abbreviated Value", "ncp.bit5siflags", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_bit6siflags,
-    { "Not Defined", "ncp.bit6siflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_bit6siflags,
+	{ "Not Defined", "ncp.bit6siflags", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_bit7siflags,
-    { "Not Defined", "ncp.bit7siflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_bit7siflags,
+	{ "Not Defined", "ncp.bit7siflags", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_bit8siflags,
-    { "Not Defined", "ncp.bit8siflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_bit8siflags,
+	{ "Not Defined", "ncp.bit8siflags", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_bit9siflags,
-    { "Expanded Class", "ncp.bit9siflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_bit9siflags,
+	{ "Expanded Class", "ncp.bit9siflags", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_bit10siflags,
-    { "Not Defined", "ncp.bit10siflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_bit10siflags,
+	{ "Not Defined", "ncp.bit10siflags", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_bit11siflags,
-    { "Not Defined", "ncp.bit11siflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_bit11siflags,
+	{ "Not Defined", "ncp.bit11siflags", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_bit12siflags,
-    { "Not Defined", "ncp.bit12siflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_bit12siflags,
+	{ "Not Defined", "ncp.bit12siflags", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_bit13siflags,
-    { "Not Defined", "ncp.bit13siflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_bit13siflags,
+	{ "Not Defined", "ncp.bit13siflags", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_bit14siflags,
-    { "Not Defined", "ncp.bit14siflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_bit14siflags,
+	{ "Not Defined", "ncp.bit14siflags", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_bit15siflags,
-    { "Not Defined", "ncp.bit15siflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_bit15siflags,
+	{ "Not Defined", "ncp.bit15siflags", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_bit16siflags,
-    { "Not Defined", "ncp.bit16siflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_bit16siflags,
+	{ "Not Defined", "ncp.bit16siflags", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_nds_segment_overlap,
-    { "Segment overlap", "nds.segment.overlap", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Segment overlaps with other segments", HFILL }},
+	{ &hf_nds_segment_overlap,
+	{ "Segment overlap", "nds.segment.overlap", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Segment overlaps with other segments", HFILL }},
 
-    { &hf_nds_segment_overlap_conflict,
-    { "Conflicting data in segment overlap", "nds.segment.overlap.conflict", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Overlapping segments contained conflicting data", HFILL }},
+	{ &hf_nds_segment_overlap_conflict,
+	{ "Conflicting data in segment overlap", "nds.segment.overlap.conflict", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Overlapping segments contained conflicting data", HFILL }},
 
-    { &hf_nds_segment_multiple_tails,
-    { "Multiple tail segments found", "nds.segment.multipletails", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Several tails were found when desegmenting the packet", HFILL }},
+	{ &hf_nds_segment_multiple_tails,
+	{ "Multiple tail segments found", "nds.segment.multipletails", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Several tails were found when desegmenting the packet", HFILL }},
 
-    { &hf_nds_segment_too_long_segment,
-    { "Segment too long", "nds.segment.toolongsegment", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Segment contained data past end of packet", HFILL }},
+	{ &hf_nds_segment_too_long_segment,
+	{ "Segment too long", "nds.segment.toolongsegment", FT_BOOLEAN, BASE_NONE, NULL, 0x0, "Segment contained data past end of packet", HFILL }},
 
-    { &hf_nds_segment_error,
-    { "Desegmentation error", "nds.segment.error", FT_FRAMENUM, BASE_NONE, NULL, 0x0, "Desegmentation error due to illegal segments", HFILL }},
+	{ &hf_nds_segment_error,
+	{ "Desegmentation error", "nds.segment.error", FT_FRAMENUM, BASE_NONE, NULL, 0x0, "Desegmentation error due to illegal segments", HFILL }},
 
-    { &hf_nds_segment_count,
-    { "Segment count", "nds.segment.count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_segment_count,
+	{ "Segment count", "nds.segment.count", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_reassembled_length,
-    { "Reassembled NDS length", "nds.reassembled.length", FT_UINT32, BASE_DEC, NULL, 0x0, "The total length of the reassembled payload", HFILL }},
+	{ &hf_nds_reassembled_length,
+	{ "Reassembled NDS length", "nds.reassembled.length", FT_UINT32, BASE_DEC, NULL, 0x0, "The total length of the reassembled payload", HFILL }},
 
-    { &hf_nds_segment,
-    { "NDS Fragment", "nds.fragment", FT_FRAMENUM, BASE_NONE, NULL, 0x0, "NDPS Fragment", HFILL }},
+	{ &hf_nds_segment,
+	{ "NDS Fragment", "nds.fragment", FT_FRAMENUM, BASE_NONE, NULL, 0x0, "NDPS Fragment", HFILL }},
 
-    { &hf_nds_segments,
-    { "NDS Fragments", "nds.fragments", FT_NONE, BASE_NONE, NULL, 0x0, "NDPS Fragments", HFILL }},
+	{ &hf_nds_segments,
+	{ "NDS Fragments", "nds.fragments", FT_NONE, BASE_NONE, NULL, 0x0, "NDPS Fragments", HFILL }},
 
-    { &hf_nds_verb2b_req_flags,
-    { "Flags", "ncp.nds_verb2b_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_verb2b_req_flags,
+	{ "Flags", "ncp.nds_verb2b_flags", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_ip_address,
-    { "IP Address", "ncp.ip_addr", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_ip_address,
+	{ "IP Address", "ncp.ip_addr", FT_IPv4, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_copyright,
-    { "Copyright", "ncp.copyright", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ncp_copyright,
+	{ "Copyright", "ncp.copyright", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ndsprot1flag,
-    { "Not Defined", "ncp.nds_prot_bit1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
+	{ &hf_ndsprot1flag,
+	{ "Not Defined", "ncp.nds_prot_bit1", FT_BOOLEAN, 16, NULL, 0x00000001, NULL, HFILL }},
 
-    { &hf_ndsprot2flag,
-    { "Not Defined", "ncp.nds_prot_bit2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
+	{ &hf_ndsprot2flag,
+	{ "Not Defined", "ncp.nds_prot_bit2", FT_BOOLEAN, 16, NULL, 0x00000002, NULL, HFILL }},
 
-    { &hf_ndsprot3flag,
-    { "Not Defined", "ncp.nds_prot_bit3", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
+	{ &hf_ndsprot3flag,
+	{ "Not Defined", "ncp.nds_prot_bit3", FT_BOOLEAN, 16, NULL, 0x00000004, NULL, HFILL }},
 
-    { &hf_ndsprot4flag,
-    { "Not Defined", "ncp.nds_prot_bit4", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
+	{ &hf_ndsprot4flag,
+	{ "Not Defined", "ncp.nds_prot_bit4", FT_BOOLEAN, 16, NULL, 0x00000008, NULL, HFILL }},
 
-    { &hf_ndsprot5flag,
-    { "Not Defined", "ncp.nds_prot_bit5", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
+	{ &hf_ndsprot5flag,
+	{ "Not Defined", "ncp.nds_prot_bit5", FT_BOOLEAN, 16, NULL, 0x00000010, NULL, HFILL }},
 
-    { &hf_ndsprot6flag,
-    { "Not Defined", "ncp.nds_prot_bit6", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
+	{ &hf_ndsprot6flag,
+	{ "Not Defined", "ncp.nds_prot_bit6", FT_BOOLEAN, 16, NULL, 0x00000020, NULL, HFILL }},
 
-    { &hf_ndsprot7flag,
-    { "Not Defined", "ncp.nds_prot_bit7", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
+	{ &hf_ndsprot7flag,
+	{ "Not Defined", "ncp.nds_prot_bit7", FT_BOOLEAN, 16, NULL, 0x00000040, NULL, HFILL }},
 
-    { &hf_ndsprot8flag,
-    { "Not Defined", "ncp.nds_prot_bit8", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
+	{ &hf_ndsprot8flag,
+	{ "Not Defined", "ncp.nds_prot_bit8", FT_BOOLEAN, 16, NULL, 0x00000080, NULL, HFILL }},
 
-    { &hf_ndsprot9flag,
-    { "Not Defined", "ncp.nds_prot_bit9", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
+	{ &hf_ndsprot9flag,
+	{ "Not Defined", "ncp.nds_prot_bit9", FT_BOOLEAN, 16, NULL, 0x00000100, NULL, HFILL }},
 
-    { &hf_ndsprot10flag,
-    { "Not Defined", "ncp.nds_prot_bit10", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
+	{ &hf_ndsprot10flag,
+	{ "Not Defined", "ncp.nds_prot_bit10", FT_BOOLEAN, 16, NULL, 0x00000200, NULL, HFILL }},
 
-    { &hf_ndsprot11flag,
-    { "Not Defined", "ncp.nds_prot_bit11", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
+	{ &hf_ndsprot11flag,
+	{ "Not Defined", "ncp.nds_prot_bit11", FT_BOOLEAN, 16, NULL, 0x00000400, NULL, HFILL }},
 
-    { &hf_ndsprot12flag,
-    { "Not Defined", "ncp.nds_prot_bit12", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
+	{ &hf_ndsprot12flag,
+	{ "Not Defined", "ncp.nds_prot_bit12", FT_BOOLEAN, 16, NULL, 0x00000800, NULL, HFILL }},
 
-    { &hf_ndsprot13flag,
-    { "Not Defined", "ncp.nds_prot_bit13", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
+	{ &hf_ndsprot13flag,
+	{ "Not Defined", "ncp.nds_prot_bit13", FT_BOOLEAN, 16, NULL, 0x00001000, NULL, HFILL }},
 
-    { &hf_ndsprot14flag,
-    { "Not Defined", "ncp.nds_prot_bit14", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
+	{ &hf_ndsprot14flag,
+	{ "Not Defined", "ncp.nds_prot_bit14", FT_BOOLEAN, 16, NULL, 0x00002000, NULL, HFILL }},
 
-    { &hf_ndsprot15flag,
-    { "Include CRC in NDS Header", "ncp.nds_prot_bit15", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
+	{ &hf_ndsprot15flag,
+	{ "Include CRC in NDS Header", "ncp.nds_prot_bit15", FT_BOOLEAN, 16, NULL, 0x00004000, NULL, HFILL }},
 
-    { &hf_ndsprot16flag,
-    { "Client is a Server", "ncp.nds_prot_bit16", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
+	{ &hf_ndsprot16flag,
+	{ "Client is a Server", "ncp.nds_prot_bit16", FT_BOOLEAN, 16, NULL, 0x00008000, NULL, HFILL }},
 
-    { &hf_nds_svr_dst_name,
-    { "Server Distinguished Name", "ncp.nds_svr_dist_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_svr_dst_name,
+	{ "Server Distinguished Name", "ncp.nds_svr_dist_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_tune_mark,
-    { "Tune Mark",  "ncp.ndstunemark", FT_UINT16, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_tune_mark,
+	{ "Tune Mark",	"ncp.ndstunemark", FT_UINT16, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_create_time,
-    { "NDS Creation Time",  "ncp.ndscreatetime", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_create_time,
+	{ "NDS Creation Time",	"ncp.ndscreatetime", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_srvr_param_string,
-    { "Set Parameter Value", "ncp.srvr_param_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_srvr_param_string,
+	{ "Set Parameter Value", "ncp.srvr_param_string", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_srvr_param_number,
-    { "Set Parameter Value", "ncp.srvr_param_string", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_srvr_param_number,
+	{ "Set Parameter Value", "ncp.srvr_param_string", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_srvr_param_boolean,
-    { "Set Parameter Value", "ncp.srvr_param_boolean", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_srvr_param_boolean,
+	{ "Set Parameter Value", "ncp.srvr_param_boolean", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_number_of_items,
-    { "Number of Items", "ncp.ndsitems", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_number_of_items,
+	{ "Number of Items", "ncp.ndsitems", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_ncp_nds_iterverb,
-    { "NDS Iteration Verb", "ncp.ndsiterverb", FT_UINT32, BASE_HEX, NULL /*VALS(iterator_subverbs)*/, 0x0, NULL, HFILL }},
+	{ &hf_ncp_nds_iterverb,
+	{ "NDS Iteration Verb", "ncp.ndsiterverb", FT_UINT32, BASE_HEX, NULL /*VALS(iterator_subverbs)*/, 0x0, NULL, HFILL }},
 
-    { &hf_iter_completion_code,
-    { "Iteration Completion Code", "ncp.iter_completion_code", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+   	{ &hf_iter_completion_code,
+	{ "Iteration Completion Code", "ncp.iter_completion_code", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_nds_iterobj,
-    { "Iterator Object", "ncp.ndsiterobj", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_nds_iterobj,
+	{ "Iterator Object", "ncp.ndsiterobj", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_iter_verb_completion_code,
-    { "Completion Code", "ncp.iter_verb_completion_code", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+   	{ &hf_iter_verb_completion_code,
+	{ "Completion Code", "ncp.iter_verb_completion_code", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_ans,
-    { "Iterator Answer", "ncp.iter_answer", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_ans,
+	{ "Iterator Answer", "ncp.iter_answer", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_positionable,
-    { "Positionable", "ncp.iterpositionable", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
+	{ &hf_positionable,
+	{ "Positionable", "ncp.iterpositionable", FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_num_skipped,
-    { "Number Skipped", "ncp.iternumskipped", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_num_skipped,
+	{ "Number Skipped", "ncp.iternumskipped", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_num_to_skip,
-    { "Number to Skip", "ncp.iternumtoskip", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_num_to_skip,
+	{ "Number to Skip", "ncp.iternumtoskip", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_timelimit,
-    { "Time Limit", "ncp.itertimelimit", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_timelimit,
+	{ "Time Limit", "ncp.itertimelimit", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_index,
-    { "Iterator Index", "ncp.iterindex", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_index,
+	{ "Iterator Index", "ncp.iterindex", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_num_to_get,
-    { "Number to Get", "ncp.iternumtoget", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_num_to_get,
+	{ "Number to Get", "ncp.iternumtoget", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
 #if 0 /* Unused ? */
-    { &hf_ret_info_type,
-    { "Return Information Type", "ncp.iterretinfotype", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_ret_info_type,
+	{ "Return Information Type", "ncp.iterretinfotype", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 #endif
 
-    { &hf_data_size,
-    { "Data Size", "ncp.iterdatasize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_data_size,
+	{ "Data Size", "ncp.iterdatasize", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_this_count,
-    { "Number of Items", "ncp.itercount", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
+	{ &hf_this_count,
+	{ "Number of Items", "ncp.itercount", FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_max_entries,
-    { "Maximum Entries", "ncp.itermaxentries", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_max_entries,
+	{ "Maximum Entries", "ncp.itermaxentries", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_move_position,
-    { "Move Position", "ncp.itermoveposition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_move_position,
+	{ "Move Position", "ncp.itermoveposition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_copy,
-    { "Iterator Copy", "ncp.itercopy", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_copy,
+	{ "Iterator Copy", "ncp.itercopy", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_position,
-    { "Iteration Position", "ncp.iterposition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_position,
+	{ "Iteration Position", "ncp.iterposition", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_search,
-    { "Search Filter", "ncp.iter_search", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_search,
+	{ "Search Filter", "ncp.iter_search", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_iter_other,
-    { "Other Iteration", "ncp.iterother", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
+	{ &hf_iter_other,
+	{ "Other Iteration", "ncp.iterother", FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL }},
 
-    { &hf_nds_oid,
-    { "Object ID", "ncp.nds_oid", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
-
-
+	{ &hf_nds_oid,
+	{ "Object ID", "ncp.nds_oid", FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL }},
 
 
 
+
+ 
 	{ &hf_ncp_64_bit_flag,
 	{ "64 Bit Support", "ncp.64_bit_flag", FT_UINT8, BASE_HEX, VALS(ncp_64_bit_flag_vals), 0x0, NULL, HFILL }},
 
@@ -26693,12 +26710,12 @@ proto_register_ncp2222(void)
 	};
 
 
-    proto_register_field_array(proto_ncp, hf, array_length(hf));
+	proto_register_field_array(proto_ncp, hf, array_length(hf));
 
-proto_register_subtree_array(ett, array_length(ett));
+	proto_register_subtree_array(ett, array_length(ett));
 
-    register_init_routine(&ncp_init_protocol);
-    register_postseq_cleanup_routine(&ncp_postseq_cleanup);
+	register_init_routine(&ncp_init_protocol);
+	register_postseq_cleanup_routine(&ncp_postseq_cleanup);
 }
 
 #include "packet-ncp2222.inc"

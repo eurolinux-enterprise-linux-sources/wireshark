@@ -2,7 +2,7 @@
  * Routines for FC distributed Name Server (dNS)
  * Copyright 2001, Dinesh G Dutt <ddutt@andiamo.com>
  *
- * $Id$
+ * $Id: packet-fcdns.c 48426 2013-03-19 20:00:52Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

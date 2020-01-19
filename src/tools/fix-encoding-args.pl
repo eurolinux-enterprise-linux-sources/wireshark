@@ -19,7 +19,7 @@
 #   - ptvcursor_add_with_subtree   !! ToDo: encoding arg not last arg
 #
 #
-# $Id$
+# $Id: fix-encoding-args.pl 47533 2013-02-07 17:24:32Z wmeier $
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>

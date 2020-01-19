@@ -2,7 +2,7 @@
  *  packet-ieee80211-netmon.c
  *       Decode packets with a Network Monitor 802.11 radio header
  *
- * $Id$
+ * $Id: packet-ieee80211-netmon.c 47389 2013-01-31 17:55:31Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

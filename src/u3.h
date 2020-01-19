@@ -1,7 +1,7 @@
 /* u3.h
  * u3   2006 Graeme Lunt
  *
- * $Id$
+ * $Id: u3.h 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

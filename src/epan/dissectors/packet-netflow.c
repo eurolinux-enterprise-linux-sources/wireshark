@@ -1,7 +1,7 @@
 /*
  ** packet-netflow.c
  **
- ** $Id$
+ ** $Id: packet-netflow.c 51807 2013-09-07 00:30:29Z gerald $
  **
  ** (c) 2002 bill fumerola <fumerola@yahoo-inc.com>
  ** (C) 2005-06 Luca Deri <deri@ntop.org>
@@ -1499,7 +1499,7 @@ proto_tree_add_mpls_label(proto_tree *pdutree, tvbuff_t *tvb, int offset, int le
                                  "MPLS-Label%d: %u exp-bits: %u %s", level,
                                  ((b0<<12)+(b1<<4)+(b2>>4)),
                                  ((b2>>1)&0x7),
-                                 ((b2&0x1)?"bottom-of-stack":""));
+                                 ((b2&0x1)?"top-of-stack":""));
     } else {
         ti = proto_tree_add_text(pdutree, tvb, offset, length,
                                  "MPLS-Label%d: bad length %d", level, length);
@@ -5128,7 +5128,7 @@ dissect_v9_v10_pdu_data(tvbuff_t *tvb, packet_info *pinfo, proto_tree *pdutree, 
                                         offset_e[i], 4, &ts_end[i]);
                 } else {
                     proto_tree_add_time(pdutree, hf_cflow_abstimeend, tvb,
-                                        offset_e[i], 4, &ts_end[i]);
+                                        offset_s[i], 4, &ts_start[i]);
                 }
             }
         }

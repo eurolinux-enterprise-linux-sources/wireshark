@@ -3,7 +3,7 @@
  * Sensor Network Analyzer for 802.15.4 radios
  * Copyright 2009, Exegin Technologies Limited <fff@exegin.com>
  *
- * $Id$
+ * $Id: daintree-sna.c 46803 2012-12-27 12:19:25Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -53,6 +53,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "wtap.h"
 #include "wtap-int.h"
@@ -257,21 +258,21 @@ daintree_sna_hex_char(guchar *str, int *err _U_) {
 	bytes = 0;
 	/* convert hex string to guint8 */
 	while(*str) {
-		if (!g_ascii_isxdigit(*str)) return 0;
+		if (!isxdigit((guchar)*str)) return 0;
 		/* most significant nibble */
-		if(g_ascii_isdigit(*str)) {
+		if(isdigit((guchar)*str)) {
 			*p = (*str - '0') << 4;
 		} else {
-			*p = ((g_ascii_tolower(*str) - 'a') + 10) << 4;
+			*p = ((tolower(*str) - 'a') + 10) << 4;
 		}
 		str++;
 
-		if (!g_ascii_isxdigit(*str)) return 0;
+		if (!isxdigit((guchar)*str)) return 0;
 		/* least significant nibble */
-		if(g_ascii_isdigit((guchar)*str)) {
+		if(isdigit((guchar)*str)) {
 			*p += *str - '0';
 		} else {
-			*p += (g_ascii_tolower(*str) - 'a') + 10;
+			*p += (tolower(*str) - 'a') + 10;
 		}
 		str++;
 

@@ -9,7 +9,7 @@
  *   Short Message Service
  *			3GPP2 C.S0015-0		TIA/EIA-637-A
  *
- * $Id$
+ * $Id: packet-ansi_637.c 51426 2013-08-19 14:03:43Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -171,9 +171,9 @@ static const value_string ansi_trans_param_strings[] = {
  * from Table 2.7.1.3.2.4-4. Representation of DTMF Digits
  * 3GPP2 C.S0005-C (IS-2000 aka cdma2000)
  */
-static const unsigned char air_digits[] = {
-  /*  0   1   2   3   4   5   6   7   8   9   a   b   c   d   e   f */
-     '?','1','2','3','4','5','6','7','8','9','0','*','#','?','?','?'
+static unsigned char air_digits[] = {
+  /*  0   1   2   3   4   5   6   7   8   9   a   b   c   d   e */
+     '?','1','2','3','4','5','6','7','8','9','0','*','#','?','?'
 };
 
 /* Initialize the protocol and registered fields */
@@ -583,7 +583,7 @@ tele_param_user_data(tvbuff_t *tvb, proto_tree *tree, guint len, guint32 offset)
 	offset = 0;
 	bit = 0;
 	if (g_pinfo->private_data && (GPOINTER_TO_UINT(g_pinfo->private_data) == TRUE)) {
-		dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, ASCII_7BITS, &bit);
+		dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, TRUE, &bit);
 	}
 
 	saved_offset = offset;
@@ -645,7 +645,7 @@ tele_param_user_data(tvbuff_t *tvb, proto_tree *tree, guint len, guint32 offset)
         offset = 0;
         bit = 0;
         if (g_pinfo->private_data && (GPOINTER_TO_UINT(g_pinfo->private_data) == TRUE)) {
-            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, ASCII_7BITS, &bit);
+            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, TRUE, &bit);
         }
         saved_offset = offset;
         bit = bit ? bit : 8;
@@ -677,7 +677,7 @@ tele_param_user_data(tvbuff_t *tvb, proto_tree *tree, guint len, guint32 offset)
         offset = 0;
         required_octs = len - used;
         if (g_pinfo->private_data && (GPOINTER_TO_UINT(g_pinfo->private_data) == TRUE)) {
-            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, OTHER, &bit);
+            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, FALSE, &bit);
         }
 
         if ((cd = g_iconv_open("UTF-8","iso-8859-8")) != (GIConv)-1)
@@ -713,7 +713,7 @@ tele_param_user_data(tvbuff_t *tvb, proto_tree *tree, guint len, guint32 offset)
         offset = 0;
         required_octs = len - used;
         if (g_pinfo->private_data && (GPOINTER_TO_UINT(g_pinfo->private_data) == TRUE)) {
-            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, OTHER, &bit);
+            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, FALSE, &bit);
         }
 
         if ((cd = g_iconv_open("UTF-8","iso-8859-1")) != (GIConv)-1)
@@ -763,7 +763,7 @@ tele_param_user_data(tvbuff_t *tvb, proto_tree *tree, guint len, guint32 offset)
         offset = 0;
         bit = 0;
         if (g_pinfo->private_data && (GPOINTER_TO_UINT(g_pinfo->private_data) == TRUE)) {
-            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, GSM_7BITS, &bit);
+            dis_field_udh(tvb_out, tree, &offset, &required_octs, &num_fields, TRUE, &bit);
         }
 
         out_len = gsm_sms_char_7bit_unpack(bit, required_octs, num_fields, 

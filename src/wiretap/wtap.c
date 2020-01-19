@@ -1,6 +1,6 @@
 /* wtap.c
  *
- * $Id$
+ * $Id: wtap.c 48847 2013-04-14 16:00:34Z pascal $
  *
  * Wiretap Library
  * Copyright (c) 1998 by Gilbert Ramirez <gram@alumni.rice.edu>
@@ -705,7 +705,6 @@ static const char *wtap_errlist[] = {
 	"Uncompression error: bad LZ77 offset",
 	"The standard input cannot be opened for random access",
 	"That file format doesn't support compression",
-	NULL,
 	NULL,
 	"Uncompression error",
 	"Internal error"

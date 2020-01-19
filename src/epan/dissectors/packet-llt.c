@@ -2,7 +2,7 @@
  * Routines for Veritas Low Latency Transport (LLT) dissection
  * Copyright 2006, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: packet-llt.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

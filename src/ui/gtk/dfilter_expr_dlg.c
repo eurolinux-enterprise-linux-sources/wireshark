@@ -7,7 +7,7 @@
  * Copyright 2000, Jeffrey C. Foster <jfoste@woodward.com> and
  * Guy Harris <guy@alum.mit.edu>
  *
- * $Id$
+ * $Id: dfilter_expr_dlg.c 48212 2013-03-09 10:09:58Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -40,6 +40,7 @@
  */
 
 #include "config.h"
+#include <ctype.h>
 #include <string.h>
 
 #include <gtk/gtk.h>
@@ -778,7 +779,7 @@ dfilter_expr_dlg_accept_cb(GtkWidget *w, gpointer filter_te_arg)
      */
     pos = gtk_editable_get_position(GTK_EDITABLE(filter_te));
     chars = gtk_editable_get_chars(GTK_EDITABLE(filter_te), pos, pos + 1);
-    if (strcmp(chars, "") != 0 && !g_ascii_isspace(chars[0]))
+    if (strcmp(chars, "") != 0 && !isspace((unsigned char)chars[0]))
         gtk_editable_insert_text(GTK_EDITABLE(filter_te), " ", 1, &pos);
     g_free(chars);
 
@@ -841,7 +842,7 @@ dfilter_expr_dlg_accept_cb(GtkWidget *w, gpointer filter_te_arg)
         g_free(value_str);
     }
     chars = gtk_editable_get_chars(GTK_EDITABLE(filter_te), pos + 1, pos + 2);
-    if (strcmp(chars, "") != 0 && !g_ascii_isspace(chars[0]))
+    if (strcmp(chars, "") != 0 && !isspace((unsigned char)chars[0]))
         gtk_editable_insert_text(GTK_EDITABLE(filter_te), " ", 1, &pos);
     g_free(chars);
 

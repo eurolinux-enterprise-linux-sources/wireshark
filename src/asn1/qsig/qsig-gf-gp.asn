@@ -5,7 +5,7 @@
 --
 -- B.3 PSS1InformationElement
 --
--- $Id$
+-- $Id: qsig-gf-gp.asn 22361 2007-07-20 09:54:47Z kukosa $
 --
 
 PSS1-generic-parameters-definition-asn1-97 { iso( 1) standard( 0) 

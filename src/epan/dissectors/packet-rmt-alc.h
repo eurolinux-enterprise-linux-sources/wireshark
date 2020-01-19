@@ -3,7 +3,7 @@
  * ALC Protocol Instantiation function definitions
  * Copyright 2005, Stefano Pettini <spettini@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-rmt-alc.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

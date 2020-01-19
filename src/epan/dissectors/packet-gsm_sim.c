@@ -5,7 +5,7 @@
  * 	3GPP TS 31.102
  * Copyright 2010-2011 by Harald Welte <laforge@gnumonks.org>
  *
- * $Id$
+ * $Id: packet-gsm_sim.c 48611 2013-03-28 14:04:23Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,7 +1,7 @@
 /* packet-ethercat-frame.c
  * Routines for ethercat packet disassembly
  *
- * $Id$
+ * $Id: packet-ethercat-frame.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Copyright (c) 2007 by Beckhoff Automation GmbH
  *

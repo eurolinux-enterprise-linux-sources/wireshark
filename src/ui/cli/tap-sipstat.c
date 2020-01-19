@@ -1,7 +1,7 @@
 /* tap_sipstat.c
  * sip message counter for wireshark
  *
- * $Id$
+ * $Id: tap-sipstat.c 50800 2013-07-22 21:52:07Z gerald $
  * Copied from ui/gtk/sip_stat.c and tap-httpstat.c
  *
  * Wireshark - Network traffic analyzer

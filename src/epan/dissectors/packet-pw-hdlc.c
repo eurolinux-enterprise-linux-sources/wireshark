@@ -2,7 +2,7 @@
  * Routines for HDLC PW dissection as per RFC4618.
  * Copyright 2009, Dmitry Trebich, Artem Tamazov <artem.tamazov@tellabs.com>
  *
- * $Id$
+ * $Id: packet-pw-hdlc.c 47390 2013-01-31 18:31:28Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

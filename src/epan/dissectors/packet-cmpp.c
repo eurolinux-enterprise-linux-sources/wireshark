@@ -2,7 +2,7 @@
  * Routines for China Mobile Point to Point dissection
  * Copyright 2007, Andy Chu <chu.dev@gmail.com>
  *
- * $Id$
+ * $Id: packet-cmpp.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

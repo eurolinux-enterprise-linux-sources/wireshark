@@ -3,7 +3,7 @@
  * NORM Protocol Instantiation function definitions
  * Copyright 2005, Stefano Pettini <spettini@users.sourceforge.net>
  *
- * $Id$
+ * $Id: packet-rmt-norm.h 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

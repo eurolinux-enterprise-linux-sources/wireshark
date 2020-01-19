@@ -2,7 +2,7 @@
  * Routines for DVB Application Information Table (AIT) dissection
  * Copyright 2012-2013, Martin Kaiser <martin@kaiser.cx>
  *
- * $Id$
+ * $Id: packet-dvb-ait.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

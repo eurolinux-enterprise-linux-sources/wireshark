@@ -13,7 +13,7 @@
  *                  - support for MPLS-TP BFD Proactive CV Message Format as per RFC 6428
  *                  - includes decoding support for Section MEP-ID, LSP MEP-ID, PW MEP-ID
  *
- * $Id$
+ * $Id: packet-bfd.c 48293 2013-03-14 07:37:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * Declarations of routines to register "-z" command-line argument handlers
  * for stats
  *
- * $Id$
+ * $Id: stat_cmd_args.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

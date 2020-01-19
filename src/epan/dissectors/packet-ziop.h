@@ -6,7 +6,7 @@
  * Based on GIOP Compression FTF Beta 1
  * OMG mars/2008-12-20
  *
- * $Id$
+ * $Id: packet-ziop.h 44860 2012-09-10 21:40:21Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

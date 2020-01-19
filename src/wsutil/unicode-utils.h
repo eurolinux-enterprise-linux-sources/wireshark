@@ -1,7 +1,7 @@
 /* unicode-utils.h
  * Unicode utility definitions
  *
- * $Id$
+ * $Id: unicode-utils.h 47938 2013-02-28 14:09:46Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

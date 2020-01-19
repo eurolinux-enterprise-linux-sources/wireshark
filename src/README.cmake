@@ -1,6 +1,6 @@
           Explain the cmake build system for wireshark
 
-   $Id$
+   $Id: README.cmake 47880 2013-02-25 18:12:28Z rbalint $
 
                            Notice 
 

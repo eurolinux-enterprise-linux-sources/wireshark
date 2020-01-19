@@ -2,7 +2,7 @@
 # T.38 conformation file
 # 2007  Tomas Kukosa
 
-# $Id$
+# $Id: t38.cnf 48491 2013-03-22 23:59:54Z guy $
 
 #.EXPORTS ONLY_VALS WS_DLL
 Type-of-msg/t30-indicator

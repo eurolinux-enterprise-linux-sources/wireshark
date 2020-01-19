@@ -7,7 +7,7 @@
  * ----------------
  * http://gearman.org/index.php?id=protocol
  *
- * $Id$
+ * $Id: packet-gearman.c 48732 2013-04-04 15:33:14Z cmaynard $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

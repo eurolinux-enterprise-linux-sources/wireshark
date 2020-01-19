@@ -2,7 +2,7 @@
  * Routines for GlusterFS Handshake dissection
  * Copyright 2012, Niels de Vos <ndevos@redhat.com>
  *
- * $Id$
+ * $Id: packet-glusterfs_hndsk.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 #
 # ws-manifest.pl - create a generic manifest file (including u3 information) from the wireshark.nsi
-# $Id$
+# $Id: ws-manifest.pl 49190 2013-05-06 23:31:24Z gerald $
 #
 
 # These are the known directories in the distribution and where they should live on a U3 device

@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: sv.asn 47016 2013-01-10 12:13:16Z etxrab $
 IEC61850 DEFINITIONS ::= BEGIN
 
 SampledValues ::= CHOICE {

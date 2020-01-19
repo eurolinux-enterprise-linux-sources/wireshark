@@ -2,7 +2,7 @@
  * Routines for Firebird/Interbase dissection
  * Copyright 2007, Moshe van der Sterre <moshevds@gmail.com>
  *
- * $Id$
+ * $Id: packet-gdsdb.c 47459 2013-02-03 22:29:48Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

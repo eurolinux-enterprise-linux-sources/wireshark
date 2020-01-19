@@ -1,7 +1,7 @@
 /* airpcap_dlg.h
  * Declarations of routines for the "Airpcap" dialog
  *
- * $Id$
+ * $Id: airpcap_dlg.h 43536 2012-06-28 22:56:06Z darkjames $
  *
  * Giorgio Tino <giorgio.tino@cacetech.com>
  * Copyright (c) CACE Technologies, LLC 2006

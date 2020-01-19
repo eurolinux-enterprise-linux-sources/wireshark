@@ -2,7 +2,7 @@
  * Routines for X.413 (P7) packet dissection
  * Graeme Lunt 2007
  *
- * $Id$
+ * $Id: packet-p7-template.c 45015 2012-09-20 01:29:52Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

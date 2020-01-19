@@ -1,7 +1,7 @@
 /* packet-pn.c
  * Common functions for other PROFINET protocols like IO, CBA, DCP, ...
  *
- * $Id$
+ * $Id: packet-pn.c 46529 2012-12-13 18:17:47Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

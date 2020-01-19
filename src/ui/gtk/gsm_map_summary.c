@@ -6,7 +6,7 @@
  *
  * Modified from summary_dlg.c
  *
- * $Id$
+ * $Id: gsm_map_summary.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -80,10 +80,6 @@ void gsm_map_stat_gtk_sum_cb(GtkAction *action _U_, gpointer user_data _U_)
   int		i;
   int		tot_invokes, tot_rr;
   double	tot_invokes_size, tot_rr_size;
-
-  if (cfile.state == FILE_CLOSED) {
-    return;
-  }
 
   /* initialize the tally */
   summary_fill_in(&cfile, &summary);

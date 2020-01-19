@@ -1,7 +1,7 @@
 /* scsi_stat.c
  * scsi_stat   2006 Ronnie Sahlberg
  *
- * $Id$
+ * $Id: scsi_stat.c 46426 2012-12-06 20:59:53Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

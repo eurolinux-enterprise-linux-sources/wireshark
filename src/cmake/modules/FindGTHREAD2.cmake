@@ -1,6 +1,6 @@
 # - Try to find GThread2 
 #
-# $Id$
+# $Id: FindGTHREAD2.cmake 37103 2011-05-12 21:13:00Z jmayer $
 #
 # Find GThread headers, libraries and the answer to all questions.
 #

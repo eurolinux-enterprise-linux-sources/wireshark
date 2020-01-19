@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: IN-operationcodes.asn 22459 2007-08-06 12:16:20Z etxrab $
 -- Module IN-operationcodes (Q.1248.1:07/2001)
 IN-operationcodes {itu-t recommendation q 1248 modules(1) in-operationcodes(3)
   version1(0)} DEFINITIONS ::=

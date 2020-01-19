@@ -990,7 +990,7 @@ char *Radiustext;
 	*
 	* RADIUS dictionary parser
 	*
-	* $Id$
+	* $Id: radius_dict.l 48450 2013-03-21 14:29:58Z wmeier $
 	*
 	* Wireshark - Network traffic analyzer
 	* By Gerald Combs <gerald@wireshark.org>

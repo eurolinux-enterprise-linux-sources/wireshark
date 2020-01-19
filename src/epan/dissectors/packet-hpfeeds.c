@@ -2,7 +2,7 @@
  * Routines for Honeypot Protocol Feeds packet disassembly
  * Copyright 2013, Sebastiano DI PAOLA - <sebastiano.dipaola@gmail.com>
  *
- * $Id$
+ * $Id: packet-hpfeeds.c 48832 2013-04-12 16:27:20Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

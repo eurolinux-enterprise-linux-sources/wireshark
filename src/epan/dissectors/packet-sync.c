@@ -2,7 +2,7 @@
  * Routines for MBMS synchronisation protocol dissection
  * Copyright 2012, David Wei <davidwei@lavabit.com>
  *
- * $Id$
+ * $Id: packet-sync.c 47751 2013-02-19 23:17:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

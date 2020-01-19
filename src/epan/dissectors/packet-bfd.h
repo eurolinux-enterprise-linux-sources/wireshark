@@ -1,6 +1,6 @@
 /* packet-bfd.h
  *
- * $Id$
+ * $Id: packet-bfd.h 46084 2012-11-19 20:13:57Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

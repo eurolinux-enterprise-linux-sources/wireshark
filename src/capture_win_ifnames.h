@@ -2,7 +2,7 @@
  * Routines supporting the use of Windows friendly interface names within Wireshark
  * Copyright 2011-2012, Mike Garratt <wireshark@evn.co.nz>
  *
- * $Id$
+ * $Id: capture_win_ifnames.h 48869 2013-04-16 00:00:09Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

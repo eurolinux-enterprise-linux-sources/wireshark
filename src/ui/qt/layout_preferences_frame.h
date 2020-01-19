@@ -1,6 +1,6 @@
 /* layout_preferences_frame.h
  *
- * $Id$
+ * $Id: layout_preferences_frame.h 47190 2013-01-21 05:29:14Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

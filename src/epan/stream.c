@@ -4,7 +4,7 @@
  * which are handled as streams, and don't have lengths
  * and IDs such as are required for reassemble.h
  *
- * $Id$
+ * $Id: stream.c 48491 2013-03-22 23:59:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

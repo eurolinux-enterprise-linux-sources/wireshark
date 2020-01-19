@@ -2,7 +2,7 @@
  * Routines for the common part of Diffserv MPLS signaling protocols
  * Author: Endoh Akira (endoh@netmarks.co.jp)
  *
- * $Id$
+ * $Id: packet-diffserv-mpls-common.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

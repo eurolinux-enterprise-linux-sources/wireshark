@@ -7,7 +7,7 @@
  * Torrey Atcitty <tatcitty[AT]harman.com> and Craig Gunther <craig.gunther[AT]harman.com>
  * Copyright 2010
  *
- * $Id$
+ * $Id: packet-mrp-mmrp.c 45017 2012-09-20 02:03:38Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

@@ -1,7 +1,7 @@
 /* sip_stat.c
  * sip_stat   2004 Martin Mathieson
  *
- * $Id$
+ * $Id: sip_stat.c 48448 2013-03-21 02:58:59Z wmeier $
  * Copied from http_stat.c
  *
  * Wireshark - Network traffic analyzer

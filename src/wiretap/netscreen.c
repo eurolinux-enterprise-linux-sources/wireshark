@@ -1,6 +1,6 @@
 /* netscreen.c
  *
- * $Id$
+ * $Id: netscreen.c 46905 2013-01-02 22:56:24Z guy $
  *
  * Juniper NetScreen snoop output parser
  * Created by re-using a lot of code from cosine.c
@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /* XXX TODO:
  *
@@ -88,7 +89,7 @@ static gboolean info_line(const gchar *line)
 	int i=NETSCREEN_SPACES_ON_INFO_LINE;
 	
 	while (i-- > 0) {
-		if (g_ascii_isspace(*line)) {
+		if (isspace((guchar)*line)) {
 			line++;
 			continue;
 		} else {
@@ -373,7 +374,7 @@ parse_netscreen_hex_dump(FILE_T fh, int pkt_len, guint8* buf, int *err, gchar **
 		 * interfaces, there may be 14 extra spaces before
 		 * the hex data.
 		 */
-		for (p = &line[0]; g_ascii_isspace(*p); p++)
+		for (p = &line[0]; isspace((guchar)*p); p++)
 			;
 		/* packets are delimited with empty lines */
 		if (*p == '\0') {

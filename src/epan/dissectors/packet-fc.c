@@ -4,7 +4,7 @@
  *   Copyright 2003  Ronnie Sahlberg, exchange first/last matching and
  *                                    tap listener and misc updates
  *
- * $Id$
+ * $Id: packet-fc.c 49216 2013-05-09 14:58:20Z martink $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

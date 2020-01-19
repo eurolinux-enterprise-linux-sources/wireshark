@@ -1,7 +1,7 @@
 /* packet-m3ap.c
  * Routines for M3 Application Protocol packet dissection
  *
- * $Id$
+ * $Id: packet-m3ap-template.c 48609 2013-03-28 07:34:13Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

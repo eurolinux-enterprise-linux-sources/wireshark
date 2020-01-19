@@ -3,7 +3,7 @@
  * By Owen Kirby <osk@exegin.com>
  * Copyright 2009 Owen Kirby
  *
- * $Id$
+ * $Id: packet-6lowpan.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -153,12 +153,11 @@
 #define LOWPAN_IPHC_ADDR_COMPRESSED     0x3
 
 /* IPHC multicast address modes. */
-#define LOWPAN_IPHC_MCAST_FULL          0x0
 #define LOWPAN_IPHC_MCAST_48BIT         0x1
 #define LOWPAN_IPHC_MCAST_32BIT         0x2
 #define LOWPAN_IPHC_MCAST_8BIT          0x3
 
-#define LOWPAN_IPHC_MCAST_STATEFUL_48BIT 0x0
+#define LOWPAN_IPHC_MCAST_STATEFUL_48BIT 0x1
 
 /* IPHC Traffic class and flow label field sizes (in bits) */
 #define LOWPAN_IPHC_ECN_BITS            2
@@ -356,28 +355,10 @@ static const value_string lowpan_iphc_addr_modes [] = {
     { LOWPAN_IPHC_ADDR_COMPRESSED,  "Compressed" },
     { 0, NULL }
 };
-static const value_string lowpan_iphc_saddr_stateful_modes [] = {
-    { LOWPAN_IPHC_ADDR_FULL_INLINE, "Unspecified address (::)" },
-    { LOWPAN_IPHC_ADDR_64BIT_INLINE,"64-bits inline" },
-    { LOWPAN_IPHC_ADDR_16BIT_INLINE,"16-bits inline" },
-    { LOWPAN_IPHC_ADDR_COMPRESSED,  "Compressed" },
-    { 0, NULL }
-};
-static const value_string lowpan_iphc_daddr_stateful_modes [] = {
-    { LOWPAN_IPHC_ADDR_64BIT_INLINE,"64-bits inline" },
-    { LOWPAN_IPHC_ADDR_16BIT_INLINE,"16-bits inline" },
-    { LOWPAN_IPHC_ADDR_COMPRESSED,  "Compressed" },
-    { 0, NULL }
-};
 static const value_string lowpan_iphc_mcast_modes [] = {
-    { LOWPAN_IPHC_MCAST_FULL,       "Inline" },
     { LOWPAN_IPHC_MCAST_48BIT,      "48-bits inline" },
     { LOWPAN_IPHC_MCAST_32BIT,      "32-bits inline" },
     { LOWPAN_IPHC_MCAST_8BIT,       "8-bits inline" },
-    { 0, NULL }
-};
-static const value_string lowpan_iphc_mcast_stateful_modes [] = {
-    { LOWPAN_IPHC_MCAST_STATEFUL_48BIT, "48-bits inline" },
     { 0, NULL }
 };
 static const value_string lowpan_nhc_patterns [] = {
@@ -488,13 +469,13 @@ static void         proto_init_6lowpan          (void);
 static void         prefs_6lowpan_apply         (void);
 static void         dissect_6lowpan             (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
 static tvbuff_t *   dissect_6lowpan_ipv6        (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
-static tvbuff_t *   dissect_6lowpan_hc1         (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, const guint8 *siid, const guint8 *diid);
+static tvbuff_t *   dissect_6lowpan_hc1         (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, guint8 *siid, guint8 *diid);
 static tvbuff_t *   dissect_6lowpan_bc0         (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
-static tvbuff_t *   dissect_6lowpan_iphc        (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, const guint8 *siid, const guint8 *diid);
+static tvbuff_t *   dissect_6lowpan_iphc        (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, guint8 *siid, guint8 *diid);
 static struct lowpan_nhdr *
-                    dissect_6lowpan_iphc_nhc    (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint offset, gint dgram_size, const guint8 *siid, const guint8 *diid);
-static tvbuff_t *   dissect_6lowpan_mesh        (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8 *siid, guint8 *diid);
-static tvbuff_t *   dissect_6lowpan_frag_first  (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, const guint8 *siid, const guint8 *diid);
+                    dissect_6lowpan_iphc_nhc    (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint offset, gint dgram_size, guint8 *siid, guint8 *diid);
+static tvbuff_t *   dissect_6lowpan_mesh        (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
+static tvbuff_t *   dissect_6lowpan_frag_first  (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8 *siid, guint8 *diid);
 static tvbuff_t *   dissect_6lowpan_frag_middle (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
 static void         dissect_6lowpan_unknown     (tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
 
@@ -808,7 +789,7 @@ lowpan_reassemble_ipv6(tvbuff_t *tvb, struct ip6_hdr *ipv6, struct lowpan_nhdr *
         cursor += nhdr->length;
     };
 
-    /* Return the reassembled packet. */
+    /* Return the reassembed packet. */
     ret = tvb_new_child_real_data(tvb, buffer, length + (int)sizeof(struct ip6_hdr), reported + (int)sizeof(struct ip6_hdr));
     tvb_set_free_cb(ret, g_free);
     return ret;
@@ -939,7 +920,7 @@ dissect_6lowpan(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
     /* Mesh and Broadcast headers always come first in a 6LoWPAN frame. */
     if (tvb_get_bits8(next, 0, LOWPAN_PATTERN_MESH_BITS) == LOWPAN_PATTERN_MESH) {
-        next = dissect_6lowpan_mesh(next, pinfo, lowpan_tree, src_iid, dst_iid);
+        next = dissect_6lowpan_mesh(next, pinfo, lowpan_tree);
         if (!next) return;
     }
     if (tvb_get_bits8(next, 0, LOWPAN_PATTERN_BC0_BITS) == LOWPAN_PATTERN_BC0) {
@@ -1025,7 +1006,7 @@ dissect_6lowpan_ipv6(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *tree)
  *---------------------------------------------------------------
  */
 static tvbuff_t *
-dissect_6lowpan_hc1(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, const guint8 *siid, const guint8 *diid)
+dissect_6lowpan_hc1(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, guint8 *siid, guint8 *diid)
 {
     gint                offset = 0;
     gint                bit_offset;
@@ -1360,7 +1341,7 @@ dissect_6lowpan_hc1(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dg
  *---------------------------------------------------------------
  */
 static tvbuff_t *
-dissect_6lowpan_iphc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, const guint8 *siid, const guint8 *diid)
+dissect_6lowpan_iphc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint dgram_size, guint8 *siid, guint8 *diid)
 {
     ieee802154_hints_t  *hints;
     guint16             hint_panid;
@@ -1412,33 +1393,19 @@ dissect_6lowpan_iphc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint d
     iphc_src_mode   = (iphc_flags & LOWPAN_IPHC_FLAG_SRC_MODE) >> LOWPAN_IPHC_FLAG_OFFSET_SRC_MODE;
     iphc_dst_mode   = (iphc_flags & LOWPAN_IPHC_FLAG_DST_MODE) >> LOWPAN_IPHC_FLAG_OFFSET_DST_MODE;
     if (tree) {
-        const value_string *am_vs;
+        const value_string *dam_vs;
         proto_tree_add_uint         (iphc_tree, hf_6lowpan_iphc_flag_tf,    tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_FLOW);
         proto_tree_add_boolean      (iphc_tree, hf_6lowpan_iphc_flag_nhdr,  tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_NHDR);
         proto_tree_add_uint         (iphc_tree, hf_6lowpan_iphc_flag_hlim,  tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_HLIM);
         proto_tree_add_boolean      (iphc_tree, hf_6lowpan_iphc_flag_cid,   tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_CONTEXT_ID);
         proto_tree_add_boolean      (iphc_tree, hf_6lowpan_iphc_flag_sac,   tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_SRC_COMP);
-        am_vs = iphc_flags & LOWPAN_IPHC_FLAG_SRC_COMP ? lowpan_iphc_saddr_stateful_modes : lowpan_iphc_addr_modes;
-        proto_tree_add_uint_format_value(iphc_tree, hf_6lowpan_iphc_flag_sam, tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_SRC_MODE,
-                                         "%s (0x%04x)", val_to_str_const(iphc_src_mode, am_vs, "Reserved"), iphc_src_mode);
+        proto_tree_add_uint(iphc_tree, hf_6lowpan_iphc_flag_sam,   tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_SRC_MODE);
         proto_tree_add_boolean      (iphc_tree, hf_6lowpan_iphc_flag_mcast, tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_MCAST_COMP);
         proto_tree_add_boolean      (iphc_tree, hf_6lowpan_iphc_flag_dac,   tvb, offset, (int)sizeof(guint16), iphc_flags & LOWPAN_IPHC_FLAG_DST_COMP);
         /* Destination address mode changes meanings depending on multicast compression. */
-        if (iphc_flags & LOWPAN_IPHC_FLAG_MCAST_COMP) {
-            if (iphc_flags & LOWPAN_IPHC_FLAG_DST_COMP) {
-                am_vs = lowpan_iphc_mcast_stateful_modes;
-            } else {
-                am_vs = lowpan_iphc_mcast_modes;
-            }
-        } else {
-            if (iphc_flags & LOWPAN_IPHC_FLAG_DST_COMP) {
-                am_vs = lowpan_iphc_daddr_stateful_modes;
-            } else {
-                am_vs = lowpan_iphc_addr_modes;
-            }
-        }
+        dam_vs = (iphc_flags & LOWPAN_IPHC_FLAG_MCAST_COMP) ? (lowpan_iphc_mcast_modes) : (lowpan_iphc_addr_modes);
         ti_dam = proto_tree_add_uint_format_value(iphc_tree, hf_6lowpan_iphc_flag_dam, tvb, offset, (int)sizeof(guint16),
-            iphc_flags & LOWPAN_IPHC_FLAG_DST_MODE, "%s (0x%04x)", val_to_str_const(iphc_dst_mode, am_vs, "Reserved"), iphc_dst_mode);
+            iphc_flags & LOWPAN_IPHC_FLAG_DST_MODE, "%s (0x%04x)", val_to_str_const(iphc_dst_mode, dam_vs, "Reserved"), iphc_dst_mode);
     }
     offset += (int)sizeof(guint16);
 
@@ -1791,7 +1758,7 @@ dissect_6lowpan_iphc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint d
  *---------------------------------------------------------------
  */
 static struct lowpan_nhdr *
-dissect_6lowpan_iphc_nhc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint offset, gint dgram_size, const guint8 *siid, const guint8 *diid)
+dissect_6lowpan_iphc_nhc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, gint offset, gint dgram_size, guint8 *siid, guint8 *diid)
 {
     gint                length;
     proto_item *        ti = NULL;
@@ -2155,14 +2122,12 @@ dissect_6lowpan_bc0(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *tree)
  *      pinfo           ; packet info.
  *      tree            ; 6LoWPAN display tree.
  *      offset          ; offset to the start of the header.
- *      siid            ; Source Interface ID.
- *      diid            ; Destination Interface ID.
  *  RETURNS
  *      tvbuff_t *      ; The remaining payload to be parsed.
  *---------------------------------------------------------------
  */
 static tvbuff_t *
-dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8 *siid, guint8 *diid)
+dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 {
     gint                offset = 0;
     guint8              mesh_header;
@@ -2211,8 +2176,6 @@ dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8
             proto_tree_add_uint64(mesh_tree, hf_6lowpan_mesh_orig64, tvb, offset, (int)sizeof(guint64), addr64);
         }
         src_ifcid = tvb_get_ptr(tvb, offset, (int)sizeof(guint64));
-        memcpy(siid, src_ifcid, 8);
-        siid[0] ^= 0x02; /* swap U/L bit */
         offset += (int)sizeof(guint64);
     }
     else {
@@ -2224,7 +2187,6 @@ dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8
         ifcid = (guint8 *)wmem_alloc(pinfo->pool, sizeof(guint64));
         lowpan_addr16_to_ifcid(addr16, ifcid);
         src_ifcid = ifcid;
-        memcpy(siid, src_ifcid, 8);
         offset += (int)sizeof(guint16);
     }
     SET_ADDRESS(&pinfo->src,  AT_EUI64, sizeof(guint64), src_ifcid);
@@ -2237,8 +2199,6 @@ dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8
             proto_tree_add_uint64(mesh_tree, hf_6lowpan_mesh_dest64, tvb, offset, (int)sizeof(guint64), addr64);
         }
         dst_ifcid = tvb_get_ptr(tvb, offset, (int)sizeof(guint64));
-        memcpy(diid, dst_ifcid, 8);
-        diid[0] ^= 0x02; /* swap U/L bit */
         offset += (int)sizeof(guint64);
     }
     else  {
@@ -2250,7 +2210,6 @@ dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8
         ifcid = (guint8 *)wmem_alloc(pinfo->pool, (int)sizeof(guint64));
         lowpan_addr16_to_ifcid(addr16, ifcid);
         dst_ifcid = ifcid;
-        memcpy(diid, dst_ifcid, 8);
         offset += (int)sizeof(guint16);
     }
     SET_ADDRESS(&pinfo->dst,  AT_EUI64, sizeof(guint64), dst_ifcid);
@@ -2285,7 +2244,7 @@ dissect_6lowpan_mesh(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8
  *---------------------------------------------------------------
  */
 static tvbuff_t *
-dissect_6lowpan_frag_first(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, const guint8 *siid, const guint8 *diid)
+dissect_6lowpan_frag_first(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, guint8 *siid, guint8 *diid)
 {
     gint                offset = 0;
     gint                frag_size;

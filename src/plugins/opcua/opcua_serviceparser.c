@@ -1,5 +1,5 @@
 /******************************************************************************
-** $Id$
+** $Id: opcua_serviceparser.c 47673 2013-02-15 15:24:39Z eapache $
 **
 ** Copyright (C) 2006-2009 ascolab GmbH. All Rights Reserved.
 ** Web: http://www.ascolab.com
@@ -30,15 +30,6 @@
 #include "opcua_simpletypes.h"
 #include "opcua_hfindeces.h"
 
-gint ett_opcua_ServiceFault = -1;
-void parseServiceFault(proto_tree *tree, tvbuff_t *tvb, gint *pOffset)
-{
-  proto_item *ti = proto_tree_add_text(tree, tvb, *pOffset, -1, "ServiceFault");
-  proto_tree *subtree = proto_item_add_subtree(ti, ett_opcua_ServiceFault);
-
-  parseResponseHeader(subtree, tvb, pOffset, "ResponseHeader");
-  proto_item_set_end(ti, tvb, *pOffset);
-}
 gint ett_opcua_FindServersRequest = -1;
 void parseFindServersRequest(proto_tree *tree, tvbuff_t *tvb, gint *pOffset)
 {
@@ -1013,7 +1004,6 @@ void parseTestStackExResponse(proto_tree *tree, tvbuff_t *tvb, gint *pOffset)
 /** Setup protocol subtree array */
 static gint *ett[] =
 {
-  &ett_opcua_ServiceFault,
   &ett_opcua_FindServersRequest,
   &ett_opcua_FindServersResponse,
   &ett_opcua_GetEndpointsRequest,

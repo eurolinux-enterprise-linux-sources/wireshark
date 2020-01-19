@@ -1,7 +1,7 @@
 /* packet-ap1394.c
  * Routines for Apple IP-over-IEEE 1394 packet disassembly
  *
- * $Id$
+ * $Id: packet-ap1394.c 48274 2013-03-12 23:09:37Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -7,7 +7,7 @@
  * (c) 2008, Balint Reczey <balint.reczey@ericsson.com>
  * (c) 2011, Stig Bjorlykke <stig@bjorlykke.org>
  *
- * $Id$
+ * $Id: wslua_pinfo.c 48337 2013-03-16 08:12:29Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

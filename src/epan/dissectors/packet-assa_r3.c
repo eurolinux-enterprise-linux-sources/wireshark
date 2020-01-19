@@ -5,7 +5,7 @@
  * R3 is an electronic lock management protocol for configuring operational
  *  parameters, adding/removing/altering users, dumping log files, etc.
  *
- * $Id$
+ * $Id: packet-assa_r3.c 51231 2013-08-09 02:04:46Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

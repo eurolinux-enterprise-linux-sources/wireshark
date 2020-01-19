@@ -2,7 +2,7 @@
  *
  * Structures that most TVB users should not be accessing directly.
  *
- * $Id$
+ * $Id: tvbuff-int.h 48940 2013-04-20 02:53:57Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

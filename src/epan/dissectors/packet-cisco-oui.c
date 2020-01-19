@@ -1,7 +1,7 @@
 /* packet-cisco-oui.c
  * Register an LLC dissector table for Cisco's OUI 00:00:0c
  *
- * $Id$
+ * $Id: packet-cisco-oui.c 48313 2013-03-15 06:26:47Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

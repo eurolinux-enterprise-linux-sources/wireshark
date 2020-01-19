@@ -1,7 +1,7 @@
 /* summary_dlg.c
  * Routines for capture file summary window
  *
- * $Id$
+ * $Id: summary_dlg.c 48708 2013-04-02 20:19:54Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -697,7 +697,7 @@ summary_to_texbuff(GtkTextBuffer *buffer)
 #endif
 
   /* Add Wireshark version*/
-  g_snprintf(string_buff, SUM_STR_MAX, "Summary created by Wireshark %s\n\n", wireshark_gitversion);
+  g_snprintf(string_buff, SUM_STR_MAX, "Summary created by Wireshark %s\n\n", wireshark_svnversion);
   gtk_text_buffer_insert_at_cursor (buffer, string_buff, -1);
 
   /* Info about file */

@@ -2,7 +2,7 @@
  * Definitions for the Wireshark Memory Manager Core
  * Copyright 2012, Evan Huus <eapache@gmail.com>
  *
- * $Id$
+ * $Id: wmem_core.h 48019 2013-03-02 21:29:05Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

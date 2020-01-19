@@ -1,7 +1,7 @@
 /* main_filter_toolbar.c
  * The filter toolbar
  *
- * $Id$
+ * $Id: main_filter_toolbar.c 49465 2013-05-20 22:07:30Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

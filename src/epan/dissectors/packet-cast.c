@@ -3,7 +3,7 @@
  * Dissector for the CAST Client Control Protocol
  *   (The "D-Channel"-Protocol for Cisco Systems' IP-Phones)
  *
- * $Id$
+ * $Id: packet-cast.c 48313 2013-03-15 06:26:47Z etxrab $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

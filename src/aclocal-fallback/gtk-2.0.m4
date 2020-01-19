@@ -1,6 +1,6 @@
 # Configure paths for GTK+
 # Owen Taylor     1997-2001
-# $Id$
+# $Id: gtk-2.0.m4 47538 2013-02-07 20:58:45Z morriss $
 
 dnl AM_PATH_GTK_2_0([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND [, MODULES]]]])
 dnl Test for GTK+, and define GTK_CFLAGS and GTK_LIBS, if gthread is specified in MODULES,

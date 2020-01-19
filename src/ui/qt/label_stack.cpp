@@ -1,6 +1,6 @@
 /* label_stack.cpp
  *
- * $Id$
+ * $Id: label_stack.cpp 46863 2012-12-30 19:33:05Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

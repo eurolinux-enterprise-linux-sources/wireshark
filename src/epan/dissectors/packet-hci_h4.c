@@ -7,7 +7,7 @@
  * Refactored for wireshark checkin
  *   Ronnie Sahlberg 2006
  *
- * $Id$
+ * $Id: packet-hci_h4.c 48414 2013-03-19 13:51:52Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

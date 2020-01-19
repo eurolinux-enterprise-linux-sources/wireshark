@@ -1,7 +1,7 @@
 /* conversations_sctp.c
  * conversations_sctp   2005 Oleg Terletsky <oleg.terletsky@comverse.com>
  *
- * $Id$
+ * $Id: conversations_sctp.c 48448 2013-03-21 02:58:59Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

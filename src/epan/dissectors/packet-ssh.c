@@ -4,7 +4,7 @@
  * Huagang XIE <huagang@intruvert.com>
  * Kees Cook <kees@outflux.net>
  *
- * $Id$
+ * $Id: packet-ssh.c 48174 2013-03-07 18:37:58Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

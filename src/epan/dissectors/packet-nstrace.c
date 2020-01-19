@@ -2,7 +2,7 @@
  * Routines for nstrace dissection
  * Copyright 2006, Ravi Kondamuru <Ravi.Kondamuru@citrix.com>
  *
- * $Id$
+ * $Id: packet-nstrace.c 47751 2013-02-19 23:17:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

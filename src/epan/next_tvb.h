@@ -1,7 +1,7 @@
 /* next_tvb.h
  * Definitions for "next tvb" list
  *
- * $Id$
+ * $Id: next_tvb.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

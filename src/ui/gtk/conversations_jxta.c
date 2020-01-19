@@ -2,7 +2,7 @@
  * conversations_jxta  copyright (c) 2005 Mike Duigou <bondolo@jxta.org>
  * copied from conversations_sctp.c
  *
- * $Id$
+ * $Id: conversations_jxta.c 46402 2012-12-05 15:56:36Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

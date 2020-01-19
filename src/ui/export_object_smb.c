@@ -6,7 +6,7 @@
  *
  * Copyright 2010, David Perez & Jose Pico from TADDONG S.L.
  *
- * $Id$
+ * $Id: export_object_smb.c 48634 2013-03-29 00:26:23Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -254,7 +254,7 @@ gpointer    dest_memory_addr;
 	/* ...then, put the chunk of the file in the right place */
 	if (!file->is_out_of_memory) {
 		dest_memory_addr = entry->payload_data + chunk_offset;
-		memmove(dest_memory_addr, eo_info->payload_data, eo_info->payload_len);
+		g_memmove(dest_memory_addr, eo_info->payload_data, eo_info->payload_len);
 	}
 }
 

@@ -1,6 +1,6 @@
 /* capture_info_dialog.cpp
  *
- * $Id$
+ * $Id: capture_info_dialog.cpp 49761 2013-06-04 07:39:26Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

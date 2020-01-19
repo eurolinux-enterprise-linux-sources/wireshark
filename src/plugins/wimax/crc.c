@@ -5,7 +5,7 @@
  *
  * Author: Mike Harvey <michael.harvey@intel.com>
  *
- * $Id$
+ * $Id: crc.c 46748 2012-12-26 05:57:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

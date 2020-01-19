@@ -2,7 +2,7 @@
  * Routines for OUCH 4.x protocol dissection
  * Copyright 2013 David Arnold <davida@pobox.com>
  *
- * $Id$
+ * $Id: packet-ouch.c 48532 2013-03-24 18:14:58Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

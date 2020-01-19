@@ -2,7 +2,7 @@
  * Routines for HSR dissection (IEC62439 Part 3)
  * Copyright 2009, Florian Reichert <refl[AT]zhaw.ch>
  *
- * $Id$
+ * $Id: packet-hsr.c 47751 2013-02-19 23:17:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald[AT]wireshark.org>

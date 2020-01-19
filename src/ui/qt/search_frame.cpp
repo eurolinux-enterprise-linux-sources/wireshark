@@ -1,6 +1,6 @@
 /* search_frame.cpp
  *
- * $Id$
+ * $Id: search_frame.cpp 46700 2012-12-22 20:53:09Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

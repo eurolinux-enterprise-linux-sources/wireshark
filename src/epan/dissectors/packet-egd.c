@@ -5,7 +5,7 @@
  * Copyright 2008
  * 29 July 2008 -- ryan wamsley
  *
- * $Id$
+ * $Id: packet-egd.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

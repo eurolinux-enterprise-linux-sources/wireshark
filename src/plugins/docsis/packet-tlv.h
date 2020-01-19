@@ -2,7 +2,7 @@
  * Contains Definitions for Configuration types
  * Copyright 2002, Anand V. Narwani <anand[AT]narwani.org>
  *
- * $Id$
+ * $Id: packet-tlv.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

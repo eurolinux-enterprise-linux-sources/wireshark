@@ -2,7 +2,7 @@
  * Routines for exec (rexec) dissection
  * Copyright 2006, Stephen Fisher (see AUTHORS file)
  *
- * $Id$
+ * $Id: packet-exec.c 48347 2013-03-17 09:11:21Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

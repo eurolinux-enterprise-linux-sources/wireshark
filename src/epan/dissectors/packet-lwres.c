@@ -1,7 +1,7 @@
 /* packet-lwres.c
  * Routines for light weight reslover (lwres, part of BIND9) packet disassembly
  *
- * $Id$
+ * $Id: packet-lwres.c 48991 2013-04-22 21:32:55Z gerald $
  *
  * Copyright (c) 2003 by Oleg Terletsky <oleg.terletsky@comverse.com>
  *

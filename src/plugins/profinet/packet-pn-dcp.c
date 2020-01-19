@@ -2,7 +2,7 @@
  * Routines for PN-DCP (PROFINET Discovery and basic Configuration Protocol)
  * packet dissection.
  *
- * $Id$
+ * $Id: packet-pn-dcp.c 48039 2013-03-03 18:45:23Z pascal $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

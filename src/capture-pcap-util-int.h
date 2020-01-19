@@ -1,7 +1,7 @@
 /* capture-pcap-util-int.h
  * Definitions of routines internal to the libpcap/WinPcap utilities
  *
- * $Id$
+ * $Id: capture-pcap-util-int.h 46159 2012-11-23 22:28:06Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -2,7 +2,7 @@
  * packet-diameter.h
  *
  * Definitions for Diameter packet disassembly
- * $Id$
+ * $Id: packet-diameter.h 46554 2012-12-16 02:13:30Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

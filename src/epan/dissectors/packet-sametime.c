@@ -2,7 +2,7 @@
  * Routines for SAMETIME dissection
  * Copyright 2010, Toralf Foerster <toralf.foerster [AT] gmx.de>
  *
- * $Id$
+ * $Id: packet-sametime.c 48430 2013-03-19 22:03:00Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

@@ -1,6 +1,6 @@
 /* dumpcap.c
  *
- * $Id$
+ * $Id: dumpcap.c 51874 2013-09-09 18:28:56Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -61,39 +61,6 @@
 #if defined(__APPLE__) && defined(__LP64__)
 #include <sys/utsname.h>
 #endif
-
-/*
- * Linux bonding devices mishandle unknown ioctls; they fail
- * with ENODEV rather than ENOTSUP, EOPNOTSUPP, or ENOTTY,
- * so pcap_can_set_rfmon() returns a "no such device" indication
- * if we try to do SIOCGIWMODE on them.
- *
- * So, on Linux, we check for bonding devices, if we can, before
- * trying pcap_can_set_rfmon(), as pcap_can_set_rfmon() will
- * end up trying SIOCGIWMODE on the device if that ioctl exists.
- */
-#if defined(HAVE_PCAP_CREATE) && defined(__linux__)
-
-#include <sys/ioctl.h>
-
-/*
- * If we're building for a Linux version that supports bonding,
- * HAVE_BONDING will be defined.
- */
-
-#ifdef HAVE_LINUX_SOCKIOS_H
-#include <linux/sockios.h>
-#endif
-
-#ifdef HAVE_LINUX_IF_BONDING_H
-#include <linux/if_bonding.h>
-#endif
-
-#if defined(BOND_INFO_QUERY_OLD) || defined(SIOCBONDINFOQUERY)
-#define HAVE_BONDING
-#endif
-
-#endif /* defined(HAVE_PCAP_CREATE) && defined(__linux__) */
 
 #include <signal.h>
 #include <errno.h>
@@ -476,7 +443,7 @@ print_usage(gboolean print_ver)
                 "Dumpcap " VERSION "%s\n"
                 "Capture network packets and dump them into a pcapng file.\n"
                 "See http://www.wireshark.org for more information.\n",
-                wireshark_gitversion);
+                wireshark_svnversion);
     } else {
         output = stderr;
     }
@@ -494,7 +461,7 @@ print_usage(gboolean print_ver)
     fprintf(output, "  -I                       capture in monitor mode, if available\n");
 #endif
 #if defined(_WIN32) || defined(HAVE_PCAP_CREATE)
-    fprintf(output, "  -B <buffer size>         size of kernel buffer in MiB (def: %dMiB)\n", DEFAULT_CAPTURE_BUFFER_SIZE);
+    fprintf(output, "  -B <buffer size>         size of kernel buffer in MB (def: %dMB)\n", DEFAULT_CAPTURE_BUFFER_SIZE);
 #endif
     fprintf(output, "  -y <link type>           link layer type (def: first appropriate)\n");
     fprintf(output, "  -D                       print list of interfaces and exit\n");
@@ -556,7 +523,7 @@ show_version(GString *comp_info_str, GString *runtime_info_str)
         "%s\n"
         "%s\n"
         "See http://www.wireshark.org for more information.\n",
-        wireshark_gitversion, get_copyright_info(), comp_info_str->str, runtime_info_str->str);
+        wireshark_svnversion, get_copyright_info(), comp_info_str->str, runtime_info_str->str);
 }
 
 /*
@@ -1126,44 +1093,6 @@ create_data_link_info(int dlt)
     return data_link_info;
 }
 
-#ifdef HAVE_BONDING
-gboolean
-is_linux_bonding_device(const char *ifname)
-{
-    int fd;
-    struct ifreq ifr;
-    ifbond ifb;
-
-    fd = socket(PF_INET, SOCK_DGRAM, 0);
-    if (fd == -1)
-        return FALSE;
-
-    memset(&ifr, 0, sizeof ifr);
-    g_strlcpy(ifr.ifr_name, ifname, sizeof ifr.ifr_name);
-    memset(&ifb, 0, sizeof ifb);
-    ifr.ifr_data = (caddr_t)&ifb;
-#if defined(SIOCBONDINFOQUERY)
-    if (ioctl(fd, SIOCBONDINFOQUERY, &ifr) == 0) {
-        close(fd);
-        return TRUE;
-    }
-#else
-    if (ioctl(fd, BOND_INFO_QUERY_OLD, &ifr) == 0) {
-        close(fd);
-        return TRUE;
-    }
-#endif
-
-    return FALSE;
-}
-#else
-static gboolean
-is_linux_bonding_device(const char *ifname _U_)
-{
-    return FALSE;
-}
-#endif
-
 /*
  * Get the capabilities of a network device.
  */
@@ -1224,19 +1153,7 @@ get_if_capabilities(const char *devicename, gboolean monitor_mode
         g_free(caps);
         return NULL;
     }
-    if (is_linux_bonding_device(devicename)) {
-        /*
-         * Linux bonding device; not Wi-Fi, so no monitor mode, and
-         * calling pcap_can_set_rfmon() might get a "no such device"
-         * error.
-         */
-        status = 0;
-    } else {
-        /*
-         * Not a Linux bonding device, so go ahead.
-         */
-        status = pcap_can_set_rfmon(pch);
-    }
+    status = pcap_can_set_rfmon(pch);
     if (status < 0) {
         /* Error. */
         if (status == PCAP_ERROR)
@@ -2689,11 +2606,11 @@ capture_loop_open_input(capture_options *capture_opts, loop_data *ld,
             if (interface_opts.buffer_size > 1 &&
                 pcap_setbuff(pcap_opts->pcap_h, interface_opts.buffer_size * 1024 * 1024) != 0) {
                 sync_secondary_msg_str = g_strdup_printf(
-                    "The capture buffer size of %d MiB seems to be too high for your machine,\n"
-                    "the default of %d MiB will be used.\n"
+                    "The capture buffer size of %dMB seems to be too high for your machine,\n"
+                    "the default of 1MB will be used.\n"
                     "\n"
                     "Nonetheless, the capture is started.\n",
-                    interface_opts.buffer_size, DEFAULT_CAPTURE_BUFFER_SIZE);
+                    interface_opts.buffer_size);
                 report_capture_error("Couldn't set the capture buffer size!",
                                      sync_secondary_msg_str);
                 g_free(sync_secondary_msg_str);
@@ -2912,7 +2829,7 @@ capture_loop_init_output(capture_options *capture_opts, loop_data *ld, char *err
             os_info_str = g_string_new("");
             get_os_version_info(os_info_str);
 
-            g_snprintf(appname, sizeof(appname), "Dumpcap " VERSION "%s", wireshark_gitversion);
+            g_snprintf(appname, sizeof(appname), "Dumpcap " VERSION "%s", wireshark_svnversion);
             successful = libpcap_write_session_header_block(libpcap_write_to_file, ld->pdh,
                                 NULL,                        /* Comment*/
                                 NULL,                        /* HW*/
@@ -3405,7 +3322,7 @@ do_file_switch_or_stop(capture_options *capture_opts,
                 os_info_str = g_string_new("");
                 get_os_version_info(os_info_str);
 
-                g_snprintf(appname, sizeof(appname), "Dumpcap " VERSION "%s", wireshark_gitversion);
+                g_snprintf(appname, sizeof(appname), "Dumpcap " VERSION "%s", wireshark_svnversion);
                 successful = libpcap_write_session_header_block(libpcap_write_to_file, global_ld.pdh,
                                 NULL,                        /* Comment */
                                 NULL,                        /* HW */
@@ -3608,11 +3525,11 @@ capture_loop_start(capture_options *capture_opts, gboolean *stats_known, struct 
     init_capture_stop_conditions();
     /* create stop conditions */
     if (capture_opts->has_autostop_filesize) {
-        if (capture_opts->autostop_filesize > (((guint32)INT_MAX + 1) / 1000)) {
-            capture_opts->autostop_filesize = ((guint32)INT_MAX + 1) / 1000;
+        if (capture_opts->autostop_filesize > (((guint32)INT_MAX + 1) / 1024)) {
+            capture_opts->autostop_filesize = ((guint32)INT_MAX + 1) / 1024;
         }
         cnd_autostop_size =
-            cnd_new(CND_CLASS_CAPTURESIZE, (guint64)capture_opts->autostop_filesize * 1000);
+            cnd_new(CND_CLASS_CAPTURESIZE, (guint64)capture_opts->autostop_filesize * 1024);
     }
     if (capture_opts->has_autostop_duration)
         cnd_autostop_duration =
@@ -3736,8 +3653,8 @@ capture_loop_start(capture_options *capture_opts, gboolean *stats_known, struct 
         if ((cur_time - upd_time) > DUMPCAP_UPD_TIME) { /* wrap just causes an extra update */
 #else
         gettimeofday(&cur_time, NULL);
-        if (((guint64)cur_time.tv_sec * 1000000 + cur_time.tv_usec) >
-            ((guint64)upd_time.tv_sec * 1000000 + upd_time.tv_usec + DUMPCAP_UPD_TIME*1000)) {
+        if ((cur_time.tv_sec * 1000000 + cur_time.tv_usec) >
+            (upd_time.tv_sec * 1000000 + upd_time.tv_usec + DUMPCAP_UPD_TIME*1000)) {
 #endif
 
             upd_time = cur_time;
@@ -4249,7 +4166,7 @@ main(int argc, char *argv[])
            "%s"
            "\n"
            "%s",
-        wireshark_gitversion, comp_info_str->str, runtime_info_str->str);
+        wireshark_svnversion, comp_info_str->str, runtime_info_str->str);
 
 #ifdef _WIN32
     arg_list_utf_16to8(argc, argv);
@@ -4629,41 +4546,28 @@ main(int argc, char *argv[])
             break;
             /*** all non capture option specific ***/
         case 'D':        /* Print a list of capture devices and exit */
-            if (!list_interfaces) {
-                list_interfaces = TRUE;
-                run_once_args++;
-            }
+            list_interfaces = TRUE;
+            run_once_args++;
             break;
         case 'L':        /* Print list of link-layer types and exit */
-            if (!list_link_layer_types) {
-                list_link_layer_types = TRUE;
-                run_once_args++;
-            }
+            list_link_layer_types = TRUE;
+            run_once_args++;
             break;
 #ifdef HAVE_BPF_IMAGE
         case 'd':        /* Print BPF code for capture filter and exit */
-            if (!print_bpf_code) {
-                print_bpf_code = TRUE;
-                run_once_args++;
-            }
+            print_bpf_code = TRUE;
+            run_once_args++;
             break;
 #endif
         case 'S':        /* Print interface statistics once a second */
-            if (!print_statistics) {
-                print_statistics = TRUE;
-                run_once_args++;
-            }
+            print_statistics = TRUE;
+            run_once_args++;
             break;
         case 'k':        /* Set wireless channel */
-            if (!set_chan) {
-                set_chan = TRUE;
-                set_chan_arg = optarg;
-                run_once_args++;
-            } else {
-                cmdarg_err("Only one -k flag may be specified");
-                arg_error = TRUE;
-            }
-            break;
+            set_chan = TRUE;
+            set_chan_arg = optarg;
+            run_once_args++;
+           break;
         case 'M':        /* For -D, -L, and -S, print machine-readable output */
             machine_readable = TRUE;
             break;
@@ -4715,11 +4619,7 @@ main(int argc, char *argv[])
     }
 
     if (run_once_args > 1) {
-#ifdef HAVE_BPF_IMAGE
-        cmdarg_err("Only one of -D, -L, -d, -k, or -S may be supplied.");
-#else
-        cmdarg_err("Only one of -D, -L, -k, or -S may be supplied.");
-#endif
+        cmdarg_err("Only one of -D, -L, or -S may be supplied.");
         exit_main(1);
     } else if (run_once_args == 1) {
         /* We're supposed to print some information, rather than
@@ -4830,43 +4730,6 @@ main(int argc, char *argv[])
         exit_main(status);
     }
 
-    if (list_link_layer_types) {
-        /* Get the list of link-layer types for the capture device. */
-        if_capabilities_t *caps;
-        gchar *err_str;
-        guint  ii;
-
-        for (ii = 0; ii < global_capture_opts.ifaces->len; ii++) {
-            interface_options interface_opts;
-
-            interface_opts = g_array_index(global_capture_opts.ifaces, interface_options, ii);
-            caps = get_if_capabilities(interface_opts.name,
-                                       interface_opts.monitor_mode, &err_str);
-            if (caps == NULL) {
-                cmdarg_err("The capabilities of the capture device \"%s\" could not be obtained (%s).\n"
-                           "Please check to make sure you have sufficient permissions, and that\n"
-                           "you have the proper interface or pipe specified.", interface_opts.name, err_str);
-                g_free(err_str);
-                exit_main(2);
-            }
-            if (caps->data_link_types == NULL) {
-                cmdarg_err("The capture device \"%s\" has no data link types.", interface_opts.name);
-                exit_main(2);
-            }
-            if (machine_readable)      /* tab-separated values to stdout */
-                /* XXX: We need to change the format and adopt consumers */
-                print_machine_readable_if_capabilities(caps);
-            else
-                /* XXX: We might want to print also the interface name */
-                capture_opts_print_if_capabilities(caps, interface_opts.name,
-                                                   interface_opts.monitor_mode);
-            free_if_capabilities(caps);
-        }
-        exit_main(0);
-    }
-
-    /* We're supposed to do a capture, or print the BPF code for a filter. */
-
     /* Let the user know what interfaces were chosen. */
     if (capture_child) {
         for (j = 0; j < global_capture_opts.ifaces->len; j++) {
@@ -4906,7 +4769,43 @@ main(int argc, char *argv[])
         g_string_free(str, TRUE);
     }
 
-    /* Process the snapshot length, as that affects the generated BPF code. */
+    if (list_link_layer_types) {
+        /* Get the list of link-layer types for the capture device. */
+        if_capabilities_t *caps;
+        gchar *err_str;
+        guint  ii;
+
+        for (ii = 0; ii < global_capture_opts.ifaces->len; ii++) {
+            interface_options interface_opts;
+
+            interface_opts = g_array_index(global_capture_opts.ifaces, interface_options, ii);
+            caps = get_if_capabilities(interface_opts.name,
+                                       interface_opts.monitor_mode, &err_str);
+            if (caps == NULL) {
+                cmdarg_err("The capabilities of the capture device \"%s\" could not be obtained (%s).\n"
+                           "Please check to make sure you have sufficient permissions, and that\n"
+                           "you have the proper interface or pipe specified.", interface_opts.name, err_str);
+                g_free(err_str);
+                exit_main(2);
+            }
+            if (caps->data_link_types == NULL) {
+                cmdarg_err("The capture device \"%s\" has no data link types.", interface_opts.name);
+                exit_main(2);
+            }
+            if (machine_readable)      /* tab-separated values to stdout */
+                /* XXX: We need to change the format and adopt consumers */
+                print_machine_readable_if_capabilities(caps);
+            else
+                /* XXX: We might want to print also the interface name */
+                capture_opts_print_if_capabilities(caps, interface_opts.name,
+                                                   interface_opts.monitor_mode);
+            free_if_capabilities(caps);
+        }
+        exit_main(0);
+    }
+
+    /* We're supposed to do a capture, or print the BPF code for a filter.
+       Process the snapshot length, as that affects the generated BPF code. */
     capture_opts_trim_snaplen(&global_capture_opts, MIN_PACKET_SIZE);
 
 #ifdef HAVE_BPF_IMAGE

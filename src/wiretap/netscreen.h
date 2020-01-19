@@ -1,6 +1,6 @@
 /* netscreen.h
  *
- * $Id$
+ * $Id: netscreen.h 47992 2013-03-01 23:53:11Z rbalint $
  *
  * Juniper NetScreen snoop output parser
  * Created by re-using a lot of code from cosine.c

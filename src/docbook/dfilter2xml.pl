@@ -9,7 +9,7 @@
 #      will be replaced by the pod-formatted glossary
 # STDOUT is the output
 #
-# $Id$
+# $Id: dfilter2xml.pl 32766 2010-05-11 21:49:30Z jake $
 
 %ftenum_names = (
 	'FT_NONE',		'No value',

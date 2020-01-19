@@ -1,7 +1,7 @@
 /* stat_cmd_args.c
  * Routines to register "-z" command-line argument handlers for stats
  *
- * $Id$
+ * $Id: stat_cmd_args.c 48438 2013-03-20 01:18:10Z wmeier $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

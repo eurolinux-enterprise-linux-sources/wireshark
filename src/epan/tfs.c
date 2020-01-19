@@ -2,7 +2,7 @@
  * true_false strings
  * Copyright 2007, Jaap Keuter <jaap.keuter@xs4all.nl>
  *
- * $Id$
+ * $Id: tfs.c 47856 2013-02-24 19:09:04Z alagoutte $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

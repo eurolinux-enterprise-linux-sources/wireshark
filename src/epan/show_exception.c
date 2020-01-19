@@ -2,7 +2,7 @@
  *
  * Routines to put exception information into the protocol tree
  *
- * $Id$
+ * $Id: show_exception.c 48946 2013-04-21 06:14:11Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

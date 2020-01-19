@@ -1,7 +1,7 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.in by autoheader.  */
 
-/* $Id$ */
+/* $Id: config.h 37812 2011-06-28 09:00:11Z stig $ */
 
 /* poll doesn't work on devices */
 #define BROKEN_POLL 1

@@ -49,7 +49,7 @@
  * H = 16-bit CRC
  *
  *****************************************************************************************************
- * $Id$
+ * $Id: packet-mbtcp.c 49721 2013-06-03 17:44:22Z gerald $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -818,6 +818,10 @@ dissect_modbus(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _
     guint8        packet_type, register_format; /*register_addr_type*/
     guint16       diagnostic_code;
     modbus_request_info_t *request_info;
+
+    /* Don't need to do anything if there's no tree */
+    if (tree == NULL)
+        return tvb_length(tvb);
 
     len = tvb_length_remaining(tvb, 0);
 

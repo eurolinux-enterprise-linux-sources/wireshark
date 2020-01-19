@@ -2,7 +2,7 @@
  *
  * Routines for PNG (Portable Network Graphics) image file dissection
  *
- * $Id$
+ * $Id: packet-image-png.c 48710 2013-04-02 21:13:02Z cmaynard $
  *
  * Copyright 2006 Ronnie Sahlberg
  *

@@ -1,6 +1,6 @@
 /* recent_file_status.cpp
  *
- * $Id$
+ * $Id: recent_file_status.cpp 45519 2012-10-13 01:37:48Z eapache $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

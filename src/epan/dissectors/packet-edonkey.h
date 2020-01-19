@@ -11,7 +11,7 @@
  * Kademlia dissector based on source code inspection of aMule 2.1.3 and eMule 0.48a
  * Modified and added on the basis of information and names from the eMule 0.49a source code
  *
- * $Id$
+ * $Id: packet-edonkey.h 43538 2012-06-28 23:18:38Z darkjames $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>

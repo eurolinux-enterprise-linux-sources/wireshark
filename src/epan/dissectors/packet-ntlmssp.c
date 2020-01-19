@@ -5,7 +5,7 @@
  * Devin Heitmueller <dheitmueller@netilla.com>
  * Copyright 2003, Tim Potter <tpot@samba.org>
  *
- * $Id$
+ * $Id: packet-ntlmssp.c 50735 2013-07-18 23:49:48Z morriss $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -31,6 +31,7 @@
 #include <stdio.h>
 #endif
 #include <string.h>
+#include <ctype.h>
 
 #include <glib.h>
 #include <epan/packet.h>
@@ -516,13 +517,9 @@ create_ntlmssp_v2_key(const char *nt_password _U_, const guint8 *serverchallenge
                       guint8 *sessionkey , const  guint8 *encryptedsessionkey , int flags ,
                       const ntlmssp_blob *ntlm_response, const ntlmssp_blob *lm_response _U_, ntlmssp_header_t *ntlmssph)
 {
-/* static const would be nicer, but -Werror=vla does not like it */
-#define DOMAIN_NAME_BUF_SIZE 512
-#define USER_BUF_SIZE 256
-#define BUF_SIZE (DOMAIN_NAME_BUF_SIZE + USER_BUF_SIZE)
-  char              domain_name_unicode[DOMAIN_NAME_BUF_SIZE];
-  char              user_uppercase[USER_BUF_SIZE];
-  char              buf[BUF_SIZE];
+  char              domain_name_unicode[256];
+  char              user_uppercase[256];
+  char              buf[512];
   /*guint8 md4[NTLMSSP_KEY_LEN];*/
   unsigned char     nt_password_hash[NTLMSSP_KEY_LEN];
   unsigned char     nt_proof[NTLMSSP_KEY_LEN];
@@ -547,14 +544,14 @@ create_ntlmssp_v2_key(const char *nt_password _U_, const guint8 *serverchallenge
   nb_pass = get_md4pass_list(&pass_list, nt_password);
 #endif
   i = 0;
-  memset(user_uppercase, 0, USER_BUF_SIZE);
+  memset(user_uppercase, 0, 256);
   user_len = strlen(ntlmssph->acct_name);
-  if (user_len < USER_BUF_SIZE / 2) {
-    memset(buf, 0, BUF_SIZE);
+  if (user_len < 129) {
+    memset(buf, 0, 512);
     str_to_unicode(ntlmssph->acct_name, buf);
     for (j = 0; j < (2*user_len); j++) {
       if (buf[j] != '\0') {
-        user_uppercase[j] = g_ascii_toupper(buf[j]);
+        user_uppercase[j] = toupper(buf[j]);
       }
     }
   }
@@ -563,7 +560,7 @@ create_ntlmssp_v2_key(const char *nt_password _U_, const guint8 *serverchallenge
     return;
   }
   domain_len = strlen(ntlmssph->domain_name);
-  if (domain_len < DOMAIN_NAME_BUF_SIZE / 2) {
+  if (domain_len < 129) {
     str_to_unicode(ntlmssph->domain_name, domain_name_unicode);
   }
   else {
@@ -578,14 +575,14 @@ create_ntlmssp_v2_key(const char *nt_password _U_, const guint8 *serverchallenge
     printnbyte(nt_password_hash, NTLMSSP_KEY_LEN, "Current NT password hash: ", "\n");
     i++;
     /* ntowf computation */
-    memset(buf, 0, BUF_SIZE);
+    memset(buf, 0, 512);
     memcpy(buf, user_uppercase, user_len*2);
     memcpy(buf+user_len*2, domain_name_unicode, domain_len*2);
     md5_hmac(buf, domain_len*2+user_len*2, nt_password_hash, NTLMSSP_KEY_LEN, ntowf);
     printnbyte(ntowf, NTLMSSP_KEY_LEN, "NTOWF: ", "\n");
 
     /* LM response */
-    memset(buf, 0, BUF_SIZE);
+    memset(buf, 0, 512);
     memcpy(buf, serverchallenge, 8);
     memcpy(buf+8, clientchallenge, 8);
     md5_hmac(buf, NTLMSSP_KEY_LEN, ntowf, NTLMSSP_KEY_LEN, lm_challenge_response);
@@ -593,9 +590,9 @@ create_ntlmssp_v2_key(const char *nt_password _U_, const guint8 *serverchallenge
     printnbyte(lm_challenge_response, 24, "LM Response: ", "\n");
 
     /* NT proof = First NTLMSSP_KEY_LEN bytes of NT response */
-    memset(buf, 0, BUF_SIZE);
+    memset(buf, 0, 512);
     memcpy(buf, serverchallenge, 8);
-    memcpy(buf+8, ntlm_response->contents+NTLMSSP_KEY_LEN, MIN(BUF_SIZE - 8, ntlm_response->length-NTLMSSP_KEY_LEN));
+    memcpy(buf+8, ntlm_response->contents+NTLMSSP_KEY_LEN, ntlm_response->length-NTLMSSP_KEY_LEN);
     md5_hmac(buf, ntlm_response->length-8, ntowf, NTLMSSP_KEY_LEN, nt_proof);
     printnbyte(nt_proof, NTLMSSP_KEY_LEN, "NT proof: ", "\n");
     if (!memcmp(nt_proof, ntlm_response->contents, NTLMSSP_KEY_LEN)) {
@@ -671,7 +668,7 @@ create_ntlmssp_v1_key(const char *nt_password, const guint8 *serverchallenge, co
     if (password_len > NTLMSSP_KEY_LEN)
       password_len = NTLMSSP_KEY_LEN;
     for (i = 0; i < password_len; i++) {
-      lm_password_upper[i] = g_ascii_toupper(nt_password[i]);
+      lm_password_upper[i] = toupper(nt_password[i]);
     }
   }
   else

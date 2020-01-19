@@ -6,7 +6,7 @@
  *
  * Author: Stephen Croll <croll@mobilemetrics.net>
  *
- * $Id$
+ * $Id: packet-wimaxasncp.c 47751 2013-02-19 23:17:07Z guy $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -31,6 +31,7 @@
 #include "config.h"
 
 #include <stdio.h>
+#include <ctype.h>
 
 #include <glib.h>
 
@@ -2460,7 +2461,7 @@ static char *alnumerize(
 
     for ( ; (c = *r); ++r)
     {
-        if (g_ascii_isalnum(c) || c == '_' || c == '.')
+        if (isalnum((unsigned char)c) || c == '_' || c == '.')
         {
             /* These characters are fine - copy them */
             *(w++) = c;

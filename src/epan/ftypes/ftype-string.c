@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: ftype-string.c 48424 2013-03-19 19:02:25Z etxrab $
  *
  * Wireshark - Network traffic analyzer
  * By Gerald Combs <gerald@wireshark.org>
@@ -28,6 +28,7 @@
 
 #define CMP_MATCHES cmp_matches
 
+#include <ctype.h>
 
 static void
 string_fvalue_new(fvalue_t *fv)
@@ -61,7 +62,6 @@ string_repr_len(fvalue_t *fv, ftrepr_t rtype)
 
 	switch (rtype) {
 		case FTREPR_DISPLAY:
-		case FTREPR_DISPLAY_HEX:
 			return (int)strlen(fv->value.string);
 		case FTREPR_DFILTER:
 			repr_len = 0;
@@ -73,7 +73,7 @@ string_repr_len(fvalue_t *fv, ftrepr_t rtype)
 				}
 				/* Values that can't nicely be represented
 				 * in ASCII need to be escaped. */
-				else if (!g_ascii_isprint((unsigned char)c)) {
+				else if (!isprint((unsigned char)c)) {
 					/* c --> \xNN */
 					repr_len += 4;
 				}
@@ -107,7 +107,7 @@ string_to_repr(fvalue_t *fv, ftrepr_t rtype, char *buf)
 			}
 			/* Values that can't nicely be represented
 			 * in ASCII need to be escaped. */
-			else if (!g_ascii_isprint((unsigned char)c)) {
+			else if (!isprint((unsigned char)c)) {
 				/* c --> \xNN */
 				g_snprintf(hex, sizeof(hex), "%02x", (unsigned char) c);
 				*bufp++ = '\\';
