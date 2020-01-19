@@ -1,0 +1,18 @@
+diff --git a/configure.ac b/configure.ac
+index a17ef31..090923b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1396,7 +1396,12 @@ else
+ 	# Don't use GLIB_CFLAGS
+ 	AM_PATH_GLIB_2_0($GLIB_MIN_VERSION, , AC_MSG_ERROR(GLib $GLIB_MIN_VERSION or later distribution not found.), gthread gmodule)
+ 
+-	CPPFLAGS="-DGDK_PIXBUF_DISABLE_DEPRECATED $CPPFLAGS"
++	# XXX: Disabled to fix Segfault: it worked before the latest gdk-pixbuf
++	# update, because that function is now under a #ifndef
++	# GDK_PIXBUF_DISABLE_DEPRECATED block which makes the declaration
++	# invisible and wireshark's configure sets this CPP directive.
++	#
++	# CPPFLAGS="-DGDK_PIXBUF_DISABLE_DEPRECATED $CPPFLAGS"
+ 	CPPFLAGS="-DGDK_DISABLE_DEPRECATED $CPPFLAGS"
+ 	if test \( $gtk_config_major_version -eq 3 -a $gtk_config_minor_version -ge 10 \) ; then
+ 		## Allow use of deprecated & disable deprecated warnings if Gtk >= 3.10;

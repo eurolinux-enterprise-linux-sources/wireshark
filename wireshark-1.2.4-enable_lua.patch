@@ -1,0 +1,13 @@
+diff --git a/epan/wslua/template-init.lua b/epan/wslua/template-init.lua
+index eda33ca..008e875 100644
+--- a/epan/wslua/template-init.lua
++++ b/epan/wslua/template-init.lua
+@@ -43,7 +43,7 @@ if running_superuser then
+     local disabled_lib = {}
+     setmetatable(disabled_lib,{ __index = function() error("this package ".. hint) end } );
+ 
+-    dofile = function() error("dofile " .. hint) end
++--    dofile = function() error("dofile " .. hint) end
+     loadfile = function() error("loadfile " .. hint) end
+     loadlib = function() error("loadlib " .. hint) end
+     require = function() error("require " .. hint) end

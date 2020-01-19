@@ -1,0 +1,22 @@
+diff --git a/tshark.c b/tshark.c
+index f930f9d..e3ac6c6 100644
+--- a/tshark.c
++++ b/tshark.c
+@@ -294,7 +294,7 @@ print_usage(gboolean print_ver)
+   fprintf(output, "  -R <read filter>         packet Read filter in Wireshark display filter syntax\n");
+   fprintf(output, "  -Y <display filter>      packet displaY filter in Wireshark display filter syntax\n");
+   fprintf(output, "  -n                       disable all name resolutions (def: all enabled)\n");
+-  fprintf(output, "  -N <name resolve flags>  enable specific name resolution(s): \"mntC\"\n");
++  fprintf(output, "  -N <name resolve flags>  enable specific name resolution(s): \"mnNtC\"\n");
+   fprintf(output, "  -d %s ...\n", decode_as_arg_template);
+   fprintf(output, "                           \"Decode As\", see the man page for details\n");
+   fprintf(output, "                           Example: tcp.port==8888,http\n");
+@@ -1357,7 +1357,7 @@ main(int argc, char *argv[])
+       if (badopt != '\0') {
+         cmdarg_err("-N specifies unknown resolving option '%c';",
+                    badopt);
+-        cmdarg_err_cont( "           Valid options are 'm', 'n', 't', and 'C'");
++        cmdarg_err_cont( "           Valid options are 'm', 'n', 'N', 't', and 'C'");
+         return 1;
+       }
+       break;

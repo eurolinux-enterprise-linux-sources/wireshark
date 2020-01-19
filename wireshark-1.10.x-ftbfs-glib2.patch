@@ -1,0 +1,31 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e6b8e46..f308c12 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -183,7 +183,6 @@ if(ENABLE_EXTRA_GCC_CHECKS)   # This overrides -Werror
+ endif()
+ 
+ add_definitions(
+-	-DG_DISABLE_DEPRECATED
+ 	-DG_DISABLE_SINGLE_INCLUDES
+ )
+ 
+diff --git a/configure.ac b/configure.ac
+index cf593db..4e2f0d2 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1474,14 +1474,6 @@ then
+ fi
+ AC_SUBST(MOC)
+ 
+-# Error out if a glib header other than a "top level" header
+-#  (glib.h, glib-object.h, gio.h) or certain other headers( e.g.,gmodule.h)
+-#  is used.
+-CPPFLAGS="-DG_DISABLE_SINGLE_INCLUDES $CPPFLAGS"
+-
+-# Error out on the usage of deprecated glib functions
+-CPPFLAGS="-DG_DISABLE_DEPRECATED $CPPFLAGS"
+-
+ #
+ # Check whether GLib modules are supported, to determine whether we
+ # can support plugins.

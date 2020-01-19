@@ -1,0 +1,54 @@
+diff --git a/epan/dissectors/packet-tcp.c b/epan/dissectors/packet-tcp.c
+index e9af5f8..d994233 100644
+--- a/epan/dissectors/packet-tcp.c
++++ b/epan/dissectors/packet-tcp.c
+@@ -1924,6 +1924,7 @@ again:
+                  * being a new higher-level PDU that also
+                  * needs desegmentation).
+                  */
++                remove_last_data_source(pinfo);
+                 fragment_set_partial_reassembly(&tcp_reassembly_table,
+                                                 pinfo, msp->first_frame, NULL);
+ 
+diff --git a/epan/packet.c b/epan/packet.c
+index 44b953f..509fb22 100644
+--- a/epan/packet.c
++++ b/epan/packet.c
+@@ -237,9 +237,24 @@ add_new_data_source(packet_info *pinfo, tvbuff_t *tvb, const char *name)
+ 	src = (struct data_source *)g_malloc(sizeof(struct data_source));
+ 	src->tvb = tvb;
+ 	src->name = g_strdup(name);
++	/* This could end up slow, but we should never have that many data
++	 * sources so it probably doesn't matter */
+ 	pinfo->data_src = g_slist_append(pinfo->data_src, src);
+ }
+ 
++void
++remove_last_data_source(packet_info *pinfo)
++{
++	struct data_source *src;
++	GSList *last;
++
++	last = g_slist_last(pinfo->data_src);
++	src = (struct data_source *)last->data;
++	pinfo->data_src = g_slist_delete_link(pinfo->data_src, last);
++	g_free(src->name);
++	g_slice_free(struct data_source, src);
++}
++
+ const char*
+ get_data_source_name(const struct data_source *src)
+ {
+diff --git a/epan/packet.h b/epan/packet.h
+index e1a195b..f90199d 100644
+--- a/epan/packet.h
++++ b/epan/packet.h
+@@ -408,6 +408,8 @@ final_registration_all_protocols(void);
+  */
+ WS_DLL_PUBLIC void add_new_data_source(packet_info *pinfo, tvbuff_t *tvb,
+     const char *name);
++/* Removes the last-added data source, if it turns out it wasn't needed */
++WS_DLL_PUBLIC void remove_last_data_source(packet_info *pinfo);
+ 
+ 
+ /*

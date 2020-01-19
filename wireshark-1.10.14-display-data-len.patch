@@ -1,0 +1,13 @@
+diff --git a/epan/ftypes/ftype-integer.c b/epan/ftypes/ftype-integer.c
+index 71b045a..1a71a04 100644
+--- a/epan/ftypes/ftype-integer.c
++++ b/epan/ftypes/ftype-integer.c
+@@ -237,6 +237,8 @@ integer_to_repr(fvalue_t *fv, ftrepr_t rtype, char *buf)
+ 		val = -fv->value.sinteger;
+ 	} else
+ 		val = fv->value.sinteger;
++
++        guint32_to_str_buf(val, buf, 11);
+ }
+ 
+ static int
