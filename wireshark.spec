@@ -21,7 +21,7 @@
 Summary:	Network traffic analyzer
 Name:		wireshark
 Version:	1.10.14
-Release:	14%{?dist}
+Release:	16%{?dist}
 License:	GPL+
 Group:		Applications/Internet
 Source0:	http://wireshark.org/download/src/%{name}-%{version}.tar.bz2
@@ -70,6 +70,8 @@ Patch31:                wireshark-1.10.14-read-from-stdin.patch
 Patch32:                wireshark-1.8.10-segfault-cve-2013-4075.patch
 Patch33:                wireshark-1.10.14-default-snaplen.patch
 Patch34:                wireshark-1.10.14-buffer-size.patch
+Patch35:		wireshark-1.10.14-drop-count.patch
+Patch36:		wireshark-1.10.14-af-vsock-support.patch
 
 Url:		http://www.wireshark.org/
 BuildRequires:	libpcap-devel >= 0.9
@@ -196,6 +198,8 @@ and plugins.
 %patch32 -p1 -b .segfault-cve-2013-4075
 %patch33 -p1 -b .default-snaplen
 %patch34 -p1 -b .buffer-size
+%patch35 -p1 -b .drop-count
+%patch36 -p1 -b .af-vsock
 
 %build
 %ifarch s390 s390x sparcv9 sparc64
@@ -437,6 +441,12 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/aclocal/*
 
 %changelog
+* Thu Jun 21 2018 Michal Ruprich <mruprich@redhat.com> - 1.10.14-16
+- Resolves: #1464395 - RFE: AF_VSOCK support in Wireshark
+
+* Wed May 09 2018 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-15
+- include drop count information in pcapng capture files
+
 * Thu May 04 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-14
 - Change buffer size in man pages
 - Related: #1359974
