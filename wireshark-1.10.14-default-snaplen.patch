@@ -1,0 +1,178 @@
+From 1fb88fef9c8a61be94960e8f4ee0dffc53fc0b67 Mon Sep 17 00:00:00 2001
+From: rpm-build <rpm-build>
+Date: Mon, 3 Apr 2017 15:18:41 +0200
+Subject: [PATCH] Reflect new default snaplet in help and man pages
+
+---
+ doc/dumpcap.pod                             | 2 +-
+ doc/tshark.pod                              | 2 +-
+ doc/wireshark.pod.template                  | 4 ++--
+ docbook/wsug_src/WSUG_app_tools.xml         | 4 ++--
+ docbook/wsug_src/WSUG_chapter_capture.xml   | 4 ++--
+ docbook/wsug_src/WSUG_chapter_customize.xml | 2 +-
+ dumpcap.c                                   | 2 +-
+ tshark.c                                    | 2 +-
+ ui/gtk/main.c                               | 2 +-
+ ui/qt/main.cpp                              | 2 +-
+ 10 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/doc/dumpcap.pod b/doc/dumpcap.pod
+index dfd84d8..e1dc293 100644
+--- a/doc/dumpcap.pod
++++ b/doc/dumpcap.pod
+@@ -299,7 +299,7 @@ have to explicitly set it to use it).
+ Set the default snapshot length to use when capturing live data.
+ No more than I<snaplen> bytes of each network packet will be read into
+ memory, or saved to disk.  A value of 0 specifies a snapshot length of
+-65535, so that the full packet is captured; this is the default.
++262144, so that the full packet is captured; this is the default.
+ 
+ This option can occur multiple times. If used before the first
+ occurrence of the B<-i> option, it sets the default snapshot length.
+diff --git a/doc/tshark.pod b/doc/tshark.pod
+index fee8cbc..ba06225 100644
+--- a/doc/tshark.pod
++++ b/doc/tshark.pod
+@@ -638,7 +638,7 @@ is one) will be checked against this filter.
+ Set the default snapshot length to use when capturing live data.
+ No more than I<snaplen> bytes of each network packet will be read into
+ memory, or saved to disk.  A value of 0 specifies a snapshot length of
+-65535, so that the full packet is captured; this is the default.
++262144, so that the full packet is captured; this is the default.
+ 
+ This option can occur multiple times.  If used before the first
+ occurrence of the B<-i> option, it sets the default snapshot length.
+diff --git a/doc/wireshark.pod.template b/doc/wireshark.pod.template
+index 0010a47..130e7ef 100644
+--- a/doc/wireshark.pod.template
++++ b/doc/wireshark.pod.template
+@@ -536,7 +536,7 @@ capture file; packets not matching the filter are discarded.
+ Set the default snapshot length to use when capturing live data.
+ No more than I<snaplen> bytes of each network packet will be read into
+ memory, or saved to disk.  A value of 0 specifies a snapshot length of
+-65535, so that the full packet is captured; this is the default.
++262144, so that the full packet is captured; this is the default.
+ 
+ This option can occur multiple times.  If used before the first
+ occurrence of the B<-i> option, it sets the default snapshot length.
+@@ -2345,7 +2345,7 @@ capturing.
+ 
+ The I<Limit each packet to ... bytes> check box and field lets you
+ specify a maximum number of bytes per packet to capture and save; if the
+-check box is not checked, the limit will be 65535 bytes.
++check box is not checked, the limit will be 262144 bytes.
+ 
+ The I<Capture Filter:> entry lets you specify the capture filter using a
+ tcpdump-style filter string as described above.
+diff --git a/docbook/wsug_src/WSUG_app_tools.xml b/docbook/wsug_src/WSUG_app_tools.xml
+index 9996e24..bfcec24 100644
+--- a/docbook/wsug_src/WSUG_app_tools.xml
++++ b/docbook/wsug_src/WSUG_app_tools.xml
+@@ -40,7 +40,7 @@ Usage: tshark [options] ...
+ Capture interface:
+   -i &lt;interface&gt;           name or idx of interface (def: first non-loopback)
+   -f &lt;capture filter&gt;      packet filter in libpcap filter syntax
+-  -s &lt;snaplen&gt;             packet snapshot length (def: 65535)
++  -s &lt;snaplen&gt;             packet snapshot length (def: 262144)
+   -p                       don't capture in promiscuous mode
+   -I                       capture in monitor mode, if available
+   -B &lt;buffer size&gt;         size of kernel buffer (def: 1MB)
+@@ -190,7 +190,7 @@ Capture interface:
+                                rpcap://&lt;host&gt;/&lt;interface&gt;
+                                TCP@&lt;host&gt;:&lt;port&gt;
+   -f &lt;capture filter&gt;      packet filter in libpcap filter syntax
+-  -s &lt;snaplen&gt;             packet snapshot length (def: 65535)
++  -s &lt;snaplen&gt;             packet snapshot length (def: 262144)
+   -p                       don't capture in promiscuous mode
+   -I                       capture in monitor mode, if available
+   -B &lt;buffer size&gt;         size of kernel buffer in MB (def: 2MB)
+diff --git a/docbook/wsug_src/WSUG_chapter_capture.xml b/docbook/wsug_src/WSUG_chapter_capture.xml
+index c031da3..140092a 100644
+--- a/docbook/wsug_src/WSUG_chapter_capture.xml
++++ b/docbook/wsug_src/WSUG_chapter_capture.xml
+@@ -310,7 +310,7 @@ wireshark -i eth0 -k
+         <listitem>
+           <para>
+         The maximum amount of data that will be captured for each packet. 
+-        The default value is set to the 65535 bytes.
++        The default value is set to the 262144 bytes.
+               </para>
+          </listitem>
+         <listitem>
+@@ -684,7 +684,7 @@ wireshark -i eth0 -k
+         This field allows you to specify the maximum amount of 
+         data that will be captured for each packet, and is 
+         sometimes referred to as the <command>snaplen</command>. If disabled, 
+-        the value is set to the maximum 65535, which will be sufficient for most
++        the value is set to the maximum 262144, which will be sufficient for most
+         protocols. Some rules of thumb:
+           </para>
+         <itemizedlist>
+diff --git a/docbook/wsug_src/WSUG_chapter_customize.xml b/docbook/wsug_src/WSUG_chapter_customize.xml
+index 9849b43..cc87f73 100644
+--- a/docbook/wsug_src/WSUG_chapter_customize.xml
++++ b/docbook/wsug_src/WSUG_chapter_customize.xml
+@@ -63,7 +63,7 @@ Usage: wireshark [options] ... [ &lt;infile&gt; ]
+ Capture interface:
+   -i &lt;interface&gt;           name or idx of interface (def: first non-loopback)
+   -f &lt;capture filter&gt;      packet filter in libpcap filter syntax
+-  -s &lt;snaplen&gt;             packet snapshot length (def: 65535)
++  -s &lt;snaplen&gt;             packet snapshot length (def: 262144)
+   -p                       don't capture in promiscuous mode
+   -k                       start capturing immediately (def: do nothing)
+   -S                       update packet display when new packets are captured
+diff --git a/dumpcap.c b/dumpcap.c
+index bae3fbf..066d039 100644
+--- a/dumpcap.c
++++ b/dumpcap.c
+@@ -488,7 +488,7 @@ print_usage(gboolean print_ver)
+                     "                               rpcap://<host>/<interface>\n"
+                     "                               TCP@<host>:<port>\n");
+     fprintf(output, "  -f <capture filter>      packet filter in libpcap filter syntax\n");
+-    fprintf(output, "  -s <snaplen>             packet snapshot length (def: 65535)\n");
++    fprintf(output, "  -s <snaplen>             packet snapshot length (def: %u)\n", WTAP_MAX_PACKET_SIZE);
+     fprintf(output, "  -p                       don't capture in promiscuous mode\n");
+ #ifdef HAVE_PCAP_CREATE
+     fprintf(output, "  -I                       capture in monitor mode, if available\n");
+diff --git a/tshark.c b/tshark.c
+index 8cc4fae..a84f8e8 100644
+--- a/tshark.c
++++ b/tshark.c
+@@ -257,7 +257,7 @@ print_usage(gboolean print_ver)
+   fprintf(output, "Capture interface:\n");
+   fprintf(output, "  -i <interface>           name or idx of interface (def: first non-loopback)\n");
+   fprintf(output, "  -f <capture filter>      packet filter in libpcap filter syntax\n");
+-  fprintf(output, "  -s <snaplen>             packet snapshot length (def: 65535)\n");
++  fprintf(output, "  -s <snaplen>             packet snapshot length (def: %u)\n", WTAP_MAX_PACKET_SIZE);
+   fprintf(output, "  -p                       don't capture in promiscuous mode\n");
+ #ifdef HAVE_PCAP_CREATE
+   fprintf(output, "  -I                       capture in monitor mode, if available\n");
+diff --git a/ui/gtk/main.c b/ui/gtk/main.c
+index 3e22c3e..9839a30 100644
+--- a/ui/gtk/main.c
++++ b/ui/gtk/main.c
+@@ -1157,7 +1157,7 @@ print_usage(gboolean print_ver) {
+   fprintf(output, "Capture interface:\n");
+   fprintf(output, "  -i <interface>           name or idx of interface (def: first non-loopback)\n");
+   fprintf(output, "  -f <capture filter>      packet filter in libpcap filter syntax\n");
+-  fprintf(output, "  -s <snaplen>             packet snapshot length (def: 65535)\n");
++  fprintf(output, "  -s <snaplen>             packet snapshot length (def: 262144)\n");
+   fprintf(output, "  -p                       don't capture in promiscuous mode\n");
+   fprintf(output, "  -k                       start capturing immediately (def: do nothing)\n");
+   fprintf(output, "  -S                       update packet display when new packets are captured\n");
+diff --git a/ui/qt/main.cpp b/ui/qt/main.cpp
+index 3193702..eb0a3b6 100644
+--- a/ui/qt/main.cpp
++++ b/ui/qt/main.cpp
+@@ -224,7 +224,7 @@ print_usage(gboolean print_ver) {
+     fprintf(output, "Capture interface:\n");
+     fprintf(output, "  -i <interface>           name or idx of interface (def: first non-loopback)\n");
+     fprintf(output, "  -f <capture filter>      packet filter in libpcap filter syntax\n");
+-    fprintf(output, "  -s <snaplen>             packet snapshot length (def: 65535)\n");
++    fprintf(output, "  -s <snaplen>             packet snapshot length (def: 262144)\n");
+     fprintf(output, "  -p                       don't capture in promiscuous mode\n");
+     fprintf(output, "  -k                       start capturing immediately (def: do nothing)\n");
+     fprintf(output, "  -Q                       quit Wireshark after capturing\n");
+-- 
+2.9.3
+

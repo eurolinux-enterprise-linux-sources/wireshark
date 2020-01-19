@@ -1,0 +1,82 @@
+From 5cbf42acb616a34d5e41f03b881f8552e08855a7 Mon Sep 17 00:00:00 2001
+From: Martin Sehnoutka <msehnout@redhat.com>
+Date: Thu, 4 May 2017 12:31:21 +0200
+Subject: [PATCH] Make the default capture buffer bigger.
+
+---
+ capture_opts.h             | 2 +-
+ doc/dumpcap.pod            | 4 ++--
+ doc/tshark.pod             | 4 ++--
+ doc/wireshark.pod.template | 4 ++--
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/capture_opts.h b/capture_opts.h
+index c2f41d2..29a7132 100644
+--- a/capture_opts.h
++++ b/capture_opts.h
+@@ -243,7 +243,7 @@ extern void
+ collect_ifaces(capture_options *capture_opts);
+ 
+ /* Default capture buffer size in Mbytes. */
+-#define DEFAULT_CAPTURE_BUFFER_SIZE 2
++#define DEFAULT_CAPTURE_BUFFER_SIZE 4
+ 
+ #ifdef __cplusplus
+ }
+diff --git a/doc/dumpcap.pod b/doc/dumpcap.pod
+index e1dc293..090cd53 100644
+--- a/doc/dumpcap.pod
++++ b/doc/dumpcap.pod
+@@ -114,11 +114,11 @@ of size one megabyte each.
+ 
+ =item -B  E<lt>capture buffer sizeE<gt>
+ 
+-Set capture buffer size (in MiB, default is 2 MiB).  This is used by
++Set capture buffer size (in MiB, default is 4 MiB).  This is used by
+ the capture driver to buffer packet data until that data can be written
+ to disk.  If you encounter packet drops while capturing, try to increase
+ this size.  Note that, while B<Dumpcap> attempts to set the buffer size
+-to 2 MiB by default, and can be told to set it to a larger value, the
++to 4 MiB by default, and can be told to set it to a larger value, the
+ system or interface on which you're capturing might silently limit the
+ capture buffer size to a lower value or raise it to a higher value.
+ 
+diff --git a/doc/tshark.pod b/doc/tshark.pod
+index ba06225..38c43dd 100644
+--- a/doc/tshark.pod
++++ b/doc/tshark.pod
+@@ -214,11 +214,11 @@ of size one megabyte each.
+ 
+ =item -B  E<lt>capture buffer sizeE<gt>
+ 
+-Set capture buffer size (in MiB, default is 2 MiB).  This is used by
++Set capture buffer size (in MiB, default is 4 MiB).  This is used by
+ the capture driver to buffer packet data until that data can be written
+ to disk.  If you encounter packet drops while capturing, try to increase
+ this size.  Note that, while B<Tshark> attempts to set the buffer size
+-to 2 MiB by default, and can be told to set it to a larger value, the
++to 4 MiB by default, and can be told to set it to a larger value, the
+ system or interface on which you're capturing might silently limit the
+ capture buffer size to a lower value or raise it to a higher value.
+ 
+diff --git a/doc/wireshark.pod.template b/doc/wireshark.pod.template
+index 130e7ef..1e9681f 100644
+--- a/doc/wireshark.pod.template
++++ b/doc/wireshark.pod.template
+@@ -280,11 +280,11 @@ of size one megabyte each.
+ 
+ =item -B  E<lt>capture buffer sizeE<gt>
+ 
+-Set capture buffer size (in MiB, default is 2 MiB).  This is used by
++Set capture buffer size (in MiB, default is 4 MiB).  This is used by
+ the capture driver to buffer packet data until that data can be written
+ to disk.  If you encounter packet drops while capturing, try to increase
+ this size.  Note that, while B<Wireshark> attempts to set the buffer size
+-to 2 MiB by default, and can be told to set it to a larger value, the
++to 4 MiB by default, and can be told to set it to a larger value, the
+ system or interface on which you're capturing might silently limit the
+ capture buffer size to a lower value or raise it to a higher value.
+ 
+-- 
+2.9.3
+

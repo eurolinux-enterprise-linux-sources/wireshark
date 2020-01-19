@@ -21,7 +21,7 @@
 Summary:	Network traffic analyzer
 Name:		wireshark
 Version:	1.10.14
-Release:	10%{?dist}
+Release:	14%{?dist}
 License:	GPL+
 Group:		Applications/Internet
 Source0:	http://wireshark.org/download/src/%{name}-%{version}.tar.bz2
@@ -67,6 +67,9 @@ Patch28:		wireshark-1.10.14-gdk-pixbuf-deprecated-segfault.patch
 Patch29:		wireshark-1.10.14-CVE-2015-3182.patch
 Patch30:                wireshark-1.10.14-display-data-len.patch
 Patch31:                wireshark-1.10.14-read-from-stdin.patch
+Patch32:                wireshark-1.8.10-segfault-cve-2013-4075.patch
+Patch33:                wireshark-1.10.14-default-snaplen.patch
+Patch34:                wireshark-1.10.14-buffer-size.patch
 
 Url:		http://www.wireshark.org/
 BuildRequires:	libpcap-devel >= 0.9
@@ -133,7 +136,7 @@ Requires:	GeoIP
 %package devel
 Summary:	Development headers and libraries for wireshark
 Group:		Development/Libraries
-Requires:	%{name} = %{version} glibc-devel glib2-devel
+Requires:	%{name} = %{version}-%{release} glibc-devel glib2-devel
 
 
 %description
@@ -190,6 +193,9 @@ and plugins.
 %patch29 -p1 -b .cve-2015-3182
 %patch30 -p1 -b .display-data-len
 %patch31 -p1 -b .read-from-stdin
+%patch32 -p1 -b .segfault-cve-2013-4075
+%patch33 -p1 -b .default-snaplen
+%patch34 -p1 -b .buffer-size
 
 %build
 %ifarch s390 s390x sparcv9 sparc64
@@ -431,6 +437,20 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/aclocal/*
 
 %changelog
+* Thu May 04 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-14
+- Change buffer size in man pages
+- Related: #1359974
+
+* Fri Apr 21 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-13
+- Require exact version of Wireshark as a dependency for devel subpackage
+
+* Mon Apr 03 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-12
+- Fix wrong snaplen in man pages and help
+- Make the capture buffer bigger to prevent dropping packages
+
+* Mon Mar 13 2017 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-11
+- Backport upstream changes for CVE-2013-4075
+
 * Thu Aug 18 2016 Martin Sehnoutka <msehnout@redhat.com> - 1.10.14-10
 - Rebuild package
 - Related to: #1233966
